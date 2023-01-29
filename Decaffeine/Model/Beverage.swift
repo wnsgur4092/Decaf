@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct Beverage : Identifiable {
+struct Beverage : Hashable, Identifiable {
     var id: UUID = UUID()
+    var coffeeName : String
+    var coffeeImageName : String
     var beverageType : BeverageType
-    var coffeeType : coffeeType
+
 }
 
 enum BeverageType {
@@ -18,40 +20,14 @@ enum BeverageType {
     case coldCoffee
 }
 
-enum coffeeType : String, Codable, CaseIterable {
-    case cappuccino
-    case latte
-    case iceLongBlack
-    case iceLatte
-
-    
-    var imageName : String {
-        switch self {
-        case .cappuccino : return  "Cappuccino"
-        case .latte : return  "Latte"
-        case .iceLongBlack : return  "IceLongBlack"
-        case .iceLatte : return  "IceLatte"
-        }
-    }
-    
-    var name : String {
-        switch self {
-        case .cappuccino : return  "Cappuccino"
-        case .latte : return  "Latte"
-        case .iceLongBlack : return  "IceLongBlack"
-        case .iceLatte : return  "IceLatte"
-
-        }
-    }
-
-}
 
 extension Beverage {
     static let beverageList : [Beverage] = [
-        Beverage(beverageType: .hotCoffee, coffeeType: .cappuccino),
-        Beverage(beverageType: .hotCoffee, coffeeType: .latte),
-        Beverage(beverageType: .coldCoffee, coffeeType: .iceLongBlack),
-        Beverage(beverageType: .coldCoffee, coffeeType: .iceLatte)
+        Beverage(coffeeName: "Cappucino", coffeeImageName: "Cappucino", beverageType: .hotCoffee),
+        Beverage(coffeeName: "Latte", coffeeImageName: "Latte", beverageType: .hotCoffee),
+        Beverage(coffeeName: "Flatwhite", coffeeImageName: "Flatwhite", beverageType: .hotCoffee),
+        Beverage(coffeeName: "Ice Long Black", coffeeImageName: "IceLongBlack", beverageType:.coldCoffee),
+        Beverage(coffeeName: "Ice Latte", coffeeImageName: "IceLatte", beverageType: .coldCoffee)
     ]
 }
 

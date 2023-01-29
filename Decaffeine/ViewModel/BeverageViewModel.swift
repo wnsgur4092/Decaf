@@ -8,4 +8,7 @@
 import Foundation
 import SwiftUI
 
+class BeverageViewModel: ObservableObject {
+    @Published var beverageList: [Beverage] = Beverage.beverageList
+}
 
