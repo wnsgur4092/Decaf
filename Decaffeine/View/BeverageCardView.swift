@@ -32,7 +32,7 @@ struct BeverageCardView: View {
 
 struct BeverageCardView_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageCardView(beverage: Beverage.beverageList[0])
+        BeverageCardView(beverage: BeverageViewModel().beverages[0])
             .previewLayout(.fixed(width: 160, height: 250))
     }
 }

@@ -11,25 +11,16 @@ struct Beverage : Hashable, Identifiable {
     var id: UUID = UUID()
     var coffeeName : String
     var coffeeImageName : String
-    var beverageType : BeverageType
+    var type : BeverageType
 
 }
 
-enum BeverageType {
-    case hotCoffee
-    case coldCoffee
+enum BeverageType : String, CaseIterable {
+    case HotCoffee
+    case ColdCoffee
 }
 
 
-extension Beverage {
-    static let beverageList : [Beverage] = [
-        Beverage(coffeeName: "Cappucino", coffeeImageName: "Cappucino", beverageType: .hotCoffee),
-        Beverage(coffeeName: "Latte", coffeeImageName: "Latte", beverageType: .hotCoffee),
-        Beverage(coffeeName: "Flatwhite", coffeeImageName: "Flatwhite", beverageType: .hotCoffee),
-        Beverage(coffeeName: "Ice Long Black", coffeeImageName: "IceLongBlack", beverageType:.coldCoffee),
-        Beverage(coffeeName: "Ice Latte", coffeeImageName: "IceLatte", beverageType: .coldCoffee)
-    ]
-}
 
 
 
