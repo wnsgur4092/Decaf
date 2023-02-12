@@ -1,20 +1,20 @@
 //
-//  BeverageSelectView.swift
+//  OnBoardingView.swift
 //  Decaffeine
 //
-//  Created by JunHyuk Lim on 30/1/2023.
+//  Created by JunHyuk Lim on 13/2/2023.
 //
 
 import SwiftUI
 
-struct BeverageSelectView: View {
+struct OnBoardingView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct BeverageSelectView_Previews: PreviewProvider {
+struct OnBoardingView_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageSelectView()
+        OnBoardingView()
     }
 }
