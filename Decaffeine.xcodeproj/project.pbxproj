@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BF70E40529876DB600CE63AD /* CustomCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70E40429876DB600CE63AD /* CustomCorners.swift */; };
+		BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */; };
+		BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */; };
 		BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE96F7A29860376003E0934 /* DecaffeineApp.swift */; };
 		BFE96F7D29860376003E0934 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE96F7C29860376003E0934 /* ContentView.swift */; };
 		BFE96F7F29860377003E0934 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE96F7E29860377003E0934 /* Assets.xcassets */; };
@@ -24,6 +26,9 @@
 		BFFF9A492999B144002D5ACC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A482999B144002D5ACC /* SettingView.swift */; };
 		BFFF9A4B2999B14D002D5ACC /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A4A2999B14D002D5ACC /* AnnouncementView.swift */; };
 		BFFF9A4D2999B18D002D5ACC /* OnBoardingProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A4C2999B18D002D5ACC /* OnBoardingProfileView.swift */; };
+		BFFF9A50299A462B002D5ACC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BFFF9A4F299A462B002D5ACC /* Lottie */; };
+		BFFF9A53299A4837002D5ACC /* coffee.json in Resources */ = {isa = PBXBuildFile; fileRef = BFFF9A52299A4837002D5ACC /* coffee.json */; };
+		BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A54299A48C9002D5ACC /* LottieView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		BF70E40429876DB600CE63AD /* CustomCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorners.swift; sourceTree = "<group>"; };
+		BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableButtonStyle.swift; sourceTree = "<group>"; };
+		BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButtonStyle.swift; sourceTree = "<group>"; };
 		BFE96F7729860376003E0934 /* Decaffeine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decaffeine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE96F7A29860376003E0934 /* DecaffeineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecaffeineApp.swift; sourceTree = "<group>"; };
 		BFE96F7C29860376003E0934 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +71,8 @@
 		BFFF9A482999B144002D5ACC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BFFF9A4A2999B14D002D5ACC /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		BFFF9A4C2999B18D002D5ACC /* OnBoardingProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingProfileView.swift; sourceTree = "<group>"; };
+		BFFF9A52299A4837002D5ACC /* coffee.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coffee.json; sourceTree = "<group>"; };
+		BFFF9A54299A48C9002D5ACC /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFFF9A50299A462B002D5ACC /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +109,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		BFA53D77299A6087007D943D /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */,
+				BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		BFE96F6E29860376003E0934 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +143,8 @@
 			children = (
 				BFE96F7A29860376003E0934 /* DecaffeineApp.swift */,
 				BFE96F7C29860376003E0934 /* ContentView.swift */,
+				BFA53D77299A6087007D943D /* Styles */,
+				BFFF9A51299A4803002D5ACC /* Lottie */,
 				BFE96FA62986043A003E0934 /* Model */,
 				BFE96FA529860434003E0934 /* ViewModel */,
 				BFE96FA42986042F003E0934 /* View */,
@@ -189,6 +210,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BFFF9A51299A4803002D5ACC /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				BFFF9A52299A4837002D5ACC /* coffee.json */,
+				BFFF9A54299A48C9002D5ACC /* LottieView.swift */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -205,6 +235,9 @@
 			dependencies = (
 			);
 			name = Decaffeine;
+			packageProductDependencies = (
+				BFFF9A4F299A462B002D5ACC /* Lottie */,
+			);
 			productName = Decaffeine;
 			productReference = BFE96F7729860376003E0934 /* Decaffeine.app */;
 			productType = "com.apple.product-type.application";
@@ -277,6 +310,9 @@
 				Base,
 			);
 			mainGroup = BFE96F6E29860376003E0934;
+			packageReferences = (
+				BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = BFE96F7829860376003E0934 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -293,6 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFFF9A53299A4837002D5ACC /* coffee.json in Resources */,
 				BFE96F8229860377003E0934 /* Preview Assets.xcassets in Resources */,
 				BFE96F7F29860377003E0934 /* Assets.xcassets in Resources */,
 			);
@@ -325,8 +362,11 @@
 				BFFF9A432999B11D002D5ACC /* BeverageSettingVIew.swift in Sources */,
 				BFFF9A412999B115002D5ACC /* BeverageListView.swift in Sources */,
 				BFE96F7D29860376003E0934 /* ContentView.swift in Sources */,
+				BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */,
 				BF70E40529876DB600CE63AD /* CustomCorners.swift in Sources */,
 				BFFF9A472999B13F002D5ACC /* BeverageDetailView.swift in Sources */,
+				BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */,
+				BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */,
 				BFFF9A4B2999B14D002D5ACC /* AnnouncementView.swift in Sources */,
 				BFFF9A4D2999B18D002D5ACC /* OnBoardingProfileView.swift in Sources */,
 				BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */,
@@ -657,6 +697,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BFFF9A4F299A462B002D5ACC /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BFE96F6F29860376003E0934 /* Project object */;
 }

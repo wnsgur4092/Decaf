@@ -6,10 +6,66 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct OnBoardingView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            VStack {
+                lottieAnimationView
+                
+                onBoardingText
+                
+                
+                Spacer()
+                
+                //BUTTON
+                getStartButton
+                    .padding(.bottom, 40)
+            } //: VSTACK
+            .padding(.horizontal, 32)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color("mainColor"))
+        .edgesIgnoringSafeArea(.all)
+        
+    }
+    
+    //MARK: - COMPONENTS
+    
+    //Lottie Image
+    fileprivate var lottieAnimationView : some View {
+        LottieView(filename: "coffee")
+            .frame(maxWidth: 300, maxHeight: 380)
+    }
+    
+    //Text
+    fileprivate var onBoardingText : some View {
+        VStack(alignment: .leading, spacing: 12){
+            Text("Track your Coffeine")
+                .font(.system(size: 28, weight: .bold))
+  
+            
+            Text("Give up bad caffeine intake habits decreasing your well-being and become a better version of you")
+                .font(.system(size: 18, weight: .semibold))
+            
+            
+            
+            Text("The guided average total caffeine ingestion is referenced by the World Health Organisation")
+                .font(.system(size: 16, weight: .regular))
+            
+        }
+        .foregroundColor(.white)
+        .multilineTextAlignment(.leading)
+    }
+    
+    fileprivate var getStartButton : some View {
+        Button {
+            print("Next Button Tapped")
+        } label: {
+            Text("Next")
+        }
+        .buttonStyle(DisableButtonStyle())
     }
 }
 
