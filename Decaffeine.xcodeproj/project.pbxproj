@@ -10,6 +10,10 @@
 		BF70E40529876DB600CE63AD /* CustomCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70E40429876DB600CE63AD /* CustomCorners.swift */; };
 		BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */; };
 		BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */; };
+		BFA53D7D299A6EC2007D943D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7C299A6EC2007D943D /* CustomTextField.swift */; };
+		BFA53D7F299A8C31007D943D /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7E299A8C31007D943D /* CustomCorner.swift */; };
+		BFA53D81299A99AC007D943D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D80299A99AC007D943D /* ProfileViewModel.swift */; };
+		BFA53D83299A9AD9007D943D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D82299A9AD9007D943D /* ImagePicker.swift */; };
 		BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE96F7A29860376003E0934 /* DecaffeineApp.swift */; };
 		BFE96F7D29860376003E0934 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE96F7C29860376003E0934 /* ContentView.swift */; };
 		BFE96F7F29860377003E0934 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE96F7E29860377003E0934 /* Assets.xcassets */; };
@@ -52,6 +56,10 @@
 		BF70E40429876DB600CE63AD /* CustomCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorners.swift; sourceTree = "<group>"; };
 		BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButtonStyle.swift; sourceTree = "<group>"; };
+		BFA53D7C299A6EC2007D943D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		BFA53D7E299A8C31007D943D /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
+		BFA53D80299A99AC007D943D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		BFA53D82299A9AD9007D943D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		BFE96F7729860376003E0934 /* Decaffeine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decaffeine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE96F7A29860376003E0934 /* DecaffeineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecaffeineApp.swift; sourceTree = "<group>"; };
 		BFE96F7C29860376003E0934 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				BF70E40429876DB600CE63AD /* CustomCorners.swift */,
+				BFA53D82299A9AD9007D943D /* ImagePicker.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -114,6 +123,8 @@
 			children = (
 				BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */,
 				BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */,
+				BFA53D7C299A6EC2007D943D /* CustomTextField.swift */,
+				BFA53D7E299A8C31007D943D /* CustomCorner.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -199,6 +210,7 @@
 		BFE96FA529860434003E0934 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BFA53D80299A99AC007D943D /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -360,12 +372,16 @@
 				BFFF9A492999B144002D5ACC /* SettingView.swift in Sources */,
 				BFFF9A452999B127002D5ACC /* ArchiveView.swift in Sources */,
 				BFFF9A432999B11D002D5ACC /* BeverageSettingVIew.swift in Sources */,
+				BFA53D7F299A8C31007D943D /* CustomCorner.swift in Sources */,
+				BFA53D7D299A6EC2007D943D /* CustomTextField.swift in Sources */,
 				BFFF9A412999B115002D5ACC /* BeverageListView.swift in Sources */,
+				BFA53D83299A9AD9007D943D /* ImagePicker.swift in Sources */,
 				BFE96F7D29860376003E0934 /* ContentView.swift in Sources */,
 				BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */,
 				BF70E40529876DB600CE63AD /* CustomCorners.swift in Sources */,
 				BFFF9A472999B13F002D5ACC /* BeverageDetailView.swift in Sources */,
 				BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */,
+				BFA53D81299A99AC007D943D /* ProfileViewModel.swift in Sources */,
 				BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */,
 				BFFF9A4B2999B14D002D5ACC /* AnnouncementView.swift in Sources */,
 				BFFF9A4D2999B18D002D5ACC /* OnBoardingProfileView.swift in Sources */,

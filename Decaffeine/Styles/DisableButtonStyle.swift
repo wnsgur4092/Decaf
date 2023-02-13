@@ -20,7 +20,7 @@ struct DisableButtonStyle: ButtonStyle {
             configuration.label.foregroundColor(textColor)
                 .padding(20)
         }
-        .frame(maxWidth: 140)
+        .frame(maxWidth: 200)
         .background(bgColor.cornerRadius(28))
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }

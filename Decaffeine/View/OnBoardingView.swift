@@ -12,7 +12,9 @@ struct OnBoardingView: View {
     var body: some View {
         VStack {
             VStack {
+                
                 lottieAnimationView
+                    .padding(.top, 60)
                 
                 onBoardingText
                 
@@ -21,7 +23,7 @@ struct OnBoardingView: View {
                 
                 //BUTTON
                 getStartButton
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 60)
             } //: VSTACK
             .padding(.horizontal, 32)
         }
@@ -36,23 +38,25 @@ struct OnBoardingView: View {
     //Lottie Image
     fileprivate var lottieAnimationView : some View {
         LottieView(filename: "coffee")
-            .frame(maxWidth: 300, maxHeight: 380)
+            .frame(maxWidth: 300, maxHeight: 300)
     }
     
     //Text
     fileprivate var onBoardingText : some View {
-        VStack(alignment: .leading, spacing: 12){
+        VStack(alignment: .leading, spacing: 32){
             Text("Track your Coffeine")
                 .font(.system(size: 28, weight: .bold))
-  
+            
             
             Text("Give up bad caffeine intake habits decreasing your well-being and become a better version of you")
                 .font(.system(size: 18, weight: .semibold))
+                .opacity(0.8)
             
             
             
             Text("The guided average total caffeine ingestion is referenced by the World Health Organisation")
                 .font(.system(size: 16, weight: .regular))
+                .opacity(0.6)
             
         }
         .foregroundColor(.white)
@@ -63,7 +67,12 @@ struct OnBoardingView: View {
         Button {
             print("Next Button Tapped")
         } label: {
-            Text("Next")
+            HStack(alignment: .center, spacing: 20){
+                Text("Get Started")
+                Image(systemName: "chevron.right")
+            }
+            .font(.system(size: 16))
+            
         }
         .buttonStyle(DisableButtonStyle())
     }
