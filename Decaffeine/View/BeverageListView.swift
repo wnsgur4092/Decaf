@@ -9,7 +9,35 @@ import SwiftUI
 
 struct BeverageListView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack{
+                
+                HStack(spacing: 60){
+                    Text("HOT")
+                    Text("COLD")
+                    
+                    Spacer()
+                }
+                
+                LazyVGrid(columns: [GridItem(.flexible(), spacing: 0), GridItem(.flexible(), spacing: 20)]) {
+                    ForEach(0..<10) { index in
+                        Text("Item \(index)")
+                        
+                    }
+                }
+                
+                
+                
+            }
+            
+            .navigationTitle("Add New Caffeine")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(trailing: Image(systemName: "xmark"))
+        }
+        
+        
+        
+        
     }
 }
 

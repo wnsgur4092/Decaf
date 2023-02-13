@@ -23,6 +23,7 @@
 		BFFF9A472999B13F002D5ACC /* BeverageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A462999B13F002D5ACC /* BeverageDetailView.swift */; };
 		BFFF9A492999B144002D5ACC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A482999B144002D5ACC /* SettingView.swift */; };
 		BFFF9A4B2999B14D002D5ACC /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A4A2999B14D002D5ACC /* AnnouncementView.swift */; };
+		BFFF9A4D2999B18D002D5ACC /* OnBoardingProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A4C2999B18D002D5ACC /* OnBoardingProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		BFFF9A462999B13F002D5ACC /* BeverageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageDetailView.swift; sourceTree = "<group>"; };
 		BFFF9A482999B144002D5ACC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BFFF9A4A2999B14D002D5ACC /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
+		BFFF9A4C2999B18D002D5ACC /* OnBoardingProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			children = (
 				BFE96FA72986047F003E0934 /* HomeView.swift */,
 				BFFF9A3E2999B102002D5ACC /* OnBoardingView.swift */,
+				BFFF9A4C2999B18D002D5ACC /* OnBoardingProfileView.swift */,
 				BFFF9A402999B115002D5ACC /* BeverageListView.swift */,
 				BFFF9A422999B11D002D5ACC /* BeverageSettingVIew.swift */,
 				BFFF9A442999B126002D5ACC /* ArchiveView.swift */,
@@ -325,6 +328,7 @@
 				BF70E40529876DB600CE63AD /* CustomCorners.swift in Sources */,
 				BFFF9A472999B13F002D5ACC /* BeverageDetailView.swift in Sources */,
 				BFFF9A4B2999B14D002D5ACC /* AnnouncementView.swift in Sources */,
+				BFFF9A4D2999B18D002D5ACC /* OnBoardingProfileView.swift in Sources */,
 				BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */,
 				BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */,
 			);
