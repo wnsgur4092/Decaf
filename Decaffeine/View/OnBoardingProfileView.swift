@@ -18,6 +18,7 @@ struct OnBoardingProfileView: View {
             //HEADER + PROFILE IMAGE
             VStack {
                 header
+                    .padding(.top, 20)
                     .padding(.bottom, 16)
                 
                 profileImage
@@ -40,7 +41,7 @@ struct OnBoardingProfileView: View {
             
             .background(
                 Color.white
-                    .clipShape(CustomCorners(corners: [.topLeft,.topRight], radius: 33))
+                    .clipShape(CustomCorner(corners: [.topLeft,.topRight], radius: 33))
                     .ignoresSafeArea()
             )
             
