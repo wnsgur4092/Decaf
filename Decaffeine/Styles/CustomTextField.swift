@@ -19,7 +19,7 @@ struct CustomTextField: View {
             FirstResponderTextField(text: $name, placeholder: placeholder, font: UIFont.systemFont(ofSize: 18), isFocused: $isFocusing)
                 .foregroundColor(isFocusing ? Color.black : Color("gray"))
                 .padding(.horizontal, 20)
-                .padding(.vertical, 8)
+                .padding(.vertical, 10)
             
             RoundedRectangle(cornerRadius: 8)
                 .stroke(isFocusing ? Color("mainColor") : Color("gray"), lineWidth: 1)
@@ -37,7 +37,6 @@ struct FirstResponderTextField : UIViewRepresentable {
     let placeholder : String
     let font: UIFont?
     @Binding var isFocused: Bool
-    
     
     class Coordinator : NSObject, UITextFieldDelegate {
         @Binding var text : String
@@ -57,6 +56,10 @@ struct FirstResponderTextField : UIViewRepresentable {
         func textFieldDidEndEditing(_ textField: UITextField) {
             isFocused = false
         }
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        }
     }
     
     func makeCoordinator() -> Coordinator {
@@ -70,6 +73,8 @@ struct FirstResponderTextField : UIViewRepresentable {
         if let font = font {
             textField.font = font
         }
+        textField.keyboardType = .default
+        textField.returnKeyType = .done
         return textField
     }
     
@@ -80,6 +85,7 @@ struct FirstResponderTextField : UIViewRepresentable {
         }
     }
 }
+
 
 struct CustomTextField_Previews: PreviewProvider {
     static var previews: some View {

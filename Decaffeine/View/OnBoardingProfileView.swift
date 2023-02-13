@@ -12,46 +12,37 @@ struct OnBoardingProfileView: View {
     //MARK: - PROPERTIES
     @StateObject var vm = ProfileViewModel()
     
-
     //MARK: - BODY
-    //1. @FocusState
-    //2. Rectangle Background on Image
-    //3. Profile Image Selected
-    
     var body: some View {
-        VStack(spacing: 20) {
+        VStack{
             //HEADER + PROFILE IMAGE
             VStack {
                 header
-                    .padding(.bottom, 24)
+                    .padding(.bottom, 16)
                 
                 profileImage
             }
-            .padding(.top, 60)
-            .padding(.horizontal, 32)
+            .padding(.horizontal,32)
+            .padding(.top, 32)
+            .padding(.bottom, 10)
             
             
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack {
-                    
-                    userSection
-                    
-                    Spacer()
-                    
-                    nextButton
-                        .padding(.bottom, 60)
-                        .padding(.top, 12)
-                }
-                .padding(.horizontal,32)
+            VStack {
+                userSection
                 
+                Spacer()
+                
+                nextButton
+                    .padding(.top, 12)
             }
+            .padding(.horizontal,32)
+            .padding(.bottom, 60)
+            
             .background(
                 Color.white
                     .clipShape(CustomCorners(corners: [.topLeft,.topRight], radius: 33))
                     .ignoresSafeArea()
             )
-            
-            
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -125,6 +116,7 @@ struct OnBoardingProfileView: View {
             CustomTextField(placeholder: "Enter Your Name", name: vm.name, isFocusing: vm.isNameFoucsed)
                 .padding(.bottom, 12)
             
+            
             //GENDER
             Text("Gender")
                 .font(.system(size: 18).bold())
@@ -138,36 +130,26 @@ struct OnBoardingProfileView: View {
             HStack(spacing: 60) {
                 //FEMALE VSTACK
                 VStack {
-                    ZStack{
-                        Image("female")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 80, height: 120)
-                        
-                        
-                        RoundedRectangle(cornerRadius: 6)
-                            .stroke(Color("gray"), lineWidth: 1)
-                            .frame(width: 120, height: 120)
-                    }
-                    
+                    customSelectedRectangle(imageName: "female", focused: vm.isFemaleSelected)
+                        .onTapGesture {
+                            vm.isFemaleSelected = true
+                            vm.isMaleSelected = false
+                        }
+
                     Text("800mg/day")
                         .font(.system(size: 12, weight: .light))
                         .opacity(0.4)
+                    
                 } //: FEMALE VSTACK
                 
                 //MALE VSTACK
                 VStack {
-                    ZStack{
-                        Image("male")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 80, height: 120)
-                        
-                        
-                        RoundedRectangle(cornerRadius: 6)
-                            .stroke(Color("gray"), lineWidth: 1)
-                            .frame(width: 120, height: 120)
-                    }
+                    customSelectedRectangle(imageName: "male", focused: vm.isMaleSelected)
+                        .onTapGesture {
+                            vm.isFemaleSelected = false
+                            vm.isMaleSelected = true
+                        }
+                    
                     Text("800mg/day")
                         .font(.system(size: 12, weight: .light))
                         .opacity(0.4)
@@ -175,6 +157,27 @@ struct OnBoardingProfileView: View {
                 //: MALE VSTACK
             }
             .frame(maxWidth: .infinity, alignment: .center)
+            .padding(.top, 20)
+        }
+    }
+    
+    func customSelectedRectangle(imageName: String, focused: Bool) -> some View{
+        ZStack{
+            Image(imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 80, height: 120)
+                .zIndex(1)
+            
+            if focused {
+                RoundedRectangle(cornerRadius: 6)
+                    .fill(Color("mainColor"))
+                    .frame(width: 120, height: 120)
+            } else {
+                RoundedRectangle(cornerRadius: 6)
+                    .stroke(focused ? Color("mainColor") : Color("gray"), lineWidth: 1)
+                    .frame(width: 120, height: 120)
+            }
         }
     }
     

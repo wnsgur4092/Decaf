@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF70E40529876DB600CE63AD /* CustomCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70E40429876DB600CE63AD /* CustomCorners.swift */; };
 		BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */; };
 		BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */; };
 		BFA53D7D299A6EC2007D943D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7C299A6EC2007D943D /* CustomTextField.swift */; };
@@ -53,7 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BF70E40429876DB600CE63AD /* CustomCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorners.swift; sourceTree = "<group>"; };
 		BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7C299A6EC2007D943D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 		BF70E40329876DA800CE63AD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				BF70E40429876DB600CE63AD /* CustomCorners.swift */,
 				BFA53D82299A9AD9007D943D /* ImagePicker.swift */,
 			);
 			path = Extension;
@@ -194,9 +191,9 @@
 		BFE96FA42986042F003E0934 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BFE96FA72986047F003E0934 /* HomeView.swift */,
 				BFFF9A3E2999B102002D5ACC /* OnBoardingView.swift */,
 				BFFF9A4C2999B18D002D5ACC /* OnBoardingProfileView.swift */,
+				BFE96FA72986047F003E0934 /* HomeView.swift */,
 				BFFF9A402999B115002D5ACC /* BeverageListView.swift */,
 				BFFF9A422999B11D002D5ACC /* BeverageSettingVIew.swift */,
 				BFFF9A442999B126002D5ACC /* ArchiveView.swift */,
@@ -378,7 +375,6 @@
 				BFA53D83299A9AD9007D943D /* ImagePicker.swift in Sources */,
 				BFE96F7D29860376003E0934 /* ContentView.swift in Sources */,
 				BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */,
-				BF70E40529876DB600CE63AD /* CustomCorners.swift in Sources */,
 				BFFF9A472999B13F002D5ACC /* BeverageDetailView.swift in Sources */,
 				BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */,
 				BFA53D81299A99AC007D943D /* ProfileViewModel.swift in Sources */,

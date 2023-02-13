@@ -11,7 +11,7 @@ import SwiftUI
 class ProfileViewModel: ObservableObject {
     //MARK: - PROPERTIES
     
-    //Name
+    //Name Properties
     @Published var name : String = ""
     @Published var isNameFoucsed : Bool = false
     
@@ -20,4 +20,8 @@ class ProfileViewModel: ObservableObject {
     @Published var presentImagePicker = false
     @Published var presentCamera = false
     @Published var presentedActionSheet = false
+    
+    //Gender Image Properties
+    @Published var isFemaleSelected : Bool = false
+    @Published var isMaleSelected : Bool = false
 }
