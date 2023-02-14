@@ -13,38 +13,34 @@ struct HomeView: View {
     
     //MARK: - BODY
     var body: some View {
-        VStack{
-            //HEADER + PROFILE IMAGE
-            VStack {
+        VStack {
+            VStack{
                 header
-                    .padding(.top, 52)
-                    .padding(.bottom, 40)
-                    .padding(.horizontal,32)
-                
                 coffeeListImage
-                
             }
+            .padding(.horizontal, 20)
             
             VStack {
                 VStack{
                     
                     coffeeListDetail
                         .padding(.top, 20)
-                        .padding(.bottom, 48)
+                        .padding(.bottom, 60)
                     
                     coffeeCountText
                         .padding(.bottom, 10)
                     
                     coffeeProgressBar
-            
+                    
+                    Spacer()
                     
                     addNewButton
                         .frame(alignment:.bottom)
-                        .padding(.top, 12)
+                        .padding(.horizontal, 40)
+                        .padding(.vertical, 32)
                 }
+                .padding(.horizontal, 20)
             }
-            .padding(.horizontal,32)
-            .padding(.bottom, 60)
             .background(
                 Color.white
                     .frame(maxWidth:.infinity, maxHeight: .infinity)
@@ -53,8 +49,8 @@ struct HomeView: View {
             )
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("mainColor"))
-        .edgesIgnoringSafeArea(.all)
+        .background(Color("mainColor").ignoresSafeArea(edges: [.top, .bottom]))
+        .frame(maxWidth: .infinity)
     }
     
     //MARK: - COMPONENTS
@@ -115,7 +111,7 @@ struct HomeView: View {
             Text("You durnk total 0 coffees")
                 .font(.system(size: 16))
                 .fontWeight(.regular)
-            .foregroundColor(Color("mainColor").opacity(0.8))
+                .foregroundColor(Color("mainColor").opacity(0.8))
             
             Spacer()
         }
@@ -136,11 +132,9 @@ struct HomeView: View {
                 }
             }
             
-            ProgressBar(todayIntake: 20, totalIntake: 400)
+            ProgressBar(todayIntake: 0, totalIntake: 400)
         }
     }
-    
-    
     
     //BUTTON
     fileprivate var addNewButton : some View {

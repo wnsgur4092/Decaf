@@ -17,6 +17,7 @@ struct ActiveButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         HStack {
             configuration.label.foregroundColor(textColor)
+                .font(.system(size: 14).bold())
                 
                 .padding(.vertical, 20)
                 .padding(.horizontal, 15)

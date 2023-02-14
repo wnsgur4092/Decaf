@@ -21,7 +21,9 @@ struct ProgressBar: View {
                 
             
             Text("\(String(format: "%.2f", (todayIntake / totalIntake) * 100)) %")
+                .font(.system(size: 20).bold())
                 .foregroundColor(Color.white)
+                .shadow(color: .black.opacity(0.15), radius: 1, x: 1, y: 1)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 8)
         }
