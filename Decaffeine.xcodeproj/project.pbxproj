@@ -18,6 +18,7 @@
 		BFA53D83299A9AD9007D943D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D82299A9AD9007D943D /* ImagePicker.swift */; };
 		BFCED242299C40EB00E49EB6 /* BeverageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED241299C40EB00E49EB6 /* BeverageCell.swift */; };
 		BFCED245299C445700E49EB6 /* SecondayButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED244299C445700E49EB6 /* SecondayButtonStyle.swift */; };
+		BFCED247299C55E400E49EB6 /* CoffeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED246299C55E400E49EB6 /* CoffeeModel.swift */; };
 		BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE96F7A29860376003E0934 /* DecaffeineApp.swift */; };
 		BFE96F7D29860376003E0934 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE96F7C29860376003E0934 /* ContentView.swift */; };
 		BFE96F7F29860377003E0934 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE96F7E29860377003E0934 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		BFA53D82299A9AD9007D943D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		BFCED241299C40EB00E49EB6 /* BeverageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCell.swift; sourceTree = "<group>"; };
 		BFCED244299C445700E49EB6 /* SecondayButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondayButtonStyle.swift; sourceTree = "<group>"; };
+		BFCED246299C55E400E49EB6 /* CoffeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeModel.swift; sourceTree = "<group>"; };
 		BFE96F7729860376003E0934 /* Decaffeine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decaffeine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE96F7A29860376003E0934 /* DecaffeineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecaffeineApp.swift; sourceTree = "<group>"; };
 		BFE96F7C29860376003E0934 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		BFE96FA62986043A003E0934 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BFCED246299C55E400E49EB6 /* CoffeeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				BF2B706C299BD567000E1F99 /* CustomNavigationView.swift in Sources */,
 				BFCED245299C445700E49EB6 /* SecondayButtonStyle.swift in Sources */,
 				BFA53D83299A9AD9007D943D /* ImagePicker.swift in Sources */,
+				BFCED247299C55E400E49EB6 /* CoffeeModel.swift in Sources */,
 				BFE96F7D29860376003E0934 /* ContentView.swift in Sources */,
 				BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */,
 				BFFF9A472999B13F002D5ACC /* BeverageDetailView.swift in Sources */,
