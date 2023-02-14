@@ -11,6 +11,8 @@ struct HomeView: View {
     //MARK: - PROPERTIES
     @StateObject var vm = ProfileViewModel()
     
+    @State var isAddNewCaffeine = false
+    
     //MARK: - BODY
     var body: some View {
         VStack {
@@ -139,12 +141,15 @@ struct HomeView: View {
     //BUTTON
     fileprivate var addNewButton : some View {
         Button {
-            print("next button tapped")
+            print("---> next button tapped")
+            isAddNewCaffeine = true
         } label: {
             Text("+ Add New Caffeine")
         }
         .buttonStyle(ActiveButtonStyle())
-        
+        .sheet(isPresented: $isAddNewCaffeine) {
+            BeverageListView()
+        }
     }
 }
 

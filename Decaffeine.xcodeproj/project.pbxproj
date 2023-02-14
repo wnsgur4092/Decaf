@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF2B706C299BD567000E1F99 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B706B299BD567000E1F99 /* CustomNavigationView.swift */; };
+		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
 		BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */; };
 		BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */; };
@@ -53,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF2B706B299BD567000E1F99 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
 		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButtonStyle.swift; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFFF9A50299A462B002D5ACC /* Lottie in Frameworks */,
+				BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +129,7 @@
 				BFA53D7C299A6EC2007D943D /* CustomTextField.swift */,
 				BFA53D7E299A8C31007D943D /* CustomCorner.swift */,
 				BF49D202299BAF9C00D88FFC /* ProgressBar.swift */,
+				BF2B706B299BD567000E1F99 /* CustomNavigationView.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 			name = Decaffeine;
 			packageProductDependencies = (
 				BFFF9A4F299A462B002D5ACC /* Lottie */,
+				BF2B706E299BDAF3000E1F99 /* SegmentedPicker */,
 			);
 			productName = Decaffeine;
 			productReference = BFE96F7729860376003E0934 /* Decaffeine.app */;
@@ -324,6 +330,7 @@
 			mainGroup = BFE96F6E29860376003E0934;
 			packageReferences = (
 				BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				BF2B706D299BDAF3000E1F99 /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */,
 			);
 			productRefGroup = BFE96F7829860376003E0934 /* Products */;
 			projectDirPath = "";
@@ -375,6 +382,7 @@
 				BFA53D7F299A8C31007D943D /* CustomCorner.swift in Sources */,
 				BFA53D7D299A6EC2007D943D /* CustomTextField.swift in Sources */,
 				BFFF9A412999B115002D5ACC /* BeverageListView.swift in Sources */,
+				BF2B706C299BD567000E1F99 /* CustomNavigationView.swift in Sources */,
 				BFA53D83299A9AD9007D943D /* ImagePicker.swift in Sources */,
 				BFE96F7D29860376003E0934 /* ContentView.swift in Sources */,
 				BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */,
@@ -721,6 +729,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BF2B706D299BDAF3000E1F99 /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/KazaiMazai/SwiftySegmentedPicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.2;
+			};
+		};
 		BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -732,6 +748,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BF2B706E299BDAF3000E1F99 /* SegmentedPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF2B706D299BDAF3000E1F99 /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */;
+			productName = SegmentedPicker;
+		};
 		BFFF9A4F299A462B002D5ACC /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */;
