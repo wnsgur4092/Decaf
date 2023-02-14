@@ -1,32 +1,41 @@
 //
-//  ActiveButtonStyle.swift
+//  SecondayButtonStyle.swift
 //  Decaffeine
 //
-//  Created by JunHyuk Lim on 13/2/2023.
+//  Created by JunHyuk Lim on 15/2/2023.
 //
+
 
 import Foundation
 import SwiftUI
 
-struct ActiveButtonStyle: ButtonStyle {
+struct SecondaryButtonStyle: ButtonStyle {
     //MARK: - PROPERTIES
-    let bgColor : Color = Color("mainColor")
-    let textColor : Color = Color.white
+    let bgColor : Color = Color.white
+    let textColor : Color = Color("mainColor")
+    let borderColor : Color = Color("mainColor")
     
     //MARK: - FUNCTION
     func makeBody(configuration: Configuration) -> some View {
         HStack {
             configuration.label.foregroundColor(textColor)
                 .font(.system(size: 14).bold())
-                
+            
                 .padding(.vertical, 20)
                 .padding(.horizontal, 15)
+            
+                .overlay(
+                    RoundedRectangle(cornerRadius: 28)
+                        .stroke(borderColor, lineWidth: 1)
+                )
+            
         }
-//        .padding(.horizontal, 20)
-
         .frame(maxWidth: .infinity)
         .background(bgColor.cornerRadius(28))
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
+
+
         .padding(.bottom, 60)
+        
     }
 }

@@ -39,7 +39,7 @@ struct OnBoardingProfileView: View {
                     .padding(.top, 12)
             }
             .padding(.horizontal,32)
-            .padding(.bottom, 60)
+
             
             .background(
                 Color.white
@@ -195,7 +195,7 @@ struct OnBoardingProfileView: View {
         }
         .buttonStyle(DisableButtonStyle())
         .fullScreenCover(isPresented: $isPresentingHomeView) {
-            HomeView()
+            ContentView()
         }
         
     }

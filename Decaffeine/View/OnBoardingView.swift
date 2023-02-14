@@ -9,6 +9,9 @@ import SwiftUI
 import Lottie
 
 struct OnBoardingView: View {
+    //MARK: - PROPERTIES
+    @State var isPresentingOnBoardingProfileView = false
+    
     var body: some View {
         VStack {
             VStack {
@@ -66,6 +69,7 @@ struct OnBoardingView: View {
     fileprivate var getStartButton : some View {
         Button {
             print("Next Button Tapped")
+            isPresentingOnBoardingProfileView = true
         } label: {
             HStack(alignment: .center, spacing: 20){
                 Text("Get Started")
@@ -75,6 +79,9 @@ struct OnBoardingView: View {
             
         }
         .buttonStyle(DisableButtonStyle())
+        .fullScreenCover(isPresented: $isPresentingOnBoardingProfileView) {
+            OnBoardingProfileView()
+        }
     }
 }
 
