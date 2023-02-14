@@ -8,65 +8,152 @@
 import SwiftUI
 
 struct HomeView: View {
+    //MARK: - PROPERTIES
+    @StateObject var vm = ProfileViewModel()
+    
+    //MARK: - BODY
     var body: some View {
-        VStack {
+        VStack{
+            //HEADER + PROFILE IMAGE
+            VStack {
+                header
+                    .padding(.top, 52)
+                    .padding(.bottom, 40)
+                    .padding(.horizontal,32)
+                
+                coffeeListImage
+                
+            }
+            
+            VStack {
+                VStack{
+                    
+                    coffeeListDetail
+                        .padding(.top, 20)
+                        .padding(.bottom, 48)
+                    
+                    coffeeCountText
+                        .padding(.bottom, 10)
+                    
+                    coffeeProgressBar
+            
+                    
+                    addNewButton
+                        .frame(alignment:.bottom)
+                        .padding(.top, 12)
+                }
+            }
+            .padding(.horizontal,32)
+            .padding(.bottom, 60)
+            .background(
+                Color.white
+                    .frame(maxWidth:.infinity, maxHeight: .infinity)
+                    .clipShape(CustomCorner(corners: [.topLeft,.topRight], radius: 33))
+                    .ignoresSafeArea()
+            )
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color("mainColor"))
+        .edgesIgnoringSafeArea(.all)
+    }
+    
+    //MARK: - COMPONENTS
+    
+    //HEADER
+    fileprivate var header : some View {
+        HStack(alignment: .center) {
+            Text("Today,")
+                .font(.system(size: 32))
+                .fontWeight(.bold)
+            
+            Text("10 Jun")
+                .font(.system(size: 32))
+                .fontWeight(.light)
+            
+            Spacer()
+            
+            vm.image!
+                .resizable()
+                .scaledToFill()
+                .frame(maxWidth: 42, maxHeight: 42)
+                .clipShape(Circle())
+                .overlay(Circle().stroke(Color.white, lineWidth: 0.5))
+        }
+        .foregroundColor(.white)
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    //COFFEE LIST IMAGE
+    fileprivate var coffeeListImage : some View {
+        //IF NO DATA IN COFFEE LIST
+        VStack{
+            //Image
+            Image("noList")
+            
+        } //: VSTACK : THERE IS NO DATA
+    }
+    
+    //COFFEE LIST DETAIL
+    fileprivate var coffeeListDetail : some View {
+        VStack(spacing: 8){
+            Text("No Caffeine Record Yet")
+                .font(.system(size: 18))
+                .fontWeight(.bold)
+                .foregroundColor(Color("mainColor"))
+            
+            //Coffee Shot & Caffeine Content
+            Text("Create the Caffeine History")
+                .font(.system(size: 14))
+                .fontWeight(.regular)
+                .foregroundColor(Color("mainColor").opacity(0.6))
+        }
+    }
+    
+    //COFFEE COUNT TEXT
+    fileprivate var coffeeCountText : some View {
+        HStack{
+            Text("You durnk total 0 coffees")
+                .font(.system(size: 16))
+                .fontWeight(.regular)
+            .foregroundColor(Color("mainColor").opacity(0.8))
+            
+            Spacer()
+        }
+    }
+    
+    //PROGRESS BAR
+    fileprivate var coffeeProgressBar : some View {
+        VStack{
             HStack{
-                Text("Today, 10 Jun")
+                Text("Today's Caffeine")
                 
                 Spacer()
                 
-                Image("defaultProfileImage")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(maxWidth: 40, maxHeight: 40)
-            }
-            
-            VStack{
-                Image("noList")
-                
-                Text("No Caffeine Record Yet")
-                Text("Create the Caffeine History")
-            }
-            
-            VStack{
-                Text("You drunk total 0 Coffees")
-                
                 HStack{
-                    Text("Today's Total Caffeine")
-                    Text("0/400mg")
-                }
-                
-                //Bar Graph
-                ZStack(alignment: .leading){
-                    Text("0%")
-                        .padding(.horizontal,20)
-                        .foregroundColor(.white)
-                        .zIndex(1)
-                    
-                    RoundedRectangle(cornerRadius: 11)
-                        .frame(maxHeight: 34)
-                        .foregroundColor(.gray)
-
+                    Text("0")
+                        .foregroundColor(Color("mainColor"))
+                    Text("/ 400mg")
                 }
             }
             
-            Button {
-                print("Add New Caffeine Button Tapped")
-            } label: {
-                ZStack{
-                    Text("+ Add New Caffeine")
-                        .foregroundColor(.white)
-                        .zIndex(1)
-
-                    RoundedRectangle(cornerRadius: 11)
-                        .frame(maxWidth: .infinity, maxHeight: 56)
-                }
-                 
-            } //: BUTTON
+            ProgressBar(todayIntake: 20, totalIntake: 400)
         }
-        .padding(.horizontal, 20)
+    }
+    
+    
+    
+    //BUTTON
+    fileprivate var addNewButton : some View {
+        Button {
+            print("next button tapped")
+        } label: {
+            Text("+ Add New Caffeine")
+        }
+        .buttonStyle(ActiveButtonStyle())
+        
     }
 }
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

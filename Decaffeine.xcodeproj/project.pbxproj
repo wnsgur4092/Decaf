@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
 		BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */; };
 		BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */; };
 		BFA53D7D299A6EC2007D943D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7C299A6EC2007D943D /* CustomTextField.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7C299A6EC2007D943D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */,
 				BFA53D7C299A6EC2007D943D /* CustomTextField.swift */,
 				BFA53D7E299A8C31007D943D /* CustomCorner.swift */,
+				BF49D202299BAF9C00D88FFC /* ProgressBar.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				BFFF9A4B2999B14D002D5ACC /* AnnouncementView.swift in Sources */,
 				BFFF9A4D2999B18D002D5ACC /* OnBoardingProfileView.swift in Sources */,
 				BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */,
+				BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */,
 				BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

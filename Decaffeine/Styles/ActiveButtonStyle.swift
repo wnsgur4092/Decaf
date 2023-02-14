@@ -18,9 +18,12 @@ struct ActiveButtonStyle: ButtonStyle {
         HStack {
             configuration.label.foregroundColor(textColor)
                 
-                .padding(20)
+                .padding(.vertical, 20)
+                .padding(.horizontal, 15)
         }
-        .frame(maxWidth: 140)
+//        .padding(.horizontal, 20)
+
+        .frame(maxWidth: .infinity)
         .background(bgColor.cornerRadius(28))
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }

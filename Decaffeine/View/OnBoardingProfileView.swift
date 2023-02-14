@@ -12,6 +12,8 @@ struct OnBoardingProfileView: View {
     //MARK: - PROPERTIES
     @StateObject var vm = ProfileViewModel()
     
+    @State var isPresentingHomeView = false
+    
     //MARK: - BODY
     var body: some View {
         VStack{
@@ -136,7 +138,7 @@ struct OnBoardingProfileView: View {
                             vm.isFemaleSelected = true
                             vm.isMaleSelected = false
                         }
-
+                    
                     Text("800mg/day")
                         .font(.system(size: 12, weight: .light))
                         .opacity(0.4)
@@ -162,6 +164,7 @@ struct OnBoardingProfileView: View {
         }
     }
     
+    //Custom Box at the back of Gender Image
     func customSelectedRectangle(imageName: String, focused: Bool) -> some View{
         ZStack{
             Image(imageName)
@@ -183,13 +186,17 @@ struct OnBoardingProfileView: View {
     }
     
     //BUTTON
+    //Should be updated when both Name and Gender are selected
     fileprivate var nextButton : some View {
         Button {
-            print("next button tapped")
+            isPresentingHomeView = true
         } label: {
             Text("Next")
         }
         .buttonStyle(DisableButtonStyle())
+        .fullScreenCover(isPresented: $isPresentingHomeView) {
+            HomeView()
+        }
         
     }
 }

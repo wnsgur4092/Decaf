@@ -18,9 +18,12 @@ struct DisableButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         HStack {
             configuration.label.foregroundColor(textColor)
-                .padding(20)
-        }
-        .frame(maxWidth: 200)
+            
+            .padding(.vertical, 20)
+            .padding(.horizontal, 15)
+    }
+//        .padding(.horizontal, 20)
+        .frame(maxWidth: .infinity)
         .background(bgColor.cornerRadius(28))
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
