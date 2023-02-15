@@ -17,16 +17,14 @@ struct ActiveButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         HStack {
             configuration.label.foregroundColor(textColor)
-                .font(.system(size: 14).bold())
+                .font(.system(size: 16).bold())
                 
                 .padding(.vertical, 20)
                 .padding(.horizontal, 15)
         }
-//        .padding(.horizontal, 20)
-
         .frame(maxWidth: .infinity)
         .background(bgColor.cornerRadius(28))
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
-        .padding(.bottom, 60)
+
     }
 }

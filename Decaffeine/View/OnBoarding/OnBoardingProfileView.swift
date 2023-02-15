@@ -20,7 +20,7 @@ struct OnBoardingProfileView: View {
             //HEADER + PROFILE IMAGE
             VStack {
                 header
-                    .padding(.top, 20)
+                    .padding(.top, 32)
                     .padding(.bottom, 16)
                 
                 profileImage
@@ -37,6 +37,7 @@ struct OnBoardingProfileView: View {
                 
                 nextButton
                     .padding(.top, 12)
+                    .padding(.bottom, 60)
             }
             .padding(.horizontal,32)
 

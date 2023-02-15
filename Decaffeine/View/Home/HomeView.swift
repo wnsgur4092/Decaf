@@ -24,15 +24,15 @@ struct HomeView: View {
         VStack {
             VStack{
                 header
+                    .padding(.vertical,12)
                 coffeeListImage
             }
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 32)
             
             VStack {
                 VStack{
-                    
                     coffeeListDetail
-                        .padding(.top, 20)
+                        .padding(.top, 40)
                         .padding(.bottom, 60)
                     
                     coffeeCountText
@@ -44,10 +44,9 @@ struct HomeView: View {
                     
                     addNewButton
                         .frame(alignment:.bottom)
-                        .padding(.horizontal, 40)
-                        .padding(.vertical, 20)
+                        .padding(.bottom, 60)
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 32)
             }
             .background(
                 Color.white
@@ -102,7 +101,7 @@ struct HomeView: View {
     //COFFEE LIST DETAIL
     fileprivate var coffeeListDetail : some View {
         VStack(spacing: 8){
-            Text("No Caffeine Record Yet")
+            Text("You did not drink coffee yet")
                 .font(.system(size: 18))
                 .fontWeight(.bold)
                 .foregroundColor(Color("mainColor"))
@@ -142,7 +141,7 @@ struct HomeView: View {
                 }
             }
             
-            ProgressBar(todayIntake: 0, totalIntake: 400)
+            ProgressBar(todayIntake: 300, totalIntake: 400)
         }
     }
     

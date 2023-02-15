@@ -174,6 +174,7 @@
 		BFCED251299D2A4B00E49EB6 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				BFFF9A3E2999B102002D5ACC /* OnBoardingView.swift */,
 				BFFF9A4C2999B18D002D5ACC /* OnBoardingProfileView.swift */,
 			);
 			path = OnBoarding;
@@ -253,7 +254,6 @@
 		BFE96FA42986042F003E0934 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BFFF9A3E2999B102002D5ACC /* OnBoardingView.swift */,
 				BFCED251299D2A4B00E49EB6 /* OnBoarding */,
 				BFCED24B299D1A2B00E49EB6 /* Home */,
 				BFCED243299C41C200E49EB6 /* BeverageCreation */,
