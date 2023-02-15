@@ -18,7 +18,6 @@ class ArchiveViewModel : ObservableObject {
     //MARK: - INTIAL
     init() {
         fetchCurrentWeek()
-        filterTodayCaffeine()
     }
     
     //MARK: - FUNCTION
