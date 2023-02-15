@@ -85,10 +85,14 @@ struct ArchiveView: View {
                         Text(archiveViewModel.formatDate(day: day))
                         Text(archiveViewModel.formatDay(date: day))
                         
-                        Circle()
-                            .fill(.white)
-                            .frame(width: 8, height: 8)
-                            .opacity(archiveViewModel.isToday(date: day) ? 1 : 0)
+                        Image("coffeeBean")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+//                        Circle()
+//                            .fill(.white)
+//                            .frame(width: 8, height: 8)
+//                            .opacity(archiveViewModel.isToday(date: day) ? 1 : 0)
                     }//: VSTACK
                     .foregroundColor(archiveViewModel.isToday(date: day) ? .white : .black.opacity(0.5))
                     .font(.system(size: 14))
