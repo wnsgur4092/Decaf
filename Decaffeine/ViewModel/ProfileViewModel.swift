@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import RealmSwift
 
 class ProfileViewModel: ObservableObject {
     //MARK: - PROPERTIES
@@ -24,4 +25,9 @@ class ProfileViewModel: ObservableObject {
     //Gender Image Properties
     @Published var isFemaleSelected : Bool = false
     @Published var isMaleSelected : Bool = false
+    
+    
+    init(){
+        print("---> Realm Data File Location :\(Realm.Configuration.defaultConfiguration.fileURL!)")
+    }
 }

@@ -73,9 +73,9 @@ struct BeverageListView: View {
                 //BUTTON
                 HStack{
                     Button {
-                        print("Cancel Button tapped")
+                        print("Back Button tapped")
                     } label: {
-                        Text("Cancel")
+                        Text("Back")
                     }
                     .frame(maxWidth: 80, maxHeight: 40)
                     .buttonStyle(SecondaryButtonStyle())
