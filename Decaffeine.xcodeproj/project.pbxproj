@@ -19,6 +19,8 @@
 		BFCED245299C445700E49EB6 /* SecondayButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED244299C445700E49EB6 /* SecondayButtonStyle.swift */; };
 		BFCED247299C55E400E49EB6 /* CoffeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED246299C55E400E49EB6 /* CoffeeModel.swift */; };
 		BFCED24A299D193800E49EB6 /* ArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED249299D193800E49EB6 /* ArchiveViewModel.swift */; };
+		BFCED24E299D289800E49EB6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BFCED24D299D289800E49EB6 /* Realm */; };
+		BFCED250299D289800E49EB6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BFCED24F299D289800E49EB6 /* RealmSwift */; };
 		BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE96F7A29860376003E0934 /* DecaffeineApp.swift */; };
 		BFE96F7D29860376003E0934 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE96F7C29860376003E0934 /* ContentView.swift */; };
 		BFE96F7F29860377003E0934 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE96F7E29860377003E0934 /* Assets.xcassets */; };
@@ -97,6 +99,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFCED250299D289800E49EB6 /* RealmSwift in Frameworks */,
+				BFCED24E299D289800E49EB6 /* Realm in Frameworks */,
 				BFFF9A50299A462B002D5ACC /* Lottie in Frameworks */,
 				BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */,
 			);
@@ -288,6 +292,8 @@
 			packageProductDependencies = (
 				BFFF9A4F299A462B002D5ACC /* Lottie */,
 				BF2B706E299BDAF3000E1F99 /* SegmentedPicker */,
+				BFCED24D299D289800E49EB6 /* Realm */,
+				BFCED24F299D289800E49EB6 /* RealmSwift */,
 			);
 			productName = Decaffeine;
 			productReference = BFE96F7729860376003E0934 /* Decaffeine.app */;
@@ -364,6 +370,7 @@
 			packageReferences = (
 				BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				BF2B706D299BDAF3000E1F99 /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */,
+				BFCED24C299D289800E49EB6 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = BFE96F7829860376003E0934 /* Products */;
 			projectDirPath = "";
@@ -773,6 +780,14 @@
 				minimumVersion = 0.0.2;
 			};
 		};
+		BFCED24C299D289800E49EB6 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -788,6 +803,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF2B706D299BDAF3000E1F99 /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */;
 			productName = SegmentedPicker;
+		};
+		BFCED24D299D289800E49EB6 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFCED24C299D289800E49EB6 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		BFCED24F299D289800E49EB6 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFCED24C299D289800E49EB6 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		BFFF9A4F299A462B002D5ACC /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
