@@ -36,6 +36,7 @@ struct BeverageListView: View {
                     categoriesList
                     Spacer()
                 }
+                .padding(.horizontal, 32)
                 .padding(.vertical, 20)
                 
                 //SCROLLVIEW
@@ -65,6 +66,7 @@ struct BeverageListView: View {
                         }
                     }
                 }
+                .padding(.bottom, 28)
                 
                 Spacer()
                 
@@ -91,7 +93,8 @@ struct BeverageListView: View {
                     
                 }
                 .frame(maxWidth: .infinity)
-                .padding(.top, 60)
+                .padding(.horizontal, 32)
+  
 
                 
                 
@@ -100,7 +103,7 @@ struct BeverageListView: View {
                 
                 
             }
-            .padding(.horizontal, 32)
+  
             
             .navigationTitle("Add New Caffeine")
             .navigationBarTitleDisplayMode(.inline)

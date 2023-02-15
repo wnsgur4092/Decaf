@@ -168,6 +168,7 @@ struct OnBoardingProfileView: View {
     func customSelectedRectangle(imageName: String, focused: Bool) -> some View{
         ZStack{
             Image(imageName)
+                
                 .resizable()
                 .scaledToFit()
                 .frame(width: 80, height: 120)
@@ -185,6 +186,7 @@ struct OnBoardingProfileView: View {
         }
     }
     
+        
     //BUTTON
     //Should be updated when both Name and Gender are selected
     fileprivate var nextButton : some View {

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF2B706C299BD567000E1F99 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B706B299BD567000E1F99 /* CustomNavigationView.swift */; };
 		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
 		BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */; };
@@ -19,6 +18,7 @@
 		BFCED242299C40EB00E49EB6 /* BeverageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED241299C40EB00E49EB6 /* BeverageCell.swift */; };
 		BFCED245299C445700E49EB6 /* SecondayButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED244299C445700E49EB6 /* SecondayButtonStyle.swift */; };
 		BFCED247299C55E400E49EB6 /* CoffeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED246299C55E400E49EB6 /* CoffeeModel.swift */; };
+		BFCED24A299D193800E49EB6 /* ArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED249299D193800E49EB6 /* ArchiveViewModel.swift */; };
 		BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE96F7A29860376003E0934 /* DecaffeineApp.swift */; };
 		BFE96F7D29860376003E0934 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE96F7C29860376003E0934 /* ContentView.swift */; };
 		BFE96F7F29860377003E0934 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE96F7E29860377003E0934 /* Assets.xcassets */; };
@@ -58,7 +58,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BF2B706B299BD567000E1F99 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
 		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButtonStyle.swift; sourceTree = "<group>"; };
@@ -69,6 +68,7 @@
 		BFCED241299C40EB00E49EB6 /* BeverageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCell.swift; sourceTree = "<group>"; };
 		BFCED244299C445700E49EB6 /* SecondayButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondayButtonStyle.swift; sourceTree = "<group>"; };
 		BFCED246299C55E400E49EB6 /* CoffeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeModel.swift; sourceTree = "<group>"; };
+		BFCED249299D193800E49EB6 /* ArchiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewModel.swift; sourceTree = "<group>"; };
 		BFE96F7729860376003E0934 /* Decaffeine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decaffeine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE96F7A29860376003E0934 /* DecaffeineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecaffeineApp.swift; sourceTree = "<group>"; };
 		BFE96F7C29860376003E0934 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,7 +136,6 @@
 				BFA53D7C299A6EC2007D943D /* CustomTextField.swift */,
 				BFA53D7E299A8C31007D943D /* CustomCorner.swift */,
 				BF49D202299BAF9C00D88FFC /* ProgressBar.swift */,
-				BF2B706B299BD567000E1F99 /* CustomNavigationView.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -149,6 +148,22 @@
 				BFFF9A422999B11D002D5ACC /* BeverageSettingVIew.swift */,
 			);
 			path = BeverageCreation;
+			sourceTree = "<group>";
+		};
+		BFCED248299D18F200E49EB6 /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				BFFF9A442999B126002D5ACC /* ArchiveView.swift */,
+			);
+			path = Archive;
+			sourceTree = "<group>";
+		};
+		BFCED24B299D1A2B00E49EB6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BFE96FA72986047F003E0934 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		BFE96F6E29860376003E0934 = {
@@ -218,9 +233,9 @@
 			children = (
 				BFFF9A3E2999B102002D5ACC /* OnBoardingView.swift */,
 				BFFF9A4C2999B18D002D5ACC /* OnBoardingProfileView.swift */,
-				BFE96FA72986047F003E0934 /* HomeView.swift */,
+				BFCED24B299D1A2B00E49EB6 /* Home */,
 				BFCED243299C41C200E49EB6 /* BeverageCreation */,
-				BFFF9A442999B126002D5ACC /* ArchiveView.swift */,
+				BFCED248299D18F200E49EB6 /* Archive */,
 				BFFF9A462999B13F002D5ACC /* BeverageDetailView.swift */,
 				BFFF9A482999B144002D5ACC /* SettingView.swift */,
 				BFFF9A4A2999B14D002D5ACC /* AnnouncementView.swift */,
@@ -232,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				BFA53D80299A99AC007D943D /* ProfileViewModel.swift */,
+				BFCED249299D193800E49EB6 /* ArchiveViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -400,7 +416,6 @@
 				BFA53D7F299A8C31007D943D /* CustomCorner.swift in Sources */,
 				BFA53D7D299A6EC2007D943D /* CustomTextField.swift in Sources */,
 				BFFF9A412999B115002D5ACC /* BeverageListView.swift in Sources */,
-				BF2B706C299BD567000E1F99 /* CustomNavigationView.swift in Sources */,
 				BFCED245299C445700E49EB6 /* SecondayButtonStyle.swift in Sources */,
 				BFA53D83299A9AD9007D943D /* ImagePicker.swift in Sources */,
 				BFCED247299C55E400E49EB6 /* CoffeeModel.swift in Sources */,
@@ -415,6 +430,7 @@
 				BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */,
 				BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */,
 				BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */,
+				BFCED24A299D193800E49EB6 /* ArchiveViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

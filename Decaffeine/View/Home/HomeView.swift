@@ -13,6 +13,12 @@ struct HomeView: View {
     
     @State var isAddNewCaffeine = false
     
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM"
+        return formatter
+    }()
+    
     //MARK: - BODY
     var body: some View {
         VStack {
@@ -39,7 +45,7 @@ struct HomeView: View {
                     addNewButton
                         .frame(alignment:.bottom)
                         .padding(.horizontal, 40)
-                        .padding(.vertical, 32)
+                        .padding(.vertical, 20)
                 }
                 .padding(.horizontal, 20)
             }
@@ -60,11 +66,13 @@ struct HomeView: View {
     //HEADER
     fileprivate var header : some View {
         HStack(alignment: .center) {
+        
+            
             Text("Today,")
                 .font(.system(size: 32))
                 .fontWeight(.bold)
             
-            Text("10 Jun")
+            Text(dateFormatter.string(from: Date()))
                 .font(.system(size: 32))
                 .fontWeight(.light)
             
