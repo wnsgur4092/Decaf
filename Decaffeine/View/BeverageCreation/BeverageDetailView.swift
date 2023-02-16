@@ -105,8 +105,8 @@ struct BeverageDetailView: View {
                 .padding(.bottom, 24)
             LazyVGrid(columns: layout) {
                 
-                BeverageDetailCell(detailImageName: "coffeedetailsize", detailName: "Size", detailExtra: "Large")
-                BeverageDetailCell(detailImageName: "coffeedetailshot", detailName: "Shots", detailExtra: "4")
+                BeverageDetailCell(detailImageName: "small", detailName: "Size", detailExtra: "Large")
+                BeverageDetailCell(detailImageName: "shot", detailName: "Shots", detailExtra: "4")
                 
                 VStack {
                     
