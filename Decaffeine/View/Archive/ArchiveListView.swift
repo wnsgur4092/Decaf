@@ -11,36 +11,7 @@ struct ArchiveListView: View {
     
 var body: some View {
     
-    let maxCaffeine = 2000
-    let currentCaffeine = 2000
-
     VStack (spacing: 10){
-        Text("Archive")
-            .font(.largeTitle)
-            .fontWeight(.bold)
-            .frame(maxWidth: .infinity,
-                   alignment: .leading)
-
-        HStack (spacing: 10){
-            Text("Total Caffeine")
-                .font(.subheadline)
-                .multilineTextAlignment(.leading)
-                .frame(maxWidth: .infinity,
-                       alignment: .leading)
-            Group {
-                Text("\(currentCaffeine) ")
-                    .foregroundColor(currentCaffeine > maxCaffeine ? .red : currentCaffeine < maxCaffeine ? .purple : .blue)
-                + Text ("/ \(maxCaffeine)")
-            }
-            .multilineTextAlignment(.trailing)
-            .font(.subheadline)
-            .padding(15)
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.black, lineWidth: 1)
-                )
-        }
-        
         HStack {
             Text("Time")
                 .font(.subheadline)
@@ -91,7 +62,7 @@ var body: some View {
             .padding(15)
             .frame(maxWidth: .infinity,
                    alignment: .leading)
-            .background(RoundedRectangle(cornerRadius: 20).fill(Color.purple))
+            .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
         }
         
         HStack (alignment: .top, spacing: 5)  {
@@ -127,7 +98,7 @@ var body: some View {
             .padding(15)
             .frame(maxWidth: .infinity,
                    alignment: .leading)
-            .background(RoundedRectangle(cornerRadius: 20).fill(Color.purple))
+            .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
         }
         
         HStack (alignment: .top, spacing: 5)  {
@@ -163,13 +134,11 @@ var body: some View {
             .padding(15)
             .frame(maxWidth: .infinity,
                    alignment: .leading)
-            .background(RoundedRectangle(cornerRadius: 20).fill(Color.purple))
+            .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
         }
         
         Spacer()
     }
-        .padding(.leading,30)
-        .padding(.trailing, 30)
 
     }
 }

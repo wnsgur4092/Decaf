@@ -27,11 +27,7 @@ struct ArchiveView: View {
                 .padding(.bottom, 40)
             //TIME LINE
             ScrollView(.vertical, showsIndicators: true) {
-                Text("fewfwefewf")
-                Text("fewfwefewf")
-                Text("fewfwefewf")
-                Text("fewfwefewf")
-                Text("fewfwefewf")
+                ArchiveListView()
                 
             }
         }
