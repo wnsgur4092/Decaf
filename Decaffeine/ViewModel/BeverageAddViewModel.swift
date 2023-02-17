@@ -21,12 +21,17 @@ class BeverageAddViewModel : ObservableObject {
     
     @Published var numberOfShots : Double = 1.0 //Color R
     @Published var size : String = "Regular"
-    @Published var registerDate : Date = Date()
+    @Published var registerDate : String = ""
+    
+    @Published var isPresented : Binding<Bool>
     
     var subscriptions = Set<AnyCancellable>()
     
-    init(coffees : Binding<[CoffeeModel]>) {
+    
+    //MARK: - INIT
+    init(isPresented: Binding<Bool>,coffees : Binding<[CoffeeModel]>) {
         self.coffees = coffees
+        self.isPresented = isPresented
         
         
         $coffeeName.sink { coffeeName in
@@ -65,8 +70,41 @@ class BeverageAddViewModel : ObservableObject {
         self.coffee.coffeeImageName = coffeeImageName
     }
     
-    private func update(registerDate : Date) {
+    private func update(registerDate : String) {
         self.coffee.registerDate = registerDate
     }
     
+    func saveData() {
+        guard let realm = try? Realm() else {return}
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        self.coffee.registerDate = formatter.string(from: Date())
+        print("---> current time: \(coffee.registerDate)")
+        coffees.wrappedValue.append(coffee)
+        
+        do{
+            try realm.write{
+                realm.add(coffee)
+            }
+        } catch let error{
+            print("!!!! CoffeeViewModel realm error : \(error)")
+        }
+        
+        //        isPresented.wrappedValue = false
+        coffee = CoffeeModel()
+        eraseForm()
+        
+        print(coffee.coffeeName)
+    }
+    
+    private func eraseForm(){
+        coffeeName = ""
+        coffeeImageName = ""
+        numberOfShots = 1.0
+        size = "Regular"
+    
+    }
 }
+
+

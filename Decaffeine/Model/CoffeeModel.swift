@@ -16,7 +16,7 @@ class CoffeeModel : Object, Identifiable, Codable {
     @Persisted var coffeeImageName : String = ""
     @Persisted var numberOfShots : Double = 0.0
     @Persisted var size : String = ""
-    @Persisted var registerDate : Date = Date()
+    @Persisted var registerDate : String = ""
     
     override static func primaryKey() -> String? {
         return "id"

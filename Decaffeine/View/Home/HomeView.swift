@@ -9,9 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     //MARK: - PROPERTIES
-    @StateObject var vm = ProfileViewModel()
+    @StateObject var homeVM : HomeViewModel
     
-    @State var isAddNewCaffeine = false
+    @State var isAddNewCaffeinePresenting = false
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -65,7 +65,7 @@ struct HomeView: View {
     //HEADER
     fileprivate var header : some View {
         HStack(alignment: .center) {
-        
+            
             
             Text("Today,")
                 .font(.system(size: 32))
@@ -77,7 +77,7 @@ struct HomeView: View {
             
             Spacer()
             
-            vm.image!
+            Image("noList")
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: 42, maxHeight: 42)
@@ -149,20 +149,26 @@ struct HomeView: View {
     fileprivate var addNewButton : some View {
         Button {
             print("---> next button tapped")
-            isAddNewCaffeine = true
+            isAddNewCaffeinePresenting = true
         } label: {
             Text("+ Add New Caffeine")
         }
         .buttonStyle(ActiveButtonStyle())
-        .sheet(isPresented: $isAddNewCaffeine) {
-            BeverageListView()
+        .sheet(isPresented: $isAddNewCaffeinePresenting) {
+            let vm = BeverageAddViewModel(isPresented: $isAddNewCaffeinePresenting, coffees: $homeVM.coffees)
+            
+            BeverageAddView(beverageAddvm: vm)
         }
     }
 }
 
 
+
+
+
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(homeVM: HomeViewModel())
     }
 }

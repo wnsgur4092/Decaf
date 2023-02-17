@@ -9,16 +9,19 @@ import SwiftUI
 import UIKit
 import SegmentedPicker
 
-struct BeverageListView: View {
+struct BeverageAddView: View {
     //MARK: - PROPERTEIS
+    @Environment(\.presentationMode) var presentationMode
+    @StateObject var beverageAddvm : BeverageAddViewModel
     
     
+    @State var selectedCoffee = false
     //MARK: - INIT
-    init() {
-        //NavigationBar Background & Foreground Color
-        UINavigationBar.appearance().backgroundColor = UIColor(Color("mainColor"))
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
-    }
+//    init() {
+//        //NavigationBar Background & Foreground Color
+//        UINavigationBar.appearance().backgroundColor = UIColor(Color("mainColor"))
+//        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+//    }
     
     let titles: [String] = ["HOT", "COLD"]
     @State var selectedIndex: Int?
@@ -148,6 +151,6 @@ struct BeverageListView: View {
 }
 struct BeverageListView_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageListView()
+        BeverageAddView(beverageAddvm: BeverageAddViewModel(isPresented: .constant(false), coffees: .constant([])))
     }
 }
