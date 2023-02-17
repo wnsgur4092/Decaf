@@ -12,27 +12,27 @@ import SwiftUI
 
 class HomeViewModel : ObservableObject {
     
-    @Published var coffees : [CoffeeModel] = []
+    @Published var coffees : [Beverage] = []
     
     var subscription = Set<AnyCancellable>()
     
     init() {
         
-        getCoffeeData()
+//        getCoffeeData()
         print("---> Realm Data File Location :\(Realm.Configuration.defaultConfiguration.fileURL!)")
 //        bind()
         
     }
     
-    func getCoffeeData() {
-        guard let realm = try? Realm() else {return}
-        
-        let savedCoffee = realm.objects(CoffeeModel.self)
-        
-        try! realm.write{
-            self.coffees = savedCoffee.compactMap({$0})
-        }
-    }
+//    func getCoffeeData() {
+//        guard let realm = try? Realm() else {return}
+//        
+//        let savedCoffee = realm.objects(CoffeeModel.self)
+//        
+//        try! realm.write{
+//            self.coffees = savedCoffee.compactMap({$0})
+//        }
+//    }
     
 //    private func bind(){
 //        $coffees.sink { items in

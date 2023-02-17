@@ -13,11 +13,11 @@ import RealmSwift
 class BeverageAddViewModel : ObservableObject {
     
     //STATIC DATA (LIST))
-    @Published var beverageCateogry : BeverageCategory = .cold
+   
         
     
-    @Published var coffees : Binding<[CoffeeModel]>
-    @Published var coffee : CoffeeModel = CoffeeModel()
+    @Published var beverages : Binding<[Beverage]>
+    @Published var beverage : Beverage = Beverage(id: 1, category: .hot, beverageName: "Latte", beverageImageName: "latte")
     
     @Published var coffeeName : String = "" //Coffee Name
     @Published var coffeeImageName : String = "" //Color Description
@@ -32,74 +32,74 @@ class BeverageAddViewModel : ObservableObject {
     
     
     //MARK: - INIT
-    init(isPresented: Binding<Bool>,coffees : Binding<[CoffeeModel]>) {
-        self.coffees = coffees
+    init(isPresented: Binding<Bool>,beverages : Binding<[Beverage]>) {
+        self.beverages = beverages
         self.isPresented = isPresented
-        
-        
-        $coffeeName.sink { coffeeName in
-            self.update(coffeeName: coffeeName)
-        }.store(in: &subscriptions)
-        
-        $coffeeImageName.sink { coffeeImageName in
-            self.update(coffeeImageName: coffeeImageName)
-        }.store(in: &subscriptions)
-        
-        $numberOfShots.sink { numberOfShots in
-            self.update(numberOfShots: numberOfShots)
-        }.store(in: &subscriptions)
-        
-        $size.sink { size in
-            self.update(size: size)
-        }.store(in: &subscriptions)
-        
-        
     }
-    
-    //MARK: - FUNCTION
-    private func update(coffeeName : String) {
-        self.coffee.coffeeName = coffeeName
-    }
-    
-    private func update(numberOfShots : Double) {
-        self.coffee.numberOfShots = numberOfShots
-    }
-    
-    private func update(size: String){
-        self.coffee.size = size
-    }
-    
-    private func update(coffeeImageName : String) {
-        self.coffee.coffeeImageName = coffeeImageName
-    }
-    
-    private func update(registerDate : String) {
-        self.coffee.registerDate = registerDate
-    }
-    
-    func saveData() {
-        guard let realm = try? Realm() else {return}
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        self.coffee.registerDate = formatter.string(from: Date())
-        print("---> current time: \(coffee.registerDate)")
-        coffees.wrappedValue.append(coffee)
-        
-        do{
-            try realm.write{
-                realm.add(coffee)
-            }
-        } catch let error{
-            print("!!!! CoffeeViewModel realm error : \(error)")
-        }
-        
-        //        isPresented.wrappedValue = false
-        coffee = CoffeeModel()
-        eraseForm()
-        
-        print(coffee.coffeeName)
-    }
+//        $coffeeName.sink { coffeeName in
+//            self.update(coffeeName: coffeeName)
+//        }.store(in: &subscriptions)
+//
+//        $coffeeImageName.sink { coffeeImageName in
+//            self.update(coffeeImageName: coffeeImageName)
+//        }.store(in: &subscriptions)
+//
+//        $numberOfShots.sink { numberOfShots in
+//            self.update(numberOfShots: numberOfShots)
+//        }.store(in: &subscriptions)
+//
+//        $size.sink { size in
+//            self.update(size: size)
+//        }.store(in: &subscriptions)
+//
+//
+//    }
+//
+//    //MARK: - FUNCTION
+//    private func update(coffeeName : String) {
+//        self.coffee.coffeeName = coffeeName
+//    }
+//
+//    private func update(numberOfShots : Double) {
+//        self.coffee.numberOfShots = numberOfShots
+//    }
+//
+//    private func update(size: String){
+//        self.coffee.size = size
+//    }
+//
+//    private func update(coffeeImageName : String) {
+//        self.coffee.coffeeImageName = coffeeImageName
+//    }
+//
+//    private func update(registerDate : String) {
+//        self.coffee.registerDate = registerDate
+//    }
+//
+//    func saveData() {
+//        guard let realm = try? Realm() else {return}
+//
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//        self.coffee.registerDate = formatter.string(from: Date())
+//        print("---> current time: \(coffee.registerDate)")
+//        coffees.wrappedValue.append(coffee)
+//
+//        do{
+//            try realm.write{
+//                realm.add(coffee)
+//            }
+//        } catch let error{
+//            print("!!!! CoffeeViewModel realm error : \(error)")
+//        }
+//
+//        //        isPresented.wrappedValue = false
+//        coffee = CoffeeModel()
+//        eraseForm()
+//
+//        print(coffee.coffeeName)
+//    }
     
     private func eraseForm(){
         coffeeName = ""

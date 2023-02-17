@@ -155,7 +155,7 @@ struct HomeView: View {
         }
         .buttonStyle(ActiveButtonStyle())
         .sheet(isPresented: $isAddNewCaffeinePresenting) {
-            let vm = BeverageAddViewModel(isPresented: $isAddNewCaffeinePresenting, coffees: $homeVM.coffees)
+            let vm = BeverageAddViewModel(isPresented: $isAddNewCaffeinePresenting, beverages: $homeVM.coffees)
             
             BeverageAddView(beverageAddvm: vm)
         }

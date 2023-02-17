@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BeverageDetailView: View {
+struct ArchiveListDetailView: View {
     
     @State private var showingAlert = false
     
@@ -55,8 +55,7 @@ struct BeverageDetailView: View {
         .edgesIgnoringSafeArea(.top)
     }
     
-    //HEADER
-    
+    //MARK: - COMPONENTS
     fileprivate var header : some View {
         HStack(alignment: .center) {
             Button {
@@ -149,8 +148,8 @@ struct BeverageDetailView: View {
     }
 }
 
-struct BeverageDetailView_Previews: PreviewProvider {
+struct ArchiveListDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageDetailView()
+        ArchiveListDetailView()
     }
 }

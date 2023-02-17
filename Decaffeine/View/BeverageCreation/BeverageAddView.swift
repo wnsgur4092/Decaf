@@ -16,7 +16,7 @@ struct BeverageAddView: View {
     
     
     //CATEOGRY
-    @State var selectedCoffee = false
+    @State var selectedBeverageIndex : Int?
     let titles: [String] = ["HOT", "COLD"]
     @State var selectedIndex: Int = 0
     
@@ -27,6 +27,10 @@ struct BeverageAddView: View {
     var selectedBeverages: [Beverage] {
         return Beverage.beverageList.filter { $0.category == selectedCategory }
     }
+    
+    
+    
+    
     
     //MARK: - INIT
     //    init() {
@@ -45,6 +49,7 @@ struct BeverageAddView: View {
     var body: some View {
         NavigationView {
             VStack{
+                //CATEOGRY
                 HStack{
                     categoriesList
                     Spacer()
@@ -53,73 +58,26 @@ struct BeverageAddView: View {
                 .padding(.vertical, 20)
                 
                 //SCROLLVIEW
-                
-                HStack(alignment:.bottom){
-                    ScrollView{
-                        //COFFEE LIST
-                        LazyVGrid(columns: layout) {
-                            ForEach(selectedBeverages) { beverage in
-                                Text(beverage.beverageName)
-                            }
-                        }
-                    }
-                }
-                .padding(.bottom, 28)
+                beverageListView
+                    .padding(.bottom, 28)
+                    .padding(.horizontal, 20)
                 
                 Spacer()
                 
                 //BUTTON
-                HStack{
-                    Button {
-                        print("Back Button tapped")
-                    } label: {
-                        Text("Back")
-                    }
-                    .frame(maxWidth: 80, maxHeight: 40)
-                    .buttonStyle(SecondaryButtonStyle())
-                    
-                    Spacer()
-                    
-                    Button {
-                        print("Next button tapped")
-                    } label: {
-                        Text("Next")
-                    }
-                    .frame(maxWidth: 80, maxHeight: 40)
-                    .buttonStyle(DisableButtonStyle())
-                    
-                    
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.horizontal, 32)
-                
-                
-                
-                
-                
-                
-                
+                buttonSection
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, 32)
+                    .padding(.bottom, 40)
                 
             }
-            
-            
             .navigationTitle("Add New Caffeine")
             .navigationBarTitleDisplayMode(.inline)
-            
         }
         
     }
     
-    
-    
     //MARK: - COMPONENTS
-    //    fileprivate var beverageCategory : some View {
-    //        HStack(spacing: 18) {
-    //            ForEach(beverageCategory.)
-    //        }
-    //    }
-    
-    
     fileprivate var categoriesList : some View {
         SegmentedPicker(
             titles,
@@ -143,13 +101,51 @@ struct BeverageAddView: View {
         .animation(.easeInOut(duration: 0.3))
     }
     
-    fileprivate var coffeeList : some View {
-        EmptyView()
+    fileprivate var beverageListView : some View {
+        HStack(alignment:.bottom){
+            ScrollView{
+                //COFFEE LIST
+                LazyVGrid(columns: layout) {
+                    ForEach(selectedBeverages.indices, id: \.self) { index in
+                        // Add a tap gesture to the BeverageCell and update the selectedBeverageIndex
+                        BeverageCell(beverageImageName: selectedBeverages[index].beverageImageName, beverageName: selectedBeverages[index].beverageName, index: index, selectedBeverageIndex: $selectedBeverageIndex)
+                            .onTapGesture {
+                                selectedBeverageIndex = index
+                            }
+                            
+                    }
+                }
+            }
+        }
     }
     
+    fileprivate var buttonSection : some View {
+        HStack{
+            Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                Text("Back")
+            }
+            .frame(maxWidth: 80, maxHeight: 40)
+            .buttonStyle(SecondaryButtonStyle())
+            
+            Spacer()
+            
+            NavigationLink {
+                BeverageSettingView(vm: beverageAddvm)
+            } label: {
+                Text("Next")
+
+            }
+            .frame(maxWidth: 80, maxHeight: 40)
+            .buttonStyle(DisableButtonStyle())
+        }
+    }
 }
+
+//MARK: - PREVIEW
 struct BeverageListView_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageAddView(beverageAddvm: BeverageAddViewModel(isPresented: .constant(false), coffees: .constant([])))
+        BeverageAddView(beverageAddvm: BeverageAddViewModel(isPresented: .constant(false), beverages: .constant([])))
     }
 }

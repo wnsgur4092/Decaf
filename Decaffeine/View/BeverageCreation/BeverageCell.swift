@@ -11,38 +11,43 @@ struct BeverageCell: View {
     //MARK: - PROPERTIES
     var beverageImageName : String
     var beverageName : String
+    var index: Int
+    @Binding var selectedBeverageIndex : Int?
     
     //MARK: - BODY
     var body: some View {
-        VStack{
+        VStack(alignment: .center){
             ZStack{
                 Image(beverageImageName)
                     .resizable()
                     .scaledToFit()
-                    
+                
             }
-            .frame(width: getRect().width / 2.5 , height: getRect().width / 2.5)
+            .frame(width: 100 , height: 100)
+            
+            Text(beverageName)
         }
-//        VStack(alignment: .center, spacing: 10){
-//            Image(beverageImageName)
-//            Text(beverageName)
-//                .font(.system(size: 14))
-//        }
-//        .padding(40)
-//
-//        .overlay(RoundedRectangle(cornerRadius: 11).stroke(lineWidth: 1).shadow(color: .black, radius: 1, x: 0, y: 1))
-        
+        .padding(.horizontal, 24)
+        .padding(.bottom, 20)
+        .background(
+            ZStack {
+                Color.white
+                    .cornerRadius(25)
+                    .shadow(color: .black.opacity(0.2), radius: 1, x: 2, y: 2)
+                if selectedBeverageIndex == index {
+                    Color.blue.opacity(0.2)
+                        .cornerRadius(25)
+                }
+            }
+        )
+        .padding(.vertical, 20)
     }
 }
 
-extension View{
-    func getRect() -> CGRect{
-        return UIScreen.main.bounds
-    }
-}
-
+//MARK: - PREVIEW
 struct BeverageCell_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageCell(beverageImageName: "longblack", beverageName: "LongBlack").previewLayout(.sizeThatFits)
+        BeverageCell(beverageImageName: "latte", beverageName: "Iced  Long Black", index: 0, selectedBeverageIndex: .constant(nil))
     }
 }
+
