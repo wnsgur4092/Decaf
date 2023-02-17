@@ -1,0 +1,32 @@
+[
+    {
+        "id" : 1,
+        "beverageName" : "Espresso",
+        "beverageImageName" : "espresso",
+    },
+    {
+        "id" : 2,
+        "beverageName" : "Longblack",
+        "beverageImageName" : "longblack"
+    },
+    {
+        "id" : 3,
+        "beverageName" : "Piccolo",
+        "beverageImageName" : "piccolo"
+    },
+    {
+        "id" : 4,
+        "beverageName" : "Flat White",
+        "beverageImageName" : "flatwhite"
+    },
+    {
+        "id" : 5,
+        "beverageName" : "Latte",
+        "beverageImageName" : "latte"
+    },
+    {
+        "id" : 6,
+        "beverageName" : "Cappuccino",
+        "beverageImageName" : "cappuccino"
+    }
+]

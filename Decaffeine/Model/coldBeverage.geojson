@@ -1,0 +1,22 @@
+[
+    {
+        "id" : 1,
+        "beverageName" : "Iced Long Black",
+        "beverageImageName" : "icedLongBlack",
+    },
+    {
+        "id" : 2,
+        "beverageName" : "Iced Latte",
+        "beverageImageName" : "icedLatte"
+    },
+    {
+        "id" : 3,
+        "beverageName" : "Iced Mocha",
+        "beverageImageName" : "icedMocha"
+    },
+    {
+        "id" : 4,
+        "beverageName" : "Iced Coffee",
+        "beverageImageName" : "icedCoffee"
+    }
+]
