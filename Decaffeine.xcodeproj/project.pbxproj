@@ -11,7 +11,7 @@
 		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
 		BF854182299F0E7600AB1ED9 /* BeverageAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF854181299F0E7600AB1ED9 /* BeverageAddView.swift */; };
-		BF85418B299F878500AB1ED9 /* CodableBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF85418A299F878500AB1ED9 /* CodableBundleExtension.swift */; };
+		BF854195299FBB7400AB1ED9 /* BeverageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF854194299FBB7400AB1ED9 /* BeverageModel.swift */; };
 		BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */; };
 		BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */; };
 		BFA53D7D299A6EC2007D943D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7C299A6EC2007D943D /* CustomTextField.swift */; };
@@ -67,9 +67,9 @@
 		0F325B0D299EE214004700EF /* ArchiveListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListView.swift; sourceTree = "<group>"; };
 		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BF854181299F0E7600AB1ED9 /* BeverageAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageAddView.swift; sourceTree = "<group>"; };
-		BF854188299F872400AB1ED9 /* hotBeverage.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = hotBeverage.geojson; sourceTree = "<group>"; };
-		BF854189299F873500AB1ED9 /* coldBeverage.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = coldBeverage.geojson; sourceTree = "<group>"; };
-		BF85418A299F878500AB1ED9 /* CodableBundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableBundleExtension.swift; sourceTree = "<group>"; };
+		BF854194299FBB7400AB1ED9 /* BeverageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageModel.swift; sourceTree = "<group>"; };
+		BF854196299FBE6600AB1ED9 /* beverage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = beverage.json; sourceTree = "<group>"; };
+		BF854198299FC02500AB1ED9 /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7C299A6EC2007D943D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -137,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				BFA53D82299A9AD9007D943D /* ImagePicker.swift */,
-				BF85418A299F878500AB1ED9 /* CodableBundleExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -278,10 +277,10 @@
 		BFE96FA529860434003E0934 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BFDB9EB5299EF80A00F2B957 /* BeverageAddViewModel.swift */,
 				BFDB9EB7299EFBA100F2B957 /* HomeViewModel.swift */,
 				BFA53D80299A99AC007D943D /* ProfileViewModel.swift */,
 				BFCED249299D193800E49EB6 /* ArchiveViewModel.swift */,
-				BFDB9EB5299EF80A00F2B957 /* BeverageAddViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -290,8 +289,9 @@
 			isa = PBXGroup;
 			children = (
 				BFCED246299C55E400E49EB6 /* CoffeeModel.swift */,
-				BF854188299F872400AB1ED9 /* hotBeverage.geojson */,
-				BF854189299F873500AB1ED9 /* coldBeverage.geojson */,
+				BF854194299FBB7400AB1ED9 /* BeverageModel.swift */,
+				BF854196299FBE6600AB1ED9 /* beverage.json */,
+				BF854198299FC02500AB1ED9 /* test.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -449,13 +449,13 @@
 			files = (
 				BFCED242299C40EB00E49EB6 /* BeverageCell.swift in Sources */,
 				0F325B0E299EE214004700EF /* ArchiveListView.swift in Sources */,
+				BF854195299FBB7400AB1ED9 /* BeverageModel.swift in Sources */,
 				BFE96FA82986047F003E0934 /* HomeView.swift in Sources */,
 				BFFF9A492999B144002D5ACC /* SettingView.swift in Sources */,
 				BFFF9A452999B127002D5ACC /* ArchiveView.swift in Sources */,
 				BFA53D7F299A8C31007D943D /* CustomCorner.swift in Sources */,
 				BFA53D7D299A6EC2007D943D /* CustomTextField.swift in Sources */,
 				BFCED254299D2B1E00E49EB6 /* BeverageDetailView.swift in Sources */,
-				BF85418B299F878500AB1ED9 /* CodableBundleExtension.swift in Sources */,
 				BFDB9EB8299EFBA100F2B957 /* HomeViewModel.swift in Sources */,
 				BFCED245299C445700E49EB6 /* SecondayButtonStyle.swift in Sources */,
 				BFA53D83299A9AD9007D943D /* ImagePicker.swift in Sources */,

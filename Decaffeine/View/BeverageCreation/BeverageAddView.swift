@@ -15,16 +15,26 @@ struct BeverageAddView: View {
     @StateObject var beverageAddvm : BeverageAddViewModel
     
     
+    //CATEOGRY
     @State var selectedCoffee = false
-    //MARK: - INIT
-//    init() {
-//        //NavigationBar Background & Foreground Color
-//        UINavigationBar.appearance().backgroundColor = UIColor(Color("mainColor"))
-//        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
-//    }
-    
     let titles: [String] = ["HOT", "COLD"]
-    @State var selectedIndex: Int?
+    @State var selectedIndex: Int = 0
+    
+    var selectedCategory: BeverageCategory {
+        return selectedIndex == 0 ? .hot : .cold
+    }
+    
+    var selectedBeverages: [Beverage] {
+        return Beverage.beverageList.filter { $0.category == selectedCategory }
+    }
+    
+    //MARK: - INIT
+    //    init() {
+    //        //NavigationBar Background & Foreground Color
+    //        UINavigationBar.appearance().backgroundColor = UIColor(Color("mainColor"))
+    //        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+    //    }
+    
     
     let layout : [GridItem] = [
         GridItem(.flexible()),
@@ -48,24 +58,9 @@ struct BeverageAddView: View {
                     ScrollView{
                         //COFFEE LIST
                         LazyVGrid(columns: layout) {
-                            //                            ForEach(1...8) {
-                            //                                item in BeverageCell(framework: item)
-                            ////                                    .onTapGesture {
-                            ////                                        vm.isShowingDetail = true
-                            ////                                        vm.selectedItem = item
-                            ////                                    }
-                            //                            }
-                            BeverageCell(beverageImageName: "longblack", beverageName: "Longblack")
-                            BeverageCell(beverageImageName: "longblack", beverageName: "Longblack")
-                            BeverageCell(beverageImageName: "longblack", beverageName: "Longblack")
-                            BeverageCell(beverageImageName: "longblack", beverageName: "Longblack")
-                            BeverageCell(beverageImageName: "longblack", beverageName: "Longblack")
-                            BeverageCell(beverageImageName: "longblack", beverageName: "Longblack")
-                            BeverageCell(beverageImageName: "longblack", beverageName: "Longblack")
-                            
-                            
-                            
-                            
+                            ForEach(selectedBeverages) { beverage in
+                                Text(beverage.beverageName)
+                            }
                         }
                     }
                 }
@@ -97,8 +92,8 @@ struct BeverageAddView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal, 32)
-  
-
+                
+                
                 
                 
                 
@@ -106,25 +101,32 @@ struct BeverageAddView: View {
                 
                 
             }
-  
+            
             
             .navigationTitle("Add New Caffeine")
             .navigationBarTitleDisplayMode(.inline)
             
         }
-
+        
     }
-
+    
     
     
     //MARK: - COMPONENTS
+    //    fileprivate var beverageCategory : some View {
+    //        HStack(spacing: 18) {
+    //            ForEach(beverageCategory.)
+    //        }
+    //    }
+    
     
     fileprivate var categoriesList : some View {
         SegmentedPicker(
             titles,
             selectedIndex: Binding(
                 get: { selectedIndex },
-                set: { selectedIndex = $0 }),
+                set: { selectedIndex = $0! }
+            ),
             selectionAlignment: .bottom,
             content: { item, isSelected in
                 Text(item)
@@ -138,9 +140,6 @@ struct BeverageAddView: View {
                     Color("mainColor").frame(height: 1)
                 }
             })
-        .onAppear {
-            selectedIndex = 0
-        }
         .animation(.easeInOut(duration: 0.3))
     }
     

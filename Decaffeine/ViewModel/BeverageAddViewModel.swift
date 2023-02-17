@@ -12,6 +12,9 @@ import RealmSwift
 
 class BeverageAddViewModel : ObservableObject {
     
+    //STATIC DATA (LIST))
+    @Published var beverageCateogry : BeverageCategory = .cold
+        
     
     @Published var coffees : Binding<[CoffeeModel]>
     @Published var coffee : CoffeeModel = CoffeeModel()

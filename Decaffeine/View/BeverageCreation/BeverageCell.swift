@@ -14,12 +14,30 @@ struct BeverageCell: View {
     
     //MARK: - BODY
     var body: some View {
-        VStack(alignment: .center, spacing: 10){
-            Image(beverageImageName)
-            Text(beverageName)
-                .font(.system(size: 14))
+        VStack{
+            ZStack{
+                Image(beverageImageName)
+                    .resizable()
+                    .scaledToFit()
+                    
+            }
+            .frame(width: getRect().width / 2.5 , height: getRect().width / 2.5)
         }
-        .padding(40)
+//        VStack(alignment: .center, spacing: 10){
+//            Image(beverageImageName)
+//            Text(beverageName)
+//                .font(.system(size: 14))
+//        }
+//        .padding(40)
+//
+//        .overlay(RoundedRectangle(cornerRadius: 11).stroke(lineWidth: 1).shadow(color: .black, radius: 1, x: 0, y: 1))
+        
+    }
+}
+
+extension View{
+    func getRect() -> CGRect{
+        return UIScreen.main.bounds
     }
 }
 

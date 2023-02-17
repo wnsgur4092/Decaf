@@ -1,0 +1,34 @@
+[
+
+    {
+        "id" : 2,
+        "beverageName" : "Long Black"
+        "beverageImageName" : "longBlack",
+        "category" : "hot"
+    },
+
+    {
+        "id" : 4,
+        "beverageName" : "Flat White"
+        "beverageImageName" : "flatWhite",
+        "category" : "hot"
+    },
+    {
+        "id" : 5,
+        "beverageName" : "Latte"
+        "beverageImageName" : "latte",
+        "category" : "hot"
+    },
+    {
+        "id" : 6,
+        "beverageName" : "Cappuccino"
+        "beverageImageName" : "cappuccino",
+        "category" : "hot"
+    }
+
+    
+
+
+]
+ 
+ 
