@@ -1,24 +1,25 @@
 //
-//  CoffeeModel.swift
+//  SelectedBeverage.swift
 //  Decaffeine
 //
-//  Created by JunHyuk Lim on 15/2/2023.
+//  Created by JunHyuk Lim on 19/2/2023.
 //
 
 import Foundation
 import RealmSwift
 
-class CoffeeModel : Object, Identifiable, Codable {
+class SelectedBeverage : Object, Identifiable, Codable {
     
     //Vandan Add
     @Persisted var id : UUID = UUID()
-    @Persisted var coffeeName : String = ""
-    @Persisted var coffeeImageName : String = ""
+    @Persisted var name : String = ""
+    @Persisted var imageName : String = ""
     @Persisted var numberOfShots : Double = 0.0
     @Persisted var size : String = ""
-    @Persisted var registerDate : String = ""
+    @Persisted var registerDate : Date = Date()
     
     override static func primaryKey() -> String? {
         return "id"
     }
 }
+

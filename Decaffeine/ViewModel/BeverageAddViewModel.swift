@@ -18,10 +18,7 @@ class BeverageAddViewModel : ObservableObject {
     
     @Published var beverages : Binding<[Beverage]>
     @Published var beverage : Beverage = Beverage(id: 1, category: .hot, beverageName: "Latte", beverageImageName: "latte")
-    
-    @Published var coffeeName : String = "" //Coffee Name
-    @Published var coffeeImageName : String = "" //Color Description
-    
+        
     @Published var numberOfShots : Double = 1.0 //Color R
     @Published var size : String = "Regular"
     @Published var registerDate : String = ""
@@ -101,13 +98,13 @@ class BeverageAddViewModel : ObservableObject {
 //        print(coffee.coffeeName)
 //    }
     
-    private func eraseForm(){
-        coffeeName = ""
-        coffeeImageName = ""
-        numberOfShots = 1.0
-        size = "Regular"
-    
-    }
+//    private func eraseForm(){
+//        coffeeName = ""
+//        coffeeImageName = ""
+//        numberOfShots = 1.0
+//        size = "Regular"
+//    
+//    }
 }
 
 

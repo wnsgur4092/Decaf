@@ -11,7 +11,7 @@ import SwiftUI
 struct DecaffeineApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BeverageSelectView(viewModel: BeverageInputViewModel(isPresented: .constant(false), selectedBeverages: .constant([])))
         }
     }
 }

@@ -1,16 +1,13 @@
 //
-//  BeverageModel.swift
+//  Beverage.swift
 //  Decaffeine
 //
-//  Created by JunHyuk Lim on 18/2/2023.
+//  Created by JunHyuk Lim on 19/2/2023.
 //
 
 import Foundation
 
-enum BeverageCategory : String, Codable ,CaseIterable{
-    case hot = "Hot"
-    case cold = "Cold"
-}
+
 
 struct Beverage : Identifiable, Codable, Hashable {
     var id : Int
@@ -18,6 +15,11 @@ struct Beverage : Identifiable, Codable, Hashable {
     var beverageName : String
     var beverageImageName : String
     
+}
+
+enum BeverageCategory : String, Codable ,CaseIterable{
+    case hot = "Hot"
+    case cold = "Cold"
 }
 
 extension Beverage {

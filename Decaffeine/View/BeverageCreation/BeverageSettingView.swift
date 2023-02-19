@@ -13,13 +13,13 @@ struct BeverageSettingView: View {
     
     let cupSizes = [("Small", "Tall"), ("Regular", "Grande"), ("Large", "Venti")]
     
-    @ObservedObject var vm : BeverageAddViewModel
-
+    @ObservedObject var viewModel : BeverageInputViewModel
+    
     
     //MARK: - BODY
     var body: some View {
         VStack{
-            ScrollView(.vertical, showsIndicators: false) {
+            ScrollView(.vertical, showsIndicators: true) {
                 topHeader
                     .padding(.bottom, 20)
                 
@@ -30,29 +30,33 @@ struct BeverageSettingView: View {
                     numberOfShotsButton
                         .padding(.horizontal, 60)
                         .padding(.bottom, 60)
-                    
-                    buttonSection
-                        .padding(.horizontal, 32)
-                        .padding(.bottom, 40)
                 }
             }
+            .padding(.bottom, 28)
+            .padding(.horizontal, 20)
+            
+            
+            buttonSection
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 32)
+                .padding(.bottom, 40)
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarTitle("Add New Caffeine")
-
+        
     }
     
     //MARK: - COMPONENTS
     fileprivate var topHeader : some View {
         VStack {
-            Image(vm.coffeeImageName)
+            Image(viewModel.selectedBeverage.imageName)
                 .padding(.top, 40)
                 .padding(.bottom, 40)
             
-            Text(vm.coffeeName)
+            Text(viewModel.selectedBeverage.name)
                 .font(.system(size: 30).bold())
         }
-
+        
         
     }
     
@@ -67,14 +71,14 @@ struct BeverageSettingView: View {
                     VStack{
                         ZStack(alignment: .bottom) {
                             Rectangle()
-                                .fill(Color.red)
+                                .fill(viewModel.selectedSize == size ? Color.red : Color.clear)
                                 .frame(width: 80, height: 110)
                                 .cornerRadius(10)
-                                
+                            
                             Image(size.lowercased())
                                 .padding(.vertical, 8)
-                            }
-  
+                        }
+                        
                         Text(size)
                             .font(.system(size: 14).bold())
                             .padding(.bottom, 2)
@@ -84,10 +88,14 @@ struct BeverageSettingView: View {
                             .foregroundColor(.secondary)
                     }
                     .padding(.horizontal, 20)
+                    .onTapGesture {
+                        viewModel.updateBeverageSize(size: size)
+                    }
                 }
             }
         }
     }
+    
     
     fileprivate var numberOfShotsButton : some View {
         VStack(alignment: .center){
@@ -109,7 +117,7 @@ struct BeverageSettingView: View {
                 
                 Text("1")
                     .font(.system(size: 36).bold())
-
+                
                 Spacer()
                 
                 Button {
@@ -137,7 +145,13 @@ struct BeverageSettingView: View {
             Spacer()
             
             Button {
-                print("Save buttonTapped")
+                print(viewModel.selectedBeverage.name)
+                print(viewModel.selectedBeverage.imageName)
+                print(viewModel.selectedBeverage.size)
+                print(viewModel.selectedBeverage.numberOfShots)
+                
+                viewModel.saveSelectedBeverage()
+                
             } label: {
                 Text("Save")
             }
@@ -147,13 +161,13 @@ struct BeverageSettingView: View {
             
         }
     }
-
+    
     
 }
 
 //MARK: - PREVIEW
 struct BeverageSettingView_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageSettingView(vm: BeverageAddViewModel(isPresented: .constant(false), beverages: .constant(Beverage.beverageList)))
+        BeverageSettingView(viewModel: BeverageInputViewModel(isPresented: .constant(false), selectedBeverages: .constant([])))
     }
 }

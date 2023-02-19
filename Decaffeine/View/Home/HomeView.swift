@@ -157,7 +157,7 @@ struct HomeView: View {
         .sheet(isPresented: $isAddNewCaffeinePresenting) {
             let vm = BeverageAddViewModel(isPresented: $isAddNewCaffeinePresenting, beverages: $homeVM.coffees)
             
-            BeverageAddView(beverageAddvm: vm)
+//            BeverageSelectView(beverageAddvm: vm)
         }
     }
 }
