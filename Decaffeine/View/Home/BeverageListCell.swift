@@ -13,23 +13,24 @@ struct BeverageListCell: View {
     
     var body: some View {
         VStack(alignment: .center){
-            ZStack{
-                Image(beverageImageName)
-                    .resizable()
-                    .scaledToFit()
-                
-            }
-            .frame(width: 100 , height: 100)
             
+            Image(beverageImageName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 118 , height: 195)
+                .padding(.bottom, 20)
+  
             Text(beverageName)
+                .lineLimit(2)
         }
+        .frame(width: 160, height: 240)
         .padding(.horizontal, 24)
         .padding(.bottom, 20)
         .background(
             ZStack {
                 Color.white
                     .cornerRadius(25)
-                    .shadow(color: .black.opacity(0.2), radius: 1, x: 2, y: 2)            }
+                .shadow(color: .black.opacity(0.2), radius: 1, x: 2, y: 2)            }
         )
         .padding(.vertical, 20)
     }
@@ -37,6 +38,6 @@ struct BeverageListCell: View {
 
 struct BeverageListCell_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageListCell(beverageName: "Latte", beverageImageName: "latte")
+        BeverageListCell(beverageName: "Iced Long Black", beverageImageName: "cicedlongblack")
     }
 }

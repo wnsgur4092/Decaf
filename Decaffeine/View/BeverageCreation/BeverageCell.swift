@@ -47,7 +47,7 @@ struct BeverageCell: View {
 //MARK: - PREVIEW
 struct BeverageCell_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageCell(beverageImageName: "latte", beverageName: "Iced  Long Black", index: 0, selectedBeverageIndex: .constant(nil))
+        BeverageCell(beverageImageName: "cicedlongblack", beverageName: "Iced  Long Black", index: 0, selectedBeverageIndex: .constant(nil))
     }
 }
 

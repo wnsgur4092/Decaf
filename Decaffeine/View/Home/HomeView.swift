@@ -25,8 +25,8 @@ struct HomeView: View {
             VStack{
                 header
                     .padding(.vertical,12)
-                //coffeeListImage
-                CarouselObject() //Frame is funky
+                
+//                Test()
             }
             .padding(.horizontal, 32)
             
