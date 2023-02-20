@@ -18,6 +18,8 @@ class SelectedBeverage : Object, Identifiable, Codable {
     @Persisted var size : String = ""
     @Persisted var registerDate : Date = Date()
     
+    @Persisted var caffeine : Int = 0
+    
     override static func primaryKey() -> String? {
         return "id"
     }

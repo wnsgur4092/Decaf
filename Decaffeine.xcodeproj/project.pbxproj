@@ -151,13 +151,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		BF85419B299FD5EB00AB1ED9 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		BFA53D77299A6087007D943D /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				BFFF9A482999B144002D5ACC /* SettingView.swift */,
-				BF85419B299FD5EB00AB1ED9 /* New Group */,
 				BFFF9A4A2999B14D002D5ACC /* AnnouncementView.swift */,
 			);
 			path = Setting;

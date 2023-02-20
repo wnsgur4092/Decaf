@@ -37,5 +37,26 @@ class HomeViewModel: ObservableObject {
             print("Realm observe error: \(error)")
         }
     }
+    
+    func totalCaffeineForToday() -> Int {
+        let calendar = Calendar.current
+        let today = Date()
+        let filteredList = list.filter {
+            calendar.isDate($0.registerDate, inSameDayAs: today)
+        }
+        let totalCaffeine = filteredList.reduce(0) { $0 + $1.caffeine }
+        return totalCaffeine
+    }
+    
+    func numberOfBeveragesForToday() -> Int {
+        let calendar = Calendar.current
+        let today = Date()
+        let filteredList = list.filter {
+            calendar.isDate($0.registerDate, inSameDayAs: today)
+        }
+        return filteredList.count
+    }
+    
+    
 }
 

@@ -3,7 +3,6 @@ import SwiftUI
 import RealmSwift
 import Combine
 
-
 class BeverageInputViewModel : ObservableObject {
  
     @Published var isPresented : Binding<Bool>
@@ -18,8 +17,10 @@ class BeverageInputViewModel : ObservableObject {
     @Published var numberOfShots : Double = 1.0
     @Published var size : String = "Regular"
     @Published var registerDate : Date = Date()
-    
     @Published var selectedSize: String?
+    
+    let caffeinePerShot : Double = 63 // ex) 63mg -> static 카페인 1shot 당 함량
+    @Published var totalCaffeine : Double = 0 // NumberOfShots * caffeinePerShot = totalCaffeine
     
     var subscriptions = Set<AnyCancellable>()
     
@@ -30,26 +31,7 @@ class BeverageInputViewModel : ObservableObject {
         self.isPresented = isPresented
         self.selectedBeverages = selectedBeverages
         
-        
-        $name.sink { name in
-            self.updateBeverageName(name: name)
-        }.store(in: &subscriptions)
-        
-        $imageName.sink { imageName in
-            self.updateBeverageImageName(imageName: imageName)
-        }.store(in: &subscriptions)
-        
-        $numberOfShots.sink { numberOfShots in
-            self.updateBeverageShots(numberOfShots: numberOfShots)
-        }.store(in: &subscriptions)
-        
-        $size.sink{ size in
-            self.updateBeverageSize(size: size)
-        }.store(in: &subscriptions)
-        
-        $registerDate.sink { date in
-            self.updateBeverageRegisterDate(registerDate: date)
-        }.store(in: &subscriptions)
+        observeCaffeine() // observeCaffeine 메서드를 호출하여 totalCaffeine 값을 계산 및 업데이트합니다.
     }
 
     func updateBeverageName(name: String) {
@@ -62,6 +44,7 @@ class BeverageInputViewModel : ObservableObject {
 
     func updateBeverageShots(numberOfShots: Double) {
         self.selectedBeverage.numberOfShots = numberOfShots
+        updateTotalCaffeine()
     }
 
     func updateBeverageSize(size: String) {
@@ -73,7 +56,18 @@ class BeverageInputViewModel : ObservableObject {
         self.selectedBeverage.registerDate = registerDate
     }
     
-    
+    func updateTotalCaffeine() {
+        self.totalCaffeine = self.numberOfShots * self.caffeinePerShot
+    }
+
+    func observeCaffeine() {
+        $totalCaffeine
+            .sink { [weak self] totalCaffeine in
+                self?.selectedBeverage.caffeine = Int(totalCaffeine)
+            }
+            .store(in: &subscriptions)
+    }
+
     //REALM DB
     func saveSelectedBeverage() {
         
@@ -86,14 +80,10 @@ class BeverageInputViewModel : ObservableObject {
             print("Failed to save selectedBeverage: \(error.localizedDescription)")
         }
         
-        
         selectedBeverage = SelectedBeverage()
         eraseForm()
         isPresented.wrappedValue = false
-        
-  
     }
-    
     
     private func eraseForm(){
         name = ""
@@ -102,6 +92,4 @@ class BeverageInputViewModel : ObservableObject {
         size = "Regular"
         registerDate = Date()
     }
-    
 }
-

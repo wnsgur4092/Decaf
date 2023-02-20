@@ -13,6 +13,8 @@ struct HomeView: View {
     
     @State var isPresenting = false
     
+    let maximumCaffeinePerDay : Int = 400
+    
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMM"
@@ -123,7 +125,7 @@ struct HomeView: View {
     //COFFEE COUNT TEXT
     fileprivate var coffeeCountText : some View {
         HStack{
-            Text("You durnk total 0 coffees")
+            Text("You had total \(homeVM.numberOfBeveragesForToday()) coffees")
                 .font(.system(size: 16))
                 .fontWeight(.regular)
                 .foregroundColor(Color("mainColor").opacity(0.8))
@@ -141,13 +143,14 @@ struct HomeView: View {
                 Spacer()
                 
                 HStack{
-                    Text("0")
-                        .foregroundColor(Color("mainColor"))
-                    Text("/ 400mg")
+                    Text("\(homeVM.totalCaffeineForToday())")
+                        .foregroundColor(homeVM.totalCaffeineForToday() <  maximumCaffeinePerDay ? Color("mainColor") : Color.red)
+                    Text("/ \(maximumCaffeinePerDay)mg")
                 }
+ 
             }
             
-            ProgressBar(todayIntake: 300, totalIntake: 400)
+            ProgressBar(todayIntake: Double(homeVM.totalCaffeineForToday()) , totalIntake: Double(maximumCaffeinePerDay))
         }
     }
     
