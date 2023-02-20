@@ -10,36 +10,32 @@ import RealmSwift
 import Combine
 import SwiftUI
 
-class HomeViewModel : ObservableObject {
-    
-    @Published var coffees : [Beverage] = []
-    
-    var subscription = Set<AnyCancellable>()
-    
+class HomeViewModel: ObservableObject {
+    @Published var list: [SelectedBeverage] = []
+
+    private var notificationToken: NotificationToken?
+
     init() {
-        
-//        getCoffeeData()
-        print("---> Realm Data File Location :\(Realm.Configuration.defaultConfiguration.fileURL!)")
-//        bind()
-        
+        observeListChanges()
     }
-    
-//    func getCoffeeData() {
-//        guard let realm = try? Realm() else {return}
-//        
-//        let savedCoffee = realm.objects(CoffeeModel.self)
-//        
-//        try! realm.write{
-//            self.coffees = savedCoffee.compactMap({$0})
-//        }
-//    }
-    
-//    private func bind(){
-//        $coffees.sink { items in
-//            print("---> List Changed : \(items)")
-//            self.dic = Dictionary(grouping: items, by: {$0.colorCategory})
-//            print("dic = \(self.dic)")
-//        }
-//        .store(in: &subscription)
-//    }
+
+    func observeListChanges() {
+        do {
+            let realm = try Realm()
+            notificationToken = realm.objects(SelectedBeverage.self).observe { [weak self] changes in
+                guard let self = self else { return }
+                switch changes {
+                case .initial(let list):
+                    self.list = Array(list)
+                case .update(let list, _, _, _):
+                    self.list = Array(list)
+                case .error(let error):
+                    print("Realm observe error: \(error)")
+                }
+            }
+        } catch {
+            print("Realm observe error: \(error)")
+        }
+    }
 }
+

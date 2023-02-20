@@ -18,13 +18,11 @@ struct ActiveButtonStyle: ButtonStyle {
         HStack {
             configuration.label.foregroundColor(textColor)
                 .font(.system(size: 16).bold())
-                
                 .padding(.vertical, 20)
                 .padding(.horizontal, 15)
         }
         .frame(maxWidth: .infinity)
         .background(bgColor.cornerRadius(28))
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
-
     }
 }

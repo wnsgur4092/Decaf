@@ -15,6 +15,7 @@ struct BeverageSettingView: View {
     
     @ObservedObject var viewModel : BeverageInputViewModel
     
+    @State var shot : Double = 1.0
     
     //MARK: - BODY
     var body: some View {
@@ -106,6 +107,10 @@ struct BeverageSettingView: View {
             
             HStack(alignment: .center){
                 Button {
+                
+                    viewModel.numberOfShots -= 0.5
+                        viewModel.updateBeverageShots(numberOfShots: viewModel.numberOfShots)
+                        
                     print("minusButton Tapped")
                 } label: {
                     Image(systemName: "minus.circle")
@@ -113,14 +118,18 @@ struct BeverageSettingView: View {
                         .frame(width: 44, height: 44)
                 }
                 
+                
                 Spacer()
                 
-                Text("1")
+                Text(String(viewModel.numberOfShots))
                     .font(.system(size: 36).bold())
                 
                 Spacer()
                 
                 Button {
+           
+                    viewModel.numberOfShots += 0.5
+                      viewModel.updateBeverageShots(numberOfShots: viewModel.numberOfShots)
                     print("plusButton Tapped")
                 } label: {
                     Image(systemName: "plus.circle")
@@ -151,6 +160,7 @@ struct BeverageSettingView: View {
                 print(viewModel.selectedBeverage.numberOfShots)
                 
                 viewModel.saveSelectedBeverage()
+                presentationMode.wrappedValue.dismiss()
                 
             } label: {
                 Text("Save")

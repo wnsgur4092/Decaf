@@ -78,7 +78,7 @@ struct OnBoardingView: View {
             .font(.system(size: 16))
             
         }
-        .buttonStyle(DisableButtonStyle())
+        .buttonStyle(ActiveButtonStyle())
         .fullScreenCover(isPresented: $isPresentingOnBoardingProfileView) {
             OnBoardingProfileView()
         }

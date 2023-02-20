@@ -13,8 +13,8 @@ class BeverageInputViewModel : ObservableObject {
     
     @Published var beverages : [Beverage] = Beverage.beverageList
     
-    @Published var name : String = "Latte"
-    @Published var imageName : String = "latte"
+    @Published var name : String = ""
+    @Published var imageName : String = ""
     @Published var numberOfShots : Double = 1.0
     @Published var size : String = "Regular"
     @Published var registerDate : Date = Date()
@@ -24,21 +24,39 @@ class BeverageInputViewModel : ObservableObject {
     var subscriptions = Set<AnyCancellable>()
     
     init(isPresented: Binding<Bool>, selectedBeverages: Binding<[SelectedBeverage]>) {
+        
+        print("---> Realm Data File Location :\(Realm.Configuration.defaultConfiguration.fileURL!)")
+        
         self.isPresented = isPresented
         self.selectedBeverages = selectedBeverages
         
-        // observe selectedBeverage changes and update name, imageName, numberOfShots, size, and registerDate
-        $selectedBeverage.sink { [weak self] selectedBeverage in
-            self?.name = selectedBeverage.name
-            self?.imageName = selectedBeverage.imageName
-            self?.numberOfShots = selectedBeverage.numberOfShots
-            self?.size = selectedBeverage.size
-            self?.registerDate = selectedBeverage.registerDate
+        
+        $name.sink { name in
+            self.updateBeverageName(name: name)
+        }.store(in: &subscriptions)
+        
+        $imageName.sink { imageName in
+            self.updateBeverageImageName(imageName: imageName)
+        }.store(in: &subscriptions)
+        
+        $numberOfShots.sink { numberOfShots in
+            self.updateBeverageShots(numberOfShots: numberOfShots)
+        }.store(in: &subscriptions)
+        
+        $size.sink{ size in
+            self.updateBeverageSize(size: size)
+        }.store(in: &subscriptions)
+        
+        $registerDate.sink { date in
+            self.updateBeverageRegisterDate(registerDate: date)
         }.store(in: &subscriptions)
     }
 
-    func updateBeverage(name: String, imageName: String) {
+    func updateBeverageName(name: String) {
         self.selectedBeverage.name = name
+    }
+    
+    func updateBeverageImageName(imageName: String){
         self.selectedBeverage.imageName = imageName
     }
 
@@ -58,6 +76,7 @@ class BeverageInputViewModel : ObservableObject {
     
     //REALM DB
     func saveSelectedBeverage() {
+        
         do {
             let realm = try Realm()
             try realm.write {
@@ -66,6 +85,23 @@ class BeverageInputViewModel : ObservableObject {
         } catch let error {
             print("Failed to save selectedBeverage: \(error.localizedDescription)")
         }
+        
+        
+        selectedBeverage = SelectedBeverage()
+        eraseForm()
+        isPresented.wrappedValue = false
+        
+  
     }
+    
+    
+    private func eraseForm(){
+        name = ""
+        imageName = ""
+        numberOfShots = 1.0
+        size = "Regular"
+        registerDate = Date()
+    }
+    
 }
 

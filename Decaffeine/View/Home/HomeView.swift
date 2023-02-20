@@ -11,7 +11,7 @@ struct HomeView: View {
     //MARK: - PROPERTIES
     @StateObject var homeVM : HomeViewModel
     
-    @State var isAddNewCaffeinePresenting = false
+    @State var isPresenting = false
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -91,11 +91,16 @@ struct HomeView: View {
     //COFFEE LIST IMAGE
     fileprivate var coffeeListImage : some View {
         //IF NO DATA IN COFFEE LIST
-        VStack{
-            //Image
-            Image("noList")
+//        VStack{
+//            //Image
+//            Image("noList")
+        HStack {
+            ForEach(homeVM.list) { list in
+                BeverageListCell(beverageName: list.name, beverageImageName: list.imageName)
+            }
+        }
             
-        } //: VSTACK : THERE IS NO DATA
+//        } //: VSTACK : THERE IS NO DATA
     }
     
     //COFFEE LIST DETAIL
@@ -149,16 +154,21 @@ struct HomeView: View {
     fileprivate var addNewButton : some View {
         Button {
             print("---> next button tapped")
-            isAddNewCaffeinePresenting = true
+            isPresenting = true
         } label: {
             Text("+ Add New Caffeine")
         }
         .buttonStyle(ActiveButtonStyle())
-        .sheet(isPresented: $isAddNewCaffeinePresenting) {
-            let vm = BeverageAddViewModel(isPresented: $isAddNewCaffeinePresenting, beverages: $homeVM.coffees)
+        .sheet(isPresented: $isPresenting) {
+            let vm = BeverageInputViewModel(isPresented: $isPresenting, selectedBeverages: $homeVM.list)
             
-//            BeverageSelectView(beverageAddvm: vm)
+            BeverageSelectView(viewModel: vm)
         }
+//        .sheet(isPresented: $isAddNewCaffeinePresenting) {
+//            let vm = BeverageAddViewModel(isPresented: $isAddNewCaffeinePresenting, beverages: $homeVM.coffees)
+//
+////            BeverageSelectView(beverageAddvm: vm)
+//        }
     }
 }
 

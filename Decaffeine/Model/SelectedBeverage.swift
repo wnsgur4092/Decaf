@@ -14,7 +14,7 @@ class SelectedBeverage : Object, Identifiable, Codable {
     @Persisted var id : UUID = UUID()
     @Persisted var name : String = ""
     @Persisted var imageName : String = ""
-    @Persisted var numberOfShots : Double = 0.0
+    @Persisted var numberOfShots : Double = 1.0
     @Persisted var size : String = ""
     @Persisted var registerDate : Date = Date()
     

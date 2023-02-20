@@ -14,6 +14,8 @@ struct BeverageSelectView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: BeverageInputViewModel
     
+    @State var isTapped = false
+    
     //CATEOGRY
     @State var selectedBeverageIndex : Int?
     let titles: [String] = ["HOT", "COLD"]
@@ -47,7 +49,7 @@ struct BeverageSelectView: View {
                 
                 Spacer()
                 
-//                BUTTON
+                //                BUTTON
                 buttonSection
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal, 32)
@@ -69,17 +71,20 @@ struct BeverageSelectView: View {
                     ForEach(Beverage.beverageList.indices, id: \.self) { index in
                         let beverage = Beverage.beverageList[index]
                         Button(action: {
-                            viewModel.updateBeverage(name: beverage.beverageName, imageName: beverage.beverageImageName)
-                            selectedBeverageIndex = index // Update the selected index
+                            viewModel.updateBeverageName(name: beverage.beverageName)
+                            viewModel.updateBeverageImageName(imageName: beverage.beverageImageName)
+                            
+                            
+                            selectedBeverageIndex = index
                         }) {
-                            BeverageCell(beverageImageName: beverage.beverageImageName, beverageName: beverage.beverageName, index: index, selectedBeverageIndex: $selectedBeverageIndex) // Pass the selectedBeverageIndex binding to BeverageCell
+                            BeverageCell(beverageImageName: beverage.beverageImageName, beverageName: beverage.beverageName, index: index, selectedBeverageIndex: $selectedBeverageIndex)
                         }
                     }
                 }
             }
         }
     }
-
+    
     
     fileprivate var buttonSection : some View {
         HStack{
@@ -90,16 +95,27 @@ struct BeverageSelectView: View {
             }
             .frame(maxWidth: 80, maxHeight: 40)
             .buttonStyle(SecondaryButtonStyle())
-
+            
             Spacer()
-            NavigationLink(destination: {
-                BeverageSettingView(viewModel: viewModel)
-            }, label: {
-                Text("Next")
-            })
+            
+            Button {
+                print("######## Name \(viewModel.selectedBeverage.name)")
+                print("######## imageName \(viewModel.selectedBeverage.imageName)")
+            } label: {
+                Text("Tap")
+            }
+
+            
+            
+            NavigationLink(
+                destination: BeverageSettingView(viewModel: viewModel),
+                label: {
+                    Text("Next")
+                })
             .frame(maxWidth: 80, maxHeight: 40)
-            .buttonStyle(DisableButtonStyle())
-            .disabled(viewModel.selectedBeverage == nil)
+            .buttonStyle(ActiveButtonStyle())
+            
+       
         }
     }
 }

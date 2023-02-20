@@ -19,13 +19,11 @@ struct DisableButtonStyle: ButtonStyle {
         HStack {
             configuration.label.foregroundColor(textColor)
                 .font(.system(size: 16).bold())
-            
-            .padding(.vertical, 20)
-            .padding(.horizontal, 15)
-    }
+                .padding(.vertical, 20)
+                .padding(.horizontal, 15)
+        }
+        .disabled(true) // 버튼을 비활성화합니다.
         .frame(maxWidth: .infinity)
         .background(bgColor.cornerRadius(28))
-//        .scaleEffect(configuration.isPressed ? 0.95 : 1)
-
     }
 }

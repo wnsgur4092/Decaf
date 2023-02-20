@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		0F325B0E299EE214004700EF /* ArchiveListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F325B0D299EE214004700EF /* ArchiveListView.swift */; };
 		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
+		BF3C15A429A28C6A00148C51 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BF3C15A329A28C6A00148C51 /* Realm */; };
+		BF3C15A629A28C6A00148C51 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF3C15A529A28C6A00148C51 /* RealmSwift */; };
+		BF3C15AB29A2951B00148C51 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C15AA29A2951B00148C51 /* CustomButtonStyle.swift */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
+		BF511B2929A2F15D00CBEED0 /* BeverageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF511B2829A2F15D00CBEED0 /* BeverageListCell.swift */; };
 		BF854182299F0E7600AB1ED9 /* BeverageSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */; };
 		BF85419A299FD55900AB1ED9 /* BeverageSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF854199299FD55900AB1ED9 /* BeverageSettingView.swift */; };
 		BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */; };
@@ -35,8 +39,6 @@
 		BFF2F92529A217B70038A067 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF2F92429A217B70038A067 /* Beverage.swift */; };
 		BFF2F92729A217CA0038A067 /* SelectedBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF2F92629A217CA0038A067 /* SelectedBeverage.swift */; };
 		BFF2F92929A218310038A067 /* BeverageInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF2F92829A218310038A067 /* BeverageInputViewModel.swift */; };
-		BFF2F92C29A27A620038A067 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BFF2F92B29A27A620038A067 /* Realm */; };
-		BFF2F92E29A27A620038A067 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BFF2F92D29A27A620038A067 /* RealmSwift */; };
 		BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A3E2999B102002D5ACC /* OnBoardingView.swift */; };
 		BFFF9A452999B127002D5ACC /* ArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A442999B126002D5ACC /* ArchiveView.swift */; };
 		BFFF9A492999B144002D5ACC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A482999B144002D5ACC /* SettingView.swift */; };
@@ -67,7 +69,9 @@
 
 /* Begin PBXFileReference section */
 		0F325B0D299EE214004700EF /* ArchiveListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListView.swift; sourceTree = "<group>"; };
+		BF3C15AA29A2951B00148C51 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		BF511B2829A2F15D00CBEED0 /* BeverageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageListCell.swift; sourceTree = "<group>"; };
 		BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSelectView.swift; sourceTree = "<group>"; };
 		BF854199299FD55900AB1ED9 /* BeverageSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSettingView.swift; sourceTree = "<group>"; };
 		BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableButtonStyle.swift; sourceTree = "<group>"; };
@@ -111,8 +115,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFF2F92E29A27A620038A067 /* RealmSwift in Frameworks */,
-				BFF2F92C29A27A620038A067 /* Realm in Frameworks */,
+				BF3C15A629A28C6A00148C51 /* RealmSwift in Frameworks */,
+				BF3C15A429A28C6A00148C51 /* Realm in Frameworks */,
 				BFFF9A50299A462B002D5ACC /* Lottie in Frameworks */,
 				BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */,
 			);
@@ -154,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */,
+				BF3C15AA29A2951B00148C51 /* CustomButtonStyle.swift */,
 				BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */,
 				BFCED244299C445700E49EB6 /* SecondayButtonStyle.swift */,
 				BFA53D7C299A6EC2007D943D /* CustomTextField.swift */,
@@ -188,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				BFE96FA72986047F003E0934 /* HomeView.swift */,
+				BF511B2829A2F15D00CBEED0 /* BeverageListCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -334,8 +340,8 @@
 			packageProductDependencies = (
 				BFFF9A4F299A462B002D5ACC /* Lottie */,
 				BF2B706E299BDAF3000E1F99 /* SegmentedPicker */,
-				BFF2F92B29A27A620038A067 /* Realm */,
-				BFF2F92D29A27A620038A067 /* RealmSwift */,
+				BF3C15A329A28C6A00148C51 /* Realm */,
+				BF3C15A529A28C6A00148C51 /* RealmSwift */,
 			);
 			productName = Decaffeine;
 			productReference = BFE96F7729860376003E0934 /* Decaffeine.app */;
@@ -412,7 +418,7 @@
 			packageReferences = (
 				BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				BF2B706D299BDAF3000E1F99 /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */,
-				BFF2F92A29A27A620038A067 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				BF3C15A229A28C6A00148C51 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = BFE96F7829860376003E0934 /* Products */;
 			projectDirPath = "";
@@ -468,7 +474,9 @@
 				BFCED254299D2B1E00E49EB6 /* ArchiveListDetailView.swift in Sources */,
 				BFDB9EB8299EFBA100F2B957 /* HomeViewModel.swift in Sources */,
 				BFCED245299C445700E49EB6 /* SecondayButtonStyle.swift in Sources */,
+				BF511B2929A2F15D00CBEED0 /* BeverageListCell.swift in Sources */,
 				BFA53D83299A9AD9007D943D /* ImagePicker.swift in Sources */,
+				BF3C15AB29A2951B00148C51 /* CustomButtonStyle.swift in Sources */,
 				BF854182299F0E7600AB1ED9 /* BeverageSelectView.swift in Sources */,
 				BFE96F7D29860376003E0934 /* ContentView.swift in Sources */,
 				BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */,
@@ -828,12 +836,12 @@
 				minimumVersion = 0.0.2;
 			};
 		};
-		BFF2F92A29A27A620038A067 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		BF3C15A229A28C6A00148C51 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = exactVersion;
+				version = 10.34.1;
 			};
 		};
 		BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
@@ -852,14 +860,14 @@
 			package = BF2B706D299BDAF3000E1F99 /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */;
 			productName = SegmentedPicker;
 		};
-		BFF2F92B29A27A620038A067 /* Realm */ = {
+		BF3C15A329A28C6A00148C51 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BFF2F92A29A27A620038A067 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = BF3C15A229A28C6A00148C51 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
-		BFF2F92D29A27A620038A067 /* RealmSwift */ = {
+		BF3C15A529A28C6A00148C51 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BFF2F92A29A27A620038A067 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = BF3C15A229A28C6A00148C51 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 		BFFF9A4F299A462B002D5ACC /* Lottie */ = {

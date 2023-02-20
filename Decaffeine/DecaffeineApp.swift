@@ -7,11 +7,12 @@
 
 import SwiftUI
 
+
 @main
 struct DecaffeineApp: App {
     var body: some Scene {
         WindowGroup {
-            BeverageSelectView(viewModel: BeverageInputViewModel(isPresented: .constant(false), selectedBeverages: .constant([])))
+            HomeView(homeVM: HomeViewModel())
         }
     }
 }
