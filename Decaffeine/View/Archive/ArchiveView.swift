@@ -15,33 +15,35 @@ struct ArchiveView: View {
     
     //MARK: - BODY
     var body: some View {
-        VStack{
-            header
-            
-            //CALENDAR
-            weeklyCalendar
-                .padding(.bottom, 20)
-
-            //TOTAL CAFFEINE
-            totalCaffeine
-                .padding(.bottom, 20)
-            
+        NavigationView {
             VStack{
-                //TIME LINE HEADER
-                timeLineHeader
-                    .padding(.bottom, 10)
+                header
                 
-                Divider()
-                    .padding(.bottom, 10)
+                //CALENDAR
+                weeklyCalendar
+                    .padding(.bottom, 20)
                 
-                //TIME LINE
-                ScrollView(.vertical, showsIndicators: false) {
-                    archiveListView
+                //TOTAL CAFFEINE
+                totalCaffeine
+                    .padding(.bottom, 20)
+                
+                VStack{
+                    //TIME LINE HEADER
+                    timeLineHeader
+                        .padding(.bottom, 10)
+                    
+                    Divider()
+                        .padding(.bottom, 10)
+                    
+                    //TIME LINE
+                    ScrollView(.vertical, showsIndicators: false) {
+                        archiveListView
+                    }
+                    
                 }
-                
             }
+            .padding(.horizontal, 32)
         }
-        .padding(.horizontal, 32)
     }
     //MARK: - COMPONENTS
     
@@ -78,8 +80,8 @@ struct ArchiveView: View {
             
         }
     }
-  
-
+    
+    
     //WEEKLY CALENDAR
     fileprivate var weeklyCalendar : some View {
         VStack {
@@ -94,10 +96,10 @@ struct ArchiveView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 20, height: 20)
-//                        Circle()
-//                            .fill(.white)
-//                            .frame(width: 8, height: 8)
-//                            .opacity(archiveViewModel.isToday(date: day) ? 1 : 0)
+                        //                        Circle()
+                        //                            .fill(.white)
+                        //                            .frame(width: 8, height: 8)
+                        //                            .opacity(archiveViewModel.isToday(date: day) ? 1 : 0)
                     }//: VSTACK
                     .foregroundColor(archiveViewModel.isToday(date: day) ? .white : .black.opacity(0.5))
                     .font(.system(size: 14))
@@ -141,16 +143,26 @@ struct ArchiveView: View {
                 .frame(maxWidth: .infinity,
                        alignment: .leading)
         }
-
     }
     
     //ARCHIVE LIST VIEW
     fileprivate var archiveListView: some View {
         ForEach(archiveViewModel.selectedBeverages, id: \.id) { beverage in
-            ArchiveListView(title: beverage.name, size: beverage.size, numberOfShots: beverage.numberOfShots, date: beverage.registerDate)
+            NavigationLink(destination: ArchiveListDetailView(
+                viewModel: archiveViewModel, day: beverage.registerDate,
+                date: beverage.registerDate,
+                time: beverage.registerDate,
+                month: beverage.registerDate, detailImage: beverage.imageName,
+                detailName: beverage.name)) {
+                    ArchiveListView(
+                        title: beverage.name,
+                        size: beverage.size,
+                        numberOfShots: beverage.numberOfShots,
+                        date: beverage.registerDate)
+                }
         }
     }
-
+    
 }
 
 //MARK: - EXTENSION

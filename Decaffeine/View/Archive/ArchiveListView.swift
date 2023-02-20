@@ -9,50 +9,56 @@ import SwiftUI
 
 struct ArchiveListView: View {
     //MARK: - PROPERTIES
+    @ObservedObject var viewModel = ArchiveViewModel()
     var title: String
     var size: String
     var numberOfShots: Double
-    
     var date: Date
     
     //MARK: - BODY
     var body: some View {
         VStack(spacing: 10) {
             HStack(alignment: .top, spacing: 5) {
-                Text(formattedTime(date: date))
+                Text(viewModel.formatTime(time: date))
                     .font(.subheadline)
                     .multilineTextAlignment(.leading)
                     .offset(y: 4)
                     .frame(maxWidth: 80,
                            alignment: .topLeading)
                 
-                VStack {
-                    Text(title)
-                        .font(.system(size: 14).bold())
-                        .foregroundColor(Color.white)
-                        .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity,
-                               alignment: .leading)
-                        .padding(.bottom, 16)
+                HStack {
+                    VStack{
+                        Text(title)
+                            .font(.system(size: 14).bold())
+                            .foregroundColor(Color.white)
+                            .multilineTextAlignment(.leading)
+                            .frame(maxWidth: .infinity,
+                                   alignment: .leading)
+                            .padding(.bottom, 16)
+                        
+                        Text(size)
+                            .font(.system(size: 12))
+                            .fontWeight(.regular)
+                            .foregroundColor(Color.white)
+                            .multilineTextAlignment(.leading)
+                            .frame(maxWidth: .infinity,
+                                   alignment: .leading)
+                            .padding(.bottom, 5)
+                        
+                        Text("\(String(format: "%.1f", numberOfShots)) Shots")
+                            .font(.system(size: 12))
+                            .fontWeight(.regular)
+                            .foregroundColor(Color.white)
+                            .multilineTextAlignment(.leading)
+                            .frame(maxWidth: .infinity,
+                                   alignment: .leading)
+                    }
                     
-                    Text(size)
-                        .font(.system(size: 12))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color.white)
-                        .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity,
-                               alignment: .leading)
-                        .padding(.bottom, 5)
                     
-                    Text("\(String(format: "%.1f", numberOfShots)) Shots")
-                        .font(.system(size: 12))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color.white)
-                        .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity,
-                               alignment: .leading)
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(.white)
+                    
                 }
-                .font(.subheadline)
                 .padding(15)
                 .frame(maxWidth: .infinity,
                        alignment: .leading)
@@ -66,7 +72,7 @@ struct ArchiveListView: View {
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: date)
     }
-
+    
 }
 
 struct ArchiveListView_Previews: PreviewProvider {

@@ -71,9 +71,24 @@ class ArchiveViewModel : ObservableObject {
     func formatDay(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
-        dateFormatter.dateFormat = "d" // Day of month
+        dateFormatter.dateFormat = "dd" // Day of month
         return dateFormatter.string(from: date)
     }
+    
+    func formatMonth(month: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = "MMM" // Day of month
+        return dateFormatter.string(from: month)
+    }
+    
+    func formatTime(time : Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = "HH:mm" // Day of month
+        return dateFormatter.string(from: time)
+    }
+
     
     //Check Current Day is Today
     func isToday(date: Date)->Bool{

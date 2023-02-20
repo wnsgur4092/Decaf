@@ -9,16 +9,19 @@ import SwiftUI
 
 struct ArchiveListDetailView: View {
     
+    //MARK: - PROPERTIES
     @State private var showingAlert = false
+
+    @ObservedObject var viewModel : ArchiveViewModel
     
-    //grid to make items level
+    var day: Date
+    var date : Date
+    var time : Date
+    var month : Date
+    var detailImage : String
+    var detailName : String
     
-    let layout : [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
-    
+    //MARK: - BODY
     var body: some View {
         VStack {
             
@@ -30,8 +33,8 @@ struct ArchiveListDetailView: View {
             Spacer()
                 .frame(maxHeight: 150)
             
-            //Image(coffetype.image)
-            Text("Coffee Image") // image goes here of selected coffee
+            
+            image
             
             Spacer()
                 .frame(maxHeight: 150)
@@ -67,24 +70,28 @@ struct ArchiveListDetailView: View {
                     .frame(maxWidth: 20,maxHeight: 20)
             }
             .padding(.leading, 24)
-            .padding(.trailing, 16)
+            .padding(.trailing, 24)
             
-            Group {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("Thu,")
-                            .fontWeight(.bold)
-                            .font(.system(size: 24))
-                            .foregroundColor(.white)
-                        Text("05 Jun")
-                            .font(.system(size: 24))
-                            .foregroundColor(.white)
-                    } //Date recorded on app
-                    Text ("11:35 AM") //Time recorded on app
-                        .font(.system(size: 20))
-                        .foregroundColor(.white)
-                }
+            
+            VStack(alignment: .leading, spacing: 10) {
+                HStack {
+                    Text(viewModel.formatDate(day: day)) //DAY
+                        .fontWeight(.bold)
+                        .font(.system(size: 24))
+                    
+                    Text(viewModel.formatDay(date: date)) //DATE
+                        .font(.system(size: 24))
+                    
+                    Text(viewModel.formatMonth(month: date)) //DATE
+                        .font(.system(size: 24))
+                    
+                } //Date recorded on app
+                Text (viewModel.formatTime(time: date)) //Time
+                    .font(.system(size: 20))
+                
             }
+            .foregroundColor(.white)
+            
             
             Spacer()
         }
@@ -92,30 +99,25 @@ struct ArchiveListDetailView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
     
+    fileprivate var image : some View {
+        Image(detailImage)
+    }
+    
     //Coffee Description Section
     
     fileprivate var coffeeDescription : some View {
         VStack {
-            Spacer()
-                .frame(maxHeight: 48)
-            Text("Coffee Title")
+            Text(detailName)
                 .font(.system(size: 30))
                 .fontWeight(.bold)
+                .padding(.top, 48)
                 .padding(.bottom, 24)
-            LazyVGrid(columns: layout) {
-                
+            
+            HStack{
                 BeverageDetailCell(detailImageName: "small", detailName: "Size", detailExtra: "Large")
                 BeverageDetailCell(detailImageName: "shot", detailName: "Shots", detailExtra: "4")
+                BeverageDetailCell(detailImageName: "coffeebean", detailName: "Shots", detailExtra: "126mg")
                 
-                VStack {
-                    
-                    Text("Caffeine")
-                        .font(.system(size: 16))
-                        .fontWeight(.bold)
-                        .padding(.bottom, 36)
-                    Text("2000mg")
-                        .padding(.bottom, 16)
-                }
             }
         }
     }
@@ -133,23 +135,23 @@ struct ArchiveListDetailView: View {
                     .padding(32)
             }
             .alert(isPresented: $showingAlert) {
-                    Alert(
-                        title: Text("Are you sure you want to delete this coffee?"),
-                        primaryButton: .destructive(Text("Delete")) {
-                            print("Deleting...") //put here code to delete coffee
-                        },
-                        secondaryButton: .cancel()
-                    )
+                Alert(
+                    title: Text("Are you sure you want to delete this coffee?"),
+                    primaryButton: .destructive(Text("Delete")) {
+                        print("Deleting...") //put here code to delete coffee
+                    },
+                    secondaryButton: .cancel()
+                )
             }
-                
+            
             .padding(.trailing, 16)
         }
         .accentColor(Color("mainColor"))
     }
 }
 
-struct ArchiveListDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        ArchiveListDetailView()
-    }
-}
+//struct ArchiveListDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ArchiveListDetailView(viewModel: ArchiveViewModel(), day: <#T##Date#>, date: <#T##Date#>, time: <#T##Date#>, beverageImage: <#T##String#>, month: <#T##Date#>)
+//    }
+//}

@@ -174,7 +174,6 @@
 				BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */,
 				BFCED241299C40EB00E49EB6 /* BeverageCell.swift */,
 				BF854199299FD55900AB1ED9 /* BeverageSettingView.swift */,
-				CECE0D6D299DBCAE00BDC0AB /* BeverageDetailCell.swift */,
 			);
 			path = BeverageCreation;
 			sourceTree = "<group>";
@@ -185,6 +184,7 @@
 				BFFF9A442999B126002D5ACC /* ArchiveView.swift */,
 				0F325B0D299EE214004700EF /* ArchiveListView.swift */,
 				BFCED253299D2B1E00E49EB6 /* ArchiveListDetailView.swift */,
+				CECE0D6D299DBCAE00BDC0AB /* BeverageDetailCell.swift */,
 			);
 			path = Archive;
 			sourceTree = "<group>";
