@@ -8,144 +8,72 @@
 import SwiftUI
 
 struct ArchiveListView: View {
+    //MARK: - PROPERTIES
+    var title: String
+    var size: String
+    var numberOfShots: Double
     
-var body: some View {
+    var date: Date
     
-    VStack (spacing: 10){
-        HStack {
-            Text("Time")
+    //MARK: - BODY
+    var body: some View {
+        VStack(spacing: 10) {
+            HStack(alignment: .top, spacing: 5) {
+                Text(formattedTime(date: date))
+                    .font(.subheadline)
+                    .multilineTextAlignment(.leading)
+                    .offset(y: 4)
+                    .frame(maxWidth: 80,
+                           alignment: .topLeading)
+                
+                VStack {
+                    Text(title)
+                        .font(.system(size: 14).bold())
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity,
+                               alignment: .leading)
+                        .padding(.bottom, 16)
+                    
+                    Text(size)
+                        .font(.system(size: 12))
+                        .fontWeight(.regular)
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity,
+                               alignment: .leading)
+                        .padding(.bottom, 5)
+                    
+                    Text("\(String(format: "%.1f", numberOfShots)) Shots")
+                        .font(.system(size: 12))
+                        .fontWeight(.regular)
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity,
+                               alignment: .leading)
+                }
                 .font(.subheadline)
-                .multilineTextAlignment(.leading)
-                .opacity(0.4)
-                .frame(alignment: .leading)
-                .padding(.trailing, 50)
-            
-            Text("Caffeine")
-                .font(.subheadline)
-                .multilineTextAlignment(.leading)
-                .opacity(0.4)
+                .padding(15)
                 .frame(maxWidth: .infinity,
                        alignment: .leading)
-        }
-            .padding(.bottom, 10)
-        
-        HStack (alignment: .top, spacing: 5)  {
-            Text("11:35")
-                .font(.subheadline)
-                .multilineTextAlignment(.leading)
-                .frame(maxWidth: 80,
-                       alignment: .topLeading)
-                           
-            VStack {
-                Text("Cappuccino")
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity,
-                           alignment: .leading)
-                    .padding(.bottom, 15)
-            
-                
-                Text("Large")
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity,
-                           alignment: .leading)
-                    .padding(.bottom, 5)
-
-                Text("2 Shots")
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity,
-                           alignment: .leading)
+                .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
             }
-            .font(.subheadline)
-            .padding(15)
-            .frame(maxWidth: .infinity,
-                   alignment: .leading)
-            .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
         }
-        
-        HStack (alignment: .top, spacing: 5)  {
-            Text("11:35")
-                .font(.subheadline)
-                .multilineTextAlignment(.leading)
-                .frame(maxWidth: 80,
-                       alignment: .topLeading)
-                           
-            VStack {
-                Text("Cappuccino")
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity,
-                           alignment: .leading)
-                    .padding(.bottom, 15)
-         
-                
-                Text("Large")
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity,
-                           alignment: .leading)
-                    .padding(.bottom, 5)
-
-                Text("2 Shots")
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity,
-                           alignment: .leading)
-            }
-            .font(.subheadline)
-            .padding(15)
-            .frame(maxWidth: .infinity,
-                   alignment: .leading)
-            .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
-        }
-        
-        HStack (alignment: .top, spacing: 5)  {
-            Text("11:35")
-                .font(.subheadline)
-                .multilineTextAlignment(.leading)
-                .frame(maxWidth: 80,
-                       alignment: .topLeading)
-                           
-            VStack {
-                Text("Cappuccino")
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity,
-                           alignment: .leading)
-                    .padding(.bottom, 15)
- 
-                
-                Text("Large")
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity,
-                           alignment: .leading)
-                    .padding(.bottom, 5)
-
-                Text("2 Shots")
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity,
-                           alignment: .leading)
-            }
-            .font(.subheadline)
-            .padding(15)
-            .frame(maxWidth: .infinity,
-                   alignment: .leading)
-            .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
-        }
-        
-        Spacer()
+    }
+    
+    func formattedTime(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        return dateFormatter.string(from: date)
     }
 
-    }
 }
-
 
 struct ArchiveListView_Previews: PreviewProvider {
     static var previews: some View {
-        ArchiveListView()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let time = dateFormatter.date(from: "11:35") ?? Date()
+        return ArchiveListView(title: "Cappuccino", size: "Large", numberOfShots: 2, date: time)
     }
 }

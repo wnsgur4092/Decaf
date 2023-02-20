@@ -24,18 +24,25 @@ struct ArchiveView: View {
 
             //TOTAL CAFFEINE
             totalCaffeine
-                .padding(.bottom, 40)
-            //TIME LINE
-            ScrollView(.vertical, showsIndicators: true) {
-                ArchiveListView()
+                .padding(.bottom, 20)
+            
+            VStack{
+                //TIME LINE HEADER
+                timeLineHeader
+                    .padding(.bottom, 10)
+                
+                Divider()
+                    .padding(.bottom, 10)
+                
+                //TIME LINE
+                ScrollView(.vertical, showsIndicators: false) {
+                    archiveListView
+                }
                 
             }
         }
         .padding(.horizontal, 32)
-        
-        
     }
-    
     //MARK: - COMPONENTS
     
     //HEADER
@@ -71,7 +78,9 @@ struct ArchiveView: View {
             
         }
     }
-    
+  
+
+    //WEEKLY CALENDAR
     fileprivate var weeklyCalendar : some View {
         VStack {
             HStack(spacing: 10) {
@@ -107,6 +116,7 @@ struct ArchiveView: View {
                         //Updating Current Day
                         withAnimation {
                             archiveViewModel.currentDay = day
+                            archiveViewModel.fetchSelectedBeverages(for: day)
                         }
                     }
                 } //: FOREACH
@@ -114,13 +124,45 @@ struct ArchiveView: View {
         }
     }
     
-    fileprivate var archiveListView : some View {
-        LazyVStack{
+    //TIME LINE HEADER
+    fileprivate var timeLineHeader : some View {
+        HStack {
+            Text("Time")
+                .font(.subheadline)
+                .multilineTextAlignment(.leading)
+                .opacity(0.4)
+                .frame(alignment: .leading)
+                .padding(.trailing, 50)
             
+            Text("Beverage")
+                .font(.subheadline)
+                .multilineTextAlignment(.leading)
+                .opacity(0.4)
+                .frame(maxWidth: .infinity,
+                       alignment: .leading)
         }
+
+    }
+    
+    //ARCHIVE LIST VIEW
+    fileprivate var archiveListView: some View {
+        ForEach(archiveViewModel.selectedBeverages, id: \.id) { beverage in
+            ArchiveListView(title: beverage.name, size: beverage.size, numberOfShots: beverage.numberOfShots, date: beverage.registerDate)
+        }
+    }
+
+}
+
+//MARK: - EXTENSION
+extension Date {
+    func toString(format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
     }
 }
 
+//MARK: - PREVIEW
 struct ArchiveView_Previews: PreviewProvider {
     static var previews: some View {
         ArchiveView()

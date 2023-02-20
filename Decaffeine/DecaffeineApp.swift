@@ -12,7 +12,7 @@ import SwiftUI
 struct DecaffeineApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView(homeVM: HomeViewModel())
+            ContentView()
         }
     }
 }
