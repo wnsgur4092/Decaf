@@ -29,7 +29,8 @@ struct HomeView: View {
                 header
                     .padding(.vertical,12)
                 
-//                Test()
+                CarouselView()
+                
             }
             .padding(.horizontal, 32)
             
@@ -52,15 +53,9 @@ struct HomeView: View {
                 }
                 .padding(.horizontal, 32)
             }
-            .background(
-                Color.white
-                    .frame(maxWidth:.infinity, maxHeight: .infinity)
-                    .clipShape(CustomCorner(corners: [.topLeft,.topRight], radius: 33))
-                    .ignoresSafeArea()
-            )
+
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("mainColor").ignoresSafeArea(edges: [.top, .bottom]))
         .frame(maxWidth: .infinity)
     }
     
@@ -88,7 +83,7 @@ struct HomeView: View {
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color.white, lineWidth: 0.5))
         }
-        .foregroundColor(.white)
+        .foregroundColor(.black)
         .frame(maxWidth: .infinity, alignment: .leading)
     }
     
