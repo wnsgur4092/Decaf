@@ -9,17 +9,16 @@ import Foundation
 
 
 
-struct Beverage : Identifiable, Codable, Hashable {
-    var id : Int
-    var category : BeverageCategory
-    var beverageName : String
-    var beverageImageName : String
-    
-}
-
-enum BeverageCategory : String, Codable ,CaseIterable{
+enum BeverageCategory: String, CaseIterable {
     case hot = "Hot"
     case cold = "Cold"
+}
+
+struct Beverage: Identifiable {
+    let id: Int
+    let category: BeverageCategory
+    let beverageName: String
+    let beverageImageName: String
 }
 
 extension Beverage {

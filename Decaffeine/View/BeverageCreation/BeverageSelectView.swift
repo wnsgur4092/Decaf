@@ -14,47 +14,36 @@ struct BeverageSelectView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: BeverageInputViewModel
     
+    @State private var selectedBeverageIndex : Int?
+    @State private var selectedCategory: BeverageCategory = .hot
+    @State private var selectedBeverages: [Beverage] = Beverage.beverageList.filter { $0.category == .hot }
    
-    
-    //CATEOGRY
-    @State var selectedBeverageIndex : Int?
-    let titles: [String] = ["HOT", "COLD"]
-    @State var selectedIndex: Int = 0
-    
-    var selectedCategory: BeverageCategory {
-        return selectedIndex == 0 ? .hot : .cold
-    }
-    
-    var selectedBeverages: [Beverage] {
-        return Beverage.beverageList.filter { $0.category == selectedCategory }
-    }
-    
-    let layout : [GridItem] = [        GridItem(.flexible()),        GridItem(.flexible())    ]
-    
     //MARK: - BODY
     var body: some View {
         NavigationView {
             VStack{
                 //CATEOGRY
-                HStack{
-                    Spacer()
-                }
-                .padding(.horizontal, 32)
-                .padding(.vertical, 20)
+                beverageCateogry
+                Divider()
                 
                 //SCROLLVIEW
-                beverageLists
-                    .padding(.bottom, 28)
-                    .padding(.horizontal, 20)
+                VStack {
+                    beverageLists
+                        .padding(.top, 10)
+                        
+                    Divider()
+                }
+            
+    
                 
-                Spacer()
-                
-                //                BUTTON
-                buttonSection
-                    .frame(maxWidth: .infinity)
-                    .padding(.horizontal, 32)
-                    .padding(.bottom, 40)
-                
+                VStack{
+            
+                    
+                    buttonSection
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal, 32)
+                        .padding(.vertical, 20)
+                }
             }
             .navigationTitle("Add New Caffeine")
             .navigationBarTitleDisplayMode(.inline)
@@ -63,26 +52,29 @@ struct BeverageSelectView: View {
     }
     
     //MARK: - COMPONENTS
-//    fileprivate var beverageCateogry : some View {
-//
-//    }
+    fileprivate var beverageCateogry : some View {
+        Picker("Category", selection: $selectedCategory) {
+            ForEach(BeverageCategory.allCases, id: \.self) { category in
+                Text(category.rawValue)
+            }
+        }
+        .pickerStyle(SegmentedPickerStyle())
+        .padding(.horizontal)
+        .onChange(of: selectedCategory) { value in
+            selectedBeverages = Beverage.beverageList.filter { $0.category == selectedCategory }
+        }
+    }
     
     fileprivate var beverageLists : some View {
-        HStack(alignment:.bottom){
-            ScrollView{
-                //COFFEE LIST
-                LazyVGrid(columns: layout) {
-                    ForEach(Beverage.beverageList.indices, id: \.self) { index in
-                        let beverage = Beverage.beverageList[index]
-                        Button(action: {
-                            viewModel.updateBeverageName(name: beverage.beverageName)
-                            viewModel.updateBeverageImageName(imageName: beverage.beverageImageName)
-                            
-                            
-                            selectedBeverageIndex = index
-                        }) {
-                            BeverageCell(beverageImageName: beverage.beverageImageName, beverageName: beverage.beverageName, index: index, selectedBeverageIndex: $selectedBeverageIndex)
-                        }
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))]) {
+                ForEach(selectedBeverages) { beverage in
+                    Button(action: {
+                        viewModel.updateBeverageName(name: beverage.beverageName)
+                        viewModel.updateBeverageImageName(imageName: beverage.beverageImageName)
+                        selectedBeverageIndex = beverage.id - 1
+                    }) {
+                        BeverageCell(beverageImageName: beverage.beverageImageName, beverageName: beverage.beverageName, index: beverage.id - 1, selectedBeverageIndex: $selectedBeverageIndex)
                     }
                 }
             }
@@ -91,7 +83,7 @@ struct BeverageSelectView: View {
     
     
     fileprivate var buttonSection : some View {
-        HStack{
+        HStack {
             Button {
                 presentationMode.wrappedValue.dismiss()
             } label: {
@@ -109,8 +101,6 @@ struct BeverageSelectView: View {
                 })
             .frame(maxWidth: 80, maxHeight: 40)
             .buttonStyle(ActiveButtonStyle())
-            
-       
         }
     }
 }
