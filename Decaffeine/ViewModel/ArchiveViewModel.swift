@@ -15,7 +15,6 @@ class ArchiveViewModel : ObservableObject {
     //MARK: - INTIAL
     init() {
         fetchCurrentWeek()
-        fetchCurrentMonth()
         fetchSelectedBeverages(for: currentDay) // 선택한 날짜에 해당하는 음료 불러오기
     }
     
@@ -54,7 +53,7 @@ class ArchiveViewModel : ObservableObject {
         let calendar = Calendar.current
         let thisMonth = calendar.component(.month, from: today)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM"
+        dateFormatter.dateFormat = "MMMM"
         return dateFormatter.string(from: today)
     }
 
