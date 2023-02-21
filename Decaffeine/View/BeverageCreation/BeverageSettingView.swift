@@ -14,19 +14,25 @@ struct BeverageSettingView: View {
     let cupSizes = [("Small", "Tall"), ("Regular", "Grande"), ("Large", "Venti")]
     
     @ObservedObject var viewModel : BeverageInputViewModel
-    
-    @State var shot : Double = 1.0
+    @State private var numberOfShots: Double = 0.5
+
     
     //MARK: - BODY
     var body: some View {
         VStack{
             ScrollView(.vertical, showsIndicators: true) {
-                topHeader
+                beverageThumbnail
                     .padding(.bottom, 20)
+                
+                Divider()
+                    .padding(.bottom, 8)
                 
                 VStack{
                     sizeSelection
                         .padding(.bottom, 20)
+                    
+                    Divider()
+                        .padding(.bottom, 8)
                     
                     numberOfShotsButton
                         .padding(.horizontal, 60)
@@ -36,6 +42,7 @@ struct BeverageSettingView: View {
             .padding(.bottom, 28)
             .padding(.horizontal, 20)
             
+    
             
             buttonSection
                 .frame(maxWidth: .infinity)
@@ -48,11 +55,11 @@ struct BeverageSettingView: View {
     }
     
     //MARK: - COMPONENTS
-    fileprivate var topHeader : some View {
+    fileprivate var beverageThumbnail : some View {
         VStack {
             Image(viewModel.selectedBeverage.imageName)
                 .padding(.top, 40)
-                .padding(.bottom, 40)
+                .padding(.bottom, 20)
             
             Text(viewModel.selectedBeverage.name)
                 .font(.system(size: 30).bold())
@@ -61,84 +68,87 @@ struct BeverageSettingView: View {
         
     }
     
-    fileprivate var sizeSelection : some View {
-        VStack{
+    fileprivate var sizeSelection: some View {
+        VStack {
             Text("Select Size")
                 .font(.system(size: 16).bold())
                 .padding(.bottom, 16)
-            
+
             HStack(alignment: .bottom, spacing: 10) {
                 ForEach(cupSizes, id: \.0) { size, cupName in
-                    VStack{
+                    VStack {
                         ZStack(alignment: .bottom) {
                             Rectangle()
-                                .fill(viewModel.selectedSize == size ? Color.red : Color.clear)
+                                .fill(viewModel.selectedSize == size ? Color("mainColor") : Color.clear)
                                 .frame(width: 80, height: 110)
                                 .cornerRadius(10)
-                            
+
                             Image(size.lowercased())
                                 .padding(.vertical, 8)
+                                .scaleEffect(viewModel.selectedSize == size ? 1.1 : 1.0)
+                                .animation(.spring())
                         }
-                        
+
                         Text(size)
                             .font(.system(size: 14).bold())
                             .padding(.bottom, 2)
-                        
+
                         Text(cupName)
                             .font(.system(size: 12))
                             .foregroundColor(.secondary)
                     }
                     .padding(.horizontal, 20)
                     .onTapGesture {
-                        viewModel.updateBeverageSize(size: size)
+                        withAnimation {
+                            viewModel.updateBeverageSize(size: size)
+                        }
                     }
                 }
             }
         }
     }
-    
-    
-    fileprivate var numberOfShotsButton : some View {
-        VStack(alignment: .center){
-            
+
+    fileprivate var numberOfShotsButton: some View {
+        VStack(alignment: .center) {
             Text("Number of Shots")
                 .font(.system(size: 16).bold())
                 .padding(.bottom, 16)
-            
-            HStack(alignment: .center){
+            HStack(alignment: .center) {
                 Button {
-                
-                    viewModel.numberOfShots -= 0.5
-                        viewModel.updateBeverageShots(numberOfShots: viewModel.numberOfShots)
-                        
-                    print("minusButton Tapped")
+                    withAnimation {
+                        if numberOfShots > 0.5 {
+                            numberOfShots -= 0.5
+                            viewModel.updateBeverageShots(numberOfShots: numberOfShots)
+                            print("minusButton Tapped")
+                        }
+                    }
                 } label: {
                     Image(systemName: "minus.circle")
                         .resizable()
                         .frame(width: 44, height: 44)
+                        .foregroundColor(numberOfShots > 0.5 ? Color("mainColor") : .gray)
                 }
-                
-                
                 Spacer()
-                
-                Text(String(viewModel.numberOfShots))
+                Text(String(numberOfShots))
                     .font(.system(size: 36).bold())
-                
+            
                 Spacer()
-                
                 Button {
-           
-                    viewModel.numberOfShots += 0.5
-                      viewModel.updateBeverageShots(numberOfShots: viewModel.numberOfShots)
-                    print("plusButton Tapped")
+                    withAnimation {
+                        numberOfShots += 0.5
+                        viewModel.updateBeverageShots(numberOfShots: numberOfShots)
+                        print("plusButton Tapped")
+                    }
                 } label: {
                     Image(systemName: "plus.circle")
                         .resizable()
                         .frame(width: 44, height: 44)
+                        .foregroundColor(Color("mainColor"))
                 }
-            } //: BUTTON HSTACK
+            }
         }
     }
+
     
     
     fileprivate var buttonSection : some View {
