@@ -15,6 +15,7 @@ class ArchiveViewModel : ObservableObject {
     //MARK: - INTIAL
     init() {
         fetchCurrentWeek()
+        fetchCurrentMonth()
         fetchSelectedBeverages(for: currentDay) // 선택한 날짜에 해당하는 음료 불러오기
     }
     
@@ -46,6 +47,19 @@ class ArchiveViewModel : ObservableObject {
           selectedBeverages = Array(realm.objects(SelectedBeverage.self).filter("registerDate >= %@ AND registerDate < %@", Calendar.current.startOfDay(for: currentDay), Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: currentDay))!).sorted(byKeyPath: "registerDate", ascending: false))
       }
 
+    
+    
+    func fetchCurrentMonth() -> String{
+        let today = Date()
+        let calendar = Calendar.current
+        let thisMonth = calendar.component(.month, from: today)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM"
+        return dateFormatter.string(from: today)
+    }
+
+
+    
     
     func fetchCurrentWeek(){
         

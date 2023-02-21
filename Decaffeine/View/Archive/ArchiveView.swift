@@ -19,6 +19,14 @@ struct ArchiveView: View {
         NavigationView {
             VStack{
                 header
+                    .padding(.bottom, 12)
+                
+                HStack{
+                    month
+                    
+                    Spacer()
+                }
+            
                 
                 //CALENDAR
                 weeklyCalendar
@@ -59,6 +67,14 @@ struct ArchiveView: View {
             Spacer()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    fileprivate var month : some View {
+        Text(archiveViewModel.fetchCurrentMonth())
+            .font(.system(size: 16))
+            .foregroundColor(.gray)
+            .padding(.trailing, 30)
+        
     }
     
     //TOTAL CAFFEINE
