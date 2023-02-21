@@ -56,13 +56,14 @@ struct ArchiveListView: View {
                     
                     
                     Image(systemName: "chevron.right")
-                        .foregroundColor(.white)
-                    
+                        .foregroundColor(.white)                    
                 }
                 .padding(15)
                 .frame(maxWidth: .infinity,
                        alignment: .leading)
                 .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
+                
+                
             }
         }
     }

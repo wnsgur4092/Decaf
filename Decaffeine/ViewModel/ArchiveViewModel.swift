@@ -48,12 +48,14 @@ class ArchiveViewModel : ObservableObject {
 
     
     
-    func fetchCurrentMonth() -> String{
+    func fetchCurrentMonth() -> String {
+        let _ = Calendar.current
         let today = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM"
         return dateFormatter.string(from: today)
     }
+
 
 
     
