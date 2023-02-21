@@ -32,17 +32,8 @@ struct HomeView: View {
             Divider()
             
             ScrollView(.vertical, showsIndicators: true) {
-                
-                if homeVM.list.filter { calendar.isDate($0.registerDate, inSameDayAs: Date()) }.isEmpty {
-                    noList
-                        .frame(height: 400)
-                        .padding(.vertical, 10)
-                } else {
-                    CarouselView()
-                        .frame(height: 400)
-                        .padding(.vertical, 10)
-                    
-                }
+                coffeeListImage
+      
                 VStack{
                     coffeeCountText
                         .padding(.bottom, 10)
@@ -78,13 +69,6 @@ struct HomeView: View {
                 .fontWeight(.light)
             
             Spacer()
-            
-            Image(systemName: "person.fill")
-                .resizable()
-                .scaledToFill()
-                .frame(maxWidth: 42, maxHeight: 42)
-                .clipShape(Circle())
-                .overlay(Circle().stroke(Color.white, lineWidth: 0.5))
         }
         .foregroundColor(.black)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -92,17 +76,17 @@ struct HomeView: View {
     
     //COFFEE LIST IMAGE
     fileprivate var coffeeListImage : some View {
-        //IF NO DATA IN COFFEE LIST
-        //        VStack{
-        //            //Image
-        //            Image("noList")
-        HStack {
-            ForEach(homeVM.list) { list in
-                BeverageListCell(beverageName: list.name, beverageImageName: list.imageName)
+        VStack{
+            if homeVM.list.filter { calendar.isDate($0.registerDate, inSameDayAs: Date()) }.isEmpty {
+                noList
+                    .frame(height: 400)
+                    .padding(.vertical, 10)
+            } else {
+                CarouselView()
+                    .frame(height: 400)
+                    .padding(.vertical, 10)
             }
         }
-        
-        //        } //: VSTACK : THERE IS NO DATA
     }
     
     //COFFEE LIST DETAIL

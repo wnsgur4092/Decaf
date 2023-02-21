@@ -31,8 +31,6 @@ struct OnBoardingView: View {
             .padding(.horizontal, 32)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("mainColor"))
-        .edgesIgnoringSafeArea(.all)
         
     }
     
@@ -62,7 +60,7 @@ struct OnBoardingView: View {
                 .opacity(0.6)
             
         }
-        .foregroundColor(.white)
+        .foregroundColor(.black)
         .multilineTextAlignment(.leading)
     }
     
@@ -80,7 +78,7 @@ struct OnBoardingView: View {
         }
         .buttonStyle(ActiveButtonStyle())
         .fullScreenCover(isPresented: $isPresentingOnBoardingProfileView) {
-            OnBoardingProfileView()
+            ContentView()
         }
     }
 }
