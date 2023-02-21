@@ -83,6 +83,7 @@ struct BeverageSettingView: View {
                                 .frame(width: 80, height: 110)
                                 .cornerRadius(10)
 
+
                             Image(size.lowercased())
                                 .padding(.vertical, 8)
                                 .scaleEffect(viewModel.selectedSize == size ? 1.1 : 1.0)

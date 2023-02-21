@@ -24,16 +24,17 @@ struct HomeView: View {
     
     //MARK: - BODY
     var body: some View {
-        VStack {
-            header
-                .padding(.vertical,12)
-                .padding(.horizontal, 32)
-            
-            Divider()
-            
-            ScrollView(.vertical, showsIndicators: true) {
+        ScrollView(.vertical, showsIndicators: true) {
+            VStack{
+                header
+                    .padding(.vertical,12)
+                    .padding(.horizontal, 32)
+                
+                Divider()
+                    .padding(.bottom, 10)
+                
                 coffeeListImage
-      
+                
                 VStack{
                     coffeeCountText
                         .padding(.bottom, 10)
@@ -42,17 +43,13 @@ struct HomeView: View {
                 }
                 .padding(.horizontal, 32)
                 
-            }
-            
-            VStack {
-                Divider()
-                
                 addNewButton
-                    .padding(.vertical, 16)
+                    .padding(.vertical, 20)
                     .padding(.horizontal, 32)
             }
+
         }
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        
     }
     
     //MARK: - COMPONENTS
@@ -75,19 +72,19 @@ struct HomeView: View {
     }
     
     //COFFEE LIST IMAGE
-//    fileprivate var coffeeListImage : some View {
-//        VStack{
-//            if homeVM.list.filter { calendar.isDate($0.registerDate, inSameDayAs: Date()) }.isEmpty {
-//                noList
-//                    .frame(height: 400)
-//                    .padding(.vertical, 10)
-//            } else {
-//                CarouselView()
-//                    .frame(height: 400)
-//                    .padding(.vertical, 10)
-//            }
-//        }
-//    }
+    //    fileprivate var coffeeListImage : some View {
+    //        VStack{
+    //            if homeVM.list.filter { calendar.isDate($0.registerDate, inSameDayAs: Date()) }.isEmpty {
+    //                noList
+    //                    .frame(height: 400)
+    //                    .padding(.vertical, 10)
+    //            } else {
+    //                CarouselView()
+    //                    .frame(height: 400)
+    //                    .padding(.vertical, 10)
+    //            }
+    //        }
+    //    }
     
     fileprivate var coffeeListImage : some View {
         VStack{

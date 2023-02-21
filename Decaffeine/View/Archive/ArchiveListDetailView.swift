@@ -10,8 +10,9 @@ import SwiftUI
 struct ArchiveListDetailView: View {
     
     //MARK: - PROPERTIES
+    @Environment(\.presentationMode) var presentationMode
     @State private var showingAlert = false
-
+    
     @ObservedObject var viewModel : ArchiveViewModel
     
     var day: Date
@@ -23,97 +24,99 @@ struct ArchiveListDetailView: View {
     
     //MARK: - BODY
     var body: some View {
-        ScrollView {
-            
-            Spacer()
-                .frame(maxHeight: 64)
-            
+        ScrollView{
             header
+                .padding(.top, 12)
+                .padding(.horizontal, 20)
             
-            Spacer()
-                .frame(maxHeight: 150)
-            
-            
-            image
-            
-            Spacer()
-                .frame(maxHeight: 150)
+            Divider()
+                .padding(.bottom, 12)
             
             VStack {
                 
-                coffeeDescription
+                thumbnail
                 
-                Spacer()
+                Divider()
+                
+                coffeeDescription
+                    .padding(.horizontal, 32)
+                    .padding(.bottom, 28)
                 
                 deleteButton
-            }     
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
 
+            }
+            
+        }
+        
+        .navigationBarHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        
     }
     
     //MARK: - COMPONENTS
     fileprivate var header : some View {
-        HStack(alignment: .center) {
-            Button {
-                //show previous view
-            } label: {
-                Image(systemName: "chevron.left")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 20,maxHeight: 20)
+        VStack{
+            HStack(alignment: .center, spacing: 16) {
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(Color("mainColor"))
+                        .frame(width: 20,height: 20)
+                }
+                
+                Text(viewModel.formatDate(day: day)) //DAY
+                    .fontWeight(.bold)
+                    .font(.system(size: 24))
+                
+                Text(viewModel.formatDay(date: date)) //DATE
+                    .font(.system(size: 24))
+                
+                Text(viewModel.formatMonth(month: date)) //DATE
+                    .font(.system(size: 24))
+                
+                Spacer()
+                
             }
-            .padding(.leading, 24)
-            .padding(.trailing, 24)
-            
-            
-            VStack(alignment: .leading, spacing: 10) {
-                HStack {
-                    Text(viewModel.formatDate(day: day)) //DAY
-                        .fontWeight(.bold)
-                        .font(.system(size: 24))
-                    
-                    Text(viewModel.formatDay(date: date)) //DATE
-                        .font(.system(size: 24))
-                    
-                    Text(viewModel.formatMonth(month: date)) //DATE
-                        .font(.system(size: 24))
-                    
-                } //Date recorded on app
+            HStack{
+                Spacer().frame(width:36, height: 20)
+                
                 Text (viewModel.formatTime(time: date)) //Time
                     .font(.system(size: 20))
                 
+                Spacer()
             }
-            .foregroundColor(.white)
-            
-            
-            Spacer()
         }
-        .accentColor(Color(.white))
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
     
-    fileprivate var image : some View {
-        Image(detailImage)
-    }
-    
-    //Coffee Description Section
-    
-    fileprivate var coffeeDescription : some View {
+    fileprivate var thumbnail : some View {
         VStack {
+            Image(detailImage)
+                .padding(.top, 40)
+                .padding(.bottom, 20)
+            
             Text(detailName)
                 .font(.system(size: 30))
                 .fontWeight(.bold)
-                .padding(.top, 48)
                 .padding(.bottom, 24)
+        }
+    }
+    
+    //Coffee Description Section
+    fileprivate var coffeeDescription : some View {
+        VStack {
             
-            HStack{
-                BeverageDetailCell(detailImageName: "small", detailName: "Size", detailExtra: "Large")
+            
+            HStack(alignment: .bottom, spacing: 32){
+                BeverageDetailCell(detailImageName: "small", detailName: "Size", detailExtra: "Small")
                 BeverageDetailCell(detailImageName: "shot", detailName: "Shots", detailExtra: "4")
-                BeverageDetailCell(detailImageName: "coffeebean", detailName: "Shots", detailExtra: "126mg")
+                BeverageDetailCell(detailImageName: "coffeeBean", detailName: "Caffeine", detailExtra: "126mg")
                 
             }
         }
+        .frame(maxWidth: .infinity)
     }
     
     fileprivate var deleteButton : some View {
@@ -144,8 +147,3 @@ struct ArchiveListDetailView: View {
     }
 }
 
-//struct ArchiveListDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ArchiveListDetailView(viewModel: ArchiveViewModel(), day: <#T##Date#>, date: <#T##Date#>, time: <#T##Date#>, beverageImage: <#T##String#>, month: <#T##Date#>)
-//    }
-//}

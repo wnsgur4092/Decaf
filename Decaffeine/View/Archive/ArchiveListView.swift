@@ -14,6 +14,9 @@ struct ArchiveListView: View {
     var size: String
     var numberOfShots: Double
     var date: Date
+    var image : String
+    
+    @State private var isDetailViewPresented = false
     
     //MARK: - BODY
     var body: some View {
@@ -54,17 +57,24 @@ struct ArchiveListView: View {
                                    alignment: .leading)
                     }
                     
-                    
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.white)                    
+                    Button {
+                        isDetailViewPresented.toggle()
+                    } label: {
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.white)
+                    }
+
+                                
                 }
                 .padding(15)
                 .frame(maxWidth: .infinity,
                        alignment: .leading)
                 .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
-                
-                
+
             }
+        }
+        .fullScreenCover(isPresented: $isDetailViewPresented) {
+            ArchiveListDetailView(viewModel: viewModel, day: date, date: date, time: date, month: date, detailImage: image, detailName: title)
         }
     }
     
@@ -81,6 +91,6 @@ struct ArchiveListView_Previews: PreviewProvider {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         let time = dateFormatter.date(from: "11:35") ?? Date()
-        return ArchiveListView(title: "Cappuccino", size: "Large", numberOfShots: 2, date: time)
+        return ArchiveListView(title: "Cappuccino", size: "Large", numberOfShots: 2, date: time, image: "")
     }
 }

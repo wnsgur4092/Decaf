@@ -20,12 +20,16 @@ struct BeverageDetailCell: View {
             Text(detailName)
                 .font(.system(size: 16))
                 .fontWeight(.bold)
-                .padding(.bottom, 24)
+            
             Image(detailImageName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 80, height: 60)
             
             Text(detailExtra)
+                .font(.system(size: 14))
+                .fontWeight(.regular)
         }
-        .padding(20)
     }
 }
 

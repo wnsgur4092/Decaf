@@ -17,14 +17,19 @@ struct ArchiveView: View {
     //MARK: - BODY
     var body: some View {
         NavigationView {
-            VStack{
+            ScrollView{
                 header
-                    .padding(.bottom, 8)
+                    .padding(.vertical,12)
+                    .padding(.horizontal, 32)
+                
+                Divider()
+                    .padding(.bottom, 10)
                 
                 VStack{
                     HStack{
                         month
                             .padding(.leading, 4)
+                            .padding(.horizontal, 32)
                         
                         Spacer()
                     }
@@ -32,13 +37,16 @@ struct ArchiveView: View {
                     
                     //CALENDAR
                     weeklyCalendar
-                        .padding(.bottom, 20)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 32)
+                    
                 }
                 
                 
                 //TOTAL CAFFEINE
                 totalCaffeine
                     .padding(.bottom, 20)
+                    .padding(.horizontal, 32)
                 
                 VStack{
                     //TIME LINE HEADER
@@ -49,13 +57,12 @@ struct ArchiveView: View {
                         .padding(.bottom, 10)
                     
                     //TIME LINE
-                    ScrollView(.vertical, showsIndicators: false) {
-                        archiveListView
-                    }
+                    
+                    archiveListView
                     
                 }
+                .padding(.horizontal, 32)
             }
-            .padding(.horizontal, 32)
         }
     }
     //MARK: - COMPONENTS
@@ -122,6 +129,7 @@ struct ArchiveView: View {
                         //                            .frame(width: 8, height: 8)
                         //                            .opacity(archiveViewModel.isToday(date: day) ? 1 : 0)
                     }//: VSTACK
+                    .padding(.vertical, 4)
                     .foregroundColor(archiveViewModel.isToday(date: day) ? .white : .black.opacity(0.5))
                     .font(.system(size: 14))
                     .frame(maxWidth: .infinity, maxHeight: 90)
@@ -169,23 +177,19 @@ struct ArchiveView: View {
     //ARCHIVE LIST VIEW
     fileprivate var archiveListView: some View {
         ForEach(archiveViewModel.selectedBeverages, id: \.id) { beverage in
-            NavigationLink(destination: ArchiveListDetailView(
-                viewModel: archiveViewModel, day: beverage.registerDate,
+            ArchiveListView(
+                title: beverage.name,
+                size: beverage.size,
+                numberOfShots: beverage.numberOfShots,
                 date: beverage.registerDate,
-                time: beverage.registerDate,
-                month: beverage.registerDate, detailImage: beverage.imageName,
-                detailName: beverage.name)) {
-                    ArchiveListView(
-                        title: beverage.name,
-                        size: beverage.size,
-                        numberOfShots: beverage.numberOfShots,
-                        date: beverage.registerDate)
-                }
+                image: beverage.imageName
+            )
         }
         .onAppear {
             archiveViewModel.fetchSelectedBeverages(for: archiveViewModel.currentDay)
         }
     }
+    
     
 }
 
