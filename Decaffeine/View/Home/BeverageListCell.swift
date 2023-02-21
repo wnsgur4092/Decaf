@@ -38,6 +38,6 @@ struct BeverageListCell: View {
 
 struct BeverageListCell_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageListCell(beverageName: "Iced Long Black", beverageImageName: "cicedlongblack")
+        BeverageListCell(beverageName: "Iced Long Black", beverageImageName: "icedlongblack")
     }
 }
