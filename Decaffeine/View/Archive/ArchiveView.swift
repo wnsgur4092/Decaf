@@ -13,6 +13,7 @@ struct ArchiveView: View {
     @Namespace var animation
     
     
+    
     //MARK: - BODY
     var body: some View {
         NavigationView {
@@ -160,6 +161,9 @@ struct ArchiveView: View {
                         numberOfShots: beverage.numberOfShots,
                         date: beverage.registerDate)
                 }
+        }
+        .onAppear {
+            archiveViewModel.fetchSelectedBeverages(for: archiveViewModel.currentDay)
         }
     }
     

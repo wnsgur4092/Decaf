@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     //MARK: - PROPERTIES
     @StateObject var homeVM : HomeViewModel
+    @EnvironmentObject var archiveViewModel: ArchiveViewModel
     
     @State var isPresenting = false
     

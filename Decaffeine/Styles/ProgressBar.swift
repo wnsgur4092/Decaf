@@ -10,7 +10,7 @@ import SwiftUI
 struct ProgressBar: View {
 
     var todayIntake : Double
-    var totalIntake : Double
+    var totalIntake : Double = 400.0
 
     
     var body: some View {

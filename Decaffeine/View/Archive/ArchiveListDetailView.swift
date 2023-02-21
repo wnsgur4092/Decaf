@@ -23,7 +23,7 @@ struct ArchiveListDetailView: View {
     
     //MARK: - BODY
     var body: some View {
-        VStack {
+        ScrollView {
             
             Spacer()
                 .frame(maxHeight: 64)
@@ -46,16 +46,10 @@ struct ArchiveListDetailView: View {
                 Spacer()
                 
                 deleteButton
-            }
-            .background(
-                Color.white
-                    .clipShape(CustomCorner(corners: [.topLeft,.topRight], radius: 33))
-                    .ignoresSafeArea()
-            )
+            }     
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("mainColor"))
-        .edgesIgnoringSafeArea(.top)
+
     }
     
     //MARK: - COMPONENTS

@@ -15,7 +15,7 @@ class ArchiveViewModel : ObservableObject {
     //MARK: - INTIAL
     init() {
         fetchCurrentWeek()
-        fetchSelectedBeverages(for: currentDay)
+        fetchSelectedBeverages(for: currentDay) // 선택한 날짜에 해당하는 음료 불러오기
     }
     
     //MARK: - FUNCTION
@@ -36,9 +36,16 @@ class ArchiveViewModel : ObservableObject {
             .sink(receiveCompletion: { _ in },
                   receiveValue: { [weak self] selectedBeverages in
                       self?.selectedBeverages = selectedBeverages
+                      self?.objectWillChange.send() // 뷰에 변경이 있음을 알림
                   })
             .store(in: &cancellables)
     }
+    
+    func loadSelectedBeverages() {
+          let realm = try! Realm()
+          selectedBeverages = Array(realm.objects(SelectedBeverage.self).filter("registerDate >= %@ AND registerDate < %@", Calendar.current.startOfDay(for: currentDay), Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: currentDay))!).sorted(byKeyPath: "registerDate", ascending: false))
+      }
+
     
     func fetchCurrentWeek(){
         
