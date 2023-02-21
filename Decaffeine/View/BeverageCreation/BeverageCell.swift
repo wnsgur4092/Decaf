@@ -16,38 +16,34 @@ struct BeverageCell: View {
     
     //MARK: - BODY
     var body: some View {
-        VStack(alignment: .center){
-            ZStack{
+        ZStack{
+            VStack(alignment: .center, spacing: 20){
                 Image(beverageImageName)
                     .resizable()
                     .scaledToFit()
+                    .shadow(color: Color.black.opacity(0.15), radius: 8, x: 6, y: 8)
                 
+                
+                Text(beverageName)
+                    .font(.system(size: 14))
+                    .foregroundColor(.black)
             }
-            .frame(width: 100 , height: 100)
-            
-            Text(beverageName)
+            .frame(width: 120 , height: 140)
+            .padding(20)
+            .border(.black, width: 1 )
+
+            .background(
+                selectedBeverageIndex == index ? Color.blue.opacity(0.2) : Color.white
+            )
+            .foregroundColor(Color.primary)
         }
-        .padding(.horizontal, 24)
-        .padding(.bottom, 20)
-        .background(
-            ZStack {
-                Color.white
-                    .cornerRadius(25)
-                    .shadow(color: .black.opacity(0.2), radius: 1, x: 2, y: 2)
-                if selectedBeverageIndex == index {
-                    Color.blue.opacity(0.2)
-                        .cornerRadius(25)
-                }
-            }
-        )
-        .padding(.vertical, 20)
     }
 }
 
 //MARK: - PREVIEW
 struct BeverageCell_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageCell(beverageImageName: "cicedlongblack", beverageName: "Iced  Long Black", index: 0, selectedBeverageIndex: .constant(nil))
+        BeverageCell(beverageImageName: "icedlongblack", beverageName: "Iced  Long Black", index: 0, selectedBeverageIndex: .constant(nil))
     }
 }
 

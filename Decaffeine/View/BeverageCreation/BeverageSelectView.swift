@@ -14,7 +14,7 @@ struct BeverageSelectView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: BeverageInputViewModel
     
-    @State var isTapped = false
+   
     
     //CATEOGRY
     @State var selectedBeverageIndex : Int?
@@ -63,6 +63,10 @@ struct BeverageSelectView: View {
     }
     
     //MARK: - COMPONENTS
+//    fileprivate var beverageCateogry : some View {
+//
+//    }
+    
     fileprivate var beverageLists : some View {
         HStack(alignment:.bottom){
             ScrollView{
@@ -97,15 +101,6 @@ struct BeverageSelectView: View {
             .buttonStyle(SecondaryButtonStyle())
             
             Spacer()
-            
-            Button {
-                print("######## Name \(viewModel.selectedBeverage.name)")
-                print("######## imageName \(viewModel.selectedBeverage.imageName)")
-            } label: {
-                Text("Tap")
-            }
-
-            
             
             NavigationLink(
                 destination: BeverageSettingView(viewModel: viewModel),

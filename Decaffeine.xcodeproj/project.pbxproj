@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0F325B0E299EE214004700EF /* ArchiveListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F325B0D299EE214004700EF /* ArchiveListView.swift */; };
-		BF273A8529A509B70067C9DE /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF273A8429A509B70067C9DE /* UserData.swift */; };
+		BF273A8729A51BF00067C9DE /* BeverageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF273A8629A51BF00067C9DE /* BeverageCardView.swift */; };
 		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
 		BF3C15AB29A2951B00148C51 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C15AA29A2951B00148C51 /* CustomButtonStyle.swift */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
-		BF511B2929A2F15D00CBEED0 /* BeverageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF511B2829A2F15D00CBEED0 /* BeverageListCell.swift */; };
 		BF511B2C29A3687400CBEED0 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BF511B2B29A3687400CBEED0 /* Realm */; };
 		BF511B2E29A3687400CBEED0 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF511B2D29A3687400CBEED0 /* RealmSwift */; };
 		BF854182299F0E7600AB1ED9 /* BeverageSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */; };
@@ -21,7 +20,6 @@
 		BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */; };
 		BFA53D7D299A6EC2007D943D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7C299A6EC2007D943D /* CustomTextField.swift */; };
 		BFA53D7F299A8C31007D943D /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7E299A8C31007D943D /* CustomCorner.swift */; };
-		BFA53D81299A99AC007D943D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D80299A99AC007D943D /* ProfileViewModel.swift */; };
 		BFA53D83299A9AD9007D943D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D82299A9AD9007D943D /* ImagePicker.swift */; };
 		BFCED242299C40EB00E49EB6 /* BeverageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED241299C40EB00E49EB6 /* BeverageCell.swift */; };
 		BFCED245299C445700E49EB6 /* SecondayButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED244299C445700E49EB6 /* SecondayButtonStyle.swift */; };
@@ -70,17 +68,15 @@
 
 /* Begin PBXFileReference section */
 		0F325B0D299EE214004700EF /* ArchiveListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListView.swift; sourceTree = "<group>"; };
-		BF273A8429A509B70067C9DE /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		BF273A8629A51BF00067C9DE /* BeverageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCardView.swift; sourceTree = "<group>"; };
 		BF3C15AA29A2951B00148C51 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
-		BF511B2829A2F15D00CBEED0 /* BeverageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageListCell.swift; sourceTree = "<group>"; };
 		BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSelectView.swift; sourceTree = "<group>"; };
 		BF854199299FD55900AB1ED9 /* BeverageSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSettingView.swift; sourceTree = "<group>"; };
 		BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7C299A6EC2007D943D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BFA53D7E299A8C31007D943D /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
-		BFA53D80299A99AC007D943D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		BFA53D82299A9AD9007D943D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		BFCED241299C40EB00E49EB6 /* BeverageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCell.swift; sourceTree = "<group>"; };
 		BFCED244299C445700E49EB6 /* SecondayButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondayButtonStyle.swift; sourceTree = "<group>"; };
@@ -189,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				BFE96FA72986047F003E0934 /* HomeView.swift */,
-				BF511B2829A2F15D00CBEED0 /* BeverageListCell.swift */,
+				BF273A8629A51BF00067C9DE /* BeverageCardView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -289,7 +285,6 @@
 			isa = PBXGroup;
 			children = (
 				BFDB9EB7299EFBA100F2B957 /* HomeViewModel.swift */,
-				BFA53D80299A99AC007D943D /* ProfileViewModel.swift */,
 				BFCED249299D193800E49EB6 /* ArchiveViewModel.swift */,
 				BFF2F92829A218310038A067 /* BeverageInputViewModel.swift */,
 				CE22FF4B29A39D7E00333F1E /* CarouselView.swift */,
@@ -302,7 +297,6 @@
 			children = (
 				BFF2F92629A217CA0038A067 /* SelectedBeverage.swift */,
 				BFF2F92429A217B70038A067 /* Beverage.swift */,
-				BF273A8429A509B70067C9DE /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -466,19 +460,18 @@
 				BFFF9A492999B144002D5ACC /* SettingView.swift in Sources */,
 				BFFF9A452999B127002D5ACC /* ArchiveView.swift in Sources */,
 				BF85419A299FD55900AB1ED9 /* BeverageSettingView.swift in Sources */,
+				BF273A8729A51BF00067C9DE /* BeverageCardView.swift in Sources */,
 				BFA53D7F299A8C31007D943D /* CustomCorner.swift in Sources */,
 				BFA53D7D299A6EC2007D943D /* CustomTextField.swift in Sources */,
 				BFCED254299D2B1E00E49EB6 /* ArchiveListDetailView.swift in Sources */,
 				BFDB9EB8299EFBA100F2B957 /* HomeViewModel.swift in Sources */,
 				BFCED245299C445700E49EB6 /* SecondayButtonStyle.swift in Sources */,
-				BF511B2929A2F15D00CBEED0 /* BeverageListCell.swift in Sources */,
 				BFA53D83299A9AD9007D943D /* ImagePicker.swift in Sources */,
 				BF3C15AB29A2951B00148C51 /* CustomButtonStyle.swift in Sources */,
 				BF854182299F0E7600AB1ED9 /* BeverageSelectView.swift in Sources */,
 				BFE96F7D29860376003E0934 /* ContentView.swift in Sources */,
 				BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */,
 				BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */,
-				BFA53D81299A99AC007D943D /* ProfileViewModel.swift in Sources */,
 				BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */,
 				BFFF9A4B2999B14D002D5ACC /* AnnouncementView.swift in Sources */,
 				BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */,
@@ -487,7 +480,6 @@
 				BFF2F92929A218310038A067 /* BeverageInputViewModel.swift in Sources */,
 				BFF2F92529A217B70038A067 /* Beverage.swift in Sources */,
 				BFCED24A299D193800E49EB6 /* ArchiveViewModel.swift in Sources */,
-				BF273A8529A509B70067C9DE /* UserData.swift in Sources */,
 				BFF2F92729A217CA0038A067 /* SelectedBeverage.swift in Sources */,
 				CECE0D6E299DBCAE00BDC0AB /* BeverageDetailCell.swift in Sources */,
 			);

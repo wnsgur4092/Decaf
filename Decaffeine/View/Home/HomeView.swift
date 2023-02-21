@@ -75,6 +75,20 @@ struct HomeView: View {
     }
     
     //COFFEE LIST IMAGE
+//    fileprivate var coffeeListImage : some View {
+//        VStack{
+//            if homeVM.list.filter { calendar.isDate($0.registerDate, inSameDayAs: Date()) }.isEmpty {
+//                noList
+//                    .frame(height: 400)
+//                    .padding(.vertical, 10)
+//            } else {
+//                CarouselView()
+//                    .frame(height: 400)
+//                    .padding(.vertical, 10)
+//            }
+//        }
+//    }
+    
     fileprivate var coffeeListImage : some View {
         VStack{
             if homeVM.list.filter { calendar.isDate($0.registerDate, inSameDayAs: Date()) }.isEmpty {
@@ -82,12 +96,17 @@ struct HomeView: View {
                     .frame(height: 400)
                     .padding(.vertical, 10)
             } else {
-                CarouselView()
-                    .frame(height: 400)
-                    .padding(.vertical, 10)
+                TabView{
+                    ForEach(homeVM.list) { item in
+                        BeverageCardView(beverageName: item.name, beverageImageName: item.imageName)
+                    }
+                }
+                .frame(height: 400)
+                .tabViewStyle(PageTabViewStyle())
             }
         }
     }
+    
     
     //COFFEE LIST DETAIL
     fileprivate var noList : some View {

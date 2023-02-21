@@ -10,7 +10,7 @@ import Lottie
 
 struct OnBoardingView: View {
     //MARK: - PROPERTIES
-    @State var isPresentingOnBoardingProfileView = false
+    @AppStorage("isOnboarding") var isOnboarding : Bool?
     
     var body: some View {
         VStack {
@@ -67,7 +67,7 @@ struct OnBoardingView: View {
     fileprivate var getStartButton : some View {
         Button {
             print("Next Button Tapped")
-            isPresentingOnBoardingProfileView = true
+            isOnboarding = false
         } label: {
             HStack(alignment: .center, spacing: 20){
                 Text("Get Started")
@@ -77,9 +77,6 @@ struct OnBoardingView: View {
             
         }
         .buttonStyle(ActiveButtonStyle())
-        .fullScreenCover(isPresented: $isPresentingOnBoardingProfileView) {
-            ContentView()
-        }
     }
 }
 

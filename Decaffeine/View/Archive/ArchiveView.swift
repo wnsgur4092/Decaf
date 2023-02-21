@@ -21,16 +21,20 @@ struct ArchiveView: View {
                 header
                     .padding(.bottom, 8)
                 
-                HStack{
-                    month
+                VStack{
+                    HStack{
+                        month
+                            .padding(.leading, 4)
+                        
+                        Spacer()
+                    }
                     
-                    Spacer()
+                    
+                    //CALENDAR
+                    weeklyCalendar
+                        .padding(.bottom, 20)
                 }
-            
                 
-                //CALENDAR
-                weeklyCalendar
-                    .padding(.bottom, 20)
                 
                 //TOTAL CAFFEINE
                 totalCaffeine
