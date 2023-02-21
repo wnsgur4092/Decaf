@@ -97,7 +97,8 @@ struct ArchiveView: View {
             Spacer()
             
             HStack{
-                Text("40")
+                
+                Text("\(archiveViewModel.totalCaffeineForToday())")
                     .foregroundColor(Color("mainColor"))
                 
                 Text("/ 400mg")
@@ -120,10 +121,10 @@ struct ArchiveView: View {
                         Text(archiveViewModel.formatDate(day: day))
                         Text(archiveViewModel.formatDay(date: day))
                         
-                        Image("coffeeBean")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20, height: 20)
+//                        Image("coffeeBean")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 20, height: 20)
                         //                        Circle()
                         //                            .fill(.white)
                         //                            .frame(width: 8, height: 8)

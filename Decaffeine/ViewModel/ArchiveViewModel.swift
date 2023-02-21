@@ -9,9 +9,9 @@ class ArchiveViewModel : ObservableObject {
     @Published var currentWeek : [Date] = [] //Current Week Days
     @Published var currentDay : Date = Date()
     @Published var selectedBeverages: [SelectedBeverage] = []
-
+    
     private var cancellables = Set<AnyCancellable>()
-
+    
     //MARK: - INTIAL
     init() {
         fetchCurrentWeek()
@@ -19,33 +19,45 @@ class ArchiveViewModel : ObservableObject {
     }
     
     //MARK: - FUNCTION
-
+    
     func fetchSelectedBeverages(for date: Date) {
         let realm = try! Realm()
         let startOfDay = Calendar.current.startOfDay(for: date)
         let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay)!
         
-        // Use `Future` to make the method asynchronous
-        let futureSelectedBeverages = Future<[SelectedBeverage], Error> { promise in
-            let selectedBeverages = Array(realm.objects(SelectedBeverage.self).filter("registerDate >= %@ AND registerDate < %@", startOfDay, endOfDay).sorted(byKeyPath: "registerDate", ascending: false))
-            promise(.success(selectedBeverages))
-        }
-
-        // Subscribe to the future and update `selectedBeverages` when it completes
-        futureSelectedBeverages.receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { _ in },
-                  receiveValue: { [weak self] selectedBeverages in
-                      self?.selectedBeverages = selectedBeverages
-                      self?.objectWillChange.send() // 뷰에 변경이 있음을 알림
-                  })
-            .store(in: &cancellables)
+        let selectedBeverages = Array(realm.objects(SelectedBeverage.self).filter("registerDate >= %@ AND registerDate < %@", startOfDay, endOfDay).sorted(byKeyPath: "registerDate", ascending: false))
+        self.selectedBeverages = selectedBeverages
+        self.objectWillChange.send() // 뷰에 변경이 있음을 알림
     }
+
+    
+    
+    // Subscribe to the future and update `selectedBeverages` when it completes
+    
+    
+    func deleteBeverage(day: Date, name: String) {
+        let realm = try! Realm()
+        let startOfDay = Calendar.current.startOfDay(for: day)
+        let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay)!
+            
+        // Search for the beverage to delete
+        if let beverageToDelete = realm.objects(SelectedBeverage.self).filter("registerDate >= %@ AND registerDate < %@ AND name = %@", startOfDay, endOfDay, name).first {
+            try! realm.write {
+                realm.delete(beverageToDelete)
+            }
+            // 데이터 삭제가 완료된 후, UI를 갱신합니다.
+            fetchSelectedBeverages(for: day)
+        }
+    }
+
+
+    
     
     func loadSelectedBeverages() {
-          let realm = try! Realm()
-          selectedBeverages = Array(realm.objects(SelectedBeverage.self).filter("registerDate >= %@ AND registerDate < %@", Calendar.current.startOfDay(for: currentDay), Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: currentDay))!).sorted(byKeyPath: "registerDate", ascending: false))
-      }
-
+        let realm = try! Realm()
+        selectedBeverages = Array(realm.objects(SelectedBeverage.self).filter("registerDate >= %@ AND registerDate < %@", Calendar.current.startOfDay(for: currentDay), Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: currentDay))!).sorted(byKeyPath: "registerDate", ascending: false))
+    }
+    
     
     
     func fetchCurrentMonth() -> String {
@@ -55,9 +67,18 @@ class ArchiveViewModel : ObservableObject {
         dateFormatter.dateFormat = "MMMM"
         return dateFormatter.string(from: today)
     }
-
-
-
+    
+    
+    
+    func totalCaffeineForToday() -> Int {
+        let calendar = Calendar.current
+        let today = Date()
+        let filteredList = selectedBeverages.filter {
+            calendar.isDate($0.registerDate, inSameDayAs: today)
+        }
+        let totalCaffeine = filteredList.reduce(0) { $0 + $1.caffeine }
+        return totalCaffeine
+    }
     
     
     func fetchCurrentWeek(){
@@ -108,7 +129,7 @@ class ArchiveViewModel : ObservableObject {
         dateFormatter.dateFormat = "HH:mm" // Day of month
         return dateFormatter.string(from: time)
     }
-
+    
     
     //Check Current Day is Today
     func isToday(date: Date)->Bool{
@@ -117,5 +138,5 @@ class ArchiveViewModel : ObservableObject {
         return calendar.isDate(currentDay, inSameDayAs: date)
     }
     
-
+    
 }

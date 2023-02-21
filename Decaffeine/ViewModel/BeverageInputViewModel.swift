@@ -70,20 +70,23 @@ class BeverageInputViewModel : ObservableObject {
 
     //REALM DB
     func saveSelectedBeverage() {
-        
+            
         do {
             let realm = try Realm()
             try realm.write {
                 realm.add(selectedBeverage)
             }
+            // 데이터 저장이 완료된 후, UI를 갱신합니다.
+            selectedBeverages.wrappedValue.append(selectedBeverage)
         } catch let error {
             print("Failed to save selectedBeverage: \(error.localizedDescription)")
         }
-        
+            
         selectedBeverage = SelectedBeverage()
         eraseForm()
         isPresented.wrappedValue = false
     }
+
     
     private func eraseForm(){
         name = ""
@@ -92,4 +95,6 @@ class BeverageInputViewModel : ObservableObject {
         size = "Regular"
         registerDate = Date()
     }
+    
+    
 }

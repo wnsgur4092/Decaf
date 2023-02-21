@@ -23,5 +23,5 @@ class SelectedBeverage : Object, Identifiable, Codable {
     override static func primaryKey() -> String? {
         return "id"
     }
+    
 }
-

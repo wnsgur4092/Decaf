@@ -135,7 +135,9 @@ struct ArchiveListDetailView: View {
                 Alert(
                     title: Text("Are you sure you want to delete this coffee?"),
                     primaryButton: .destructive(Text("Delete")) {
-                        print("Deleting...") //put here code to delete coffee
+                        viewModel.deleteBeverage(day: day, name: detailName)
+                                                // Dismiss view after deleting
+                                                presentationMode.wrappedValue.dismiss()
                     },
                     secondaryButton: .cancel()
                 )
