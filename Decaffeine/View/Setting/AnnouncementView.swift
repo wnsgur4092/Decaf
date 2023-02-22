@@ -9,10 +9,11 @@ import SwiftUI
 
 struct AnnouncementView: View {
     //PROPERTIES
-    var title : String
-    var date : String
-    var description : String
-    var subdescription : String
+    var title : String = "Version 1.1 Updated"
+    var date : String = "7.03.2023"
+    var description : String = "Announcement of Version 1.1 Update"
+    var subdescription : String = "Update the issue, which can't delete one of the caffeine list"
+    @State var isPresentingBackView = false
     
     //BODY
     var body: some View {
@@ -39,6 +40,15 @@ struct AnnouncementView: View {
         
         VStack(alignment: .leading){
             HStack{
+                Button{
+                    isPresentingBackView = true
+                } label:{
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.black)
+                }
+                .fullScreenCover(isPresented: $isPresentingBackView){
+                    AnnouncementsListView()
+                }
                 Text(title)
                 Spacer()
                 Text(date)
@@ -62,6 +72,6 @@ struct AnnouncementView: View {
 
 struct AnnouncementView_Previews: PreviewProvider {
     static var previews: some View {
-        AnnouncementView(title: "ABC", date: "00", description: "", subdescription: "A")
+        AnnouncementView()
     }
 }
