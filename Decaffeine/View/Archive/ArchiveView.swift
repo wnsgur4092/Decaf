@@ -19,7 +19,7 @@ struct ArchiveView: View {
         NavigationView {
             VStack{
                 header
-                    .padding(.bottom, 12)
+                    .padding(.bottom, 8)
                 
                 HStack{
                     month
@@ -71,7 +71,7 @@ struct ArchiveView: View {
     
     fileprivate var month : some View {
         Text(archiveViewModel.fetchCurrentMonth())
-            .font(.system(size: 16))
+            .font(.system(size: 18))
             .foregroundColor(.gray)
             .padding(.trailing, 30)
         

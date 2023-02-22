@@ -9,10 +9,10 @@ import SwiftUI
 
 struct AnnouncementView: View {
     //PROPERTIES
-    var title : String
-    var date : String
-    var description : String
-    var subdescription : String
+    var title : String = ""
+    var date : String = ""
+    var description : String = ""
+    var subdescription : String = ""
     
     //BODY
     var body: some View {
