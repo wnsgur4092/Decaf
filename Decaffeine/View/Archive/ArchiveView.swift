@@ -120,17 +120,8 @@ struct ArchiveView: View {
                     VStack(spacing: 10) {
                         Text(archiveViewModel.formatDate(day: day))
                         Text(archiveViewModel.formatDay(date: day))
-                        
-//                        Image("coffeeBean")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 20, height: 20)
-                        //                        Circle()
-                        //                            .fill(.white)
-                        //                            .frame(width: 8, height: 8)
-                        //                            .opacity(archiveViewModel.isToday(date: day) ? 1 : 0)
                     }//: VSTACK
-                    .padding(.vertical, 4)
+                    .padding(.vertical, 12)
                     .foregroundColor(archiveViewModel.isToday(date: day) ? .white : .black.opacity(0.5))
                     .font(.system(size: 14))
                     .frame(maxWidth: .infinity, maxHeight: 90)
@@ -179,7 +170,7 @@ struct ArchiveView: View {
     fileprivate var archiveListView: some View {
         ForEach(archiveViewModel.selectedBeverages, id: \.id) { beverage in
             ArchiveListView(
-                title: beverage.name,
+                beverage: beverage, title: beverage.name,
                 size: beverage.size,
                 numberOfShots: beverage.numberOfShots,
                 date: beverage.registerDate,
@@ -203,9 +194,9 @@ extension Date {
     }
 }
 
-//MARK: - PREVIEW
-struct ArchiveView_Previews: PreviewProvider {
-    static var previews: some View {
-        ArchiveView()
-    }
-}
+////MARK: - PREVIEW
+//struct ArchiveView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ArchiveView()
+//    }
+//}

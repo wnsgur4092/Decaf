@@ -14,6 +14,7 @@ struct ArchiveListDetailView: View {
     @State private var showingAlert = false
     
     @ObservedObject var viewModel : ArchiveViewModel
+    var beverage: SelectedBeverage
     
     var day: Date
     var date : Date
@@ -134,14 +135,18 @@ struct ArchiveListDetailView: View {
             .alert(isPresented: $showingAlert) {
                 Alert(
                     title: Text("Are you sure you want to delete this coffee?"),
-                    primaryButton: .destructive(Text("Delete")) {
-                        viewModel.deleteBeverage(day: day, name: detailName)
-                                                // Dismiss view after deleting
-                                                presentationMode.wrappedValue.dismiss()
-                    },
+                    primaryButton: .destructive(
+                        Text("Delete"),
+                        action: {
+                            viewModel.deleteBeverage(day: beverage.registerDate, name: beverage.name)
+                            // Dismiss view after deleting
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    ),
                     secondaryButton: .cancel()
                 )
             }
+
             
             .padding(.trailing, 16)
         }

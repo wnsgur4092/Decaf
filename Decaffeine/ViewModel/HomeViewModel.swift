@@ -12,15 +12,15 @@ import SwiftUI
 
 class HomeViewModel: ObservableObject {
     @Published var list: [SelectedBeverage] = []
-    @Published var userProfileImage: UIImage?
 
     private var notificationToken: NotificationToken?
 
 
     init() {
         observeListChanges()
-        observeUserProfileImage()
     }
+    
+
 
     func observeListChanges() {
         do {
@@ -38,19 +38,6 @@ class HomeViewModel: ObservableObject {
             }
         } catch {
             print("Realm observe error: \(error)")
-        }
-    }
-    
-    func observeUserProfileImage() {
-        if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileURL = documentsDirectory.appendingPathComponent("userProfileImage").appendingPathExtension("jpg")
-            do {
-                let imageData = try Data(contentsOf: fileURL)
-                let image = UIImage(data: imageData)
-                userProfileImage = image
-            } catch {
-                print("Error loading image : \(error)")
-            }
         }
     }
     
@@ -75,4 +62,3 @@ class HomeViewModel: ObservableObject {
     
     
 }
-

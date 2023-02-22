@@ -10,15 +10,69 @@ class ArchiveViewModel : ObservableObject {
     @Published var currentDay : Date = Date()
     @Published var selectedBeverages: [SelectedBeverage] = []
     
+    var notificationToken: NotificationToken? = nil
+    
     private var cancellables = Set<AnyCancellable>()
     
     //MARK: - INTIAL
     init() {
+        guard let realm = try? Realm() else {
+            // handle error
+            return
+        }
+        
         fetchCurrentWeek()
-        fetchSelectedBeverages(for: currentDay) // 선택한 날짜에 해당하는 음료 불러오기
+        observeSelectedBeverages()
+        fetchSelectedBeverages(for: currentDay)
+        
+        notificationToken = realm.objects(SelectedBeverage.self).observe { [weak self] changes in
+            guard let self = self else { return }
+            switch changes {
+            case .initial:
+                self.loadSelectedBeverages()
+            case .update(_, let deletions, _, _):
+                deletions.forEach { index in
+                    self.selectedBeverages.remove(at: index)
+                    self.objectWillChange.send()
+                }
+            case .error(let error):
+                print("Error: \(error)")
+            }
+        }
     }
+
+
     
     //MARK: - FUNCTION
+    
+    func observeSelectedBeverages() {
+        guard let realm = try? Realm() else {
+            return
+        }
+        notificationToken = realm.objects(SelectedBeverage.self).observe { [weak self] changes in
+            guard let self = self else { return }
+            switch changes {
+            case .initial:
+                self.loadSelectedBeverages()
+            case .update(_, let deletions, let insertions, let modifications):
+                self.selectedBeverages.enumerated().forEach { (index, element) in
+                    if deletions.contains(index) {
+                        self.selectedBeverages.remove(at: index)
+                    }
+                }
+                insertions.forEach { index in
+                    self.selectedBeverages.insert(realm.objects(SelectedBeverage.self)[index], at: index)
+                }
+                modifications.forEach { index in
+                    self.selectedBeverages[index] = realm.objects(SelectedBeverage.self)[index]
+                }
+            case .error(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
+
+
     
     func fetchSelectedBeverages(for date: Date) {
         let realm = try! Realm()
@@ -29,30 +83,26 @@ class ArchiveViewModel : ObservableObject {
         self.selectedBeverages = selectedBeverages
         self.objectWillChange.send() // 뷰에 변경이 있음을 알림
     }
-
     
-    
-    // Subscribe to the future and update `selectedBeverages` when it completes
     
     
     func deleteBeverage(day: Date, name: String) {
         let realm = try! Realm()
         let startOfDay = Calendar.current.startOfDay(for: day)
         let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay)!
-            
+        
         // Search for the beverage to delete
         if let beverageToDelete = realm.objects(SelectedBeverage.self).filter("registerDate >= %@ AND registerDate < %@ AND name = %@", startOfDay, endOfDay, name).first {
             try! realm.write {
                 realm.delete(beverageToDelete)
+                if let index = selectedBeverages.firstIndex(where: { $0.id == beverageToDelete.id }) {
+                    selectedBeverages.remove(at: index)
+                    self.objectWillChange.send()
+                }
             }
-            // 데이터 삭제가 완료된 후, UI를 갱신합니다.
-            fetchSelectedBeverages(for: day)
         }
     }
 
-
-    
-    
     func loadSelectedBeverages() {
         let realm = try! Realm()
         selectedBeverages = Array(realm.objects(SelectedBeverage.self).filter("registerDate >= %@ AND registerDate < %@", Calendar.current.startOfDay(for: currentDay), Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: currentDay))!).sorted(byKeyPath: "registerDate", ascending: false))
@@ -140,3 +190,4 @@ class ArchiveViewModel : ObservableObject {
     
     
 }
+

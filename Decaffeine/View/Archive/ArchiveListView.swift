@@ -10,6 +10,7 @@ import SwiftUI
 struct ArchiveListView: View {
     //MARK: - PROPERTIES
     @ObservedObject var viewModel = ArchiveViewModel()
+    var beverage : SelectedBeverage
     var title: String
     var size: String
     var numberOfShots: Double
@@ -74,7 +75,7 @@ struct ArchiveListView: View {
             }
         }
         .fullScreenCover(isPresented: $isDetailViewPresented) {
-            ArchiveListDetailView(viewModel: viewModel, day: date, date: date, time: date, month: date, detailImage: image, detailName: title)
+            ArchiveListDetailView(viewModel: viewModel, beverage: beverage, day: date , date: date, time: date, month: date, detailImage: image, detailName: title)
         }
     }
     
@@ -91,6 +92,7 @@ struct ArchiveListView_Previews: PreviewProvider {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         let time = dateFormatter.date(from: "11:35") ?? Date()
-        return ArchiveListView(title: "Cappuccino", size: "Large", numberOfShots: 2, date: time, image: "")
+        return ArchiveListView(beverage: SelectedBeverage(), title: "Cappuccino", size: "Large", numberOfShots: 2, date: time, image: "")
     }
 }
+

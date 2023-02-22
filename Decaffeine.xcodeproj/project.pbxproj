@@ -10,7 +10,6 @@
 		0F325B0E299EE214004700EF /* ArchiveListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F325B0D299EE214004700EF /* ArchiveListView.swift */; };
 		BF273A8729A51BF00067C9DE /* BeverageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF273A8629A51BF00067C9DE /* BeverageCardView.swift */; };
 		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
-		BF3C15AB29A2951B00148C51 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C15AA29A2951B00148C51 /* CustomButtonStyle.swift */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
 		BF511B2C29A3687400CBEED0 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BF511B2B29A3687400CBEED0 /* Realm */; };
 		BF511B2E29A3687400CBEED0 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF511B2D29A3687400CBEED0 /* RealmSwift */; };
@@ -69,7 +68,6 @@
 /* Begin PBXFileReference section */
 		0F325B0D299EE214004700EF /* ArchiveListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListView.swift; sourceTree = "<group>"; };
 		BF273A8629A51BF00067C9DE /* BeverageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCardView.swift; sourceTree = "<group>"; };
-		BF3C15AA29A2951B00148C51 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSelectView.swift; sourceTree = "<group>"; };
 		BF854199299FD55900AB1ED9 /* BeverageSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSettingView.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */,
-				BF3C15AA29A2951B00148C51 /* CustomButtonStyle.swift */,
 				BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */,
 				BFCED244299C445700E49EB6 /* SecondayButtonStyle.swift */,
 				BFA53D7C299A6EC2007D943D /* CustomTextField.swift */,
@@ -467,7 +464,6 @@
 				BFDB9EB8299EFBA100F2B957 /* HomeViewModel.swift in Sources */,
 				BFCED245299C445700E49EB6 /* SecondayButtonStyle.swift in Sources */,
 				BFA53D83299A9AD9007D943D /* ImagePicker.swift in Sources */,
-				BF3C15AB29A2951B00148C51 /* CustomButtonStyle.swift in Sources */,
 				BF854182299F0E7600AB1ED9 /* BeverageSelectView.swift in Sources */,
 				BFE96F7D29860376003E0934 /* ContentView.swift in Sources */,
 				BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */,
