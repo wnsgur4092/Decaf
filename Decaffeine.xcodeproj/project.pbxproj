@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F325B0E299EE214004700EF /* ArchiveListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F325B0D299EE214004700EF /* ArchiveListView.swift */; };
+		BA03321129A5B08500BE8F1D /* AnnouncementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */; };
 		BF273A8729A51BF00067C9DE /* BeverageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF273A8629A51BF00067C9DE /* BeverageCardView.swift */; };
 		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		0F325B0D299EE214004700EF /* ArchiveListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListView.swift; sourceTree = "<group>"; };
+		BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListView.swift; sourceTree = "<group>"; };
 		BF273A8629A51BF00067C9DE /* BeverageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCardView.swift; sourceTree = "<group>"; };
 		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSelectView.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			children = (
 				BFFF9A482999B144002D5ACC /* SettingView.swift */,
 				BFFF9A4A2999B14D002D5ACC /* AnnouncementView.swift */,
+				BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFCED242299C40EB00E49EB6 /* BeverageCell.swift in Sources */,
+				BA03321129A5B08500BE8F1D /* AnnouncementListView.swift in Sources */,
 				0F325B0E299EE214004700EF /* ArchiveListView.swift in Sources */,
 				BFE96FA82986047F003E0934 /* HomeView.swift in Sources */,
 				CE22FF4C29A39D7E00333F1E /* CarouselView.swift in Sources */,
