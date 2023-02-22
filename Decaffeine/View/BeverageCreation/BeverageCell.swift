@@ -30,11 +30,11 @@ struct BeverageCell: View {
             }
             .frame(width: 120 , height: 140)
             .padding(20)
-            .border(.black, width: 1 )
-
+            //.border(.black, width: 1 )
             .background(
-                selectedBeverageIndex == index ? Color.blue.opacity(0.2) : Color.white
+                selectedBeverageIndex == index ? Color("secondaryColor").opacity(0.2) : Color.white
             )
+            .clipShape(RoundedRectangle(cornerRadius: 12))
             .foregroundColor(Color.primary)
         }
     }

@@ -46,6 +46,7 @@
 		BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A54299A48C9002D5ACC /* LottieView.swift */; };
 		CE22FF4C29A39D7E00333F1E /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE22FF4B29A39D7E00333F1E /* CarouselView.swift */; };
 		CE22FF5229A466B200333F1E /* CustomIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE22FF5129A466B200333F1E /* CustomIndicator.swift */; };
+		CEA6C4D929A6CE4E006B6436 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6C4D829A6CE4E006B6436 /* CustomButtonStyle.swift */; };
 		CECE0D6E299DBCAE00BDC0AB /* BeverageDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE0D6D299DBCAE00BDC0AB /* BeverageDetailCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		BFFF9A54299A48C9002D5ACC /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		CE22FF4B29A39D7E00333F1E /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		CE22FF5129A466B200333F1E /* CustomIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIndicator.swift; sourceTree = "<group>"; };
+		CEA6C4D829A6CE4E006B6436 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		CECE0D6D299DBCAE00BDC0AB /* BeverageDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageDetailCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */,
+				CEA6C4D829A6CE4E006B6436 /* CustomButtonStyle.swift */,
 				BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */,
 				BFCED244299C445700E49EB6 /* SecondayButtonStyle.swift */,
 				BFA53D7C299A6EC2007D943D /* CustomTextField.swift */,
@@ -472,6 +475,7 @@
 				BFE96F7D29860376003E0934 /* ContentView.swift in Sources */,
 				BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */,
 				BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */,
+				CEA6C4D929A6CE4E006B6436 /* CustomButtonStyle.swift in Sources */,
 				BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */,
 				BFFF9A4B2999B14D002D5ACC /* AnnouncementView.swift in Sources */,
 				BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */,

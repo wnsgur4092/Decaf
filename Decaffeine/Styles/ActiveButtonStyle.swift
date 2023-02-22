@@ -8,8 +8,11 @@
 import Foundation
 import SwiftUI
 
+let activeStyle = ActiveButtonStyle()
+
 struct ActiveButtonStyle: ButtonStyle {
     //MARK: - PROPERTIES
+    
     let bgColor : Color = Color("mainColor")
     let textColor : Color = Color.white
     

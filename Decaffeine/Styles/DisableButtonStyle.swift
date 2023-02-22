@@ -8,9 +8,11 @@
 import Foundation
 import SwiftUI
 
+let disableStyle = DisableButtonStyle()
 
 struct DisableButtonStyle: ButtonStyle {
     //MARK: - PROPERTIES
+
     let bgColor : Color = Color("gray")
     let textColor : Color = Color.white
     
@@ -22,7 +24,7 @@ struct DisableButtonStyle: ButtonStyle {
                 .padding(.vertical, 20)
                 .padding(.horizontal, 15)
         }
-        .disabled(true) // 버튼을 비활성화합니다.
+        //.disabled(true) // 버튼을 비활성화합니다.
         .frame(maxWidth: .infinity)
         .background(bgColor.cornerRadius(28))
     }
