@@ -11,7 +11,7 @@ import SwiftUI
 struct DecaffeineApp: App {
     var body: some Scene {
         WindowGroup {
-            AnnouncementView(title: "ABC", date: "00", description: "", subdescription: "A")
+            AnnouncementView()
         }
     }
 }

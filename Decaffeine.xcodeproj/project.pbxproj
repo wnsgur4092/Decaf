@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA03320D29A5AE6E00BE8F1D /* AnnouncementsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03320C29A5AE6E00BE8F1D /* AnnouncementsListView.swift */; };
 		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
 		BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA03320C29A5AE6E00BE8F1D /* AnnouncementsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementsListView.swift; sourceTree = "<group>"; };
 		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButtonStyle.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			children = (
 				BFFF9A482999B144002D5ACC /* SettingView.swift */,
 				BFFF9A4A2999B14D002D5ACC /* AnnouncementView.swift */,
+				BA03320C29A5AE6E00BE8F1D /* AnnouncementsListView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				BFCED242299C40EB00E49EB6 /* BeverageCell.swift in Sources */,
 				BFE96FA82986047F003E0934 /* HomeView.swift in Sources */,
 				BFFF9A492999B144002D5ACC /* SettingView.swift in Sources */,
+				BA03320D29A5AE6E00BE8F1D /* AnnouncementsListView.swift in Sources */,
 				BFFF9A452999B127002D5ACC /* ArchiveView.swift in Sources */,
 				BFA53D7F299A8C31007D943D /* CustomCorner.swift in Sources */,
 				BFA53D7D299A6EC2007D943D /* CustomTextField.swift in Sources */,
