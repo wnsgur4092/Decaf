@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     //MARK: - PROPERTIES
+    @State var hasTapped : Bool = false
     @StateObject var homeVM : HomeViewModel
     @EnvironmentObject var archiveViewModel: ArchiveViewModel
     
@@ -30,8 +31,10 @@ struct HomeView: View {
                     .padding(.vertical,12)
                     .padding(.horizontal, 32)
                 
-                Divider()
-                    .padding(.bottom, 10)
+                Spacer()
+                    .frame(maxHeight: 32)
+//                Divider()
+//                    .padding(.bottom, 10)
                 
                 coffeeListImage
                 
@@ -110,13 +113,13 @@ struct HomeView: View {
         VStack(spacing: 8){
             Image("noList")
             
-            Text(homeVM.numberOfBeveragesForToday() == 0 ? "You did not have coffee yet" : "You have no coffee history for this day")
+            Text(homeVM.numberOfBeveragesForToday() == 0 ? "You haven't had any coffee yet" : "You have no coffee history for this day")
                 .font(.system(size: 18))
                 .fontWeight(.bold)
                 .foregroundColor(Color("mainColor"))
             
             //Coffee Shot & Caffeine Content
-            Text(homeVM.numberOfBeveragesForToday() == 0 ? "Create your caffeine history" : "Add your first coffee for this day")
+            Text(homeVM.numberOfBeveragesForToday() == 0 ? "Create your caffeine history" : "Add your first coffee for the day")
                 .font(.system(size: 14))
                 .fontWeight(.regular)
                 .foregroundColor(Color("mainColor").opacity(0.6))
@@ -127,7 +130,7 @@ struct HomeView: View {
     //COFFEE COUNT TEXT
     fileprivate var coffeeCountText : some View {
         HStack{
-            Text("You had total \(homeVM.numberOfBeveragesForToday()) coffees")
+            Text("You've had \(homeVM.numberOfBeveragesForToday()) coffees")
                 .font(.system(size: 16))
                 .fontWeight(.regular)
                 .foregroundColor(Color("mainColor").opacity(0.8))

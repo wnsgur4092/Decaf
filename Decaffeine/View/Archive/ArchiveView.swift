@@ -204,8 +204,8 @@ extension Date {
 }
 
 //MARK: - PREVIEW
-struct ArchiveView_Previews: PreviewProvider {
-    static var previews: some View {
-        ArchiveView()
-    }
-}
+//struct ArchiveView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ArchiveView()
+//    }
+//}

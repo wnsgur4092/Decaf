@@ -16,7 +16,7 @@ struct ProgressBar: View {
     var body: some View {
         ZStack(alignment: .leading) {
             ProgressView(value: todayIntake, total: totalIntake)
-                .accentColor(Color("mainColor").opacity(0.6))
+                .accentColor(Color("secondaryColor").opacity(0.6))
                 .scaleEffect(x: 1, y: 10, anchor: .center)
                 
             
