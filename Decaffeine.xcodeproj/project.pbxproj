@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA03321129A5B08500BE8F1D /* AnnouncementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */; };
-		BF24C0E129A8200F00157200 /* Coffee.json in Resources */ = {isa = PBXBuildFile; fileRef = BF24C0E029A8200F00157200 /* Coffee.json */; };
+		BF24C0E329A8220300157200 /* Coffee.json in Resources */ = {isa = PBXBuildFile; fileRef = BF24C0E229A8220300157200 /* Coffee.json */; };
 		BF273A8729A51BF00067C9DE /* BeverageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF273A8629A51BF00067C9DE /* BeverageCardView.swift */; };
 		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
 		BF2E8C9529A6F0070085A597 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2E8C9429A6F0070085A597 /* CustomButtonStyle.swift */; };
@@ -65,7 +65,7 @@
 
 /* Begin PBXFileReference section */
 		BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListView.swift; sourceTree = "<group>"; };
-		BF24C0E029A8200F00157200 /* Coffee.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Coffee.json; path = ../../../Coffee.json; sourceTree = "<group>"; };
+		BF24C0E229A8220300157200 /* Coffee.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Coffee.json; sourceTree = "<group>"; };
 		BF273A8629A51BF00067C9DE /* BeverageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCardView.swift; sourceTree = "<group>"; };
 		BF2E8C9429A6F0070085A597 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
@@ -287,8 +287,8 @@
 		BFFF9A51299A4803002D5ACC /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				BF24C0E029A8200F00157200 /* Coffee.json */,
 				BFFF9A54299A48C9002D5ACC /* LottieView.swift */,
+				BF24C0E229A8220300157200 /* Coffee.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -408,9 +408,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF24C0E129A8200F00157200 /* Coffee.json in Resources */,
 				BFE96F8229860377003E0934 /* Preview Assets.xcassets in Resources */,
 				BFE96F7F29860377003E0934 /* Assets.xcassets in Resources */,
+				BF24C0E329A8220300157200 /* Coffee.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
