@@ -173,7 +173,7 @@ struct BeverageSettingView: View {
                 print(viewModel.selectedBeverage.numberOfShots)
                 print(isSaveEnabled)
                 
-                viewModel.saveSelectedBeverage()
+                viewModel.saveData()
                 presentationMode.wrappedValue.dismiss()
                 
             } label: {

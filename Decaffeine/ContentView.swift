@@ -14,14 +14,14 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            HomeView(homeVM: HomeViewModel(storage: SelectedBeverageStroage()))
+            HomeView(homeVM: HomeViewModel())
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
                 }
 
             
-            ArchiveView()
+            ArchiveView(archiveViewModel: ArchiveViewModel())
                 .tabItem {
                     Image(systemName: "book")
                     Text("Archive")

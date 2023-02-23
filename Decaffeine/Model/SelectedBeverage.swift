@@ -6,18 +6,26 @@
 //
 
 import Foundation
+import RealmSwift
 
-class SelectedBeverage :  Identifiable, Codable {
+class SelectedBeverage :  Object, Identifiable, Codable {
     
-    //Vandan Add
-    var id : UUID = UUID()
-    var name : String = ""
-    var imageName : String = ""
-    var numberOfShots : Double = 1.0
-    var size : String = ""
-    var registerDate : Date = Date()
+    @Persisted var id : UUID = UUID()
+    @Persisted var name : String = ""
+    @Persisted var imageName : String = ""
+    @Persisted var numberOfShots : Double = 0.5
+    @Persisted var size : String = ""
+    @Persisted var registerDate : Date = Date()
+    @Persisted var caffeine : Double = 0.0
     
-    var caffeine : Int = 0
+    override static func primaryKey() -> String? {
+        return "id"
+    }
     
-    
+//    private var dateComponent: DateComponents {
+//        let calendar = Calendar(identifier: .gregorian)
+//        let dc = calendar.dateComponents([.year, .month], from: self.registerDate)
+//        return dc
+//    }
 }
+

@@ -15,7 +15,7 @@ struct HomeView: View {
     
     @State var isPresenting = false
     
-    let maximumCaffeinePerDay : Int = 400
+    let maximumCaffeinePerDay : Double = 400
     let calendar = Calendar.current
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -91,13 +91,13 @@ struct HomeView: View {
     
     fileprivate var coffeeListImage : some View {
         VStack{
-            if homeVM.list.filter { calendar.isDate($0.registerDate, inSameDayAs: Date()) }.isEmpty {
+            if homeVM.selectedBeverages.filter { calendar.isDate($0.registerDate, inSameDayAs: Date()) }.isEmpty {
                 noList
                     .frame(height: 400)
                     .padding(.vertical, 10)
             } else {
                 TabView{
-                    ForEach(homeVM.list) { item in
+                    ForEach(homeVM.selectedBeverages) { item in
                         BeverageCardView(beverageName: item.name, beverageImageName: item.imageName)
                     }
                 }
@@ -148,9 +148,10 @@ struct HomeView: View {
                 Spacer()
                 
                 HStack{
-                    Text("\(homeVM.totalCaffeineForToday())")
-                        .foregroundColor(homeVM.totalCaffeineForToday() <  maximumCaffeinePerDay ? Color("mainColor") : Color.red)
-                    Text("/ \(maximumCaffeinePerDay)mg")
+                    Text("\(String(format: "%.1f", homeVM.totalCaffeineForToday()))")
+                        .foregroundColor(homeVM.totalCaffeineForToday() < maximumCaffeinePerDay ? Color("mainColor") : Color.red)
+                    Text("/ \(String(format: "%.1f", maximumCaffeinePerDay))mg")
+
                 }
                 
             }
@@ -169,7 +170,7 @@ struct HomeView: View {
         }
         .buttonStyle(ActiveButtonStyle())
         .sheet(isPresented: $isPresenting) {
-            let vm = BeverageInputViewModel(isPresented: $isPresenting, selectedBeverages: $homeVM.list)
+            let vm = BeverageInputViewModel(isPresented: $isPresenting, selectedBeverages: $homeVM.selectedBeverages)
             
             BeverageSelectView(viewModel: vm)
         }
@@ -188,6 +189,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(homeVM: HomeViewModel(storage: SelectedBeverageStroage()))
+        HomeView(homeVM: HomeViewModel())
     }
 }

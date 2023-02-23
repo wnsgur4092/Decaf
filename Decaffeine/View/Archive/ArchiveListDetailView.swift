@@ -22,6 +22,9 @@ struct ArchiveListDetailView: View {
     var month : Date
     var detailImage : String
     var detailName : String
+    var shots : Double
+    var size : String
+    var caffeine : Double
     
     //MARK: - BODY
     var body: some View {
@@ -111,9 +114,9 @@ struct ArchiveListDetailView: View {
             
             
             HStack(alignment: .bottom, spacing: 32){
-                BeverageDetailCell(detailImageName: "small", detailName: "Size", detailExtra: "Small")
-                BeverageDetailCell(detailImageName: "shot", detailName: "Shots", detailExtra: "4")
-                BeverageDetailCell(detailImageName: "coffeeBean", detailName: "Caffeine", detailExtra: "126mg")
+                BeverageDetailCell(detailImageName: "small", detailName: "Size", detailExtra: size)
+                BeverageDetailCell(detailImageName: "shot", detailName: "Shots", detailExtra: "\(shots)")
+                BeverageDetailCell(detailImageName: "coffeeBean", detailName: "Caffeine", detailExtra: "\(caffeine)" )
                 
             }
         }

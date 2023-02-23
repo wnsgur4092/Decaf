@@ -7,16 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F325B0E299EE214004700EF /* ArchiveListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F325B0D299EE214004700EF /* ArchiveListView.swift */; };
 		BA03321129A5B08500BE8F1D /* AnnouncementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */; };
 		BF273A8729A51BF00067C9DE /* BeverageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF273A8629A51BF00067C9DE /* BeverageCardView.swift */; };
 		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
 		BF2E8C9529A6F0070085A597 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2E8C9429A6F0070085A597 /* CustomButtonStyle.swift */; };
-		BF2E8C9829A6F33F0085A597 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2E8C9729A6F33F0085A597 /* Storage.swift */; };
-		BF2E8C9A29A6F3570085A597 /* SelectedBeverageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2E8C9929A6F3570085A597 /* SelectedBeverageStorage.swift */; };
+		BF2E8C9D29A770A90085A597 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BF2E8C9C29A770A90085A597 /* Realm */; };
+		BF2E8C9F29A770A90085A597 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF2E8C9E29A770A90085A597 /* RealmSwift */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
-		BF511B2C29A3687400CBEED0 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BF511B2B29A3687400CBEED0 /* Realm */; };
-		BF511B2E29A3687400CBEED0 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF511B2D29A3687400CBEED0 /* RealmSwift */; };
 		BF854182299F0E7600AB1ED9 /* BeverageSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */; };
 		BF85419A299FD55900AB1ED9 /* BeverageSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF854199299FD55900AB1ED9 /* BeverageSettingView.swift */; };
 		BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */; };
@@ -46,7 +43,6 @@
 		BFFF9A50299A462B002D5ACC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BFFF9A4F299A462B002D5ACC /* Lottie */; };
 		BFFF9A53299A4837002D5ACC /* coffee.json in Resources */ = {isa = PBXBuildFile; fileRef = BFFF9A52299A4837002D5ACC /* coffee.json */; };
 		BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A54299A48C9002D5ACC /* LottieView.swift */; };
-		CE22FF4C29A39D7E00333F1E /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE22FF4B29A39D7E00333F1E /* CarouselView.swift */; };
 		CE22FF5229A466B200333F1E /* CustomIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE22FF5129A466B200333F1E /* CustomIndicator.swift */; };
 		CECE0D6E299DBCAE00BDC0AB /* BeverageDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE0D6D299DBCAE00BDC0AB /* BeverageDetailCell.swift */; };
 /* End PBXBuildFile section */
@@ -69,12 +65,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0F325B0D299EE214004700EF /* ArchiveListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListView.swift; sourceTree = "<group>"; };
 		BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListView.swift; sourceTree = "<group>"; };
 		BF273A8629A51BF00067C9DE /* BeverageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCardView.swift; sourceTree = "<group>"; };
 		BF2E8C9429A6F0070085A597 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
-		BF2E8C9729A6F33F0085A597 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		BF2E8C9929A6F3570085A597 /* SelectedBeverageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBeverageStorage.swift; sourceTree = "<group>"; };
 		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSelectView.swift; sourceTree = "<group>"; };
 		BF854199299FD55900AB1ED9 /* BeverageSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSettingView.swift; sourceTree = "<group>"; };
@@ -107,7 +100,6 @@
 		BFFF9A4A2999B14D002D5ACC /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		BFFF9A52299A4837002D5ACC /* coffee.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coffee.json; sourceTree = "<group>"; };
 		BFFF9A54299A48C9002D5ACC /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		CE22FF4B29A39D7E00333F1E /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		CE22FF5129A466B200333F1E /* CustomIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIndicator.swift; sourceTree = "<group>"; };
 		CECE0D6D299DBCAE00BDC0AB /* BeverageDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageDetailCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,8 +109,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF511B2E29A3687400CBEED0 /* RealmSwift in Frameworks */,
-				BF511B2C29A3687400CBEED0 /* Realm in Frameworks */,
+				BF2E8C9F29A770A90085A597 /* RealmSwift in Frameworks */,
+				BF2E8C9D29A770A90085A597 /* Realm in Frameworks */,
 				BFFF9A50299A462B002D5ACC /* Lottie in Frameworks */,
 				BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */,
 			);
@@ -141,15 +133,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BF2E8C9629A6F32D0085A597 /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				BF2E8C9729A6F33F0085A597 /* Storage.swift */,
-				BF2E8C9929A6F3570085A597 /* SelectedBeverageStorage.swift */,
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
 		BFA53D77299A6087007D943D /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				BFFF9A442999B126002D5ACC /* ArchiveView.swift */,
-				0F325B0D299EE214004700EF /* ArchiveListView.swift */,
 				BFCED253299D2B1E00E49EB6 /* ArchiveListDetailView.swift */,
 				CECE0D6D299DBCAE00BDC0AB /* BeverageDetailCell.swift */,
 			);
@@ -238,7 +220,6 @@
 			children = (
 				BFE96F7A29860376003E0934 /* DecaffeineApp.swift */,
 				BFE96F7C29860376003E0934 /* ContentView.swift */,
-				BF2E8C9629A6F32D0085A597 /* Storage */,
 				BFA53D77299A6087007D943D /* Styles */,
 				BFFF9A51299A4803002D5ACC /* Lottie */,
 				BFE96FA62986043A003E0934 /* Model */,
@@ -293,7 +274,6 @@
 				BFDB9EB7299EFBA100F2B957 /* HomeViewModel.swift */,
 				BFF2F92829A218310038A067 /* BeverageInputViewModel.swift */,
 				BFCED249299D193800E49EB6 /* ArchiveViewModel.swift */,
-				CE22FF4B29A39D7E00333F1E /* CarouselView.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -335,8 +315,8 @@
 			packageProductDependencies = (
 				BFFF9A4F299A462B002D5ACC /* Lottie */,
 				BF2B706E299BDAF3000E1F99 /* SegmentedPicker */,
-				BF511B2B29A3687400CBEED0 /* Realm */,
-				BF511B2D29A3687400CBEED0 /* RealmSwift */,
+				BF2E8C9C29A770A90085A597 /* Realm */,
+				BF2E8C9E29A770A90085A597 /* RealmSwift */,
 			);
 			productName = Decaffeine;
 			productReference = BFE96F7729860376003E0934 /* Decaffeine.app */;
@@ -413,7 +393,7 @@
 			packageReferences = (
 				BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				BF2B706D299BDAF3000E1F99 /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */,
-				BF511B2A29A3687400CBEED0 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				BF2E8C9B29A770A90085A597 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = BFE96F7829860376003E0934 /* Products */;
 			projectDirPath = "";
@@ -460,9 +440,7 @@
 			files = (
 				BFCED242299C40EB00E49EB6 /* BeverageCell.swift in Sources */,
 				BA03321129A5B08500BE8F1D /* AnnouncementListView.swift in Sources */,
-				0F325B0E299EE214004700EF /* ArchiveListView.swift in Sources */,
 				BFE96FA82986047F003E0934 /* HomeView.swift in Sources */,
-				CE22FF4C29A39D7E00333F1E /* CarouselView.swift in Sources */,
 				CE22FF5229A466B200333F1E /* CustomIndicator.swift in Sources */,
 				BFFF9A492999B144002D5ACC /* SettingView.swift in Sources */,
 				BFFF9A452999B127002D5ACC /* ArchiveView.swift in Sources */,
@@ -477,11 +455,9 @@
 				BFE96F7D29860376003E0934 /* ContentView.swift in Sources */,
 				BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */,
 				BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */,
-				BF2E8C9829A6F33F0085A597 /* Storage.swift in Sources */,
 				BF2E8C9529A6F0070085A597 /* CustomButtonStyle.swift in Sources */,
 				BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */,
 				BFFF9A4B2999B14D002D5ACC /* AnnouncementView.swift in Sources */,
-				BF2E8C9A29A6F3570085A597 /* SelectedBeverageStorage.swift in Sources */,
 				BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */,
 				BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */,
 				BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */,
@@ -832,7 +808,7 @@
 				minimumVersion = 0.0.2;
 			};
 		};
-		BF511B2A29A3687400CBEED0 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		BF2E8C9B29A770A90085A597 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -856,14 +832,14 @@
 			package = BF2B706D299BDAF3000E1F99 /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */;
 			productName = SegmentedPicker;
 		};
-		BF511B2B29A3687400CBEED0 /* Realm */ = {
+		BF2E8C9C29A770A90085A597 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BF511B2A29A3687400CBEED0 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = BF2E8C9B29A770A90085A597 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
-		BF511B2D29A3687400CBEED0 /* RealmSwift */ = {
+		BF2E8C9E29A770A90085A597 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BF511B2A29A3687400CBEED0 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = BF2E8C9B29A770A90085A597 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 		BFFF9A4F299A462B002D5ACC /* Lottie */ = {

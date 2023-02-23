@@ -1,14 +1,13 @@
 import Foundation
 import SwiftUI
 import Combine
+import RealmSwift
+
 
 class ArchiveViewModel : ObservableObject {
     //MARK: - PROPERTIES
     
-    let storage : SelectedBeverageStroage
-    
-    @Published var list: [SelectedBeverage] = []
-    @Published var dic : [String: [SelectedBeverage]] = [:]
+    @Published var selectedBeverages : [SelectedBeverage] = []
     
     @Published var currentWeek : [Date] = [] //Current Week Days
     @Published var currentDay : Date = Date()
@@ -16,31 +15,27 @@ class ArchiveViewModel : ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     //MARK: - INTIAL
-    init(storage: SelectedBeverageStroage) {
-        self.storage = storage
+    init() {
+        
         self.currentDay = Date()
         
         fetchCurrentWeek()
         fetchSelectedBeverages(for: currentDay)
         
-        storage.$selectedBeverages
-              .sink { [weak self] _ in
-                  guard let self = self else { return }
-                  self.fetchSelectedBeverages(for: self.currentDay)
-              }
-              .store(in: &cancellables)
     }
     
     //MARK: - FUNCTION
     
     func fetchSelectedBeverages(for day: Date) {
-        self.list = storage.fetch().filter { Calendar.current.isDate($0.registerDate, inSameDayAs: day) }
-
+        guard let realm = try? Realm() else {return}
+        
+        let selectedBeverage = realm.objects(SelectedBeverage.self)
+        
+        try! realm.write{
+            self.selectedBeverages = selectedBeverage.filter { Calendar.current.isDate($0.registerDate, inSameDayAs: day) }
+        }
     }
     
-    func delete() {
-        
-    }
     
     func fetchCurrentMonth() -> String {
         let today = Date()
@@ -49,10 +44,10 @@ class ArchiveViewModel : ObservableObject {
         return dateFormatter.string(from: today)
     }
     
-    func totalCaffeineForToday() -> Int {
+    func totalCaffeineForToday() -> Double {
         let calendar = Calendar.current
         let today = Date()
-        let filteredList = list.filter {
+        let filteredList = selectedBeverages.filter {
             calendar.isDate($0.registerDate, inSameDayAs: today)
         }
         let totalCaffeine = filteredList.reduce(0) { $0 + $1.caffeine }

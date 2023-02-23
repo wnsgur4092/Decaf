@@ -109,17 +109,6 @@ struct BeverageSelectView: View {
             } else {
                 nextButton.buttonStyle(DisableButtonStyle())
             }
-            
-//            NavigationLink(
-//                destination: BeverageSettingView(viewModel: viewModel),
-////                isActive: Binding<Bool>(get: { selectedBeverageIndex != nil }, set: { _ in }),
-//                label: {
-//                    Text("Next")
-//                })
-//            .frame(maxWidth: 80, maxHeight: 40)
-//            .buttonStyle(selectedBeverageIndex != nil ? ActiveButtonStyle() : DisableButtonStyle())
-//            .disabled(selectedBeverageIndex == nil)
-//            .foregroundColor(selectedBeverageIndex == nil ? .gray : .green)
         }
     }
 }

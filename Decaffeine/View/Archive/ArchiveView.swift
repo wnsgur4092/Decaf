@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ArchiveView: View {
     //MARK: - PROPERTIES
-    @StateObject var archiveViewModel = ArchiveViewModel(storage: SelectedBeverageStroage())
+    @StateObject var archiveViewModel : ArchiveViewModel
     @Namespace var animation
     
+    @State private var isDetailViewPresented = false
     
     
     //MARK: - BODY
@@ -64,10 +65,11 @@ struct ArchiveView: View {
                 .padding(.horizontal, 32)
             }
         }
-        .onChange(of: archiveViewModel.currentDay, perform: { day in
+        .onChange(of: archiveViewModel.currentDay) { day in
             archiveViewModel.fetchSelectedBeverages(for: day)
-        })
+        }
     }
+    
     //MARK: - COMPONENTS
     
     //HEADER
@@ -101,9 +103,9 @@ struct ArchiveView: View {
             
             HStack{
                 
-                Text("\(archiveViewModel.totalCaffeineForToday())")
+                Text(String(format: "%.1f", archiveViewModel.totalCaffeineForToday()))
                     .foregroundColor(Color("mainColor"))
-                
+
                 Text("/ 400mg")
             }
             .font(.system(size: 16))
@@ -142,7 +144,7 @@ struct ArchiveView: View {
                         //Updating Current Day
                         withAnimation {
                             archiveViewModel.currentDay = day
-//                            archiveViewModel.fetchSelectedBeverages(for: day)
+                            //                            archiveViewModel.fetchSelectedBeverages(for: day)
                         }
                     }
                 } //: FOREACH
@@ -171,7 +173,7 @@ struct ArchiveView: View {
     
     //ARCHIVE LIST VIEW
     fileprivate var archiveListView: some View {
-        ForEach(archiveViewModel.list, id: \.id) { beverage in
+        ForEach(archiveViewModel.selectedBeverages, id: \.id) { beverage in
             VStack(spacing: 10) {
                 HStack(alignment: .top, spacing: 5) {
                     Text(archiveViewModel.formatTime(time: beverage.registerDate))
@@ -218,25 +220,15 @@ struct ArchiveView: View {
                            alignment: .leading)
                     .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
                     .onTapGesture {
-                        //                        isDetailViewPresented.toggle()
+                        isDetailViewPresented.toggle()
                     }
                     
                 }
             }
-            //            .fullScreenCover(isPresented: $isDetailViewPresented) {
-            //                ArchiveListDetailView(viewModel: viewModel, beverage: beverage, detailImage: image, detailName: title)
-            //            }
-            
+            .fullScreenCover(isPresented: $isDetailViewPresented) {
+                ArchiveListDetailView(viewModel: ArchiveViewModel(), beverage: beverage, day: beverage.registerDate, date: beverage.registerDate, time: beverage.registerDate, month: beverage.registerDate, detailImage: beverage.imageName, detailName: beverage.name, shots: Double(beverage.numberOfShots), size: beverage.size, caffeine: Double(beverage.caffeine))
+                
+            }
         }
     }
-    
-    
 }
-
-
-////MARK: - PREVIEW
-//struct ArchiveView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ArchiveView()
-//    }
-//}
