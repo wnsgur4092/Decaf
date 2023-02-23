@@ -13,18 +13,9 @@ struct ArchiveListDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showingAlert = false
     
-    @ObservedObject var viewModel : ArchiveViewModel
-    var beverage: SelectedBeverage
+    @StateObject var viewModel : ArchiveViewModel
+    @State var selectedBeverage : SelectedBeverage
     
-    var day: Date
-    var date : Date
-    var time : Date
-    var month : Date
-    var detailImage : String
-    var detailName : String
-    var shots : Double
-    var size : String
-    var caffeine : Double
     
     //MARK: - BODY
     var body: some View {
@@ -51,14 +42,14 @@ struct ArchiveListDetailView: View {
                 }
             }
 
-            Spacer()
-            Divider()
-            HStack{
-                Spacer()
-                
-                deleteButton
-            }
-            .padding(.horizontal, 20)
+//            Spacer()
+//            Divider()
+//            HStack{
+//                Spacer()
+//
+//                deleteButton
+//            }
+//            .padding(.horizontal, 20)
         }
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -79,14 +70,14 @@ struct ArchiveListDetailView: View {
                         .frame(width: 20,height: 20)
                 }
                 
-                Text(viewModel.formatDate(day: day)) //DAY
+                Text(viewModel.formatDate(day: viewModel.selectedBeverage.registerDate)) //DAY
                     .fontWeight(.bold)
                     .font(.system(size: 24))
                 
-                Text(viewModel.formatDay(date: date)) //DATE
+                Text(viewModel.formatDay(date: viewModel.selectedBeverage.registerDate)) //DATE
                     .font(.system(size: 24))
                 
-                Text(viewModel.formatMonth(month: date)) //DATE
+                Text(viewModel.formatMonth(month: viewModel.selectedBeverage.registerDate)) //Month
                     .font(.system(size: 24))
                 
                 Spacer()
@@ -95,7 +86,7 @@ struct ArchiveListDetailView: View {
             HStack{
                 Spacer().frame(width:36, height: 20)
                 
-                Text (viewModel.formatTime(time: date)) //Time
+                Text (viewModel.formatTime(time: viewModel.selectedBeverage.registerDate)) //Time
                     .font(.system(size: 20))
                 
                 Spacer()
@@ -105,12 +96,12 @@ struct ArchiveListDetailView: View {
     
     fileprivate var thumbnail : some View {
         VStack {
-            Image(detailImage)
-
+            Image(selectedBeverage.imageName) // 수정
+            
                 .padding(.top, 40)
                 .padding(.bottom, 20)
             
-            Text(detailName)
+            Text(selectedBeverage.name) // 수정
                 .font(.system(size: 30))
                 .fontWeight(.bold)
                 .padding(.bottom, 24)
@@ -121,11 +112,10 @@ struct ArchiveListDetailView: View {
     fileprivate var coffeeDescription : some View {
         VStack {
             
-            
             HStack(alignment: .bottom, spacing: 32){
-                BeverageDetailCell(detailImageName: "small", detailName: "Size", detailExtra: size)
-                BeverageDetailCell(detailImageName: "shot", detailName: "Shots", detailExtra: "\(shots)")
-                BeverageDetailCell(detailImageName: "coffeeBean", detailName: "Caffeine", detailExtra: "\(caffeine)" )
+                BeverageDetailCell(detailImageName: "small", detailName: "Size", detailExtra: selectedBeverage.size) // 수정
+                BeverageDetailCell(detailImageName: "shot", detailName: "Shots", detailExtra: "\(selectedBeverage.numberOfShots)") // 수정
+                BeverageDetailCell(detailImageName: "coffeeBean", detailName: "Caffeine", detailExtra: "\(selectedBeverage.caffeine)mg" ) // 수정
                 
             }
         }
@@ -151,7 +141,7 @@ struct ArchiveListDetailView: View {
                     primaryButton: .destructive(
                         Text("Delete"),
                         action: {
-                            viewModel.deleteData(selectedBeverage: beverage)
+//                            viewModel.deleteData(selectedBeverage: beverage)
                             self.presentationMode.wrappedValue.dismiss()
                         }
                     ),

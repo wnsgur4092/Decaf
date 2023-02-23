@@ -3,6 +3,10 @@ import SwiftUI
 import Combine
 import RealmSwift
 
+extension Notification.Name{
+    static let beverageUpdated = Notification.Name(rawValue: "beverageUpdated")
+}
+
 class BeverageInputViewModel : ObservableObject {
     
     @Published var isPresented : Binding<Bool>
@@ -116,7 +120,10 @@ class BeverageInputViewModel : ObservableObject {
         do {
             try realm.write {
                 realm.add(selectedBeverage)
+                //노티 쏘기
+        
             }
+            NotificationCenter.default.post(name: .beverageUpdated, object: nil)
         } catch let error {
             print("!!!! BeverageInputView realm error : \(error)")
         }

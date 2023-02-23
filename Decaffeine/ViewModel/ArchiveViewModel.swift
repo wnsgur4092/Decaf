@@ -7,6 +7,8 @@ import RealmSwift
 class ArchiveViewModel : ObservableObject {
     //MARK: - PROPERTIES
     
+    
+    
     @Published var selectedBeverages : [SelectedBeverage] = []
     @Published var selectedBeverage = SelectedBeverage()
     
@@ -18,10 +20,19 @@ class ArchiveViewModel : ObservableObject {
     //MARK: - INTIAL
     init() {
         
+        
         self.currentDay = Date()
         
         fetchCurrentWeek()
         fetchSelectedBeverages(for: currentDay)
+        
+        NotificationCenter.default
+            .publisher(for: .beverageUpdated)
+            .sink(receiveValue : { _ in
+
+                self.fetchSelectedBeverages(for: self.currentDay)
+            })
+            .store(in: &cancellables)
         
     }
     
@@ -31,32 +42,33 @@ class ArchiveViewModel : ObservableObject {
         guard let realm = try? Realm() else {return}
         
         let selectedBeverage = realm.objects(SelectedBeverage.self)
+        let selectedBeveragesForDay = selectedBeverage.filter { Calendar.current.isDate($0.registerDate, inSameDayAs: day) }
         
-        try! realm.write{
-            self.selectedBeverages = selectedBeverage.filter { Calendar.current.isDate($0.registerDate, inSameDayAs: day) }
-        }
+        self.selectedBeverages = Array(selectedBeveragesForDay)
     }
     
     func deleteData(selectedBeverage: SelectedBeverage) {
         guard let realm = try? Realm() else { return }
-
+        
         if let selectedBeverage = realm.objects(SelectedBeverage.self).filter("id == %@", selectedBeverage.id).first {
             do {
+//                if let index = selectedBeverages.firstIndex(where: { $0.id == selectedBeverage.id }) {
+//                    selectedBeverages.remove(at: index)
+//                }
+//
                 try realm.write {
                     realm.delete(selectedBeverage)
                 }
-                // 객체를 Realm에서 삭제한 후에 배열에서 제거합니다.
-                if let index = selectedBeverages.firstIndex(where: { $0.id == selectedBeverage.id }) {
-                    selectedBeverages.remove(at: index)
-                }
+
+                fetchSelectedBeverages(for: currentDay)
             } catch let error {
                 print("!!!! ArchiveViewModel realm error : \(error)")
             }
         }
     }
-
-
-
+    
+    
+    
     
     
     func fetchCurrentMonth() -> String {

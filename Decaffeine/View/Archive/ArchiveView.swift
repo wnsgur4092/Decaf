@@ -12,8 +12,9 @@ struct ArchiveView: View {
     @StateObject var archiveViewModel : ArchiveViewModel
     @Namespace var animation
     
+//    @State private var selectedBeverage: SelectedBeverage
+
     @State private var isDetailViewPresented = false
-    
     @State private var currentDay = Date()
     
     //MARK: - BODY
@@ -106,7 +107,7 @@ struct ArchiveView: View {
                 
                 Text(String(format: "%.1f", archiveViewModel.totalCaffeineForToday()))
                     .foregroundColor(archiveViewModel.totalCaffeineForToday() > 400 ? Color.red : Color("mainColor"))
-
+                
                 Text("/ 400mg")
             }
             .font(.system(size: 16))
@@ -181,58 +182,48 @@ struct ArchiveView: View {
                         .font(.subheadline)
                         .multilineTextAlignment(.leading)
                         .offset(y: 4)
-                        .frame(maxWidth: 80,
-                               alignment: .topLeading)
-                    
+                        .frame(maxWidth: 80, alignment: .topLeading)
                     HStack {
                         VStack{
                             Text(beverage.name)
                                 .font(.system(size: 14).bold())
                                 .foregroundColor(Color.white)
                                 .multilineTextAlignment(.leading)
-                                .frame(maxWidth: .infinity,
-                                       alignment: .leading)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.bottom, 16)
-                            
                             Text(beverage.size)
                                 .font(.system(size: 12))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color.white)
                                 .multilineTextAlignment(.leading)
-                                .frame(maxWidth: .infinity,
-                                       alignment: .leading)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.bottom, 5)
-                            
                             Text("\(String(format: "%.1f", beverage.numberOfShots)) Shots")
                                 .font(.system(size: 12))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color.white)
                                 .multilineTextAlignment(.leading)
-                                .frame(maxWidth: .infinity,
-                                       alignment: .leading)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         Spacer()
-                        
                         Image(systemName: "chevron.right")
                             .foregroundColor(.white)
                     }
                     .padding(15)
-                    .frame(maxWidth: .infinity,
-                           alignment: .leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
                     .onTapGesture {
                         isDetailViewPresented.toggle()
+                        
+                        print("TroubleShooting \(beverage.name)")
                     }
-                    
                 }
             }
             .fullScreenCover(isPresented: $isDetailViewPresented) {
-                ArchiveListDetailView(viewModel: ArchiveViewModel(), beverage: beverage, day: beverage.registerDate, date: beverage.registerDate, time: beverage.registerDate, month: beverage.registerDate, detailImage: beverage.imageName, detailName: beverage.name, shots: Double(beverage.numberOfShots), size: beverage.size, caffeine: Double(beverage.caffeine))
                 
+                ArchiveListDetailView(viewModel: archiveViewModel, selectedBeverage: beverage)
             }
-        }
-        .onAppear{
-            archiveViewModel.fetchSelectedBeverages(for: currentDay )
         }
     }
 }
+
