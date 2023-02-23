@@ -8,6 +8,7 @@ class ArchiveViewModel : ObservableObject {
     //MARK: - PROPERTIES
     
     @Published var selectedBeverages : [SelectedBeverage] = []
+    @Published var selectedBeverage = SelectedBeverage()
     
     @Published var currentWeek : [Date] = [] //Current Week Days
     @Published var currentDay : Date = Date()
@@ -35,6 +36,27 @@ class ArchiveViewModel : ObservableObject {
             self.selectedBeverages = selectedBeverage.filter { Calendar.current.isDate($0.registerDate, inSameDayAs: day) }
         }
     }
+    
+    func deleteData(selectedBeverage: SelectedBeverage) {
+        guard let realm = try? Realm() else { return }
+
+        if let selectedBeverage = realm.objects(SelectedBeverage.self).filter("id == %@", selectedBeverage.id).first {
+            do {
+                try realm.write {
+                    realm.delete(selectedBeverage)
+                }
+                // 객체를 Realm에서 삭제한 후에 배열에서 제거합니다.
+                if let index = selectedBeverages.firstIndex(where: { $0.id == selectedBeverage.id }) {
+                    selectedBeverages.remove(at: index)
+                }
+            } catch let error {
+                print("!!!! ArchiveViewModel realm error : \(error)")
+            }
+        }
+    }
+
+
+
     
     
     func fetchCurrentMonth() -> String {

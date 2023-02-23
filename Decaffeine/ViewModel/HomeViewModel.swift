@@ -20,23 +20,22 @@ class HomeViewModel: ObservableObject {
 
     
     init() {
-        getSelectedBeverage(for: currentDay)
+        fetchSelectedBeverages(for: currentDay)
         print("---> Realm Data File Location :\(Realm.Configuration.defaultConfiguration.fileURL!)")
         
     }
     
     
-    func getSelectedBeverage(for day: Date) {
-        guard let realm = try? Realm() else { return }
+    func fetchSelectedBeverages(for day: Date) {
+        guard let realm = try? Realm() else {return}
         
         let selectedBeverage = realm.objects(SelectedBeverage.self)
         
         try! realm.write{
-            self.selectedBeverages = selectedBeverages.compactMap({$0})
+            self.selectedBeverages = selectedBeverage.filter { Calendar.current.isDate($0.registerDate, inSameDayAs: day) }
         }
     }
 
-    
     func totalCaffeineForToday() -> Double {
         let calendar = Calendar.current
         let today = Date()

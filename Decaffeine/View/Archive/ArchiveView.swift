@@ -14,6 +14,7 @@ struct ArchiveView: View {
     
     @State private var isDetailViewPresented = false
     
+    @State private var currentDay = Date()
     
     //MARK: - BODY
     var body: some View {
@@ -229,6 +230,9 @@ struct ArchiveView: View {
                 ArchiveListDetailView(viewModel: ArchiveViewModel(), beverage: beverage, day: beverage.registerDate, date: beverage.registerDate, time: beverage.registerDate, month: beverage.registerDate, detailImage: beverage.imageName, detailName: beverage.name, shots: Double(beverage.numberOfShots), size: beverage.size, caffeine: Double(beverage.caffeine))
                 
             }
+        }
+        .onAppear{
+            archiveViewModel.fetchSelectedBeverages(for: currentDay )
         }
     }
 }

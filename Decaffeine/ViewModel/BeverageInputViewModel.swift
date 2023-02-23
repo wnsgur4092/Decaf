@@ -99,17 +99,11 @@ class BeverageInputViewModel : ObservableObject {
     
     func updateTotalCaffeine() {
         self.totalCaffeine = self.selectedBeverage.numberOfShots * self.caffeinePerShot
+        updateCaffeine(caffeine: self.totalCaffeine) // caffeine 값을 다시 업데이트합니다.
     }
     
     
-    func observeCaffeine() {
-        $totalCaffeine
-            .sink { [weak self] totalCaffeine in
-                self?.selectedBeverage.caffeine = Double(totalCaffeine)
-            }
-            .store(in: &subscriptions)
-    }
-    
+
     
     //DATA TO Realm
     func saveData() {

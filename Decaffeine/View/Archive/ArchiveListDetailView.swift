@@ -41,10 +41,11 @@ struct ArchiveListDetailView: View {
                 thumbnail
                 
                 Divider()
+                    .padding(.bottom, 12)
                 
                 coffeeDescription
                     .padding(.horizontal, 32)
-                    .padding(.bottom, 28)
+                    .padding(.bottom, 60)
                 
                 deleteButton
 
@@ -141,9 +142,8 @@ struct ArchiveListDetailView: View {
                     primaryButton: .destructive(
                         Text("Delete"),
                         action: {
-//                            viewModel.deleteBeverage(day: beverage.registerDate, name: beverage.name)
-                            // Dismiss view after deleting
-                            presentationMode.wrappedValue.dismiss()
+                            viewModel.deleteData(selectedBeverage: beverage)
+                            self.presentationMode.wrappedValue.dismiss()
                         }
                     ),
                     secondaryButton: .cancel()

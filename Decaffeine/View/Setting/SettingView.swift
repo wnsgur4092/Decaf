@@ -24,7 +24,11 @@ struct SettingView: View {
                 .padding(.bottom, 10)
             
             VStack{
-                
+                HStack {
+                    Text("Announcement")
+                    
+                    
+                }
             }
         }
     }

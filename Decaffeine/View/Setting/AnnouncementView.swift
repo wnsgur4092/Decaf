@@ -10,7 +10,7 @@ import SwiftUI
 struct AnnouncementView: View {
     //PROPERTIES
     var title : String = "Version 1.1 Updated"
-    var date : String = "7.03.2023"
+    var date : String = "23.02.2023"
     var description : String = "Announcement of Version 1.1 Update"
     var subdescription : String = "Update the issue, which can't delete one of the caffeine list"
     @State var isPresentingBackView = false
