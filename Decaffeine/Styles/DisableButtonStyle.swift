@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+let disableStyle = DisableButtonStyle()
 
 struct DisableButtonStyle: ButtonStyle {
     //MARK: - PROPERTIES

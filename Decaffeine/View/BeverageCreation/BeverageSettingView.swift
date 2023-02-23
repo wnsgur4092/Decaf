@@ -15,6 +15,7 @@ struct BeverageSettingView: View {
     
     @ObservedObject var viewModel : BeverageInputViewModel
     @State private var numberOfShots: Double = 0.5
+    @State private var isSaveEnabled : Bool = false
 
     
     //MARK: - BODY
@@ -102,6 +103,7 @@ struct BeverageSettingView: View {
                     .onTapGesture {
                         withAnimation {
                             viewModel.updateBeverageSize(size: size)
+                            isSaveEnabled = true
                         }
                     }
                 }
@@ -169,6 +171,7 @@ struct BeverageSettingView: View {
                 print(viewModel.selectedBeverage.imageName)
                 print(viewModel.selectedBeverage.size)
                 print(viewModel.selectedBeverage.numberOfShots)
+                print(isSaveEnabled)
                 
                 viewModel.saveSelectedBeverage()
                 presentationMode.wrappedValue.dismiss()
@@ -177,7 +180,12 @@ struct BeverageSettingView: View {
                 Text("Save")
             }
             .frame(maxWidth: 80, maxHeight: 40)
-            .buttonStyle(DisableButtonStyle())
+            .disabled(isSaveEnabled == false)
+            .buttonStyle(CustomButtonStyle(
+                isButtonEnabled: isSaveEnabled,
+                activeStyle: activeStyle,
+                disableStyle: disableStyle
+            ))
             
             
         }

@@ -43,6 +43,7 @@ struct BeverageSelectView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.horizontal, 32)
                         .padding(.vertical, 20)
+                    
                 }
             }
             .navigationTitle("Add New Caffeine")
@@ -94,13 +95,31 @@ struct BeverageSelectView: View {
             
             Spacer()
             
-            NavigationLink(
+            let nextButton = NavigationLink(
                 destination: BeverageSettingView(viewModel: viewModel),
                 label: {
                     Text("Next")
-                })
+                }
+            )
             .frame(maxWidth: 80, maxHeight: 40)
-            .buttonStyle(ActiveButtonStyle())
+            .disabled(selectedBeverageIndex == nil)
+
+            if selectedBeverageIndex != nil {
+                nextButton.buttonStyle(ActiveButtonStyle())
+            } else {
+                nextButton.buttonStyle(DisableButtonStyle())
+            }
+            
+//            NavigationLink(
+//                destination: BeverageSettingView(viewModel: viewModel),
+////                isActive: Binding<Bool>(get: { selectedBeverageIndex != nil }, set: { _ in }),
+//                label: {
+//                    Text("Next")
+//                })
+//            .frame(maxWidth: 80, maxHeight: 40)
+//            .buttonStyle(selectedBeverageIndex != nil ? ActiveButtonStyle() : DisableButtonStyle())
+//            .disabled(selectedBeverageIndex == nil)
+//            .foregroundColor(selectedBeverageIndex == nil ? .gray : .green)
         }
     }
 }

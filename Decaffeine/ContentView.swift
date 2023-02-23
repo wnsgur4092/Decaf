@@ -33,6 +33,7 @@ struct ContentView: View {
                     Text("Setting")
                 }
         }
+        .accentColor(Color("mainColor"))
     }
 }
 
