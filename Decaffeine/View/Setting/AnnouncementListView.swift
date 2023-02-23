@@ -8,91 +8,86 @@
 import SwiftUI
 
 struct AnnouncementsListView: View {
-    @State var isPresentingAnnouncementView = false
-    @State var isPresentingBackView = false
+    @Environment(\.presentationMode) var presentationMode
+    @State private var isNewsInfoVisible = false // 1. 토글 상태 변수 추가
+    
     var body: some View {
-        VStack{
-            //Header
-            VStack{
-                header
-                    .padding(.top,55)
-                    .padding(.bottom,15)
-                bottombit
-                Spacer()
-                    .frame(height:550)
+        VStack(alignment: .leading, spacing: 20){
+            header
+                .padding(.vertical,32)
+            
+            updateNews
+            
+            if isNewsInfoVisible {
+                newsInfo
+    
             }
+            
+            
+            Spacer()
         }
-        .frame(maxWidth:.infinity, maxHeight: .infinity)
-        .background(Color(.white))
-        .edgesIgnoringSafeArea(.all)
+        .padding(.horizontal, 32)
     }
     fileprivate var header: some View{
         HStack{
-            Spacer()
-                .frame(width:20)
-            Button{
-                isPresentingBackView = true
-            } label:{
+            Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
                 Image(systemName: "chevron.left")
-                    .opacity(0.8)
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(Color("mainColor"))
+                    .frame(width: 20,height: 20)
             }
-            .fullScreenCover(isPresented: $isPresentingBackView){
-                SettingView()
-            }
-            Text("Announcements")
-                .fontWeight(.semibold)
+            
+            Spacer()
         }
-        .frame(maxWidth:.infinity, alignment: .leading)
-        .font(.system(size:32))
-        .foregroundColor(.black)
     }
-    fileprivate var bottombit: some View{
-        ZStack{
-            Rectangle()
-                .fill(.white)
-                .frame(maxWidth:.infinity, maxHeight:.infinity)
-            VStack{
-                    Button{
-                       isPresentingAnnouncementView = true
-                    } label:{
-                        HStack{
-                            Text("Version 1.1 Updated")
-                            Spacer()
-                            Text("7.03.2023")
-                            Image(systemName: "chevron.right")
-                        }
-                        .foregroundColor(.black)
-                    }
-                    .fullScreenCover(isPresented:$isPresentingAnnouncementView){
-                        AnnouncementView()
-                    }
-                
-                Rectangle()
-                    .frame(height:2)
+    fileprivate var updateNews: some View{
+        VStack{
+            HStack{
+                Text("Version 1.0 Updated")
+                    .fontWeight(.semibold)
                 Spacer()
-                    .frame(height:30)
-                Button{
-                    isPresentingAnnouncementView = true
-                } label: {
-                    HStack{
-                        Text("Version 1.0 Released")
-                        Spacer()
-                        Text("7.03.2023")
-                        Image(systemName: "chevron.right")
-                    }
-                    .foregroundColor(.black)
-                }
-                .fullScreenCover(isPresented: $isPresentingAnnouncementView){
-                    AnnouncementView()
-                }
-                Rectangle()
-                    .frame(height:2)
+                Text("24.02.2023")
+                    .fontWeight(.semibold)
+                Image(systemName: "chevron.down")
+                    .rotationEffect(isNewsInfoVisible ? .degrees(180) : .degrees(0)) // 1. 로테이션 효과 추가
+                               .animation(.easeInOut) // 2. 애니메이션 효과 추가
+                
+         
             }
-            .padding()
-            .font(.system(size:20))
+            .font(.system(size: 16))
+            .onTapGesture {
+                isNewsInfoVisible.toggle()
+            }
+            
+            Divider()
         }
+    }
+    
+    fileprivate var newsInfo : some View{
+        VStack(alignment: .leading, spacing: 20){
+            Text("Announcement of Version 1.0 Released")
+                .padding(.top, 16)
+                .padding(.horizontal, 10)
+            
+            Text("Successfully Released version 1.0")
+                .padding(.horizontal, 10)
+            
+            Spacer()
+        }
+        .frame(maxWidth: .infinity, maxHeight: 200)
+        .background(Color.white)
+        .overlay(
+            RoundedRectangle(cornerRadius: 22)
+                .stroke(Color("mainColor").opacity(0.5), lineWidth: 1)
+        )
+        .animation(.easeInOut(duration: 1))
+        
     }
 }
+
 
 struct AnnouncementsListView_Previews: PreviewProvider {
     static var previews: some View {

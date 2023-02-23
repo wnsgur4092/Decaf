@@ -40,15 +40,17 @@ struct BeverageSettingView: View {
                         .padding(.bottom, 60)
                 }
             }
-            .padding(.bottom, 28)
             .padding(.horizontal, 20)
             
     
-            
-            buttonSection
-                .frame(maxWidth: .infinity)
-                .padding(.horizontal, 32)
-                .padding(.bottom, 40)
+            VStack{
+                Divider()
+                buttonSection
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, 32)
+                    .padding(.vertical, 20)
+            }
+
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarTitle("Add New Caffeine")
@@ -59,6 +61,9 @@ struct BeverageSettingView: View {
     fileprivate var beverageThumbnail : some View {
         VStack {
             Image(viewModel.selectedBeverage.imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(height:80)
                 .padding(.top, 40)
                 .padding(.bottom, 20)
             

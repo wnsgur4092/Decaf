@@ -99,6 +99,7 @@ struct ArchiveListDetailView: View {
     fileprivate var thumbnail : some View {
         VStack {
             Image(detailImage)
+
                 .padding(.top, 40)
                 .padding(.bottom, 20)
             

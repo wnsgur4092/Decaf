@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingView: View {
     
     //PROPERTIES
-    @State var isPresentingPrivacyView = false
+    @State var isPresentingAnnouncementView = false
     
     
     //BODY
@@ -23,13 +23,13 @@ struct SettingView: View {
             Divider()
                 .padding(.bottom, 10)
             
-            VStack{
-                HStack {
-                    Text("Announcement")
-                    
-                    
-                }
+            VStack(spacing: 20){
+                settingList
+                
+                versionList
             }
+            .padding(.horizontal, 32)
+            .padding(.vertical, 10)
         }
     }
     
@@ -45,6 +45,46 @@ struct SettingView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
+    
+    fileprivate var settingList : some View {
+        VStack {
+            HStack {
+                Text("Announcement")
+                    .font(.system(size: 16))
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+            }
+            .onTapGesture {
+                isPresentingAnnouncementView = true
+            }
+            .fullScreenCover(isPresented: $isPresentingAnnouncementView) {
+                AnnouncementsListView()
+            }
+            Divider()
+            
+        }
+    }
+    
+    fileprivate var versionList : some View {
+        HStack{
+            VStack(alignment: .leading){
+                Text("Version")
+                    .font(.system(size: 16))
+                    .fontWeight(.semibold)
+                Text("Latest Version")
+                    .font(.system(size: 12))
+            }
+ 
+            
+            Spacer()
+            
+            Text("1.0")
+        }
+    }
+    
 }
 
 struct SettingUIView_Previews: PreviewProvider {

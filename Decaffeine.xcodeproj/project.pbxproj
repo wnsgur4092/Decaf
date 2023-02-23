@@ -39,7 +39,6 @@
 		BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A3E2999B102002D5ACC /* OnBoardingView.swift */; };
 		BFFF9A452999B127002D5ACC /* ArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A442999B126002D5ACC /* ArchiveView.swift */; };
 		BFFF9A492999B144002D5ACC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A482999B144002D5ACC /* SettingView.swift */; };
-		BFFF9A4B2999B14D002D5ACC /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A4A2999B14D002D5ACC /* AnnouncementView.swift */; };
 		BFFF9A50299A462B002D5ACC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BFFF9A4F299A462B002D5ACC /* Lottie */; };
 		BFFF9A53299A4837002D5ACC /* coffee.json in Resources */ = {isa = PBXBuildFile; fileRef = BFFF9A52299A4837002D5ACC /* coffee.json */; };
 		BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A54299A48C9002D5ACC /* LottieView.swift */; };
@@ -97,7 +96,6 @@
 		BFFF9A3E2999B102002D5ACC /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		BFFF9A442999B126002D5ACC /* ArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveView.swift; sourceTree = "<group>"; };
 		BFFF9A482999B144002D5ACC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		BFFF9A4A2999B14D002D5ACC /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		BFFF9A52299A4837002D5ACC /* coffee.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coffee.json; sourceTree = "<group>"; };
 		BFFF9A54299A48C9002D5ACC /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		CE22FF5129A466B200333F1E /* CustomIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIndicator.swift; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				BFFF9A482999B144002D5ACC /* SettingView.swift */,
-				BFFF9A4A2999B14D002D5ACC /* AnnouncementView.swift */,
 				BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */,
 			);
 			path = Setting;
@@ -457,7 +454,6 @@
 				BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */,
 				BF2E8C9529A6F0070085A597 /* CustomButtonStyle.swift in Sources */,
 				BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */,
-				BFFF9A4B2999B14D002D5ACC /* AnnouncementView.swift in Sources */,
 				BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */,
 				BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */,
 				BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */,
