@@ -10,7 +10,7 @@ import SwiftUI
 struct CarouselView: View {
     
     @State var currentImageIndicator : Int = 0
-    @StateObject var homeViewModel  = HomeViewModel()
+    @StateObject var homeViewModel  = HomeViewModel(storage: SelectedBeverageStroage())
     
     var body: some View {
         VStack {

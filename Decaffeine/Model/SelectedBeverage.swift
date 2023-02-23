@@ -6,22 +6,18 @@
 //
 
 import Foundation
-import RealmSwift
 
-class SelectedBeverage : Object, Identifiable, Codable {
+class SelectedBeverage :  Identifiable, Codable {
     
     //Vandan Add
-    @Persisted var id : UUID = UUID()
-    @Persisted var name : String = ""
-    @Persisted var imageName : String = ""
-    @Persisted var numberOfShots : Double = 1.0
-    @Persisted var size : String = ""
-    @Persisted var registerDate : Date = Date()
+    var id : UUID = UUID()
+    var name : String = ""
+    var imageName : String = ""
+    var numberOfShots : Double = 1.0
+    var size : String = ""
+    var registerDate : Date = Date()
     
-    @Persisted var caffeine : Int = 0
+    var caffeine : Int = 0
     
-    override static func primaryKey() -> String? {
-        return "id"
-    }
     
 }

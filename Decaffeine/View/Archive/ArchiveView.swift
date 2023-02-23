@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ArchiveView: View {
     //MARK: - PROPERTIES
-    @StateObject var archiveViewModel = ArchiveViewModel()
+    @StateObject var archiveViewModel = ArchiveViewModel(storage: SelectedBeverageStroage())
     @Namespace var animation
     
     
@@ -64,6 +64,9 @@ struct ArchiveView: View {
                 .padding(.horizontal, 32)
             }
         }
+        .onChange(of: archiveViewModel.currentDay, perform: { day in
+            archiveViewModel.fetchSelectedBeverages(for: day)
+        })
     }
     //MARK: - COMPONENTS
     
@@ -139,7 +142,7 @@ struct ArchiveView: View {
                         //Updating Current Day
                         withAnimation {
                             archiveViewModel.currentDay = day
-                            archiveViewModel.fetchSelectedBeverages(for: day)
+//                            archiveViewModel.fetchSelectedBeverages(for: day)
                         }
                     }
                 } //: FOREACH
@@ -168,31 +171,68 @@ struct ArchiveView: View {
     
     //ARCHIVE LIST VIEW
     fileprivate var archiveListView: some View {
-        ForEach(archiveViewModel.selectedBeverages, id: \.id) { beverage in
-            ArchiveListView(
-                beverage: beverage, title: beverage.name,
-                size: beverage.size,
-                numberOfShots: beverage.numberOfShots,
-                date: beverage.registerDate,
-                image: beverage.imageName
-            )
-        }
-        .onAppear {
-            archiveViewModel.fetchSelectedBeverages(for: archiveViewModel.currentDay)
+        ForEach(archiveViewModel.list, id: \.id) { beverage in
+            VStack(spacing: 10) {
+                HStack(alignment: .top, spacing: 5) {
+                    Text(archiveViewModel.formatTime(time: beverage.registerDate))
+                        .font(.subheadline)
+                        .multilineTextAlignment(.leading)
+                        .offset(y: 4)
+                        .frame(maxWidth: 80,
+                               alignment: .topLeading)
+                    
+                    HStack {
+                        VStack{
+                            Text(beverage.name)
+                                .font(.system(size: 14).bold())
+                                .foregroundColor(Color.white)
+                                .multilineTextAlignment(.leading)
+                                .frame(maxWidth: .infinity,
+                                       alignment: .leading)
+                                .padding(.bottom, 16)
+                            
+                            Text(beverage.size)
+                                .font(.system(size: 12))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color.white)
+                                .multilineTextAlignment(.leading)
+                                .frame(maxWidth: .infinity,
+                                       alignment: .leading)
+                                .padding(.bottom, 5)
+                            
+                            Text("\(String(format: "%.1f", beverage.numberOfShots)) Shots")
+                                .font(.system(size: 12))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color.white)
+                                .multilineTextAlignment(.leading)
+                                .frame(maxWidth: .infinity,
+                                       alignment: .leading)
+                        }
+                        Spacer()
+                        
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.white)
+                    }
+                    .padding(15)
+                    .frame(maxWidth: .infinity,
+                           alignment: .leading)
+                    .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
+                    .onTapGesture {
+                        //                        isDetailViewPresented.toggle()
+                    }
+                    
+                }
+            }
+            //            .fullScreenCover(isPresented: $isDetailViewPresented) {
+            //                ArchiveListDetailView(viewModel: viewModel, beverage: beverage, detailImage: image, detailName: title)
+            //            }
+            
         }
     }
     
     
 }
 
-//MARK: - EXTENSION
-extension Date {
-    func toString(format: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        return dateFormatter.string(from: self)
-    }
-}
 
 ////MARK: - PREVIEW
 //struct ArchiveView_Previews: PreviewProvider {

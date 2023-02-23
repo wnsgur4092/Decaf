@@ -6,40 +6,32 @@
 //
 
 import Foundation
-import RealmSwift
 import Combine
 import SwiftUI
 
+
 class HomeViewModel: ObservableObject {
     @Published var list: [SelectedBeverage] = []
+    @Published var dic : [String: [SelectedBeverage]] = [:]
+    
+    
+    let storage : SelectedBeverageStroage
+    
+    var subscriptions = Set<AnyCancellable>()
 
-    private var notificationToken: NotificationToken?
-
-
-    init() {
-        observeListChanges()
+    init(storage : SelectedBeverageStroage) {
+        self.storage = storage
     }
     
-
-
-    func observeListChanges() {
-        do {
-            let realm = try Realm()
-            notificationToken = realm.objects(SelectedBeverage.self).observe { [weak self] changes in
-                guard let self = self else { return }
-                switch changes {
-                case .initial(let list):
-                    self.list = Array(list)
-                case .update(let list, _, _, _):
-                    self.list = Array(list)
-                case .error(let error):
-                    print("Realm observe error: \(error)")
-                }
-            }
-        } catch {
-            print("Realm observe error: \(error)")
-        }
+    func persist(items : [SelectedBeverage]) {
+        guard items.isEmpty == false else { return }
+        self.storage.persist(items)
     }
+    
+    func fetch() {
+        self.list = storage.fetch()
+    }
+
     
     func totalCaffeineForToday() -> Int {
         let calendar = Calendar.current

@@ -12,7 +12,7 @@ import SegmentedPicker
 struct BeverageSelectView: View {
     //MARK: - PROPERTEIS
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel: BeverageInputViewModel
+    @StateObject var viewModel: BeverageInputViewModel
     
     @State private var selectedBeverageIndex : Int?
     @State private var selectedCategory: BeverageCategory = .hot

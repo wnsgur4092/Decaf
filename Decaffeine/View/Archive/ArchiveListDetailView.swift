@@ -138,7 +138,7 @@ struct ArchiveListDetailView: View {
                     primaryButton: .destructive(
                         Text("Delete"),
                         action: {
-                            viewModel.deleteBeverage(day: beverage.registerDate, name: beverage.name)
+//                            viewModel.deleteBeverage(day: beverage.registerDate, name: beverage.name)
                             // Dismiss view after deleting
                             presentationMode.wrappedValue.dismiss()
                         }

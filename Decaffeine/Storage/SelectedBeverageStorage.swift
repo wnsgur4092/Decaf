@@ -10,7 +10,13 @@ import Foundation
 
 import Foundation
 
-final class MoodDiaryStorage {
+final class SelectedBeverageStroage : ObservableObject {
+    
+    @Published var selectedBeverages: [SelectedBeverage]
+    
+    init() {
+         selectedBeverages = []
+     }
     
     func persist(_ items : [SelectedBeverage]) {
         Storage.store(items, to: .documents, as: "SelectedBeverage_list.json")
@@ -20,4 +26,5 @@ final class MoodDiaryStorage {
         let list = Storage.retrive("SelectedBeverage_list.json", from: .documents, as: [SelectedBeverage].self) ?? []
         return list
     }
+    
 }

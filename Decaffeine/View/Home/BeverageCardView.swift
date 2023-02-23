@@ -26,6 +26,7 @@ struct BeverageCardView: View {
                     .scaleEffect(isAnimaiting ? 1.0 : 0.6)
       
                 Text(beverageName)
+                    .foregroundColor(.white)
                     .lineLimit(2)
                     .font(.system(size: 24).bold())
                     .multilineTextAlignment(.center)

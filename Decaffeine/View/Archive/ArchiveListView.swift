@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ArchiveListView: View {
     //MARK: - PROPERTIES
-    @ObservedObject var viewModel = ArchiveViewModel()
+    @StateObject var viewModel : ArchiveViewModel
+
     var beverage : SelectedBeverage
     var title: String
     var size: String
@@ -57,20 +58,18 @@ struct ArchiveListView: View {
                             .frame(maxWidth: .infinity,
                                    alignment: .leading)
                     }
+                    Spacer()
                     
-                    Button {
-                        isDetailViewPresented.toggle()
-                    } label: {
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.white)
-                    }
-
-                                
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(.white)
                 }
                 .padding(15)
                 .frame(maxWidth: .infinity,
                        alignment: .leading)
                 .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
+                .onTapGesture {
+                    isDetailViewPresented.toggle()
+                }
 
             }
         }
@@ -87,12 +86,12 @@ struct ArchiveListView: View {
     
 }
 
-struct ArchiveListView_Previews: PreviewProvider {
-    static var previews: some View {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        let time = dateFormatter.date(from: "11:35") ?? Date()
-        return ArchiveListView(beverage: SelectedBeverage(), title: "Cappuccino", size: "Large", numberOfShots: 2, date: time, image: "")
-    }
-}
+//struct ArchiveListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "HH:mm"
+//        let time = dateFormatter.date(from: "11:35") ?? Date()
+//        return ArchiveListView(beverage: SelectedBeverage(), title: "Cappuccino", size: "Large", numberOfShots: 2, date: time, image: "")
+//    }
+//}
 
