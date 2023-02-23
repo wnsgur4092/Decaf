@@ -105,7 +105,7 @@ struct ArchiveView: View {
             HStack{
                 
                 Text(String(format: "%.1f", archiveViewModel.totalCaffeineForToday()))
-                    .foregroundColor(Color("mainColor"))
+                    .foregroundColor(archiveViewModel.totalCaffeineForToday() > 400 ? Color.red : Color("mainColor"))
 
                 Text("/ 400mg")
             }

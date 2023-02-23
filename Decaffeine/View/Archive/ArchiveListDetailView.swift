@@ -28,31 +28,38 @@ struct ArchiveListDetailView: View {
     
     //MARK: - BODY
     var body: some View {
-        ScrollView{
-            header
-                .padding(.top, 12)
-                .padding(.horizontal, 20)
-            
-            Divider()
-                .padding(.bottom, 12)
-            
-            VStack {
-                
-                thumbnail
+        VStack{
+            ScrollView{
+                header
+                    .padding(.top, 12)
+                    .padding(.horizontal, 20)
                 
                 Divider()
                     .padding(.bottom, 12)
                 
-                coffeeDescription
-                    .padding(.horizontal, 32)
-                    .padding(.bottom, 60)
+                VStack {
+                    
+                    thumbnail
+                    
+                    Divider()
+                        .padding(.bottom, 12)
+                    
+                    coffeeDescription
+                        .padding(.horizontal, 32)
+                        .padding(.bottom, 60)
+
+                }
+            }
+
+            Spacer()
+            Divider()
+            HStack{
+                Spacer()
                 
                 deleteButton
-
             }
-            
+            .padding(.horizontal, 20)
         }
-        
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         
@@ -134,6 +141,7 @@ struct ArchiveListDetailView: View {
                 Image(systemName: "trash")
                     .resizable()
                     .scaledToFit()
+                    .foregroundColor(Color.red)
                     .frame(maxWidth: 20, maxHeight: 25)
                     .padding(32)
             }
@@ -150,9 +158,6 @@ struct ArchiveListDetailView: View {
                     secondaryButton: .cancel()
                 )
             }
-
-            
-            .padding(.trailing, 16)
         }
         .accentColor(Color("mainColor"))
     }
