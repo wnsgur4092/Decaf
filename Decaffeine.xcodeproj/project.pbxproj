@@ -12,6 +12,8 @@
 		BF273A8729A51BF00067C9DE /* BeverageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF273A8629A51BF00067C9DE /* BeverageCardView.swift */; };
 		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
 		BF2E8C9529A6F0070085A597 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2E8C9429A6F0070085A597 /* CustomButtonStyle.swift */; };
+		BF2E8C9829A6F33F0085A597 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2E8C9729A6F33F0085A597 /* Storage.swift */; };
+		BF2E8C9A29A6F3570085A597 /* SelectedBeverageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2E8C9929A6F3570085A597 /* SelectedBeverageStorage.swift */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
 		BF511B2C29A3687400CBEED0 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BF511B2B29A3687400CBEED0 /* Realm */; };
 		BF511B2E29A3687400CBEED0 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF511B2D29A3687400CBEED0 /* RealmSwift */; };
@@ -21,7 +23,6 @@
 		BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */; };
 		BFA53D7D299A6EC2007D943D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7C299A6EC2007D943D /* CustomTextField.swift */; };
 		BFA53D7F299A8C31007D943D /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7E299A8C31007D943D /* CustomCorner.swift */; };
-		BFA53D83299A9AD9007D943D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D82299A9AD9007D943D /* ImagePicker.swift */; };
 		BFCED242299C40EB00E49EB6 /* BeverageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED241299C40EB00E49EB6 /* BeverageCell.swift */; };
 		BFCED245299C445700E49EB6 /* SecondayButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED244299C445700E49EB6 /* SecondayButtonStyle.swift */; };
 		BFCED24A299D193800E49EB6 /* ArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCED249299D193800E49EB6 /* ArchiveViewModel.swift */; };
@@ -72,6 +73,8 @@
 		BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListView.swift; sourceTree = "<group>"; };
 		BF273A8629A51BF00067C9DE /* BeverageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCardView.swift; sourceTree = "<group>"; };
 		BF2E8C9429A6F0070085A597 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
+		BF2E8C9729A6F33F0085A597 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		BF2E8C9929A6F3570085A597 /* SelectedBeverageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBeverageStorage.swift; sourceTree = "<group>"; };
 		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSelectView.swift; sourceTree = "<group>"; };
 		BF854199299FD55900AB1ED9 /* BeverageSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSettingView.swift; sourceTree = "<group>"; };
@@ -79,7 +82,6 @@
 		BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7C299A6EC2007D943D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BFA53D7E299A8C31007D943D /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
-		BFA53D82299A9AD9007D943D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		BFCED241299C40EB00E49EB6 /* BeverageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCell.swift; sourceTree = "<group>"; };
 		BFCED244299C445700E49EB6 /* SecondayButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondayButtonStyle.swift; sourceTree = "<group>"; };
 		BFCED249299D193800E49EB6 /* ArchiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewModel.swift; sourceTree = "<group>"; };
@@ -139,12 +141,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BF70E40329876DA800CE63AD /* Extension */ = {
+		BF2E8C9629A6F32D0085A597 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				BFA53D82299A9AD9007D943D /* ImagePicker.swift */,
+				BF2E8C9729A6F33F0085A597 /* Storage.swift */,
+				BF2E8C9929A6F3570085A597 /* SelectedBeverageStorage.swift */,
 			);
-			path = Extension;
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		BFA53D77299A6087007D943D /* Styles */ = {
@@ -235,12 +238,12 @@
 			children = (
 				BFE96F7A29860376003E0934 /* DecaffeineApp.swift */,
 				BFE96F7C29860376003E0934 /* ContentView.swift */,
+				BF2E8C9629A6F32D0085A597 /* Storage */,
 				BFA53D77299A6087007D943D /* Styles */,
 				BFFF9A51299A4803002D5ACC /* Lottie */,
 				BFE96FA62986043A003E0934 /* Model */,
 				BFE96FA529860434003E0934 /* ViewModel */,
 				BFE96FA42986042F003E0934 /* View */,
-				BF70E40329876DA800CE63AD /* Extension */,
 				BFE96F7E29860377003E0934 /* Assets.xcassets */,
 				BFE96F8029860377003E0934 /* Preview Content */,
 			);
@@ -470,14 +473,15 @@
 				BFCED254299D2B1E00E49EB6 /* ArchiveListDetailView.swift in Sources */,
 				BFDB9EB8299EFBA100F2B957 /* HomeViewModel.swift in Sources */,
 				BFCED245299C445700E49EB6 /* SecondayButtonStyle.swift in Sources */,
-				BFA53D83299A9AD9007D943D /* ImagePicker.swift in Sources */,
 				BF854182299F0E7600AB1ED9 /* BeverageSelectView.swift in Sources */,
 				BFE96F7D29860376003E0934 /* ContentView.swift in Sources */,
 				BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */,
 				BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */,
+				BF2E8C9829A6F33F0085A597 /* Storage.swift in Sources */,
 				BF2E8C9529A6F0070085A597 /* CustomButtonStyle.swift in Sources */,
 				BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */,
 				BFFF9A4B2999B14D002D5ACC /* AnnouncementView.swift in Sources */,
+				BF2E8C9A29A6F3570085A597 /* SelectedBeverageStorage.swift in Sources */,
 				BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */,
 				BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */,
 				BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */,
