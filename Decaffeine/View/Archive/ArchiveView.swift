@@ -12,10 +12,12 @@ struct ArchiveView: View {
     @StateObject var archiveViewModel : ArchiveViewModel
     @Namespace var animation
     
-//    @State private var selectedBeverage: SelectedBeverage
-
+    //    @State private var selectedBeverage: SelectedBeverage
+    
     @State private var isDetailViewPresented = false
     @State private var currentDay = Date()
+    @State var currentMonth : Int = 0
+    let columns = Array(repeating: GridItem(.flexible()), count: 7)
     
     //MARK: - BODY
     var body: some View {
@@ -29,20 +31,12 @@ struct ArchiveView: View {
                     .padding(.bottom, 10)
                 
                 VStack{
-                    HStack{
-                        month
-                            .padding(.leading, 4)
-                            .padding(.horizontal, 32)
-                        
-                        Spacer()
-                    }
                     
                     
                     //CALENDAR
-                    weeklyCalendar
+                    monthlyCalendar
                         .padding(.vertical, 10)
                         .padding(.horizontal, 32)
-                    
                 }
                 
                 
@@ -116,6 +110,60 @@ struct ArchiveView: View {
             
         }
     }
+    
+    fileprivate var monthlyCalendar : some View {
+        ScrollView(.vertical, showsIndicators: true) {
+            VStack{
+                let days: [String] = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+                
+                HStack{
+                    VStack(alignment: .leading, spacing: 10) {
+                        
+                        Text(archiveViewModel.formatYear(year: Date()))
+                        HStack{
+                            Button {
+                                archiveViewModel.previousMonth()
+                            } label: {
+                                Image(systemName: "chevron.left")
+                                    .font(.title2)
+                            }
+
+                            Spacer()
+
+                            Text(archiveViewModel.formatMonth(month: archiveViewModel.currentDay))
+
+                            Spacer()
+
+                            Button {
+                                archiveViewModel.nextMonth()
+                            } label: {
+                                Image(systemName: "chevron.right")
+                                    .font(.title2)
+                            }
+
+                        }
+                    }
+                    
+                    Spacer()
+                }
+            }
+//            HStack(spacing: 0){
+//                ForEach(days,id: \.self){day in
+//
+//                    Text(day)
+//                        .font(.callout)
+//                        .fontWeight(.semibold)
+//                        .frame(maxWidth: .infinity)
+//                }
+//            }
+//
+//            // 해당 월의 일(day)들을 표시
+        }
+    }
+    
+    
+    
+    
     
     
     //WEEKLY CALENDAR
@@ -226,4 +274,5 @@ struct ArchiveView: View {
         }
     }
 }
-
+    
+    

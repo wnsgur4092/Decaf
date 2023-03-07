@@ -107,6 +107,39 @@ class ArchiveViewModel : ObservableObject {
             }
         }
     }
+    func extraDate()->[String]{
+        
+        let calendar = Calendar.current
+        let month = calendar.component(.month, from: currentDay) - 1
+        let year = calendar.component(.year, from: currentDay)
+        
+        return ["\(year)",calendar.monthSymbols[month]]
+    }
+    
+    func isSameDay(date1: Date,date2: Date)->Bool{
+        let calendar = Calendar.current
+        
+        return calendar.isDate(date1, inSameDayAs: date2)
+    }
+    
+    // 해당 월의 일(day)들을 반환하는 함수
+    func getDaysOfMonth(month: Date) -> [Date] {
+        let calendar = Calendar.current
+        let monthInterval = calendar.dateInterval(of: .month, for: month)!
+        let start = monthInterval.start
+        let end = monthInterval.end
+        
+        var date = start
+        var daysOfMonth: [Date] = []
+        
+        while date <= end {
+            daysOfMonth.append(date)
+            date = calendar.date(byAdding: .day, value: 1, to: date)!
+        }
+        
+        return daysOfMonth
+    }
+
     
     //Extract Date
     func formatDate(day: Date) -> String {
@@ -124,11 +157,35 @@ class ArchiveViewModel : ObservableObject {
         return dateFormatter.string(from: date)
     }
     
+    func previousMonth() {
+        guard let previousMonth = Calendar.current.date(byAdding: .month, value: -1, to: currentDay) else {
+            return
+        }
+        currentDay = previousMonth
+        fetchSelectedBeverages(for: currentDay)
+    }
+
+    func nextMonth() {
+        guard let nextMonth = Calendar.current.date(byAdding: .month, value: 1, to: currentDay) else {
+            return
+        }
+        currentDay = nextMonth
+        fetchSelectedBeverages(for: currentDay)
+    }
+
     func formatMonth(month: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
-        dateFormatter.dateFormat = "MMM" // Day of month
+        dateFormatter.dateFormat = "MMMM" // Full month name
         return dateFormatter.string(from: month)
+    }
+
+    
+    func formatYear(year: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = "yyyy" // Day of month
+        return dateFormatter.string(from: year)
     }
     
     func formatTime(time : Date) -> String{
