@@ -17,21 +17,21 @@ struct ContentView: View {
             HomeView(homeVM: HomeViewModel())
                 .tabItem {
                     Image(systemName: "house")
-                    Text("Home")
+                    Text("Today")
                 }
 
             
             ArchiveView(archiveViewModel: ArchiveViewModel())
                 .tabItem {
-                    Image(systemName: "book")
-                    Text("Archive")
+                    Image(systemName: "calendar")
+                    Text("Monthly")
                 }
             
-            SettingView()
-                .tabItem {
-                    Image(systemName: "gearshape")
-                    Text("Setting")
-                }
+//            SettingView()
+//                .tabItem {
+//                    Image(systemName: "gearshape")
+//                    Text("Setting")
+//                }
         }
         .accentColor(Color("mainColor"))
     }
