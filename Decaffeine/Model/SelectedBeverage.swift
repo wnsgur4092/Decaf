@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class SelectedBeverage :  Object, Identifiable, Codable {
+class SelectedBeverage : Object, Identifiable, Codable {
     
     @Persisted var id : UUID = UUID()
     @Persisted var name : String = ""

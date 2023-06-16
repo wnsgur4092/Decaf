@@ -12,7 +12,7 @@ struct HomeView: View {
     @State var hasTapped : Bool = false
     @EnvironmentObject var sharedDataViewModel : ShareDataViewModel
     
-    @State var isPresenting = false
+    @State private var isPresented = false
     
     let maximumCaffeinePerDay : Double = 400
     let calendar = Calendar.current
@@ -153,6 +153,9 @@ struct HomeView: View {
             BeverageSelectView()
         } label: {
             Text("+ Add New Caffeine")
+        }
+        .onTapGesture {
+            self.isPresented = true
         }
         .buttonStyle(ActiveButtonStyle())
     }

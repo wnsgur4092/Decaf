@@ -16,7 +16,6 @@ class ShareDataViewModel : ObservableObject {
     @Published var selectedBeverages : [SelectedBeverage] = []
     @Published var selectedBeverage : SelectedBeverage = SelectedBeverage()
     @Published var currentDay : Date = Date()
-    
     @Published var name : String = ""
     @Published var imageName : String = ""
     @Published var numberOfShots : Double = 0.5
@@ -37,7 +36,6 @@ class ShareDataViewModel : ObservableObject {
         print("---> Realm Data File Location :\(Realm.Configuration.defaultConfiguration.fileURL!)")
         
         self.selectedBeverages = selectedBeverages
-        
         
         $name.sink { name in
             print(">>> Selected name : \(name)")
@@ -90,7 +88,6 @@ class ShareDataViewModel : ObservableObject {
     
     func updateBeverageSize(size: String) {
         self.selectedBeverage.size = size
-        self.selectedSize = size
     }
     
     func updateBeverageRegisterDate(registerDate: Date) {

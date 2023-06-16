@@ -12,7 +12,9 @@ import SegmentedPicker
 struct BeverageSelectView: View {
     //MARK: - PROPERTEIS
     @EnvironmentObject var sharedDataViewModel : ShareDataViewModel
+    @Environment(\.presentationMode) var presentationMode
     
+    @State private var isPresented = false
     @State private var selectedBeverageIndex : Int?
     @State private var selectedCategory: BeverageCategory = .hot
     @State private var selectedBeverages: [Beverage] = Beverage.beverageList.filter { $0.category == .hot }
@@ -33,8 +35,6 @@ struct BeverageSelectView: View {
             }
             
             VStack{
-                
-                
                 buttonSection
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal, 32)
@@ -43,11 +43,8 @@ struct BeverageSelectView: View {
             }
             .navigationTitle("Add New Caffeine")
             .navigationBarTitleDisplayMode(.inline)
-            .tabItem {
-                
-            }
+            .navigationBarBackButtonHidden(true)
         }
-        
         
     }
     
@@ -82,40 +79,39 @@ struct BeverageSelectView: View {
     }
     
     
-    fileprivate var buttonSection : some View {
-        NavigationLink {
-            BeverageSettingView()
-        } label: {
-            Text("Next")
+    fileprivate var buttonSection: some View {
+        HStack {
+            Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                Text("Back")
+            }
+            .frame(maxWidth: 80, maxHeight: 40)
+            .buttonStyle(SecondaryButtonStyle())
+            
+            Spacer()
+            
+            if selectedBeverageIndex != nil {
+                NavigationLink(
+                    destination: BeverageSettingView(),
+                    label: {
+                        Text("Next")
+                    }
+                )
+                .frame(maxWidth: 80, maxHeight: 40)
+                .buttonStyle(ActiveButtonStyle())
+            } else {
+                NavigationLink(
+                    destination: BeverageSettingView(),
+                    label: {
+                        Text("Next")
+                    }
+                )
+                .frame(maxWidth: 80, maxHeight: 40)
+                .buttonStyle(DisableButtonStyle())
+                .disabled(true)
+            }
         }
-        
-        
-        //        HStack {
-        //            Button {
-        ////                presentationMode.wrappedValue.dismiss()
-        //            } label: {
-        //                Text("Back")
-        //            }
-        //            .frame(maxWidth: 80, maxHeight: 40)
-        //            .buttonStyle(SecondaryButtonStyle())
-        //
-        //            Spacer()
-        //
-        //            let nextButton = NavigationLink(
-        //                destination: BeverageSettingView(viewModel: viewModel),
-        //                label: {
-        //                    Text("Next")
-        //                }
-        //            )
-        //            .frame(maxWidth: 80, maxHeight: 40)
-        //            .disabled(selectedBeverageIndex == nil)
-        //
-        //            if selectedBeverageIndex != nil {
-        //                nextButton.buttonStyle(ActiveButtonStyle())
-        //            } else {
-        //                nextButton.buttonStyle(DisableButtonStyle())
-        //            }
-        //        }
     }
 }
 

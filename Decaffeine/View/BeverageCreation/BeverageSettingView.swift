@@ -9,10 +9,12 @@ import SwiftUI
 
 struct BeverageSettingView: View {
     //MARK: - COMPONENTS
-    
+    @Environment(\.presentationMode) var presentationMode
     let cupSizes = [("Small", "Tall"), ("Regular", "Grande"), ("Large", "Venti")]
     
     @EnvironmentObject var sharedDataViewModel : ShareDataViewModel
+    
+    @State private var navigateToHome = false
     @State private var numberOfShots: Double = 0.5
     @State private var isSaveEnabled : Bool = false
 
@@ -35,9 +37,9 @@ struct BeverageSettingView: View {
                         Divider()
                             .padding(.bottom, 8)
                         
-                        numberOfShotsButton
-                            .padding(.horizontal, 60)
-                            .padding(.bottom, 60)
+//                        numberOfShotsButton
+//                            .padding(.horizontal, 60)
+//                            .padding(.bottom, 60)
                     }
                 }
                 .padding(.horizontal, 20)
@@ -51,7 +53,9 @@ struct BeverageSettingView: View {
                         .padding(.vertical, 20)
                 }
             }
+
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     //MARK: - COMPONENTS
@@ -67,8 +71,6 @@ struct BeverageSettingView: View {
             Text(sharedDataViewModel.selectedBeverage.name)
                 .font(.system(size: 30).bold())
         }
-        
-        
     }
     
     fileprivate var sizeSelection: some View {
@@ -82,17 +84,16 @@ struct BeverageSettingView: View {
                     VStack {
                         ZStack(alignment: .bottom) {
                             Rectangle()
-                                .fill(sharedDataViewModel.selectedSize == size ? Color("mainColor") : Color.clear)
                                 .frame(width: 80, height: 110)
                                 .cornerRadius(10)
 
 
                             Image(size.lowercased())
                                 .padding(.vertical, 8)
-                                .scaleEffect(sharedDataViewModel.selectedSize == size ? 1.1 : 1.0)
+//                                .scaleEffect(sharedDataViewModel.selectedSize == size ? 1.1 : 1.0)
                                 .animation(.spring())
                         }
-
+                        
                         Text(size)
                             .font(.system(size: 14).bold())
                             .padding(.bottom, 2)
@@ -102,12 +103,10 @@ struct BeverageSettingView: View {
                             .foregroundColor(.secondary)
                     }
                     .padding(.horizontal, 20)
-                    .onTapGesture {
-                        withAnimation {
-                            sharedDataViewModel.updateBeverageSize(size: size)
-                            isSaveEnabled = true
-                        }
-                    }
+//                    .onTapGesture {
+//                        sharedDataViewModel.updateBeverageSize(size: size)
+//                        isSaveEnabled = true
+//                    }
                 }
             }
         }
@@ -158,15 +157,15 @@ struct BeverageSettingView: View {
     
     fileprivate var buttonSection : some View {
         HStack{
-//            Button {
-//                presentationMode.wrappedValue.dismiss()
-//            } label: {
-//                Text("Back")
-//            }
-//            .frame(maxWidth: 80, maxHeight: 40)
-//            .buttonStyle(SecondaryButtonStyle())
-//
-//            Spacer()
+            Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                Text("Back")
+            }
+            .frame(maxWidth: 80, maxHeight: 40)
+            .buttonStyle(SecondaryButtonStyle())
+
+            Spacer()
             
             Button {
                 print(sharedDataViewModel.selectedBeverage.name)
@@ -176,7 +175,6 @@ struct BeverageSettingView: View {
                 print(isSaveEnabled)
                 
                 sharedDataViewModel.saveData()
-//                presentationMode.wrappedValue.dismiss()
                 
             } label: {
                 Text("Save")
@@ -188,7 +186,9 @@ struct BeverageSettingView: View {
                 activeStyle: activeStyle,
                 disableStyle: disableStyle
             ))
-            
+            NavigationLink(destination: HomeView(), isActive: $navigateToHome) {
+                  EmptyView()
+              }
             
         }
     }
