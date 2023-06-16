@@ -18,6 +18,7 @@ struct DecaffeineApp: App {
                 OnBoardingView()
             } else {
                 ContentView()
+                    .environmentObject(ShareDataViewModel())
             }
         }
 

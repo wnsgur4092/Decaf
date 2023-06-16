@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ArchiveView: View {
     //MARK: - PROPERTIES
-    @StateObject var archiveViewModel : ArchiveViewModel
+    @EnvironmentObject var sharedDataViewModel : ShareDataViewModel
     @Namespace var animation
     
     //    @State private var selectedBeverage: SelectedBeverage
@@ -61,8 +61,8 @@ struct ArchiveView: View {
                 .padding(.horizontal, 32)
             }
         }
-        .onChange(of: archiveViewModel.currentDay) { day in
-            archiveViewModel.fetchSelectedBeverages(for: day)
+        .onChange(of: sharedDataViewModel.currentDay) { day in
+            sharedDataViewModel.fetchSelectedBeverages(for: day)
         }
     }
     
@@ -82,7 +82,7 @@ struct ArchiveView: View {
     }
     
     fileprivate var month : some View {
-        Text(archiveViewModel.fetchCurrentMonth())
+        Text(sharedDataViewModel.fetchCurrentMonth())
             .font(.system(size: 18))
             .foregroundColor(.gray)
             .padding(.trailing, 30)
@@ -99,8 +99,8 @@ struct ArchiveView: View {
             
             HStack{
                 
-                Text(String(format: "%.1f", archiveViewModel.totalCaffeineForToday()))
-                    .foregroundColor(archiveViewModel.totalCaffeineForToday() > 400 ? Color.red : Color("mainColor"))
+                Text(String(format: "%.1f", sharedDataViewModel.totalCaffeineForToday()))
+                    .foregroundColor(sharedDataViewModel.totalCaffeineForToday() > 400 ? Color.red : Color("mainColor"))
                 
                 Text("/ 400mg")
             }
@@ -119,10 +119,10 @@ struct ArchiveView: View {
                 HStack{
                     VStack(alignment: .leading, spacing: 10) {
                         
-                        Text(archiveViewModel.formatYear(year: Date()))
+                        Text(sharedDataViewModel.formatYear(year: Date()))
                         HStack{
                             Button {
-                                archiveViewModel.previousMonth()
+//                                sharedDataViewModel.previousMonth()
                             } label: {
                                 Image(systemName: "chevron.left")
                                     .font(.title2)
@@ -130,12 +130,12 @@ struct ArchiveView: View {
 
                             Spacer()
 
-                            Text(archiveViewModel.formatMonth(month: archiveViewModel.currentDay))
+                            Text(sharedDataViewModel.formatMonth(month: sharedDataViewModel.currentDay))
 
                             Spacer()
 
                             Button {
-                                archiveViewModel.nextMonth()
+//                                sharedDataViewModel.nextMonth()
                             } label: {
                                 Image(systemName: "chevron.right")
                                     .font(.title2)
@@ -167,40 +167,40 @@ struct ArchiveView: View {
     
     
     //WEEKLY CALENDAR
-    fileprivate var weeklyCalendar : some View {
-        VStack {
-            HStack(spacing: 10) {
-                
-                ForEach(archiveViewModel.currentWeek, id: \.self) { day in
-                    VStack(spacing: 10) {
-                        Text(archiveViewModel.formatDate(day: day))
-                        Text(archiveViewModel.formatDay(date: day))
-                    }//: VSTACK
-                    .padding(.vertical, 12)
-                    .foregroundColor(archiveViewModel.isToday(date: day) ? .white : .black.opacity(0.5))
-                    .font(.system(size: 14))
-                    .frame(maxWidth: .infinity, maxHeight: 90)
-                    .background(
-                        ZStack{
-                            if archiveViewModel.isToday(date: day) {
-                                Capsule()
-                                    .fill(Color("mainColor"))
-                                    .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
-                            }
-                        } //: ZSTACK
-                    )
-                    .contentShape(Capsule())
-                    .onTapGesture {
-                        //Updating Current Day
-                        withAnimation {
-                            archiveViewModel.currentDay = day
-                            //                            archiveViewModel.fetchSelectedBeverages(for: day)
-                        }
-                    }
-                } //: FOREACH
-            }
-        }
-    }
+//    fileprivate var weeklyCalendar : some View {
+//        VStack {
+//            HStack(spacing: 10) {
+//                
+//                ForEach(sharedDataViewModel.currentWeek, id: \.self) { day in
+//                    VStack(spacing: 10) {
+//                        Text(sharedDataViewModel.formatDate(day: day))
+//                        Text(sharedDataViewModel.formatDay(date: day))
+//                    }//: VSTACK
+//                    .padding(.vertical, 12)
+//                    .foregroundColor(sharedDataViewModel.isToday(date: day) ? .white : .black.opacity(0.5))
+//                    .font(.system(size: 14))
+//                    .frame(maxWidth: .infinity, maxHeight: 90)
+//                    .background(
+//                        ZStack{
+//                            if sharedDataViewModel.isToday(date: day) {
+//                                Capsule()
+//                                    .fill(Color("mainColor"))
+//                                    .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
+//                            }
+//                        } //: ZSTACK
+//                    )
+//                    .contentShape(Capsule())
+//                    .onTapGesture {
+//                        //Updating Current Day
+//                        withAnimation {
+//                            sharedDataViewModel.currentDay = day
+//                            //                            archiveViewModel.fetchSelectedBeverages(for: day)
+//                        }
+//                    }
+//                } //: FOREACH
+//            }
+//        }
+//    }
     
     //TIME LINE HEADER
     fileprivate var timeLineHeader : some View {
@@ -223,10 +223,10 @@ struct ArchiveView: View {
     
     //ARCHIVE LIST VIEW
     fileprivate var archiveListView: some View {
-        ForEach(archiveViewModel.selectedBeverages, id: \.id) { beverage in
+        ForEach(sharedDataViewModel.selectedBeverages, id: \.id) { beverage in
             VStack(spacing: 10) {
                 HStack(alignment: .top, spacing: 5) {
-                    Text(archiveViewModel.formatTime(time: beverage.registerDate))
+                    Text(sharedDataViewModel.formatTime(time: beverage.registerDate))
                         .font(.subheadline)
                         .multilineTextAlignment(.leading)
                         .offset(y: 4)
@@ -266,10 +266,6 @@ struct ArchiveView: View {
                         print("TroubleShooting \(beverage.name)")
                     }
                 }
-            }
-            .fullScreenCover(isPresented: $isDetailViewPresented) {
-                
-                ArchiveListDetailView(viewModel: archiveViewModel, selectedBeverage: beverage)
             }
         }
     }

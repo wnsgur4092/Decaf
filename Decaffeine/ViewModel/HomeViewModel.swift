@@ -54,6 +54,4 @@ class HomeViewModel: ObservableObject {
         }
         return filteredList.count
     }
-    
-    
 }

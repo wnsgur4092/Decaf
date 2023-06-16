@@ -9,65 +9,62 @@ import SwiftUI
 
 struct BeverageSettingView: View {
     //MARK: - COMPONENTS
-    @Environment(\.presentationMode) var presentationMode
     
     let cupSizes = [("Small", "Tall"), ("Regular", "Grande"), ("Large", "Venti")]
     
-    @ObservedObject var viewModel : BeverageInputViewModel
+    @EnvironmentObject var sharedDataViewModel : ShareDataViewModel
     @State private var numberOfShots: Double = 0.5
     @State private var isSaveEnabled : Bool = false
 
     
     //MARK: - BODY
     var body: some View {
-        VStack{
-            ScrollView(.vertical, showsIndicators: true) {
-                beverageThumbnail
-                    .padding(.bottom, 20)
-                
-                Divider()
-                    .padding(.bottom, 8)
-                
-                VStack{
-                    sizeSelection
+        NavigationView {
+            VStack{
+                ScrollView(.vertical, showsIndicators: true) {
+                    beverageThumbnail
                         .padding(.bottom, 20)
                     
                     Divider()
                         .padding(.bottom, 8)
                     
-                    numberOfShotsButton
-                        .padding(.horizontal, 60)
-                        .padding(.bottom, 60)
+                    VStack{
+                        sizeSelection
+                            .padding(.bottom, 20)
+                        
+                        Divider()
+                            .padding(.bottom, 8)
+                        
+                        numberOfShotsButton
+                            .padding(.horizontal, 60)
+                            .padding(.bottom, 60)
+                    }
+                }
+                .padding(.horizontal, 20)
+                
+        
+                VStack{
+                    Divider()
+                    buttonSection
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal, 32)
+                        .padding(.vertical, 20)
                 }
             }
-            .padding(.horizontal, 20)
-            
-    
-            VStack{
-                Divider()
-                buttonSection
-                    .frame(maxWidth: .infinity)
-                    .padding(.horizontal, 32)
-                    .padding(.vertical, 20)
-            }
-
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarTitle("Add New Caffeine")
-        
     }
     
     //MARK: - COMPONENTS
     fileprivate var beverageThumbnail : some View {
         VStack {
-            Image(viewModel.selectedBeverage.imageName)
+            Image(sharedDataViewModel.selectedBeverage.imageName)
                 .resizable()
                 .scaledToFit()
                 .frame(height:80)
                 .padding(.top, 40)
                 .padding(.bottom, 20)
             
-            Text(viewModel.selectedBeverage.name)
+            Text(sharedDataViewModel.selectedBeverage.name)
                 .font(.system(size: 30).bold())
         }
         
@@ -85,14 +82,14 @@ struct BeverageSettingView: View {
                     VStack {
                         ZStack(alignment: .bottom) {
                             Rectangle()
-                                .fill(viewModel.selectedSize == size ? Color("mainColor") : Color.clear)
+                                .fill(sharedDataViewModel.selectedSize == size ? Color("mainColor") : Color.clear)
                                 .frame(width: 80, height: 110)
                                 .cornerRadius(10)
 
 
                             Image(size.lowercased())
                                 .padding(.vertical, 8)
-                                .scaleEffect(viewModel.selectedSize == size ? 1.1 : 1.0)
+                                .scaleEffect(sharedDataViewModel.selectedSize == size ? 1.1 : 1.0)
                                 .animation(.spring())
                         }
 
@@ -107,7 +104,7 @@ struct BeverageSettingView: View {
                     .padding(.horizontal, 20)
                     .onTapGesture {
                         withAnimation {
-                            viewModel.updateBeverageSize(size: size)
+                            sharedDataViewModel.updateBeverageSize(size: size)
                             isSaveEnabled = true
                         }
                     }
@@ -126,7 +123,7 @@ struct BeverageSettingView: View {
                     withAnimation {
                         if numberOfShots > 0.5 {
                             numberOfShots -= 0.5
-                            viewModel.updateBeverageShots(numberOfShots: numberOfShots)
+                            sharedDataViewModel.updateBeverageShots(numberOfShots: numberOfShots)
                             print("minusButton Tapped")
                         }
                     }
@@ -144,7 +141,7 @@ struct BeverageSettingView: View {
                 Button {
                     withAnimation {
                         numberOfShots += 0.5
-                        viewModel.updateBeverageShots(numberOfShots: numberOfShots)
+                        sharedDataViewModel.updateBeverageShots(numberOfShots: numberOfShots)
                         print("plusButton Tapped")
                     }
                 } label: {
@@ -161,25 +158,25 @@ struct BeverageSettingView: View {
     
     fileprivate var buttonSection : some View {
         HStack{
-            Button {
-                presentationMode.wrappedValue.dismiss()
-            } label: {
-                Text("Back")
-            }
-            .frame(maxWidth: 80, maxHeight: 40)
-            .buttonStyle(SecondaryButtonStyle())
+//            Button {
+//                presentationMode.wrappedValue.dismiss()
+//            } label: {
+//                Text("Back")
+//            }
+//            .frame(maxWidth: 80, maxHeight: 40)
+//            .buttonStyle(SecondaryButtonStyle())
+//
+//            Spacer()
             
-            Spacer()
-            
             Button {
-                print(viewModel.selectedBeverage.name)
-                print(viewModel.selectedBeverage.imageName)
-                print(viewModel.selectedBeverage.size)
-                print(viewModel.selectedBeverage.numberOfShots)
+                print(sharedDataViewModel.selectedBeverage.name)
+                print(sharedDataViewModel.selectedBeverage.imageName)
+                print(sharedDataViewModel.selectedBeverage.size)
+                print(sharedDataViewModel.selectedBeverage.numberOfShots)
                 print(isSaveEnabled)
                 
-                viewModel.saveData()
-                presentationMode.wrappedValue.dismiss()
+                sharedDataViewModel.saveData()
+//                presentationMode.wrappedValue.dismiss()
                 
             } label: {
                 Text("Save")
@@ -202,6 +199,7 @@ struct BeverageSettingView: View {
 //MARK: - PREVIEW
 struct BeverageSettingView_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageSettingView(viewModel: BeverageInputViewModel(isPresented: .constant(false), selectedBeverages: .constant([])))
+        BeverageSettingView()
+            .environmentObject(ShareDataViewModel())
     }
 }

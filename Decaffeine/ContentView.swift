@@ -14,25 +14,21 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            HomeView(homeVM: HomeViewModel())
+            HomeView()
                 .tabItem {
                     Image(systemName: "house")
                     Text("Today")
                 }
 
+
             
-            ArchiveView(archiveViewModel: ArchiveViewModel())
+            ArchiveView()
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("Monthly")
                 }
-            
-//            SettingView()
-//                .tabItem {
-//                    Image(systemName: "gearshape")
-//                    Text("Setting")
-//                }
         }
+        .environmentObject(ShareDataViewModel())
         .accentColor(Color("mainColor"))
     }
 }

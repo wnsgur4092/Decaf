@@ -11,44 +11,43 @@ import SegmentedPicker
 
 struct BeverageSelectView: View {
     //MARK: - PROPERTEIS
-    @Environment(\.presentationMode) var presentationMode
-    @StateObject var viewModel: BeverageInputViewModel
+    @EnvironmentObject var sharedDataViewModel : ShareDataViewModel
     
     @State private var selectedBeverageIndex : Int?
     @State private var selectedCategory: BeverageCategory = .hot
     @State private var selectedBeverages: [Beverage] = Beverage.beverageList.filter { $0.category == .hot }
-   
+    
     //MARK: - BODY
     var body: some View {
-        NavigationView {
-            VStack{
-                //CATEOGRY
-                beverageCateogry
+        VStack{
+            //CATEOGRY
+            beverageCateogry
+            Divider()
+            
+            //SCROLLVIEW
+            VStack {
+                beverageLists
+                    .padding(.top, 10)
+                
                 Divider()
-                
-                //SCROLLVIEW
-                VStack {
-                    beverageLists
-                        .padding(.top, 10)
-                        
-                    Divider()
-                }
+            }
             
-    
+            VStack{
                 
-                VStack{
-            
-                    
-                    buttonSection
-                        .frame(maxWidth: .infinity)
-                        .padding(.horizontal, 32)
-                        .padding(.vertical, 20)
-                    
-                }
+                
+                buttonSection
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, 32)
+                    .padding(.vertical, 20)
+                
             }
             .navigationTitle("Add New Caffeine")
             .navigationBarTitleDisplayMode(.inline)
+            .tabItem {
+                
+            }
         }
+        
         
     }
     
@@ -71,8 +70,8 @@ struct BeverageSelectView: View {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))]) {
                 ForEach(selectedBeverages) { beverage in
                     Button(action: {
-                        viewModel.updateBeverageName(name: beverage.beverageName)
-                        viewModel.updateBeverageImageName(imageName: beverage.beverageImageName)
+                        sharedDataViewModel.updateBeverageName(name: beverage.beverageName)
+                        sharedDataViewModel.updateBeverageImageName(imageName: beverage.beverageImageName)
                         selectedBeverageIndex = beverage.id - 1
                     }) {
                         BeverageCell(beverageImageName: beverage.beverageImageName, beverageName: beverage.beverageName, index: beverage.id - 1, selectedBeverageIndex: $selectedBeverageIndex)
@@ -84,32 +83,39 @@ struct BeverageSelectView: View {
     
     
     fileprivate var buttonSection : some View {
-        HStack {
-            Button {
-                presentationMode.wrappedValue.dismiss()
-            } label: {
-                Text("Back")
-            }
-            .frame(maxWidth: 80, maxHeight: 40)
-            .buttonStyle(SecondaryButtonStyle())
-            
-            Spacer()
-            
-            let nextButton = NavigationLink(
-                destination: BeverageSettingView(viewModel: viewModel),
-                label: {
-                    Text("Next")
-                }
-            )
-            .frame(maxWidth: 80, maxHeight: 40)
-            .disabled(selectedBeverageIndex == nil)
-
-            if selectedBeverageIndex != nil {
-                nextButton.buttonStyle(ActiveButtonStyle())
-            } else {
-                nextButton.buttonStyle(DisableButtonStyle())
-            }
+        NavigationLink {
+            BeverageSettingView()
+        } label: {
+            Text("Next")
         }
+        
+        
+        //        HStack {
+        //            Button {
+        ////                presentationMode.wrappedValue.dismiss()
+        //            } label: {
+        //                Text("Back")
+        //            }
+        //            .frame(maxWidth: 80, maxHeight: 40)
+        //            .buttonStyle(SecondaryButtonStyle())
+        //
+        //            Spacer()
+        //
+        //            let nextButton = NavigationLink(
+        //                destination: BeverageSettingView(viewModel: viewModel),
+        //                label: {
+        //                    Text("Next")
+        //                }
+        //            )
+        //            .frame(maxWidth: 80, maxHeight: 40)
+        //            .disabled(selectedBeverageIndex == nil)
+        //
+        //            if selectedBeverageIndex != nil {
+        //                nextButton.buttonStyle(ActiveButtonStyle())
+        //            } else {
+        //                nextButton.buttonStyle(DisableButtonStyle())
+        //            }
+        //        }
     }
 }
 
@@ -117,6 +123,7 @@ struct BeverageSelectView: View {
 //MARK: - PREVIEW
 struct BeverageSelectView_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageSelectView(viewModel: BeverageInputViewModel(isPresented: .constant(false), selectedBeverages: .constant([])))
+        BeverageSelectView()
+            .environmentObject(ShareDataViewModel())
     }
 }
