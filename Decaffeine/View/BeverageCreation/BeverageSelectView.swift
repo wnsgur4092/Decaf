@@ -21,31 +21,32 @@ struct BeverageSelectView: View {
     
     //MARK: - BODY
     var body: some View {
-        VStack{
-            //CATEOGRY
-            beverageCateogry
-            Divider()
-            
-            //SCROLLVIEW
-            VStack {
-                beverageLists
-                    .padding(.top, 10)
-                
-                Divider()
-            }
-            
+        NavigationView {
             VStack{
-                buttonSection
-                    .frame(maxWidth: .infinity)
-                    .padding(.horizontal, 32)
-                    .padding(.vertical, 20)
+                //CATEOGRY
+                beverageCateogry
+                Divider()
                 
+                //SCROLLVIEW
+                VStack {
+                    beverageLists
+                        .padding(.top, 10)
+                    
+                    Divider()
+                }
+                
+                VStack{
+                    buttonSection
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal, 32)
+                        .padding(.vertical, 20)
+                    
+                }
+                .navigationTitle("Add New Caffeine")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarBackButtonHidden(true)
             }
-            .navigationTitle("Add New Caffeine")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
         }
-        
     }
     
     //MARK: - COMPONENTS

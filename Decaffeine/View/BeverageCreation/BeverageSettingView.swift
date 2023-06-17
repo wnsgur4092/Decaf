@@ -16,10 +16,12 @@ struct BeverageSettingView: View {
     @State private var selectedSizeIndex = 0
     @EnvironmentObject var sharedDataViewModel : ShareDataViewModel
     
-    @State private var navigateToHome = false
     @State private var numberOfShots: Double = 0.5
     @State private var isSaveEnabled : Bool = false
     
+    @State private var showingPopover = false
+    
+    @State var currentDay : Date = Date()
     
     //MARK: - BODY
     var body: some View {
@@ -46,9 +48,9 @@ struct BeverageSettingView: View {
                         Divider()
                             .padding(.bottom, 8)
                         
-                        //                        numberOfShotsButton
-                        //                            .padding(.horizontal, 60)
-                        //                            .padding(.bottom, 60)
+                        numberOfShotsButton
+                            .padding(.horizontal, 60)
+                            .padding(.bottom, 60)
                     }
                 }
                 .padding(.horizontal, 20)
@@ -87,7 +89,7 @@ struct BeverageSettingView: View {
             Text("Select Size")
                 .font(.system(size: 16).bold())
                 .padding(.bottom, 16)
-
+            
             HStack(alignment: .bottom, spacing: 10) {
                 ForEach(Array(cupSizes.indices), id: \.self) { index in
                     VStack {
@@ -100,18 +102,18 @@ struct BeverageSettingView: View {
                                     .frame(width: 80, height: 110)
                                     .foregroundColor(selectedSizeIndex == index ? Color("mainColor") : Color.clear)
                                     .cornerRadius(10)
-
+                                
                                 Image(cupSizes[index].0.lowercased())
                                     .padding(.vertical, 8)
                                     .scaleEffect(selectedSizeIndex == index ? 1.1 : 1.0)
                                     .animation(.spring())
                             }
                         }
-
+                        
                         Text(cupSizes[index].0)
                             .font(.system(size: 14).bold())
                             .padding(.bottom, 2)
-
+                        
                         Text(cupSizes[index].1)
                             .font(.system(size: 12))
                             .foregroundColor(.secondary)
@@ -121,7 +123,7 @@ struct BeverageSettingView: View {
             }
         }
     }
-
+    
     
     fileprivate var numberOfShotsButton: some View {
         VStack(alignment: .center) {
@@ -135,6 +137,7 @@ struct BeverageSettingView: View {
                             numberOfShots -= 0.5
                             sharedDataViewModel.updateBeverageShots(numberOfShots: numberOfShots)
                             print("minusButton Tapped")
+                            print("\(sharedDataViewModel.selectedBeverage.numberOfShots)")
                         }
                     }
                 } label: {
@@ -153,6 +156,7 @@ struct BeverageSettingView: View {
                         numberOfShots += 0.5
                         sharedDataViewModel.updateBeverageShots(numberOfShots: numberOfShots)
                         print("plusButton Tapped")
+                        print("\(sharedDataViewModel.selectedBeverage.numberOfShots)")
                     }
                 } label: {
                     Image(systemName: "plus.circle")
@@ -163,8 +167,6 @@ struct BeverageSettingView: View {
             }
         }
     }
-    
-    
     
     fileprivate var buttonSection : some View {
         HStack{
@@ -178,29 +180,16 @@ struct BeverageSettingView: View {
             
             Spacer()
             
-            Button {
-                print(sharedDataViewModel.selectedBeverage.name)
-                print(sharedDataViewModel.selectedBeverage.imageName)
-                print(sharedDataViewModel.selectedBeverage.size)
-                print(sharedDataViewModel.selectedBeverage.numberOfShots)
-                print(isSaveEnabled)
-                
+            Button(action: {
                 sharedDataViewModel.saveData()
-                
-            } label: {
+                sharedDataViewModel.fetchSelectedBeverages(for: currentDay)
+                sharedDataViewModel.isPopoverPresented = false
+
+            }) {
                 Text("Save")
             }
             .frame(maxWidth: 80, maxHeight: 40)
-            .disabled(isSaveEnabled == false)
-            .buttonStyle(CustomButtonStyle(
-                isButtonEnabled: isSaveEnabled,
-                activeStyle: activeStyle,
-                disableStyle: disableStyle
-            ))
-            NavigationLink(destination: HomeView(), isActive: $navigateToHome) {
-                EmptyView()
-            }
-            
+            .buttonStyle(ActiveButtonStyle())
         }
     }
 }

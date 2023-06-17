@@ -20,10 +20,12 @@ class ShareDataViewModel : ObservableObject {
     @Published var name : String = ""
     @Published var imageName : String = ""
     @Published var numberOfShots : Double = 0.5
-    @Published var size : String = "___"
+    @Published var size : String = "Small"
     @Published var registerDate : Date = Date()
     
     @Published var caffeine : Double = 0.0
+    
+    @Published var isPopoverPresented : Bool = false
     
     let caffeinePerShot : Double = 63 // ex) 63mg -> static 카페인 1shot 당 함량
     @Published var totalCaffeine : Double = 0 // NumberOfShots * caffeinePerShot = totalCaffeine
@@ -71,64 +73,127 @@ class ShareDataViewModel : ObservableObject {
     
     //MARK: - COMBINE
     func updateCaffeine(caffeine : Double) {
-        self.selectedBeverage.caffeine = totalCaffeine // observeCaffeine 메서드를 호출하여 totalCaffeine 값을 계산 및 업데이트합니다.
+        do {
+            let realm = try Realm()
+            try realm.write {
+                self.selectedBeverage.caffeine = caffeine
+            }
+        } catch let error {
+            print("Error updating caffeine: \(error)")
+        }
     }
+
     
     func updateBeverageName(name: String) {
-        self.selectedBeverage.name = name
+        do {
+            let realm = try Realm()
+            try realm.write {
+                self.selectedBeverage.name = name
+            }
+        } catch let error {
+            print("Error updating name: \(error)")
+        }
     }
-    
-    func updateBeverageImageName(imageName: String){
-        self.selectedBeverage.imageName = imageName
-    }
-    
-    func updateBeverageShots(numberOfShots: Double) {
-        self.selectedBeverage.numberOfShots = numberOfShots
-        updateTotalCaffeine() // totalCaffeine 값을 다시 계산합니다.
-    }
-    
-    func updateBeverageSize(size: String) {
-        self.selectedBeverage.size = size
         
+    func updateBeverageImageName(imageName: String){
+        do {
+            let realm = try Realm()
+            try realm.write {
+                self.selectedBeverage.imageName = imageName
+            }
+        } catch let error {
+            print("Error updating image name: \(error)")
+        }
     }
-    
+        
+    func updateBeverageShots(numberOfShots: Double) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                self.selectedBeverage.numberOfShots = numberOfShots
+            }
+        } catch let error {
+            print("Error updating number of shots: \(error)")
+        }
+    }
+        
+    func updateBeverageSize(size: String) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                self.selectedBeverage.size = size
+            }
+        } catch let error {
+            print("Error updating size: \(error)")
+        }
+    }
+        
     func updateBeverageRegisterDate(registerDate: Date) {
-        self.selectedBeverage.registerDate = registerDate
+        do {
+            let realm = try Realm()
+            try realm.write {
+                self.selectedBeverage.registerDate = registerDate
+            }
+        } catch let error {
+            print("Error updating register date: \(error)")
+        }
     }
+
     
-    func updateTotalCaffeine() {
-        self.totalCaffeine = self.selectedBeverage.numberOfShots * self.caffeinePerShot
-        updateCaffeine(caffeine: self.totalCaffeine) // caffeine 값을 다시 업데이트합니다.
-    }
+//    func updateTotalCaffeine() {
+//        do {
+//            let realm = try Realm()
+//            try realm.write {
+//                self.totalCaffeine = self.selectedBeverage.numberOfShots * self.caffeinePerShot
+//            }
+//        }
+//        catch let error {
+//            print("Error updating total caffeine: \(error)")
+//        }
+//
+////        updateCaffeine(caffeine: self.totalCaffeine) // caffeine 값을 다시 업데이트합니다.
+//    }
+    
+    
     
     //MARK: - Beverage INPUT VIEW
     func saveData() {
+        print("Saving data: \(selectedBeverage.name), \(selectedBeverage.imageName), \(selectedBeverage.numberOfShots), \(selectedBeverage.size), \(selectedBeverage.caffeine)")
         guard let realm = try? Realm() else { return }
         
-        selectedBeverage.registerDate = Date()
-        print("---> current time: \(selectedBeverage.registerDate)")
-        selectedBeverages.append(selectedBeverage) // Append directly to selectedBeverages
+        let newBeverage = SelectedBeverage()  // Create a new SelectedBeverage instance
+        newBeverage.name = selectedBeverage.name
+        newBeverage.imageName = selectedBeverage.imageName
+        newBeverage.numberOfShots = selectedBeverage.numberOfShots
+        newBeverage.size = selectedBeverage.size
+        newBeverage.caffeine = selectedBeverage.numberOfShots * caffeinePerShot
+        newBeverage.registerDate = Date()
+
+        print("---> current time: \(newBeverage.registerDate)")
+        selectedBeverages.append(newBeverage) // Append directly to selectedBeverages
         
         do {
             try realm.write {
-                realm.add(selectedBeverage)
+                realm.add(newBeverage)
             }
         } catch let error {
             print("!!!! BeverageInputView realm error : \(error)")
         }
+        fetchSelectedBeverages(for: currentDay)
     }
+
     
     
     //MARK: - HOME VIEW
     func fetchSelectedBeverages(for day: Date) {
         guard let realm = try? Realm() else {return}
-        
+
         let selectedBeverage = realm.objects(SelectedBeverage.self)
-        
-        try! realm.write{
-            self.selectedBeverages = selectedBeverage.filter { Calendar.current.isDate($0.registerDate, inSameDayAs: day) }
-        }
+        let beverages = selectedBeverage.filter { Calendar.current.isDate($0.registerDate, inSameDayAs: day) }
+
+        self.selectedBeverages = Array(beverages)
     }
+
     
     func numberOfBeveragesForToday() -> Int {
         let calendar = Calendar.current
@@ -150,7 +215,6 @@ class ShareDataViewModel : ObservableObject {
     }
     
     //MARK: - ARCHIVE VIEW
-    
     func formatYear(year: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current

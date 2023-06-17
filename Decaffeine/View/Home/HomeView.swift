@@ -14,6 +14,8 @@ struct HomeView: View {
     
     @State private var isPresented = false
     
+    @State var currentDay : Date = Date()
+    
     let maximumCaffeinePerDay : Double = 400
     let calendar = Calendar.current
     let dateFormatter: DateFormatter = {
@@ -22,43 +24,46 @@ struct HomeView: View {
         return formatter
     }()
     
+    
     //MARK: - BODY
     var body: some View {
-        NavigationView {
-            VStack{
-                Text("DECAF")
-                
-                ScrollView(.vertical, showsIndicators: true) {
-                    VStack{
-                        header
-                            .padding(.vertical,12)
-                            .padding(.horizontal, 32)
-                        
-                        Spacer()
-                            .frame(maxHeight: 32)
-                        
-                        coffeeListImage
-                        
-                        VStack{
-                            coffeeCountText
-                                .padding(.bottom, 10)
-                            
-                            coffeeProgressBar
-                        }
+        
+        VStack{
+            Text("DECAF")
+            
+            ScrollView(.vertical, showsIndicators: true) {
+                VStack{
+                    header
+                        .padding(.vertical,12)
                         .padding(.horizontal, 32)
-                        
-                        addNewButton
-                            .padding(.vertical, 20)
-                            .padding(.horizontal, 32)
-                    }
                     
+                    Spacer()
+                        .frame(maxHeight: 32)
+                    
+                    coffeeListImage
+                    
+                    VStack{
+                        coffeeCountText
+                            .padding(.bottom, 10)
+                        
+                        coffeeProgressBar
+                    }
+                    .padding(.horizontal, 32)
+                    
+                    addNewButton
+                        .padding(.vertical, 20)
+                        .padding(.horizontal, 32)
                 }
+                
             }
         }
+        .popover(isPresented: $sharedDataViewModel.isPopoverPresented) {
+            BeverageSelectView()
+        }
+        
     }
     
     //MARK: - COMPONENTS
-    
     //HEADER
     fileprivate var header : some View {
         HStack(alignment: .center) {
@@ -142,8 +147,8 @@ struct HomeView: View {
                 }
                 
             }
-            //
-            //            ProgressBar(todayIntake: Double(sharedDataViewModel.totalCaffeineForToday()) , totalIntake: Double(maximumCaffeinePerDay))
+            
+            ProgressBar(todayIntake: Double(sharedDataViewModel.totalCaffeineForToday()) , totalIntake: Double(maximumCaffeinePerDay))
         }
     }
     
@@ -155,7 +160,7 @@ struct HomeView: View {
             Text("+ Add New Caffeine")
         }
         .onTapGesture {
-            self.isPresented = true
+            sharedDataViewModel.isPopoverPresented = true
         }
         .buttonStyle(ActiveButtonStyle())
     }
