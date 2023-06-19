@@ -23,6 +23,8 @@ struct BeverageSettingView: View {
     
     @State var currentDay : Date = Date()
     
+    @Binding var isPresented : Bool
+    
     //MARK: - BODY
     var body: some View {
         NavigationView {
@@ -183,8 +185,8 @@ struct BeverageSettingView: View {
             Button(action: {
                 sharedDataViewModel.saveData()
                 sharedDataViewModel.fetchSelectedBeverages(for: currentDay)
-                sharedDataViewModel.isPopoverPresented = false
-
+                self.isPresented = false
+            
             }) {
                 Text("Save")
             }
@@ -197,7 +199,7 @@ struct BeverageSettingView: View {
 //MARK: - PREVIEW
 struct BeverageSettingView_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageSettingView()
+        BeverageSettingView(isPresented: .constant(false))
             .environmentObject(ShareDataViewModel())
     }
 }

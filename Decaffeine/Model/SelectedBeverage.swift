@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import SwiftUI
 
 class SelectedBeverage : Object, Identifiable, Codable {
     
@@ -17,6 +18,7 @@ class SelectedBeverage : Object, Identifiable, Codable {
     @Persisted var size : String = ""
     @Persisted var registerDate : Date = Date()
     @Persisted var caffeine : Double = 0.0
+    @Persisted var color : String = ""
     
     override static func primaryKey() -> String? {
         return "id"

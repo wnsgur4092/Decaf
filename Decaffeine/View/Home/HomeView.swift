@@ -16,6 +16,8 @@ struct HomeView: View {
     
     @State var currentDay : Date = Date()
     
+    @State private var isActive = false
+    
     let maximumCaffeinePerDay : Double = 400
     let calendar = Calendar.current
     let dateFormatter: DateFormatter = {
@@ -59,11 +61,10 @@ struct HomeView: View {
                     
                 }
             }
-            .popover(isPresented: $sharedDataViewModel.isPopoverPresented) {
-                BeverageSelectView()
-            }
         }
-
+        .fullScreenCover(isPresented: $isPresented) {
+            BeverageSelectView(isPresented: $isPresented)
+        }
         
     }
     
@@ -82,9 +83,9 @@ struct HomeView: View {
             Spacer()
             
             NavigationLink {
-                ArchiveView()
+                ArchiveCalendarView()
+                    .environmentObject(self.sharedDataViewModel)  // Pass the existing environment object
             } label: {
-                
                 Image(systemName: "calendar.circle")
                     .font(.system(size: 32))
             }
@@ -167,13 +168,10 @@ struct HomeView: View {
     
     //BUTTON
     fileprivate var addNewButton : some View {
-        NavigationLink {
-            BeverageSelectView()
+        Button {
+            isPresented = true
         } label: {
             Text("+ Add New Caffeine")
-        }
-        .onTapGesture {
-            sharedDataViewModel.isPopoverPresented = true
         }
         .buttonStyle(ActiveButtonStyle())
     }

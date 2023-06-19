@@ -14,7 +14,8 @@ struct BeverageSelectView: View {
     @EnvironmentObject var sharedDataViewModel : ShareDataViewModel
     @Environment(\.presentationMode) var presentationMode
     
-    @State private var isPresented = false
+    @Binding var isPresented : Bool
+    
     @State private var selectedBeverageIndex : Int?
     @State private var selectedCategory: BeverageCategory = .hot
     @State private var selectedBeverages: [Beverage] = Beverage.beverageList.filter { $0.category == .hot }
@@ -83,7 +84,7 @@ struct BeverageSelectView: View {
     fileprivate var buttonSection: some View {
         HStack {
             Button {
-                presentationMode.wrappedValue.dismiss()
+                
             } label: {
                 Text("Back")
             }
@@ -92,35 +93,38 @@ struct BeverageSelectView: View {
             
             Spacer()
             
-            if selectedBeverageIndex != nil {
-                NavigationLink(
-                    destination: BeverageSettingView(),
-                    label: {
-                        Text("Next")
-                    }
-                )
-                .frame(maxWidth: 80, maxHeight: 40)
-                .buttonStyle(ActiveButtonStyle())
-            } else {
-                NavigationLink(
-                    destination: BeverageSettingView(),
-                    label: {
-                        Text("Next")
-                    }
-                )
-                .frame(maxWidth: 80, maxHeight: 40)
-                .buttonStyle(DisableButtonStyle())
-                .disabled(true)
+            NavigationLink {
+                BeverageSettingView(isPresented: $isPresented)
+            } label: {
+                Text("Next")
             }
+            .frame(maxWidth: 80, maxHeight: 40)
+            .buttonStyle(ActiveButtonStyle())
+            
+            
+            //            if selectedBeverageIndex != nil {
+            //                NavigationLink(destination: BeverageSettingView(isPresenting: $isPresenting)) {
+            //                    Text("Next")
+            //                }
+            //                .frame(maxWidth: 80, maxHeight: 40)
+            //                .buttonStyle(ActiveButtonStyle())
+            //            } else {
+            //                Text("Next")
+            //                    .frame(maxWidth: 80, maxHeight: 40)
+            //                    .buttonStyle(DisableButtonStyle())
+            //                    .disabled(true)
+            //            }
         }
     }
 }
 
 
+
+
 //MARK: - PREVIEW
 struct BeverageSelectView_Previews: PreviewProvider {
     static var previews: some View {
-        BeverageSelectView()
+        BeverageSelectView(isPresented: .constant(false))
             .environmentObject(ShareDataViewModel())
     }
 }

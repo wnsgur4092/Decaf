@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 import RealmSwift
+import SwiftUICalendar
 
 
 class ShareDataViewModel : ObservableObject {
@@ -22,8 +23,8 @@ class ShareDataViewModel : ObservableObject {
     @Published var numberOfShots : Double = 0.5
     @Published var size : String = "Small"
     @Published var registerDate : Date = Date()
-    
     @Published var caffeine : Double = 0.0
+    @Published var color : String = ""
     
     @Published var isPopoverPresented : Bool = false
     
@@ -68,6 +69,10 @@ class ShareDataViewModel : ObservableObject {
         
         $caffeine.sink { caffeine in
             self.updateCaffeine(caffeine: caffeine)
+        }.store(in: &subscriptions)
+        
+        $color.sink { color in
+            self.updateColor(color: color)
         }.store(in: &subscriptions)
         
     }
@@ -139,6 +144,17 @@ class ShareDataViewModel : ObservableObject {
             print("Error updating register date: \(error)")
         }
     }
+    
+    func updateColor(color: String){
+        do {
+            let realm = try Realm()
+            try realm.write {
+                self.selectedBeverage.color = color
+            }
+        } catch let error {
+            print("Error updating color: \(error)")
+        }
+    }
 
     
 //    func updateTotalCaffeine() {
@@ -159,7 +175,7 @@ class ShareDataViewModel : ObservableObject {
     
     //MARK: - Beverage INPUT VIEW
     func saveData() {
-        print("Saving data: \(selectedBeverage.name), \(selectedBeverage.imageName), \(selectedBeverage.numberOfShots), \(selectedBeverage.size), \(selectedBeverage.caffeine)")
+        print("Saving data: \(selectedBeverage.name), \(selectedBeverage.imageName), \(selectedBeverage.numberOfShots), \(selectedBeverage.size), \(selectedBeverage.caffeine), \(selectedBeverage.color)")
         guard let realm = try? Realm() else { return }
         
         let newBeverage = SelectedBeverage()  // Create a new SelectedBeverage instance
@@ -169,6 +185,7 @@ class ShareDataViewModel : ObservableObject {
         newBeverage.size = selectedBeverage.size
         newBeverage.caffeine = selectedBeverage.numberOfShots * caffeinePerShot
         newBeverage.registerDate = Date()
+        newBeverage.color = selectedBeverage.color
 
         print("---> current time: \(newBeverage.registerDate)")
         selectedBeverages.append(newBeverage) // Append directly to selectedBeverages
@@ -255,5 +272,26 @@ class ShareDataViewModel : ObservableObject {
         dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = "HH:mm" // Day of month
         return dateFormatter.string(from: time)
+    }
+    
+    
+    var beverageCaffeineSum: [YearMonthDay: Double] {
+        var sums = [YearMonthDay: Double]()
+        for beverage in selectedBeverages {
+            let date = beverage.registerDate
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.year, .month, .day], from: date)
+            let year = components.year!
+            let month = components.month!
+            let day = components.day!
+            let ymd = YearMonthDay(year: year, month: month, day: day)
+            
+            if sums[ymd] != nil {
+                sums[ymd]! += beverage.caffeine // assuming 'caffeine' is a Double property in your Beverage struct
+            } else {
+                sums[ymd] = beverage.caffeine
+            }
+        }
+        return sums
     }
 }

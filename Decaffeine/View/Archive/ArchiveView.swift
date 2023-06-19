@@ -39,7 +39,7 @@ struct ArchiveView: View {
 //                        .padding(.bottom, 20)
 //                        .padding(.horizontal, 32)
                     
-                    MonthlyCalendarView()
+                    ArchiveCalendarView()
                     
                     VStack{
                         //TIME LINE HEADER
