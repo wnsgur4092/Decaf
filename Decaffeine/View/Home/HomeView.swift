@@ -21,45 +21,49 @@ struct HomeView: View {
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMM"
+        formatter.locale = Locale(identifier: "en_US")
         return formatter
     }()
     
     
+    
     //MARK: - BODY
     var body: some View {
-        
-        VStack{
-            Text("DECAF")
-            
-            ScrollView(.vertical, showsIndicators: true) {
-                VStack{
-                    header
-                        .padding(.vertical,12)
-                        .padding(.horizontal, 32)
-                    
-                    Spacer()
-                        .frame(maxHeight: 32)
-                    
-                    coffeeListImage
-                    
-                    VStack{
-                        coffeeCountText
-                            .padding(.bottom, 10)
-                        
-                        coffeeProgressBar
-                    }
-                    .padding(.horizontal, 32)
-                    
-                    addNewButton
-                        .padding(.vertical, 20)
-                        .padding(.horizontal, 32)
-                }
+        NavigationView {
+            VStack{
+                Text("DECAF")
                 
+                ScrollView(.vertical, showsIndicators: true) {
+                    VStack{
+                        header
+                            .padding(.vertical,12)
+                            .padding(.horizontal, 32)
+                        
+                        Spacer()
+                            .frame(maxHeight: 32)
+                        
+                        coffeeListImage
+                        
+                        VStack{
+                            coffeeCountText
+                                .padding(.bottom, 10)
+                            
+                            coffeeProgressBar
+                        }
+                        .padding(.horizontal, 32)
+                        
+                        addNewButton
+                            .padding(.vertical, 20)
+                            .padding(.horizontal, 32)
+                    }
+                    
+                }
+            }
+            .popover(isPresented: $sharedDataViewModel.isPopoverPresented) {
+                BeverageSelectView()
             }
         }
-        .popover(isPresented: $sharedDataViewModel.isPopoverPresented) {
-            BeverageSelectView()
-        }
+
         
     }
     
@@ -76,6 +80,15 @@ struct HomeView: View {
                 .fontWeight(.light)
             
             Spacer()
+            
+            NavigationLink {
+                ArchiveView()
+            } label: {
+                
+                Image(systemName: "calendar.circle")
+                    .font(.system(size: 32))
+            }
+            
         }
         .foregroundColor(.black)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -141,7 +154,7 @@ struct HomeView: View {
                 
                 HStack{
                     Text("\(String(format: "%.1f", sharedDataViewModel.totalCaffeineForToday()))")
-                    //                       .foregroundColor(sharedDataViewModel.totalCaffeineForToday < maximumCaffeinePerDay ? Color("mainColor") : Color.red)
+                        .foregroundColor(sharedDataViewModel.totalCaffeineForToday() < maximumCaffeinePerDay ? Color("mainColor") : Color.red)
                     Text("/ \(String(format: "%.1f", maximumCaffeinePerDay))mg")
                     
                 }

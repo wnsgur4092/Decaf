@@ -11,6 +11,7 @@ struct ArchiveView: View {
     //MARK: - PROPERTIES
     @EnvironmentObject var sharedDataViewModel : ShareDataViewModel
     @Namespace var animation
+    @Environment(\.presentationMode) var presentationMode
     
     //    @State private var selectedBeverage: SelectedBeverage
     
@@ -22,48 +23,48 @@ struct ArchiveView: View {
     //MARK: - BODY
     var body: some View {
         NavigationView {
-            ScrollView{
+            VStack{
                 header
                     .padding(.vertical,12)
-                    .padding(.horizontal, 32)
+                    .padding(.horizontal, 20)
                 
-                Divider()
-                    .padding(.bottom, 10)
-                
-                VStack{
-                    
-                    
-                    //CALENDAR
-                    monthlyCalendar
-                        .padding(.vertical, 10)
-                        .padding(.horizontal, 32)
-                }
-                
-                
-                //TOTAL CAFFEINE
-                totalCaffeine
-                    .padding(.bottom, 20)
-                    .padding(.horizontal, 32)
-                
-                VStack{
-                    //TIME LINE HEADER
-                    timeLineHeader
-                        .padding(.bottom, 10)
-                    
+                ScrollView{
+
                     Divider()
                         .padding(.bottom, 10)
+                                        
                     
-                    //TIME LINE
+                    //TOTAL CAFFEINE
+//                    totalCaffeine
+//                        .padding(.bottom, 20)
+//                        .padding(.horizontal, 32)
                     
-                    archiveListView
+                    MonthlyCalendarView()
                     
+                    VStack{
+                        //TIME LINE HEADER
+                        timeLineHeader
+                            .padding(.bottom, 10)
+                        
+                        Divider()
+                            .padding(.bottom, 10)
+                        
+                        //TIME LINE
+                        
+                        archiveListView
+                        
+                    }
+                    .padding(.horizontal, 32)
+                   
                 }
-                .padding(.horizontal, 32)
+                .onChange(of: sharedDataViewModel.currentDay) { day in
+                    sharedDataViewModel.fetchSelectedBeverages(for: day)
+                }
             }
+        
         }
-        .onChange(of: sharedDataViewModel.currentDay) { day in
-            sharedDataViewModel.fetchSelectedBeverages(for: day)
-        }
+        .navigationBarBackButtonHidden(true)
+
     }
     
     //MARK: - COMPONENTS
@@ -71,7 +72,15 @@ struct ArchiveView: View {
     //HEADER
     fileprivate var header : some View {
         HStack(alignment: .center) {
-            Text("Archive")
+            Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 32))
+            }
+            
+            
+            Text("History")
                 .font(.system(size: 32))
                 .fontWeight(.bold)
                 .foregroundColor(.black)
@@ -111,96 +120,7 @@ struct ArchiveView: View {
         }
     }
     
-    fileprivate var monthlyCalendar : some View {
-        ScrollView(.vertical, showsIndicators: true) {
-            VStack{
-                let days: [String] = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
-                
-                HStack{
-                    VStack(alignment: .leading, spacing: 10) {
-                        
-                        Text(sharedDataViewModel.formatYear(year: Date()))
-                        HStack{
-                            Button {
-//                                sharedDataViewModel.previousMonth()
-                            } label: {
-                                Image(systemName: "chevron.left")
-                                    .font(.title2)
-                            }
 
-                            Spacer()
-
-                            Text(sharedDataViewModel.formatMonth(month: sharedDataViewModel.currentDay))
-
-                            Spacer()
-
-                            Button {
-//                                sharedDataViewModel.nextMonth()
-                            } label: {
-                                Image(systemName: "chevron.right")
-                                    .font(.title2)
-                            }
-
-                        }
-                    }
-                    
-                    Spacer()
-                }
-            }
-//            HStack(spacing: 0){
-//                ForEach(days,id: \.self){day in
-//
-//                    Text(day)
-//                        .font(.callout)
-//                        .fontWeight(.semibold)
-//                        .frame(maxWidth: .infinity)
-//                }
-//            }
-//
-//            // 해당 월의 일(day)들을 표시
-        }
-    }
-    
-    
-    
-    
-    
-    
-    //WEEKLY CALENDAR
-//    fileprivate var weeklyCalendar : some View {
-//        VStack {
-//            HStack(spacing: 10) {
-//                
-//                ForEach(sharedDataViewModel.currentWeek, id: \.self) { day in
-//                    VStack(spacing: 10) {
-//                        Text(sharedDataViewModel.formatDate(day: day))
-//                        Text(sharedDataViewModel.formatDay(date: day))
-//                    }//: VSTACK
-//                    .padding(.vertical, 12)
-//                    .foregroundColor(sharedDataViewModel.isToday(date: day) ? .white : .black.opacity(0.5))
-//                    .font(.system(size: 14))
-//                    .frame(maxWidth: .infinity, maxHeight: 90)
-//                    .background(
-//                        ZStack{
-//                            if sharedDataViewModel.isToday(date: day) {
-//                                Capsule()
-//                                    .fill(Color("mainColor"))
-//                                    .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
-//                            }
-//                        } //: ZSTACK
-//                    )
-//                    .contentShape(Capsule())
-//                    .onTapGesture {
-//                        //Updating Current Day
-//                        withAnimation {
-//                            sharedDataViewModel.currentDay = day
-//                            //                            archiveViewModel.fetchSelectedBeverages(for: day)
-//                        }
-//                    }
-//                } //: FOREACH
-//            }
-//        }
-//    }
     
     //TIME LINE HEADER
     fileprivate var timeLineHeader : some View {
@@ -270,5 +190,5 @@ struct ArchiveView: View {
         }
     }
 }
-    
-    
+
+

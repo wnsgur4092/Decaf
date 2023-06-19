@@ -28,6 +28,7 @@ class ShareDataViewModel : ObservableObject {
     @Published var isPopoverPresented : Bool = false
     
     let caffeinePerShot : Double = 63 // ex) 63mg -> static 카페인 1shot 당 함량
+    let maximumCaffeinePerDay : Double = 400
     @Published var totalCaffeine : Double = 0 // NumberOfShots * caffeinePerShot = totalCaffeine
     
     var subscriptions = Set<AnyCancellable>()
@@ -213,6 +214,19 @@ class ShareDataViewModel : ObservableObject {
         let totalCaffeine = filteredList.reduce(0) { $0 + $1.caffeine }
         return totalCaffeine
     }
+  
+    func totalCaffeineForDay(date: Date) -> Double {
+        let startOfDay = Calendar.current.startOfDay(for: date)
+        let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay)!
+        
+        let filteredList = selectedBeverages.filter {
+            $0.registerDate >= startOfDay && $0.registerDate < endOfDay
+        }
+        let totalCaffeine = filteredList.reduce(0) { $0 + $1.caffeine }
+        return totalCaffeine
+    }
+
+    
     
     //MARK: - ARCHIVE VIEW
     func formatYear(year: Date) -> String {
