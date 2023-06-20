@@ -127,7 +127,10 @@ struct HomeView: View {
     //COFFEE LIST DETAIL
     fileprivate var noList : some View {
         VStack(spacing: 8){
-            Image("noList")
+            Image("noList2")
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth:.infinity)
             
             Text(sharedDataViewModel.numberOfBeveragesForToday() == 0 ? "You haven't had any coffee yet" : "You have no coffee history for this day")
                 .font(.system(size: 18))
