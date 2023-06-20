@@ -27,6 +27,7 @@ class ShareDataViewModel : ObservableObject {
     @Published var color : String = ""
     
     @Published var isPopoverPresented : Bool = false
+    @Published var isArchiveViewShowing : Bool = false
     
     let caffeinePerShot : Double = 63 // ex) 63mg -> static 카페인 1shot 당 함량
     let maximumCaffeinePerDay : Double = 400
@@ -157,22 +158,6 @@ class ShareDataViewModel : ObservableObject {
             print("Error updating color: \(error)")
         }
     }
-
-    
-//    func updateTotalCaffeine() {
-//        do {
-//            let realm = try Realm()
-//            try realm.write {
-//                self.totalCaffeine = self.selectedBeverage.numberOfShots * self.caffeinePerShot
-//            }
-//        }
-//        catch let error {
-//            print("Error updating total caffeine: \(error)")
-//        }
-//
-////        updateCaffeine(caffeine: self.totalCaffeine) // caffeine 값을 다시 업데이트합니다.
-//    }
-    
     
     
     //MARK: - Beverage INPUT VIEW
@@ -299,4 +284,6 @@ class ShareDataViewModel : ObservableObject {
         }
         return sums
     }
+    
+
 }

@@ -11,11 +11,11 @@ struct ArchiveListDetailView: View {
     
     //MARK: - PROPERTIES
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var sharedDataViewModel : ShareDataViewModel
     @State private var showingAlert = false
     
+    var beverage : SelectedBeverage
     @StateObject var viewModel : ArchiveViewModel
-    @State var selectedBeverage : SelectedBeverage
-    
     
     //MARK: - BODY
     var body: some View {
@@ -38,23 +38,14 @@ struct ArchiveListDetailView: View {
                     coffeeDescription
                         .padding(.horizontal, 32)
                         .padding(.bottom, 60)
-
+                    
                 }
             }
-
-//            Spacer()
-//            Divider()
-//            HStack{
-//                Spacer()
-//
-//                deleteButton
-//            }
-//            .padding(.horizontal, 20)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .navigationBarHidden(true)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        
+        .navigationBarBackButtonHidden(true)
     }
+
     
     //MARK: - COMPONENTS
     fileprivate var header : some View {
@@ -63,21 +54,21 @@ struct ArchiveListDetailView: View {
                 Button {
                     presentationMode.wrappedValue.dismiss()
                 } label: {
-                    Image(systemName: "chevron.left")
+                    Image(systemName: "chevron.down")
                         .resizable()
                         .scaledToFit()
                         .foregroundColor(Color("mainColor"))
                         .frame(width: 20,height: 20)
                 }
                 
-                Text(viewModel.formatDate(day: viewModel.selectedBeverage.registerDate)) //DAY
+                Text(viewModel.formatDate(day: beverage.registerDate)) //DAY
                     .fontWeight(.bold)
                     .font(.system(size: 24))
                 
-                Text(viewModel.formatDay(date: viewModel.selectedBeverage.registerDate)) //DATE
+                Text(viewModel.formatDay(date: beverage.registerDate)) //DATE
                     .font(.system(size: 24))
                 
-                Text(viewModel.formatMonth(month: viewModel.selectedBeverage.registerDate)) //Month
+                Text(viewModel.formatMonth(month: beverage.registerDate)) //Month
                     .font(.system(size: 24))
                 
                 Spacer()
@@ -86,7 +77,7 @@ struct ArchiveListDetailView: View {
             HStack{
                 Spacer().frame(width:36, height: 20)
                 
-                Text (viewModel.formatTime(time: viewModel.selectedBeverage.registerDate)) //Time
+                Text (viewModel.formatTime(time:beverage.registerDate)) //Time
                     .font(.system(size: 20))
                 
                 Spacer()
@@ -96,12 +87,12 @@ struct ArchiveListDetailView: View {
     
     fileprivate var thumbnail : some View {
         VStack {
-            Image(selectedBeverage.imageName) // 수정
+            Image(beverage.imageName) // 수정
             
                 .padding(.top, 40)
                 .padding(.bottom, 20)
             
-            Text(selectedBeverage.name) // 수정
+            Text(beverage.name) // 수정
                 .font(.system(size: 30))
                 .fontWeight(.bold)
                 .padding(.bottom, 24)
@@ -113,43 +104,13 @@ struct ArchiveListDetailView: View {
         VStack {
             
             HStack(alignment: .bottom, spacing: 32){
-                BeverageDetailCell(detailImageName: "small", detailName: "Size", detailExtra: selectedBeverage.size) // 수정
-                BeverageDetailCell(detailImageName: "shot", detailName: "Shots", detailExtra: "\(selectedBeverage.numberOfShots)") // 수정
-                BeverageDetailCell(detailImageName: "coffeeBean", detailName: "Caffeine", detailExtra: "\(selectedBeverage.caffeine)mg" ) // 수정
+                BeverageDetailCell(detailImageName: "small", detailName: "Size", detailExtra: beverage.size) // 수정
+                BeverageDetailCell(detailImageName: "shot", detailName: "Shots", detailExtra: "\(beverage.numberOfShots)") // 수정
+                BeverageDetailCell(detailImageName: "coffeeBean", detailName: "Caffeine", detailExtra: "\(beverage.caffeine)mg" ) // 수정
                 
             }
         }
         .frame(maxWidth: .infinity)
-    }
-    
-    fileprivate var deleteButton : some View {
-        HStack {
-            Spacer()
-            Button {
-                showingAlert = true
-            } label: {
-                Image(systemName: "trash")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(Color.red)
-                    .frame(maxWidth: 20, maxHeight: 25)
-                    .padding(32)
-            }
-            .alert(isPresented: $showingAlert) {
-                Alert(
-                    title: Text("Are you sure you want to delete this coffee?"),
-                    primaryButton: .destructive(
-                        Text("Delete"),
-                        action: {
-//                            viewModel.deleteData(selectedBeverage: beverage)
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
-                    ),
-                    secondaryButton: .cancel()
-                )
-            }
-        }
-        .accentColor(Color("mainColor"))
     }
 }
 

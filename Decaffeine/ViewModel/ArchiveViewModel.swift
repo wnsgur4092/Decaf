@@ -144,7 +144,7 @@ class ArchiveViewModel : ObservableObject {
     //Extract Date
     func formatDate(day: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale.current
+        dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "EEE" // Abbreviated weekday name
         return dateFormatter.string(from: day)
     }
@@ -152,7 +152,7 @@ class ArchiveViewModel : ObservableObject {
     //EXtract Day
     func formatDay(date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale.current
+        dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "dd" // Day of month
         return dateFormatter.string(from: date)
     }
@@ -175,7 +175,7 @@ class ArchiveViewModel : ObservableObject {
 
     func formatMonth(month: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale.current
+        dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "MMMM" // Full month name
         return dateFormatter.string(from: month)
     }
@@ -183,14 +183,14 @@ class ArchiveViewModel : ObservableObject {
     
     func formatYear(year: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale.current
+        dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "yyyy" // Day of month
         return dateFormatter.string(from: year)
     }
     
     func formatTime(time : Date) -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale.current
+        dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "HH:mm" // Day of month
         return dateFormatter.string(from: time)
     }

@@ -13,6 +13,7 @@ struct HomeView: View {
     @EnvironmentObject var sharedDataViewModel : ShareDataViewModel
     
     @State private var isPresented = false
+    @State private var isArchiveViewShowing = false
     
     @State var currentDate : Date = Date()
     
@@ -82,14 +83,7 @@ struct HomeView: View {
             
             Spacer()
             
-            NavigationLink {
-                CustomCalendar(currentDate: $currentDate)
-                    .environmentObject(self.sharedDataViewModel) // Pass the existing environment object
-                    .onAppear {
-                        sharedDataViewModel.hasNewData = false // Reset the new data flag
-                    }
-                
-            } label: {
+            NavigationLink(destination: CustomCalendar(currentDate: $currentDate), isActive: $sharedDataViewModel.isArchiveViewShowing) {
                 ZStack {
                     Image(systemName: "calendar.circle")
                         .font(.system(size: 32))
@@ -102,6 +96,10 @@ struct HomeView: View {
                             .offset(x: 12, y: 12)
                     }
                 }
+            }
+            .environmentObject(self.sharedDataViewModel) // Pass the existing environment object
+            .onAppear {
+                sharedDataViewModel.hasNewData = false // Reset the new data flag
             }
         }
         .foregroundColor(.black)

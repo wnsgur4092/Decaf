@@ -13,103 +13,107 @@ struct CustomCalendar: View {
     @Binding var currentDate: Date
     // Month update on arrow button clicks...
     @State var currentMonth: Int = 0
+    @State private var isDetailViewPresented = false
+    @State private var selectedBeverage: SelectedBeverage? = nil
     
     
     
     //MARK: - BODY
     var body: some View {
-        NavigationView {
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 35){
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 20){
+                // Days...
+                let days: [String] = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+                
+                HStack(spacing: 20){
                     
-                    // Days...
-                    let days: [String] = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
-                    
-                    HStack(spacing: 20){
+                    VStack(alignment: .leading, spacing: 10) {
                         
-                        VStack(alignment: .leading, spacing: 10) {
-                            
-                            Text(extraDate()[0])
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                            
-                            Text(extraDate()[1])
-                                .font(.title.bold())
-                        }
+                        Text(extraDate()[0])
+                            .font(.caption)
+                            .fontWeight(.semibold)
                         
-                        Spacer(minLength: 0)
-                        
-                        Button {
-                            withAnimation{
-                                currentMonth -= 1
-                            }
-                        } label: {
-                            Image(systemName: "chevron.left")
-                                .font(.title2)
-                        }
-                        
-                        Button {
-                            
-                            withAnimation{
-                                currentMonth += 1
-                            }
-                            
-                        } label: {
-                            Image(systemName: "chevron.right")
-                                .font(.title2)
-                        }
-                    }
-                    .padding(.horizontal)
-                    // Day View...
-                    
-                    HStack(spacing: 0){
-                        ForEach(days,id: \.self){day in
-                            
-                            Text(day)
-                                .font(.callout)
-                                .fontWeight(.semibold)
-                                .frame(maxWidth: .infinity)
-                        }
+                        Text(extraDate()[1])
+                            .font(.title.bold())
                     }
                     
-                    // Dates....
-                    // Lazy Grid..
-                    let columns = Array(repeating: GridItem(.flexible()), count: 7)
+                    Spacer(minLength: 0)
                     
-                    LazyVGrid(columns: columns,spacing: 15) {
-                        
-                        ForEach(extractDate()){value in
-                            
-                            CardView(value: value)
-                                .background(
-                                    
-                                    Capsule()
-                                        .fill(Color("Pink"))
-                                        .padding(.horizontal,8)
-                                        .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
-                                )
-                                .onTapGesture {
-                                    currentDate = value.date
-                                }
+                    Button {
+                        withAnimation{
+                            currentMonth -= 1
                         }
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .font(.title2)
                     }
                     
-                    VStack(spacing: 15){
+                    Button {
                         
-                        timeLineHeader
+                        withAnimation{
+                            currentMonth += 1
+                        }
                         
-                        archiveListView
+                    } label: {
+                        Image(systemName: "chevron.right")
+                            .font(.title2)
                     }
-                    .padding()
                 }
-                .onChange(of: currentMonth) { newValue in
-                    
-                    // updating Month...
-                    currentDate = getCurrentMonth()
+                .padding(.horizontal)
+                // Day View...
+                
+                
+                HStack(spacing: 0){
+                    ForEach(days,id: \.self){day in
+                        
+                        Text(day)
+                            .font(.callout)
+                            .fontWeight(.semibold)
+                            .frame(maxWidth: .infinity)
+                    }
                 }
+                
+                // Dates....
+                // Lazy Grid..
+                let columns = Array(repeating: GridItem(.flexible()), count: 7)
+                
+                LazyVGrid(columns: columns,spacing: 15) {
+                    
+                    ForEach(extractDate()){value in
+                        
+                        CardView(value: value)
+                            .background(
+                                
+                                Capsule()
+                                    .fill(Color("Pink"))
+                                    .padding(.horizontal,8)
+                                    .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
+                            )
+                            .onTapGesture {
+                                currentDate = value.date
+                            }
+                    }
+                }
+                
+                Divider()
+                
+                VStack(spacing: 15){
+                    totalCaffeine
+                    
+                    timeLineHeader
+                    
+                    archiveListView
+                }
+                .padding()
             }
-            .padding(.horizontal, 12)
+            .onChange(of: currentMonth) { newValue in
+                
+                // updating Month...
+                currentDate = getCurrentMonth()
+            }
         }
+        .padding(.horizontal, 12)
+        
     }
     
     //MARK: - COMPONENT
@@ -129,15 +133,37 @@ struct CustomCalendar: View {
                 .opacity(0.4)
                 .frame(maxWidth: .infinity,
                        alignment: .leading)
+    
         }
     }
     
     
+    fileprivate var totalCaffeine : some View {
+        HStack(alignment: .center){
+            Text("Total Caffeine")
+                .font(.system(size: 24).bold())
+            
+            Spacer()
+            
+            HStack{
+                
+                let caffeineForCurrentDate = sharedDataViewModel.totalCaffeineForDay(date: currentDate)
+                Text(String(format: "%.1f", caffeineForCurrentDate))
+                    .foregroundColor(caffeineForCurrentDate > 400 ? Color.red : Color("mainColor"))
+
+                
+                Text("/ 400mg")
+            }
+            .font(.system(size: 16))
+            .padding(12)
+            .overlay(RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 1))
+            
+        }
+    }
+    
     @ViewBuilder
     func CardView(value: DateValue)->some View{
-        
         VStack{
-            
             if value.day != -1{
                 
                 // Get all beverages for the current date
@@ -145,7 +171,7 @@ struct CustomCalendar: View {
                 
                 if let beverage = beveragesForTheDay.first {
                     Text("\(value.day)")
-                        .font(.title3.bold())
+                        .font(.callout.bold())
                         .foregroundColor(isSameDay(date1: beverage.registerDate, date2: currentDate) ? .white : .primary)
                         .frame(maxWidth: .infinity)
                     
@@ -160,7 +186,7 @@ struct CustomCalendar: View {
                 else{
                     
                     Text("\(value.day)")
-                        .font(.title3.bold())
+                        .font(.callout.bold())
                         .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ? .white : .primary)
                         .frame(maxWidth: .infinity)
                     
@@ -171,7 +197,7 @@ struct CustomCalendar: View {
         .padding(.vertical,9)
         .frame(height: 60,alignment: .top)
     }
-
+    
     
     fileprivate var archiveListView: some View {
         ForEach(sharedDataViewModel.selectedBeverages.filter({ isSameDay(date1: $0.registerDate, date2: currentDate) }), id: \.id) { beverage in
@@ -182,44 +208,49 @@ struct CustomCalendar: View {
                         .multilineTextAlignment(.leading)
                         .offset(y: 4)
                         .frame(maxWidth: 80, alignment: .topLeading)
-                    HStack {
-                        VStack{
-                            Text(beverage.name)
-                                .font(.system(size: 14).bold())
-                                .foregroundColor(Color.white)
-                                .multilineTextAlignment(.leading)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.bottom, 16)
-                            Text(beverage.size)
-                                .font(.system(size: 12))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color.white)
-                                .multilineTextAlignment(.leading)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.bottom, 5)
-                            Text("\(String(format: "%.1f", beverage.numberOfShots)) Shots")
-                                .font(.system(size: 12))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color.white)
-                                .multilineTextAlignment(.leading)
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Button(action: {
+                        selectedBeverage = beverage
+                        isDetailViewPresented = true
+                    }) {
+                        HStack {
+                            VStack{
+                                Text(beverage.name)
+                                    .font(.system(size: 14).bold())
+                                    .foregroundColor(Color.white)
+                                    .multilineTextAlignment(.leading)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.bottom, 16)
+                                Text(beverage.size)
+                                    .font(.system(size: 12))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color.white)
+                                    .multilineTextAlignment(.leading)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.bottom, 5)
+                                Text("\(String(format: "%.1f", beverage.numberOfShots)) Shots")
+                                    .font(.system(size: 12))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color.white)
+                                    .multilineTextAlignment(.leading)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.white)
                         }
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.white)
+                        .padding(15)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
                     }
-                    .padding(15)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
-                    .onTapGesture {
-//                        isDetailViewPresented.toggle()
-                        
-                        print("TroubleShooting \(beverage.name)")
-                    }
+                    .fullScreenCover(isPresented: $isDetailViewPresented, content: {
+                        ArchiveListDetailView(beverage: beverage, viewModel: ArchiveViewModel())
+                    })
                 }
             }
         }
     }
+    
     
     //MARK: - FUNCTION
     // checking dates...
