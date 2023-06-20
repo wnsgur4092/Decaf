@@ -85,16 +85,22 @@ struct HomeView: View {
             NavigationLink {
                 CustomCalendar(currentDate: $currentDate)
                     .environmentObject(self.sharedDataViewModel) // Pass the existing environment object
+                    .onAppear {
+                        sharedDataViewModel.hasNewData = false // Reset the new data flag
+                    }
+                
             } label: {
                 ZStack {
                     Image(systemName: "calendar.circle")
                         .font(.system(size: 32))
-                        
+                    
                     // Red dot on the bottom right
-                    Circle()
-                        .foregroundColor(.red)
-                        .frame(width: 10, height: 10)
-                        .offset(x: 12, y: 12)
+                    if sharedDataViewModel.hasNewData {
+                        Circle()
+                            .foregroundColor(.red)
+                            .frame(width: 10, height: 10)
+                            .offset(x: 12, y: 12)
+                    }
                 }
             }
         }

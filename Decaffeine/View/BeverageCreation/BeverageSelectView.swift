@@ -84,7 +84,7 @@ struct BeverageSelectView: View {
     fileprivate var buttonSection: some View {
         HStack {
             Button {
-                
+                presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("Back")
             }
@@ -93,27 +93,34 @@ struct BeverageSelectView: View {
             
             Spacer()
             
-            NavigationLink {
-                BeverageSettingView(isPresented: $isPresented)
-            } label: {
-                Text("Next")
+            if selectedBeverageIndex != nil {
+                NavigationLink(destination: {
+                    BeverageSettingView(isPresented: $isPresented)
+                }, label: {
+                    Text("Next")
+                })
+                .frame(maxWidth: 80, maxHeight: 40)
+                .buttonStyle(ActiveButtonStyle())
+                
+            } else {
+                NavigationLink {
+                    BeverageSettingView(isPresented: $isPresented)
+                } label: {
+                    Text("Next")
+                }
+                .frame(maxWidth: 80, maxHeight: 40)
+                .buttonStyle(DisableButtonStyle())
+                .disabled(true)
             }
-            .frame(maxWidth: 80, maxHeight: 40)
-            .buttonStyle(ActiveButtonStyle())
             
-            
-            //            if selectedBeverageIndex != nil {
-            //                NavigationLink(destination: BeverageSettingView(isPresenting: $isPresenting)) {
-            //                    Text("Next")
-            //                }
-            //                .frame(maxWidth: 80, maxHeight: 40)
-            //                .buttonStyle(ActiveButtonStyle())
-            //            } else {
-            //                Text("Next")
-            //                    .frame(maxWidth: 80, maxHeight: 40)
-            //                    .buttonStyle(DisableButtonStyle())
-            //                    .disabled(true)
-            //            }
+//            NavigationLink {
+//                BeverageSettingView(isPresented: $isPresented)
+//            } label: {
+//                Text("Next")
+//            }
+//            .frame(maxWidth: 80, maxHeight: 40)
+//            .buttonStyle(ActiveButtonStyle())
+//
         }
     }
 }

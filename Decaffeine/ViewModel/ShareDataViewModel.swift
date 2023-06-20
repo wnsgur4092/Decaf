@@ -32,6 +32,8 @@ class ShareDataViewModel : ObservableObject {
     let maximumCaffeinePerDay : Double = 400
     @Published var totalCaffeine : Double = 0 // NumberOfShots * caffeinePerShot = totalCaffeine
     
+    @Published var hasNewData: Bool = false
+    
     var subscriptions = Set<AnyCancellable>()
     
     //MARK: - INIT
@@ -198,6 +200,7 @@ class ShareDataViewModel : ObservableObject {
             print("!!!! BeverageInputView realm error : \(error)")
         }
         fetchSelectedBeverages(for: currentDay)
+        hasNewData = true
     }
 
     
