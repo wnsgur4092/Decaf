@@ -84,12 +84,19 @@ struct HomeView: View {
             
             NavigationLink {
                 CustomCalendar(currentDate: $currentDate)
-                    .environmentObject(self.sharedDataViewModel)  // Pass the existing environment object
+                    .environmentObject(self.sharedDataViewModel) // Pass the existing environment object
             } label: {
-                Image(systemName: "calendar.circle")
-                    .font(.system(size: 32))
+                ZStack {
+                    Image(systemName: "calendar.circle")
+                        .font(.system(size: 32))
+                        
+                    // Red dot on the bottom right
+                    Circle()
+                        .foregroundColor(.red)
+                        .frame(width: 10, height: 10)
+                        .offset(x: 12, y: 12)
+                }
             }
-            
         }
         .foregroundColor(.black)
         .frame(maxWidth: .infinity, alignment: .leading)
