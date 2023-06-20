@@ -34,8 +34,6 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack{
-                Text("DECAF")
-                
                 ScrollView(.vertical, showsIndicators: true) {
                     VStack{
                         header
@@ -70,6 +68,7 @@ struct HomeView: View {
     }
     
     //MARK: - COMPONENTS
+    
     //HEADER
     fileprivate var header : some View {
         HStack(alignment: .center) {
