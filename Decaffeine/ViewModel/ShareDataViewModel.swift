@@ -274,6 +274,8 @@ class ShareDataViewModel : ObservableObject {
         return dateFormatter.string(from: time)
     }
     
+
+    
     
     var beverageCaffeineSum: [YearMonthDay: Double] {
         var sums = [YearMonthDay: Double]()

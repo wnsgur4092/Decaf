@@ -14,7 +14,7 @@ struct HomeView: View {
     
     @State private var isPresented = false
     
-    @State var currentDay : Date = Date()
+    @State var currentDate : Date = Date()
     
     @State private var isActive = false
     
@@ -83,7 +83,7 @@ struct HomeView: View {
             Spacer()
             
             NavigationLink {
-                ArchiveCalendarView()
+                CustomCalendar(currentDate: $currentDate)
                     .environmentObject(self.sharedDataViewModel)  // Pass the existing environment object
             } label: {
                 Image(systemName: "calendar.circle")

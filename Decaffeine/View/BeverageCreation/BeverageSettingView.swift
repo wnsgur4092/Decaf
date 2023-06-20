@@ -33,12 +33,6 @@ struct BeverageSettingView: View {
                     beverageThumbnail
                         .padding(.bottom, 20)
                     
-                    Button {
-                        print(">>>>>> \(sharedDataViewModel.selectedBeverage.size)")
-                    } label: {
-                        Text("Debug")
-                    }
-                    
                     
                     Divider()
                         .padding(.bottom, 8)

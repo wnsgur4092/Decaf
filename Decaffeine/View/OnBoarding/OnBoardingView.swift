@@ -45,7 +45,7 @@ struct OnBoardingView: View {
     //Text
     fileprivate var onBoardingText : some View {
         VStack(alignment: .leading, spacing: 32){
-            Text("Track your Coffeine")
+            Text("Track your Caffeine")
                 .font(.system(size: 28, weight: .bold))
             
             

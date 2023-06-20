@@ -16,7 +16,7 @@ struct ArchiveView: View {
     //    @State private var selectedBeverage: SelectedBeverage
     
     @State private var isDetailViewPresented = false
-    @State private var currentDay = Date()
+    @State private var currentDate = Date()
     @State var currentMonth : Int = 0
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
     
@@ -39,7 +39,8 @@ struct ArchiveView: View {
 //                        .padding(.bottom, 20)
 //                        .padding(.horizontal, 32)
                     
-                    ArchiveCalendarView()
+                    CustomCalendar(currentDate: $currentDate)
+                        .environmentObject(ShareDataViewModel())
                     
                     VStack{
                         //TIME LINE HEADER
