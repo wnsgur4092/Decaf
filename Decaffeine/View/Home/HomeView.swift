@@ -173,6 +173,7 @@ struct HomeView: View {
             }
             
             ProgressBar(todayIntake: Double(sharedDataViewModel.totalCaffeineForToday()) , totalIntake: Double(maximumCaffeinePerDay))
+                
         }
     }
     

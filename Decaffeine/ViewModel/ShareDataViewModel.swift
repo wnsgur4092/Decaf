@@ -9,7 +9,6 @@ import Foundation
 import Combine
 import SwiftUI
 import RealmSwift
-import SwiftUICalendar
 
 
 class ShareDataViewModel : ObservableObject {
@@ -261,29 +260,6 @@ class ShareDataViewModel : ObservableObject {
         dateFormatter.dateFormat = "HH:mm" // Day of month
         return dateFormatter.string(from: time)
     }
-    
 
-    
-    
-    var beverageCaffeineSum: [YearMonthDay: Double] {
-        var sums = [YearMonthDay: Double]()
-        for beverage in selectedBeverages {
-            let date = beverage.registerDate
-            let calendar = Calendar.current
-            let components = calendar.dateComponents([.year, .month, .day], from: date)
-            let year = components.year!
-            let month = components.month!
-            let day = components.day!
-            let ymd = YearMonthDay(year: year, month: month, day: day)
-            
-            if sums[ymd] != nil {
-                sums[ymd]! += beverage.caffeine // assuming 'caffeine' is a Double property in your Beverage struct
-            } else {
-                sums[ymd] = beverage.caffeine
-            }
-        }
-        return sums
-    }
-    
 
 }

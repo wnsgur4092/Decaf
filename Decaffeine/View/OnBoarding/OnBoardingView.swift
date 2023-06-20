@@ -55,7 +55,7 @@ struct OnBoardingView: View {
             
             
             
-            Text("The guided average total caffeine ingestion is referenced by the World Health Organisation")
+            Text("The guided average total caffeine ingestion is referenced by the World Health Organisation (WHO)")
                 .font(.system(size: 16, weight: .regular))
                 .opacity(0.6)
             

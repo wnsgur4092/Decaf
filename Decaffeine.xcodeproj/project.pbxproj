@@ -16,9 +16,9 @@
 		BF2E8C9D29A770A90085A597 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BF2E8C9C29A770A90085A597 /* Realm */; };
 		BF2E8C9F29A770A90085A597 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF2E8C9E29A770A90085A597 /* RealmSwift */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
-		BF5909382A403B2F00A63F11 /* SwiftUICalendar in Frameworks */ = {isa = PBXBuildFile; productRef = BF5909372A403B2F00A63F11 /* SwiftUICalendar */; };
 		BF5909462A4161B600A63F11 /* CustomCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5909452A4161B600A63F11 /* CustomCalendar.swift */; };
 		BF5909482A41626700A63F11 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5909472A41626700A63F11 /* DateValue.swift */; };
+		BF5909512A41B1AA00A63F11 /* Coffee2.json in Resources */ = {isa = PBXBuildFile; fileRef = BF5909502A41B1A900A63F11 /* Coffee2.json */; };
 		BF854182299F0E7600AB1ED9 /* BeverageSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */; };
 		BF85419A299FD55900AB1ED9 /* BeverageSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF854199299FD55900AB1ED9 /* BeverageSettingView.swift */; };
 		BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */; };
@@ -42,7 +42,6 @@
 		BFF2F92729A217CA0038A067 /* SelectedBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF2F92629A217CA0038A067 /* SelectedBeverage.swift */; };
 		BFF2F92929A218310038A067 /* BeverageInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF2F92829A218310038A067 /* BeverageInputViewModel.swift */; };
 		BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A3E2999B102002D5ACC /* OnBoardingView.swift */; };
-		BFFF9A452999B127002D5ACC /* ArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A442999B126002D5ACC /* ArchiveView.swift */; };
 		BFFF9A492999B144002D5ACC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A482999B144002D5ACC /* SettingView.swift */; };
 		BFFF9A50299A462B002D5ACC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BFFF9A4F299A462B002D5ACC /* Lottie */; };
 		BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A54299A48C9002D5ACC /* LottieView.swift */; };
@@ -77,6 +76,7 @@
 		BF5909452A4161B600A63F11 /* CustomCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendar.swift; sourceTree = "<group>"; };
 		BF5909472A41626700A63F11 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		BF59094B2A41AE9600A63F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BF5909502A41B1A900A63F11 /* Coffee2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Coffee2.json; sourceTree = "<group>"; };
 		BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSelectView.swift; sourceTree = "<group>"; };
 		BF854199299FD55900AB1ED9 /* BeverageSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSettingView.swift; sourceTree = "<group>"; };
 		BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableButtonStyle.swift; sourceTree = "<group>"; };
@@ -103,7 +103,6 @@
 		BFF2F92629A217CA0038A067 /* SelectedBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBeverage.swift; sourceTree = "<group>"; };
 		BFF2F92829A218310038A067 /* BeverageInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageInputViewModel.swift; sourceTree = "<group>"; };
 		BFFF9A3E2999B102002D5ACC /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
-		BFFF9A442999B126002D5ACC /* ArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveView.swift; sourceTree = "<group>"; };
 		BFFF9A482999B144002D5ACC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BFFF9A54299A48C9002D5ACC /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		CE22FF5129A466B200333F1E /* CustomIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIndicator.swift; sourceTree = "<group>"; };
@@ -115,7 +114,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF5909382A403B2F00A63F11 /* SwiftUICalendar in Frameworks */,
 				BF2E8C9F29A770A90085A597 /* RealmSwift in Frameworks */,
 				BF2E8C9D29A770A90085A597 /* Realm in Frameworks */,
 				BFFF9A50299A462B002D5ACC /* Lottie in Frameworks */,
@@ -169,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				BF5909452A4161B600A63F11 /* CustomCalendar.swift */,
-				BFFF9A442999B126002D5ACC /* ArchiveView.swift */,
 				BFCED253299D2B1E00E49EB6 /* ArchiveListDetailView.swift */,
 				CECE0D6D299DBCAE00BDC0AB /* BeverageDetailCell.swift */,
 			);
@@ -302,6 +299,7 @@
 			children = (
 				BFFF9A54299A48C9002D5ACC /* LottieView.swift */,
 				BF24C0E229A8220300157200 /* Coffee.json */,
+				BF5909502A41B1A900A63F11 /* Coffee2.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -327,7 +325,6 @@
 				BF2B706E299BDAF3000E1F99 /* SegmentedPicker */,
 				BF2E8C9C29A770A90085A597 /* Realm */,
 				BF2E8C9E29A770A90085A597 /* RealmSwift */,
-				BF5909372A403B2F00A63F11 /* SwiftUICalendar */,
 			);
 			productName = Decaffeine;
 			productReference = BFE96F7729860376003E0934 /* Decaffeine.app */;
@@ -405,7 +402,6 @@
 				BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				BF2B706D299BDAF3000E1F99 /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */,
 				BF2E8C9B29A770A90085A597 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				BF5909362A403B2F00A63F11 /* XCRemoteSwiftPackageReference "SwiftUICalendar" */,
 			);
 			productRefGroup = BFE96F7829860376003E0934 /* Products */;
 			projectDirPath = "";
@@ -425,6 +421,7 @@
 			files = (
 				BFE96F8229860377003E0934 /* Preview Assets.xcassets in Resources */,
 				BFE96F7F29860377003E0934 /* Assets.xcassets in Resources */,
+				BF5909512A41B1AA00A63F11 /* Coffee2.json in Resources */,
 				BF24C0E329A8220300157200 /* Coffee.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,7 +455,6 @@
 				BFE96FA82986047F003E0934 /* HomeView.swift in Sources */,
 				CE22FF5229A466B200333F1E /* CustomIndicator.swift in Sources */,
 				BFFF9A492999B144002D5ACC /* SettingView.swift in Sources */,
-				BFFF9A452999B127002D5ACC /* ArchiveView.swift in Sources */,
 				BF85419A299FD55900AB1ED9 /* BeverageSettingView.swift in Sources */,
 				BF273A8729A51BF00067C9DE /* BeverageCardView.swift in Sources */,
 				BFA53D7F299A8C31007D943D /* CustomCorner.swift in Sources */,
@@ -832,14 +828,6 @@
 				kind = branch;
 			};
 		};
-		BF5909362A403B2F00A63F11 /* XCRemoteSwiftPackageReference "SwiftUICalendar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/GGJJack/SwiftUICalendar";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.14;
-			};
-		};
 		BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -865,11 +853,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF2E8C9B29A770A90085A597 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
-		};
-		BF5909372A403B2F00A63F11 /* SwiftUICalendar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BF5909362A403B2F00A63F11 /* XCRemoteSwiftPackageReference "SwiftUICalendar" */;
-			productName = SwiftUICalendar;
 		};
 		BFFF9A4F299A462B002D5ACC /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
