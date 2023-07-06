@@ -11,11 +11,17 @@ struct ArchiveListDetailView: View {
     
     //MARK: - PROPERTIES
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var sharedDataViewModel : ShareDataViewModel
+
     @State private var showingAlert = false
     
-    var beverage : SelectedBeverage
-    @StateObject var viewModel : ArchiveViewModel
+    var beverageName : String
+    var beverageImage : String
+    var beverageRegisterDate : Date
+    var beverageShots : Double
+    var beverageCaffeine : Double
+    var beverageSize : String
+    
+    @ObservedObject var viewModel : ArchiveViewModel
     
     //MARK: - BODY
     var body: some View {
@@ -61,14 +67,14 @@ struct ArchiveListDetailView: View {
                         .frame(width: 20,height: 20)
                 }
                 
-                Text(viewModel.formatDate(day: beverage.registerDate)) //DAY
+                Text(viewModel.formatDate(day: beverageRegisterDate)) //DAY
                     .fontWeight(.bold)
                     .font(.system(size: 24))
                 
-                Text(viewModel.formatDay(date: beverage.registerDate)) //DATE
+                Text(viewModel.formatDay(date: beverageRegisterDate)) //DATE
                     .font(.system(size: 24))
                 
-                Text(viewModel.formatMonth(month: beverage.registerDate)) //Month
+                Text(viewModel.formatMonth(month: beverageRegisterDate)) //Month
                     .font(.system(size: 24))
                 
                 Spacer()
@@ -77,7 +83,7 @@ struct ArchiveListDetailView: View {
             HStack{
                 Spacer().frame(width:36, height: 20)
                 
-                Text (viewModel.formatTime(time:beverage.registerDate)) //Time
+                Text (viewModel.formatTime(time: beverageRegisterDate)) //Time
                     .font(.system(size: 20))
                 
                 Spacer()
@@ -87,12 +93,12 @@ struct ArchiveListDetailView: View {
     
     fileprivate var thumbnail : some View {
         VStack {
-            Image(beverage.imageName) // 수정
+            Image(beverageImage) // 수정
             
                 .padding(.top, 40)
                 .padding(.bottom, 20)
             
-            Text(beverage.name) // 수정
+            Text(beverageName) // 수정
                 .font(.system(size: 30))
                 .fontWeight(.bold)
                 .padding(.bottom, 24)
@@ -104,9 +110,9 @@ struct ArchiveListDetailView: View {
         VStack {
             
             HStack(alignment: .bottom, spacing: 32){
-                BeverageDetailCell(detailImageName: "small", detailName: "Size", detailExtra: beverage.size) // 수정
-                BeverageDetailCell(detailImageName: "shot", detailName: "Shots", detailExtra: "\(beverage.numberOfShots)") // 수정
-                BeverageDetailCell(detailImageName: "coffeeBean", detailName: "Caffeine", detailExtra: "\(beverage.caffeine)mg" ) // 수정
+                BeverageDetailCell(detailImageName: "small", detailName: "Size", detailExtra: beverageSize) // 수정
+                BeverageDetailCell(detailImageName: "shot", detailName: "Shots", detailExtra: "\(beverageShots)") // 수정
+                BeverageDetailCell(detailImageName: "coffeeBean", detailName: "Caffeine", detailExtra: "\(beverageCaffeine)mg" ) // 수정
                 
             }
         }

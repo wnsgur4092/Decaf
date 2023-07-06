@@ -16,6 +16,7 @@
 		BF2E8C9D29A770A90085A597 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BF2E8C9C29A770A90085A597 /* Realm */; };
 		BF2E8C9F29A770A90085A597 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF2E8C9E29A770A90085A597 /* RealmSwift */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
+		BF4A5ABE2A56A42A0018EF67 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A5ABD2A56A42A0018EF67 /* ProfileView.swift */; };
 		BF5909462A4161B600A63F11 /* CustomCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5909452A4161B600A63F11 /* CustomCalendar.swift */; };
 		BF5909482A41626700A63F11 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5909472A41626700A63F11 /* DateValue.swift */; };
 		BF5909512A41B1AA00A63F11 /* Coffee2.json in Resources */ = {isa = PBXBuildFile; fileRef = BF5909502A41B1A900A63F11 /* Coffee2.json */; };
@@ -73,6 +74,7 @@
 		BF273A8629A51BF00067C9DE /* BeverageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCardView.swift; sourceTree = "<group>"; };
 		BF2E8C9429A6F0070085A597 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		BF4A5ABD2A56A42A0018EF67 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		BF5909452A4161B600A63F11 /* CustomCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendar.swift; sourceTree = "<group>"; };
 		BF5909472A41626700A63F11 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		BF59094B2A41AE9600A63F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				BFFF9A3E2999B102002D5ACC /* OnBoardingView.swift */,
+				BF4A5ABD2A56A42A0018EF67 /* ProfileView.swift */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				BF2E8C9529A6F0070085A597 /* CustomButtonStyle.swift in Sources */,
 				BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */,
 				BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */,
+				BF4A5ABE2A56A42A0018EF67 /* ProfileView.swift in Sources */,
 				BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */,
 				BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */,
 				BFF2F92929A218310038A067 /* BeverageInputViewModel.swift in Sources */,

@@ -197,8 +197,7 @@ struct CustomCalendar: View {
         .padding(.vertical,9)
         .frame(height: 60,alignment: .top)
     }
-    
-    
+
     fileprivate var archiveListView: some View {
         ForEach(sharedDataViewModel.selectedBeverages.filter({ isSameDay(date1: $0.registerDate, date2: currentDate) }), id: \.id) { beverage in
             VStack(spacing: 10) {
@@ -244,12 +243,67 @@ struct CustomCalendar: View {
                         .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
                     }
                     .fullScreenCover(isPresented: $isDetailViewPresented, content: {
-                        ArchiveListDetailView(beverage: beverage, viewModel: ArchiveViewModel())
+                        ArchiveListDetailView(beverageName: beverage.name, beverageImage: beverage.imageName, beverageRegisterDate: beverage.registerDate, beverageShots: beverage.numberOfShots , beverageCaffeine: beverage.caffeine , beverageSize: beverage.size, viewModel: ArchiveViewModel())
+
                     })
                 }
             }
         }
     }
+
+    
+
+//    fileprivate var archiveListView: some View {
+//        ForEach(sharedDataViewModel.selectedBeverages.filter({ isSameDay(date1: $0.registerDate, date2: currentDate) }), id: \.id) { beverage in
+//            VStack(spacing: 10) {
+//                HStack(alignment: .top, spacing: 5) {
+//                    Text(sharedDataViewModel.formatTime(time: beverage.registerDate))
+//                        .font(.subheadline)
+//                        .multilineTextAlignment(.leading)
+//                        .offset(y: 4)
+//                        .frame(maxWidth: 80, alignment: .topLeading)
+//
+//                    Button(action: {
+//                        selectedBeverage = beverage
+//                        isDetailViewPresented = true
+//                    }) {
+//                        HStack {
+//                            VStack{
+//                                Text(beverage.name)
+//                                    .font(.system(size: 14).bold())
+//                                    .foregroundColor(Color.white)
+//                                    .multilineTextAlignment(.leading)
+//                                    .frame(maxWidth: .infinity, alignment: .leading)
+//                                    .padding(.bottom, 16)
+//                                Text(beverage.size)
+//                                    .font(.system(size: 12))
+//                                    .fontWeight(.regular)
+//                                    .foregroundColor(Color.white)
+//                                    .multilineTextAlignment(.leading)
+//                                    .frame(maxWidth: .infinity, alignment: .leading)
+//                                    .padding(.bottom, 5)
+//                                Text("\(String(format: "%.1f", beverage.numberOfShots)) Shots")
+//                                    .font(.system(size: 12))
+//                                    .fontWeight(.regular)
+//                                    .foregroundColor(Color.white)
+//                                    .multilineTextAlignment(.leading)
+//                                    .frame(maxWidth: .infinity, alignment: .leading)
+//                            }
+//                            Spacer()
+//                            Image(systemName: "chevron.right")
+//                                .foregroundColor(.white)
+//                        }
+//                        .padding(15)
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                        .background(RoundedRectangle(cornerRadius: 20).fill(Color("mainColor")))
+//                    }
+//                    .fullScreenCover(isPresented: $isDetailViewPresented, content: {
+//                        ArchiveListDetailView(beverageName: beverage.name, beverageImage: beverage.imageName, beverageRegisterDate: beverage.registerDate, beverageShots: beverage.numberOfShots, beverageCaffeine: beverage.caffeine, beverageSize: beverage.size, viewModel: ArchiveViewModel())
+//                    })
+//                }
+//            }
+//        }
+//    }
     
     
     //MARK: - FUNCTION
