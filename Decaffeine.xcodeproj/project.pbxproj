@@ -17,6 +17,8 @@
 		BF2E8C9F29A770A90085A597 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF2E8C9E29A770A90085A597 /* RealmSwift */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
 		BF4A5ABE2A56A42A0018EF67 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A5ABD2A56A42A0018EF67 /* ProfileView.swift */; };
+		BF4A5AC92A583AB50018EF67 /* NewHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A5AC82A583AB50018EF67 /* NewHomeView.swift */; };
+		BF4A5ACB2A583AEA0018EF67 /* NewAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A5ACA2A583AEA0018EF67 /* NewAddView.swift */; };
 		BF5909462A4161B600A63F11 /* CustomCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5909452A4161B600A63F11 /* CustomCalendar.swift */; };
 		BF5909482A41626700A63F11 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5909472A41626700A63F11 /* DateValue.swift */; };
 		BF5909512A41B1AA00A63F11 /* Coffee2.json in Resources */ = {isa = PBXBuildFile; fileRef = BF5909502A41B1A900A63F11 /* Coffee2.json */; };
@@ -75,6 +77,10 @@
 		BF2E8C9429A6F0070085A597 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BF4A5ABD2A56A42A0018EF67 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		BF4A5AC62A583A060018EF67 /* BebasNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue-Regular.ttf"; sourceTree = "<group>"; };
+		BF4A5AC72A583A240018EF67 /* Anton-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Anton-Regular.ttf"; sourceTree = "<group>"; };
+		BF4A5AC82A583AB50018EF67 /* NewHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeView.swift; sourceTree = "<group>"; };
+		BF4A5ACA2A583AEA0018EF67 /* NewAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAddView.swift; sourceTree = "<group>"; };
 		BF5909452A4161B600A63F11 /* CustomCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendar.swift; sourceTree = "<group>"; };
 		BF5909472A41626700A63F11 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		BF59094B2A41AE9600A63F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -140,6 +146,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF4A5AC52A5839FE0018EF67 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BF4A5AC62A583A060018EF67 /* BebasNeue-Regular.ttf */,
+				BF4A5AC72A583A240018EF67 /* Anton-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		BFA53D77299A6087007D943D /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +243,7 @@
 				BF59094B2A41AE9600A63F11 /* Info.plist */,
 				BFE96F7A29860376003E0934 /* DecaffeineApp.swift */,
 				BFE96F7C29860376003E0934 /* ContentView.swift */,
+				BF4A5AC52A5839FE0018EF67 /* Fonts */,
 				BFA53D77299A6087007D943D /* Styles */,
 				BFFF9A51299A4803002D5ACC /* Lottie */,
 				BFE96FA62986043A003E0934 /* Model */,
@@ -267,6 +283,8 @@
 		BFE96FA42986042F003E0934 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BF4A5AC82A583AB50018EF67 /* NewHomeView.swift */,
+				BF4A5ACA2A583AEA0018EF67 /* NewAddView.swift */,
 				BFCED251299D2A4B00E49EB6 /* OnBoarding */,
 				BFCED24B299D1A2B00E49EB6 /* Home */,
 				BFCED243299C41C200E49EB6 /* BeverageCreation */,
@@ -475,9 +493,11 @@
 				BF4A5ABE2A56A42A0018EF67 /* ProfileView.swift in Sources */,
 				BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */,
 				BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */,
+				BF4A5ACB2A583AEA0018EF67 /* NewAddView.swift in Sources */,
 				BFF2F92929A218310038A067 /* BeverageInputViewModel.swift in Sources */,
 				BFF2F92529A217B70038A067 /* Beverage.swift in Sources */,
 				BFCED24A299D193800E49EB6 /* ArchiveViewModel.swift in Sources */,
+				BF4A5AC92A583AB50018EF67 /* NewHomeView.swift in Sources */,
 				BFF2F92729A217CA0038A067 /* SelectedBeverage.swift in Sources */,
 				CECE0D6E299DBCAE00BDC0AB /* BeverageDetailCell.swift in Sources */,
 			);
