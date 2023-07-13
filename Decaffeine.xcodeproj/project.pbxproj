@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BA03321129A5B08500BE8F1D /* AnnouncementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */; };
-		BF24C0E329A8220300157200 /* Coffee.json in Resources */ = {isa = PBXBuildFile; fileRef = BF24C0E229A8220300157200 /* Coffee.json */; };
 		BF24C0E529AB6D1E00157200 /* ShareDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF24C0E429AB6D1E00157200 /* ShareDataViewModel.swift */; };
 		BF273A8729A51BF00067C9DE /* BeverageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF273A8629A51BF00067C9DE /* BeverageCardView.swift */; };
 		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
@@ -74,7 +73,6 @@
 
 /* Begin PBXFileReference section */
 		BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListView.swift; sourceTree = "<group>"; };
-		BF24C0E229A8220300157200 /* Coffee.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Coffee.json; sourceTree = "<group>"; };
 		BF24C0E429AB6D1E00157200 /* ShareDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDataViewModel.swift; sourceTree = "<group>"; };
 		BF273A8629A51BF00067C9DE /* BeverageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCardView.swift; sourceTree = "<group>"; };
 		BF2E8C9429A6F0070085A597 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
@@ -336,7 +334,6 @@
 			isa = PBXGroup;
 			children = (
 				BFFF9A54299A48C9002D5ACC /* LottieView.swift */,
-				BF24C0E229A8220300157200 /* Coffee.json */,
 				BF5909502A41B1A900A63F11 /* Coffee2.json */,
 			);
 			path = Lottie;
@@ -460,7 +457,6 @@
 				BFE96F8229860377003E0934 /* Preview Assets.xcassets in Resources */,
 				BFE96F7F29860377003E0934 /* Assets.xcassets in Resources */,
 				BF5909512A41B1AA00A63F11 /* Coffee2.json in Resources */,
-				BF24C0E329A8220300157200 /* Coffee.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
