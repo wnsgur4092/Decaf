@@ -33,16 +33,16 @@ struct Drink {
 }
 
 // Struct for Caffeinated Beverage
-struct CaffeinatedBeverage {
+struct CaffeineBeverage {
     let beverageType: BeverageType
 }
 
-extension CaffeinatedBeverage {
-    static let caffeinatedBeverage : [CaffeinatedBeverage] = [
-        CaffeinatedBeverage(beverageType: .coffee(.cold(coffeeName: "Iced Long Black", coffeeImage: "IceCoffee"))),
-        CaffeinatedBeverage(beverageType: .coffee(.cold(coffeeName: "Iced Latte", coffeeImage: "IceCoffee"))),
-        CaffeinatedBeverage(beverageType: .coffee(.hot(coffeeName: "Cappuccino", coffeeImage: "HotCoffee"))),
-        CaffeinatedBeverage(beverageType: .coffee(.hot(coffeeName: "Latte", coffeeImage: "HotCoffee"))),
-        CaffeinatedBeverage(beverageType: .drink(Drink(drinkName: "Redbull", drinkImage: "Drink")))
+extension CaffeineBeverage {
+    static let caffeinatedBeverage : [CaffeineBeverage] = [
+        CaffeineBeverage(beverageType: .coffee(.cold(coffeeName: "Iced Long Black", coffeeImage: "IceCoffee"))),
+        CaffeineBeverage(beverageType: .coffee(.cold(coffeeName: "Iced Latte", coffeeImage: "IceCoffee"))),
+        CaffeineBeverage(beverageType: .coffee(.hot(coffeeName: "Cappuccino", coffeeImage: "HotCoffee"))),
+        CaffeineBeverage(beverageType: .coffee(.hot(coffeeName: "Latte", coffeeImage: "HotCoffee"))),
+        CaffeineBeverage(beverageType: .drink(Drink(drinkName: "Redbull", drinkImage: "Drink")))
     ]
 }
