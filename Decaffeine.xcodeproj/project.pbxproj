@@ -227,8 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				BF4A5AC82A583AB50018EF67 /* NewHomeView.swift */,
-				BF4A5ACA2A583AEA0018EF67 /* NewAddView.swift */,
 				BFE60B8D2A5D858E00C7FC9D /* TypeSelectView.swift */,
+				BF4A5ACA2A583AEA0018EF67 /* NewAddView.swift */,
 				BFCF60102A5ED87500A26586 /* ListView.swift */,
 			);
 			path = "View(Interface)";
