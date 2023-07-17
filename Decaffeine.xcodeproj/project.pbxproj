@@ -10,6 +10,10 @@
 		BA03321129A5B08500BE8F1D /* AnnouncementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */; };
 		BF06B4E32A65481100A77439 /* CoffeeAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4E22A65481100A77439 /* CoffeeAddViewModel.swift */; };
 		BF06B4E52A654A4900A77439 /* CoffeeTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4E42A654A4900A77439 /* CoffeeTag.swift */; };
+		BF06B4E82A657A0600A77439 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4E72A657A0600A77439 /* LogoView.swift */; };
+		BF06B4EA2A657B9D00A77439 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4E92A657B9D00A77439 /* NavigationBarView.swift */; };
+		BF06B4ED2A657CFE00A77439 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4EC2A657CFE00A77439 /* Utilities.swift */; };
+		BF06B4EF2A657FE800A77439 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4EE2A657FE800A77439 /* Home.swift */; };
 		BF24C0E529AB6D1E00157200 /* ShareDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF24C0E429AB6D1E00157200 /* ShareDataViewModel.swift */; };
 		BF273A8729A51BF00067C9DE /* BeverageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF273A8629A51BF00067C9DE /* BeverageCardView.swift */; };
 		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
@@ -78,6 +82,10 @@
 		BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListView.swift; sourceTree = "<group>"; };
 		BF06B4E22A65481100A77439 /* CoffeeAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeAddViewModel.swift; sourceTree = "<group>"; };
 		BF06B4E42A654A4900A77439 /* CoffeeTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTag.swift; sourceTree = "<group>"; };
+		BF06B4E72A657A0600A77439 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		BF06B4E92A657B9D00A77439 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		BF06B4EC2A657CFE00A77439 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		BF06B4EE2A657FE800A77439 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		BF24C0E429AB6D1E00157200 /* ShareDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDataViewModel.swift; sourceTree = "<group>"; };
 		BF273A8629A51BF00067C9DE /* BeverageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCardView.swift; sourceTree = "<group>"; };
 		BF2E8C9429A6F0070085A597 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
@@ -156,6 +164,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF06B4E62A6579FA00A77439 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BF06B4E72A657A0600A77439 /* LogoView.swift */,
+				BF06B4E92A657B9D00A77439 /* NavigationBarView.swift */,
+				BF4A5AC82A583AB50018EF67 /* NewHomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BF06B4EB2A657CF300A77439 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				BF06B4EC2A657CFE00A77439 /* Utilities.swift */,
+				BF06B4EE2A657FE800A77439 /* Home.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		BF06B4F02A6582DD00A77439 /* NewItemPage */ = {
+			isa = PBXGroup;
+			children = (
+				BFE60B8D2A5D858E00C7FC9D /* TypeSelectView.swift */,
+				BF4A5ACA2A583AEA0018EF67 /* NewAddView.swift */,
+			);
+			path = NewItemPage;
+			sourceTree = "<group>";
+		};
 		BF4A5AC52A5839FE0018EF67 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,9 +266,8 @@
 		BFE60B8C2A5D3E0100C7FC9D /* View(Interface) */ = {
 			isa = PBXGroup;
 			children = (
-				BF4A5AC82A583AB50018EF67 /* NewHomeView.swift */,
-				BFE60B8D2A5D858E00C7FC9D /* TypeSelectView.swift */,
-				BF4A5ACA2A583AEA0018EF67 /* NewAddView.swift */,
+				BF06B4E62A6579FA00A77439 /* Home */,
+				BF06B4F02A6582DD00A77439 /* NewItemPage */,
 				BFCF60102A5ED87500A26586 /* ListView.swift */,
 			);
 			path = "View(Interface)";
@@ -264,6 +299,7 @@
 				BF59094B2A41AE9600A63F11 /* Info.plist */,
 				BFE96F7A29860376003E0934 /* DecaffeineApp.swift */,
 				BFE96F7C29860376003E0934 /* ContentView.swift */,
+				BF06B4EB2A657CF300A77439 /* Utility */,
 				BF4A5AC52A5839FE0018EF67 /* Fonts */,
 				BFA53D77299A6087007D943D /* Styles */,
 				BFFF9A51299A4803002D5ACC /* Lottie */,
@@ -498,6 +534,7 @@
 				BFE96FA82986047F003E0934 /* HomeView.swift in Sources */,
 				BF06B4E52A654A4900A77439 /* CoffeeTag.swift in Sources */,
 				CE22FF5229A466B200333F1E /* CustomIndicator.swift in Sources */,
+				BF06B4ED2A657CFE00A77439 /* Utilities.swift in Sources */,
 				BFFF9A492999B144002D5ACC /* SettingView.swift in Sources */,
 				BF85419A299FD55900AB1ED9 /* BeverageSettingView.swift in Sources */,
 				BF273A8729A51BF00067C9DE /* BeverageCardView.swift in Sources */,
@@ -523,10 +560,13 @@
 				BFCF60132A5FC93900A26586 /* CaffeineBeverage.swift in Sources */,
 				BF4A5ACB2A583AEA0018EF67 /* NewAddView.swift in Sources */,
 				BFF2F92929A218310038A067 /* BeverageInputViewModel.swift in Sources */,
+				BF06B4EF2A657FE800A77439 /* Home.swift in Sources */,
 				BFF2F92529A217B70038A067 /* Beverage.swift in Sources */,
+				BF06B4EA2A657B9D00A77439 /* NavigationBarView.swift in Sources */,
 				BFCED24A299D193800E49EB6 /* ArchiveViewModel.swift in Sources */,
 				BF4A5AC92A583AB50018EF67 /* NewHomeView.swift in Sources */,
 				BFF2F92729A217CA0038A067 /* SelectedBeverage.swift in Sources */,
+				BF06B4E82A657A0600A77439 /* LogoView.swift in Sources */,
 				CECE0D6E299DBCAE00BDC0AB /* BeverageDetailCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

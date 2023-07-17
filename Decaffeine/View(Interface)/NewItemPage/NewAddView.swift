@@ -59,7 +59,7 @@ struct NewAddView: View {
             }
         }
         .padding(.horizontal, 20)
-        .background(Color("BackgroundColor"))
+        .background(Color("BackgroundColor").edgesIgnoringSafeArea(.all))
     }
     
     
