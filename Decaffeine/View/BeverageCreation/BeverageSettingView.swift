@@ -10,8 +10,7 @@ import SwiftUI
 struct BeverageSettingView: View {
     //MARK: - COMPONENTS
     @Environment(\.presentationMode) var presentationMode
-    var cupSizes = [("Small", "Tall"), ("Regular", "Grande"), ("Large", "Venti")]
-    
+    var cupSizes = [("S", "Tall"), ("R", "Grande"), ("L", "Venti")]
     @State var selectedSize = "Small"
     @State private var selectedSizeIndex = 0
     @EnvironmentObject var sharedDataViewModel : ShareDataViewModel
@@ -80,6 +79,7 @@ struct BeverageSettingView: View {
         }
     }
     
+    
     fileprivate var sizeSelection: some View {
         VStack {
             Text("Select Size")
@@ -95,14 +95,16 @@ struct BeverageSettingView: View {
                         } label: {
                             ZStack(alignment: .bottom) {
                                 Rectangle()
-                                    .frame(width: 80, height: 110)
-                                    .foregroundColor(selectedSizeIndex == index ? Color("mainColor") : Color.clear)
+                                    .foregroundColor(selectedSizeIndex == index ? Color.gray : Color.clear)
                                     .cornerRadius(10)
                                 
-                                Image(cupSizes[index].0.lowercased())
-                                    .padding(.vertical, 8)
-                                    .scaleEffect(selectedSizeIndex == index ? 1.1 : 1.0)
-                                    .animation(.spring())
+                                Text(cupSizes[index].0)
+                                    .foregroundColor(.white)
+                                    .padding(.vertical, 15)
+                                    .padding(.horizontal, 40)
+                                    .font(.system(size: 14).bold())
+//                                    .scaleEffect(selectedSizeIndex == index ? 1.1 : 1.0)
+//                                    .animation(.spring())
                             }
                         }
                         

@@ -29,17 +29,20 @@ struct TypeSelectCard : View {
     var typeName : String
     
     var body : some View {
-        VStack(spacing: -10){ // decrease this value
-            Image(typeImageName)
-                .resizable()
-                .scaledToFit()
-            
-            Text(typeName)
-                .padding(.bottom, 20)
+        NavigationLink {
+            NewAddView(coffeeName: "")
+        } label: {
+            VStack(spacing: -10){ // decrease this value
+                Image(typeImageName)
+                    .resizable()
+                    .scaledToFit()
+                
+                Text(typeName)
+                    .padding(.bottom, 20)
+            }
+            .overlay(RoundedRectangle(cornerRadius: 12)
+                .stroke(Color.black, lineWidth: 4))
         }
-        .overlay(RoundedRectangle(cornerRadius: 12)
-            .stroke(Color.black, lineWidth: 4))
-        
     }
 }
 
