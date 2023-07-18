@@ -19,7 +19,7 @@ struct TypeSelectView: View {
             
         }
         .padding(.vertical, 50)
-        .navigationBarBackButtonHidden(true)
+//        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -30,7 +30,7 @@ struct TypeSelectCard : View {
     
     var body : some View {
         NavigationLink {
-            NewAddView(coffeeName: "")
+            CoffeeAddView(coffeeName: "")
         } label: {
             VStack(spacing: -10){ // decrease this value
                 Image(typeImageName)
