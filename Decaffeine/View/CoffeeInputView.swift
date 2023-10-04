@@ -13,30 +13,35 @@ struct CoffeeInputView: View {
     
     var beverageName : String
     @Binding var showInputView: Bool
-    @State private var sliderValue: Double = 40
-    
-    @State private var coffeeName: String = ""
-    @State private var isHot : Bool = true
     @State private var showDetails : Bool = false
+    @State private var currentDate = Date()
+    
+    @State private var sliderValue: Double = 63  // Initialized with 0.5 * 63
+    @State private var numberValue: Double = 1   // Initial value
     
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: "chevron.left")
+                Image(systemName: "arrow.left")
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: 22, maxHeight: 22)
                     .onTapGesture {
                         self.presentationMode.wrappedValue.dismiss()
                     }
+                
                 Spacer()
             }
-            
+            .padding(.bottom, 10)
             
             HStack{
-                VStack{
+                VStack(alignment: .leading)
+                {
                     Text("HOT")
+                        .font(.subheadline)
+                        .foregroundColor(Color.gray)
                     Text(beverageName)
+                        .font(.largeTitle)
                 }
                 
                 Spacer()
@@ -48,52 +53,91 @@ struct CoffeeInputView: View {
                     .background(RoundedRectangle(cornerRadius: 10).fill(Color.black))
             }
             
-            HStack{
-                HStack{
-                    Image(systemName: "clock")
-                    Text("DATE")
-                }
+            HStack {
+                Image(systemName: "clock")
+                Text("Date")
                 
                 Spacer()
                 
-                HStack{
-                    Text("4 OCT 2023")
-                    Text("10:44 pm")
-                }
+                DatePicker("", selection: $currentDate, displayedComponents: [.date, .hourAndMinute])
+                    .datePickerStyle(DefaultDatePickerStyle())
             }
+            .padding(20)
+            .background(Color.onBackgroundTertiary)
+            .cornerRadius(8)
             
-            HStack{
-                Text("SHOTS")
+            VStack(alignment: .leading, spacing: 16) {
+                Text("Caffeine")
+                Divider()
                 
-                Spacer()
-                
-                HStack{
-                    Text("-")
-                    Text("1")
-                    Text("+")
-                }
-            }
-            
-            HStack{
-                Text("More Detail")
-                Spacer()
-                Image(systemName: "chevron.down")
-                    .rotationEffect(.degrees(showDetails ? 180 : 0))
-                    .onTapGesture {
-                        withAnimation {
-                            showDetails.toggle()
+                HStack {
+                    Text("Shots")
+                        .padding(8)
+                        .background(Color.onBackgroundTertiary)
+                        .cornerRadius(8)
+                    
+                    Spacer()
+                    
+                    HStack(spacing: 10) {
+                        Button(action: {
+                            if numberValue > 0 {
+                                numberValue -= 0.5
+                                sliderValue = numberValue * 63
+                            }
+                        }) {
+                            Image(systemName: "minus.square.fill")
+                                .foregroundColor(numberValue > 0 ? Color.black : Color.gray)
+                                .font(.system(size: 28))  // Increase button size
+                        }
+                        .disabled(numberValue <= 0) // Disable the button when numberValue is 0
+                        
+                        Text("\(numberValue, specifier: "%.1f")")
+                            .frame(width: 50, alignment: .center)  // Fixed width to ensure alignment remains
+                        
+                        Button(action: {
+                            numberValue += 0.5
+                            sliderValue = numberValue * 63
+                        }) {
+                            Image(systemName: "plus.square.fill")
+                                .foregroundColor(Color.black)
+                                .font(.system(size: 28))  // Increase button size
                         }
                     }
-            }
-            
-            if showDetails{
-                VStack {
-                    Slider(value: $sliderValue, in: 0...1000, step: 1)
-                    
-                    Text("Slider Value: \(Int(sliderValue))")
+
                 }
+
                 
+                HStack {
+                    Spacer()
+                    Text("More detail")
+                    Image(systemName: "chevron.down")
+                        .rotationEffect(.degrees(showDetails ? 180 : 0))
+                    
+                }
+                .onTapGesture {
+                    withAnimation {
+                        showDetails.toggle()
+                    }
+                }
+                .font(.caption)
+                .foregroundColor(Color.gray)
+                
+                if showDetails {
+                    VStack {
+                        Slider(value: $sliderValue, in: 0...400, step: 1)
+                            .onChange(of: sliderValue) { newValue in
+                                numberValue = newValue / 63
+                            }
+                        
+                        Text("Caffeine: \(Int(sliderValue))mg")
+                    }
+                }
             }
+            .padding()
+            .background(Color.yellow)
+            .cornerRadius(8)
+            
+            
             
             Spacer()
             
