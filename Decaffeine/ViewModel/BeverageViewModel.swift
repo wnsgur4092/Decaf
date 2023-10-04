@@ -14,6 +14,8 @@ class BeverageViewModel: ObservableObject {
 
     init() {
         realm = try! Realm()
+        print("Realm Path : \(realm.configuration.fileURL?.absoluteURL)")
+        
         fetchAllBeverages()
     }
     

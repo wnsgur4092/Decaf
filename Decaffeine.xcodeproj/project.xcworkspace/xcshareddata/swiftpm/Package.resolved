@@ -1,0 +1,41 @@
+{
+  "pins" : [
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios.git",
+      "state" : {
+        "revision" : "4e51b71c6ef1b645c9a83de112d627c919143137",
+        "version" : "4.1.3"
+      }
+    },
+    {
+      "identity" : "realm-core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-core.git",
+      "state" : {
+        "revision" : "37cc58865648f343f7d6e538d45980e7f2351211",
+        "version" : "13.5.0"
+      }
+    },
+    {
+      "identity" : "realm-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-swift.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "8524c4e25b506a0d54505efb9cdb40a328ab0792"
+      }
+    },
+    {
+      "identity" : "swiftysegmentedpicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/KazaiMazai/SwiftySegmentedPicker.git",
+      "state" : {
+        "revision" : "c3c63962939c161aeef1bcef40ee97bd57eca943",
+        "version" : "0.0.2"
+      }
+    }
+  ],
+  "version" : 2
+}

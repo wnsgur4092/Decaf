@@ -20,13 +20,16 @@ struct DashBoardView: View {
             .navigationBarItems(trailing: Button("Add Coffee") {
                 showInputView = true
             })
-            .background(NavigationLink("", destination: TypeSelectView(showInputView: $showInputView), isActive: $showInputView).hidden())
+            .sheet(isPresented: $showInputView) {
+                BeverageListView(showInputView: $showInputView)
+            }
             .onAppear(perform: {
                 viewModel.fetchAllBeverages()
             })
         }
     }
 }
+
 
 #Preview {
     DashBoardView(viewModel: BeverageViewModel())

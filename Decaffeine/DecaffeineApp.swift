@@ -10,15 +10,10 @@ import SwiftUI
 
 @main
 struct DecaffeineApp: App {
-    @AppStorage("isOnboarding") var isOnboarding : Bool = true
     
     var body: some Scene {
         WindowGroup {
-            if isOnboarding == true {
-                OnBoardingView()
-            } else {
-                NewHomeView()
-            }
+            DashBoardView(viewModel: BeverageViewModel())
         }
         
     }
