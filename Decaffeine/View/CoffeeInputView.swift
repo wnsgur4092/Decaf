@@ -8,45 +8,29 @@
 import SwiftUI
 
 struct CoffeeInputView: View {
-    @ObservedObject var viewModel = BeverageViewModel()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var beverageName : String
+    var beverageTag : String
+    
     @Binding var showInputView: Bool
     @State private var showDetails : Bool = false
     @State private var currentDate = Date()
-    
     @State private var sliderValue: Double = 63  // Initialized with 0.5 * 63
     @State private var numberValue: Double = 1   // Initial value
     
     var body: some View {
         VStack {
-            HStack {
-                Image(systemName: "arrow.left")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 22, maxHeight: 22)
-                    .onTapGesture {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }
-                
-                Spacer()
-            }
-            .padding(.bottom, 10)
-            
             HStack{
                 VStack(alignment: .leading)
                 {
-                    Text("HOT")
-                        .font(.subheadline)
-                        .foregroundColor(Color.gray)
                     Text(beverageName)
                         .font(.largeTitle)
                 }
                 
                 Spacer()
                 
-                Text("#COFFEE")
+                Text(beverageTag)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .padding()
@@ -144,26 +128,27 @@ struct CoffeeInputView: View {
             HStack{
                 Spacer()
                 
-                Button(action: {showInputView = false}, label: {
+                Button(action: {
+                
+
+                    self.showInputView = false
+                }) {
                     Text("ADD")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.black))
-                        .onTapGesture {
-                            self.showInputView = false
-                        }
-                })
+                }
                 
             }
             
         }
         .navigationBarBackButtonHidden()
         .padding()
-        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
 #Preview {
-    CoffeeInputView(beverageName: "Latte", showInputView: .constant(true))
+    CoffeeInputView(beverageName: "Latte", beverageTag: "#COFFEE", showInputView: .constant(true))
+        .environmentObject(ConsumptionViewModel())
 }

@@ -14,6 +14,12 @@
 		BF4DC9622ACD8E200053430E /* Colors+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9612ACD8E200053430E /* Colors+++.swift */; };
 		BF4DC9642ACD93450053430E /* BaseBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9632ACD93450053430E /* BaseBeverage.swift */; };
 		BF4DC9662ACD947D0053430E /* BeverageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9652ACD947D0053430E /* BeverageListViewModel.swift */; };
+		BF4DC9682ACE88F80053430E /* String+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9672ACE88F80053430E /* String+++.swift */; };
+		BF4DC96A2ACEE9FA0053430E /* Consumption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9692ACEE9FA0053430E /* Consumption.swift */; };
+		BF4DC96C2ACEEA0A0053430E /* ConsumptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC96B2ACEEA0A0053430E /* ConsumptionViewModel.swift */; };
+		BF4DC9732ACF12710053430E /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9722ACF12710053430E /* PopUpView.swift */; };
+		BF4DC9762ACF12F20053430E /* MijickPopupView in Frameworks */ = {isa = PBXBuildFile; productRef = BF4DC9752ACF12F20053430E /* MijickPopupView */; };
+		BF4DC9782ACF13130053430E /* Spacers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9772ACF13130053430E /* Spacers.swift */; };
 		BFD3E1852ACAAAAF00FA4EA8 /* DashBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD3E1842ACAAAAF00FA4EA8 /* DashBoardView.swift */; };
 		BFD3E1872ACAAB9600FA4EA8 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD3E1862ACAAB9600FA4EA8 /* Beverage.swift */; };
 		BFD3E1892ACAABAC00FA4EA8 /* BeverageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD3E1882ACAABAC00FA4EA8 /* BeverageViewModel.swift */; };
@@ -51,6 +57,11 @@
 		BF4DC9612ACD8E200053430E /* Colors+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+++.swift"; sourceTree = "<group>"; };
 		BF4DC9632ACD93450053430E /* BaseBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBeverage.swift; sourceTree = "<group>"; };
 		BF4DC9652ACD947D0053430E /* BeverageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageListViewModel.swift; sourceTree = "<group>"; };
+		BF4DC9672ACE88F80053430E /* String+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+++.swift"; sourceTree = "<group>"; };
+		BF4DC9692ACEE9FA0053430E /* Consumption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consumption.swift; sourceTree = "<group>"; };
+		BF4DC96B2ACEEA0A0053430E /* ConsumptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionViewModel.swift; sourceTree = "<group>"; };
+		BF4DC9722ACF12710053430E /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		BF4DC9772ACF13130053430E /* Spacers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacers.swift; sourceTree = "<group>"; };
 		BFD3E1842ACAAAAF00FA4EA8 /* DashBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardView.swift; sourceTree = "<group>"; };
 		BFD3E1862ACAAB9600FA4EA8 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		BFD3E1882ACAABAC00FA4EA8 /* BeverageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageViewModel.swift; sourceTree = "<group>"; };
@@ -76,6 +87,7 @@
 				BF2E8C9F29A770A90085A597 /* RealmSwift in Frameworks */,
 				BF2E8C9D29A770A90085A597 /* Realm in Frameworks */,
 				BFFF9A50299A462B002D5ACC /* Lottie in Frameworks */,
+				BF4DC9762ACF12F20053430E /* MijickPopupView in Frameworks */,
 				BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,6 +114,7 @@
 			children = (
 				BFD3E1842ACAAAAF00FA4EA8 /* DashBoardView.swift */,
 				BFD3E18E2ACAB23100FA4EA8 /* BeverageListView.swift */,
+				BF4DC9722ACF12710053430E /* PopUpView.swift */,
 				BFD3E1902ACAB2B400FA4EA8 /* CoffeeInputView.swift */,
 				BF4DC95A2ACC13FE0053430E /* TeaInputView.swift */,
 			);
@@ -112,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				BFD3E1862ACAAB9600FA4EA8 /* Beverage.swift */,
+				BF4DC9692ACEE9FA0053430E /* Consumption.swift */,
 				BF4DC9632ACD93450053430E /* BaseBeverage.swift */,
 			);
 			path = Models;
@@ -122,6 +136,7 @@
 			children = (
 				BFD3E1882ACAABAC00FA4EA8 /* BeverageViewModel.swift */,
 				BF4DC9652ACD947D0053430E /* BeverageListViewModel.swift */,
+				BF4DC96B2ACEEA0A0053430E /* ConsumptionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -130,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				BF4DC9612ACD8E200053430E /* Colors+++.swift */,
+				BF4DC9672ACE88F80053430E /* String+++.swift */,
+				BF4DC9772ACF13130053430E /* Spacers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -215,6 +232,7 @@
 				BF2B706E299BDAF3000E1F99 /* SegmentedPicker */,
 				BF2E8C9C29A770A90085A597 /* Realm */,
 				BF2E8C9E29A770A90085A597 /* RealmSwift */,
+				BF4DC9752ACF12F20053430E /* MijickPopupView */,
 			);
 			productName = Decaffeine;
 			productReference = BFE96F7729860376003E0934 /* Decaffeine.app */;
@@ -292,6 +310,7 @@
 				BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				BF2B706D299BDAF3000E1F99 /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */,
 				BF2E8C9B29A770A90085A597 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				BF4DC9742ACF12F10053430E /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = BFE96F7829860376003E0934 /* Products */;
 			projectDirPath = "";
@@ -335,12 +354,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF4DC9732ACF12710053430E /* PopUpView.swift in Sources */,
+				BF4DC96C2ACEEA0A0053430E /* ConsumptionViewModel.swift in Sources */,
 				BF4DC9622ACD8E200053430E /* Colors+++.swift in Sources */,
 				BF4DC9642ACD93450053430E /* BaseBeverage.swift in Sources */,
 				BFD3E1912ACAB2B400FA4EA8 /* CoffeeInputView.swift in Sources */,
 				BFD3E1852ACAAAAF00FA4EA8 /* DashBoardView.swift in Sources */,
+				BF4DC96A2ACEE9FA0053430E /* Consumption.swift in Sources */,
 				BF4DC95B2ACC13FE0053430E /* TeaInputView.swift in Sources */,
 				BFE96F7D29860376003E0934 /* ContentView.swift in Sources */,
+				BF4DC9782ACF13130053430E /* Spacers.swift in Sources */,
+				BF4DC9682ACE88F80053430E /* String+++.swift in Sources */,
 				BFD3E18F2ACAB23100FA4EA8 /* BeverageListView.swift in Sources */,
 				BFD3E1892ACAABAC00FA4EA8 /* BeverageViewModel.swift in Sources */,
 				BF4DC9662ACD947D0053430E /* BeverageListViewModel.swift in Sources */,
@@ -432,7 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -486,7 +510,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -513,7 +537,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -547,7 +571,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -698,6 +722,14 @@
 				kind = branch;
 			};
 		};
+		BF4DC9742ACF12F10053430E /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Mijick/PopupView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
 		BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -723,6 +755,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF2E8C9B29A770A90085A597 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		BF4DC9752ACF12F20053430E /* MijickPopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF4DC9742ACF12F10053430E /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = MijickPopupView;
 		};
 		BFFF9A4F299A462B002D5ACC /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;

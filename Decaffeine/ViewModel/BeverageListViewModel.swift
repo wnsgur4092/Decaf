@@ -11,7 +11,7 @@ class BeverageListViewModel: ObservableObject {
     enum Filter: String {
         case coffee = "#COFFEE"
         case tea = "#TEA"
-        case all
+        case all = "ALL"
     }
 
     @Published var activeFilter: Filter = .all

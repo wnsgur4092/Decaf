@@ -8,24 +8,27 @@
 import SwiftUI
 
 struct DashBoardView: View {
-    @ObservedObject var viewModel = BeverageViewModel()
+    @ObservedObject var viewModel: BeverageViewModel
     @State private var showInputView: Bool = false
-
+    
     var body: some View {
-        NavigationView {
-            List(viewModel.allBeverages, id:\.generalName) { beverage in
-                Text(beverage.generalName)
+        ScrollView {
+            // Contents of your ScrollView if any
+            
+            Spacer()
+            
+            Button(action: {
+                showInputView.toggle()
+            }) {
+                Text("Add")
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(8)
             }
-            .navigationTitle("Dashboard")
-            .navigationBarItems(trailing: Button("Add Coffee") {
-                showInputView = true
-            })
-            .sheet(isPresented: $showInputView) {
-                BeverageListView(showInputView: $showInputView)
-            }
-            .onAppear(perform: {
-                viewModel.fetchAllBeverages()
-            })
+        }
+        .sheet(isPresented: $showInputView) {
+            BeverageListView()  // Assuming you have a view named BeverageListView to display the list of beverages
         }
     }
 }

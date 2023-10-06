@@ -9,43 +9,14 @@
 import Foundation
 import RealmSwift
 
-protocol Beverage {
-    var generalName: String { get }
+class Beverage: Object {
+    
+    @Persisted var id : UUID = UUID()
+    @Persisted var beverageName : String
+    @Persisted var bevereageType : String
+    @Persisted var registerDate : Date = Date()
+    @Persisted var beverageImageName : String
+    @Persisted var beverageCaffeine : Double
+    @Persisted var beverageShot : Double?
+    @Persisted var beverageSize : Int?
 }
-
-
-class Coffee: Object, Beverage {
-    @Persisted var id: UUID = UUID()
-    @Persisted var hot: Bool = true
-    @Persisted var cold: Bool = false
-    @Persisted var name: String = ""
-
-    var generalName: String { return name }
-
-    override static func primaryKey() -> String? {
-        return "id"
-    }
-}
-
-class Tea: Object, Beverage {
-    @Persisted var id: UUID = UUID()
-    @Persisted var name: String = ""
-
-    var generalName: String { return name }
-
-    override static func primaryKey() -> String? {
-        return "id"
-    }
-}
-
-class Drink: Object, Beverage {
-    @Persisted var id: UUID = UUID()
-    @Persisted var name: String = ""
-
-    var generalName: String { return name }
-
-    override static func primaryKey() -> String? {
-        return "id"
-    }
-}
-

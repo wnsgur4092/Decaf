@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "popupview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Mijick/PopupView.git",
+      "state" : {
+        "revision" : "0ff4bd6cf903c531dac5172127cc210693bfb726",
+        "version" : "2.1.0"
+      }
+    },
+    {
       "identity" : "realm-core",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/realm-core.git",
