@@ -10,15 +10,8 @@
 		BA03321129A5B08500BE8F1D /* AnnouncementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */; };
 		BF06B4E32A65481100A77439 /* CoffeeAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4E22A65481100A77439 /* CoffeeAddViewModel.swift */; };
 		BF06B4E52A654A4900A77439 /* CoffeeTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4E42A654A4900A77439 /* CoffeeTag.swift */; };
-		BF06B4E82A657A0600A77439 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4E72A657A0600A77439 /* LogoView.swift */; };
-		BF06B4EA2A657B9D00A77439 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4E92A657B9D00A77439 /* NavigationBarView.swift */; };
 		BF06B4ED2A657CFE00A77439 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4EC2A657CFE00A77439 /* Utilities.swift */; };
 		BF06B4EF2A657FE800A77439 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4EE2A657FE800A77439 /* Home.swift */; };
-		BF06B4F22A65961F00A77439 /* TeaAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4F12A65961F00A77439 /* TeaAddView.swift */; };
-		BF06B4F42A65962500A77439 /* DrinkAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4F32A65962500A77439 /* DrinkAddView.swift */; };
-		BF06B4F62A65965200A77439 /* AddViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4F52A65965200A77439 /* AddViewComponent.swift */; };
-		BF06B4FB2A66416C00A77439 /* FavoriteNameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4FA2A66416C00A77439 /* FavoriteNameListView.swift */; };
-		BF06B4FD2A66422400A77439 /* FavoriteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06B4FC2A66422400A77439 /* FavoriteCardView.swift */; };
 		BF24C0E529AB6D1E00157200 /* ShareDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF24C0E429AB6D1E00157200 /* ShareDataViewModel.swift */; };
 		BF273A8729A51BF00067C9DE /* BeverageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF273A8629A51BF00067C9DE /* BeverageCardView.swift */; };
 		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
@@ -27,8 +20,6 @@
 		BF2E8C9F29A770A90085A597 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF2E8C9E29A770A90085A597 /* RealmSwift */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
 		BF4A5ABE2A56A42A0018EF67 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A5ABD2A56A42A0018EF67 /* ProfileView.swift */; };
-		BF4A5AC92A583AB50018EF67 /* NewHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A5AC82A583AB50018EF67 /* NewHomeView.swift */; };
-		BF4A5ACB2A583AEA0018EF67 /* CoffeeAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A5ACA2A583AEA0018EF67 /* CoffeeAddView.swift */; };
 		BF5909462A4161B600A63F11 /* CustomCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5909452A4161B600A63F11 /* CustomCalendar.swift */; };
 		BF5909482A41626700A63F11 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5909472A41626700A63F11 /* DateValue.swift */; };
 		BF5909512A41B1AA00A63F11 /* Coffee2.json in Resources */ = {isa = PBXBuildFile; fileRef = BF5909502A41B1A900A63F11 /* Coffee2.json */; };
@@ -45,7 +36,6 @@
 		BFCF60132A5FC93900A26586 /* CaffeineBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF60122A5FC93900A26586 /* CaffeineBeverage.swift */; };
 		BFCF60152A5FD7DB00A26586 /* SelectedCaffeineBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF60142A5FD7DB00A26586 /* SelectedCaffeineBeverage.swift */; };
 		BFDB9EB8299EFBA100F2B957 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB9EB7299EFBA100F2B957 /* HomeViewModel.swift */; };
-		BFE60B8E2A5D858E00C7FC9D /* TypeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE60B8D2A5D858E00C7FC9D /* TypeSelectView.swift */; };
 		BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE96F7A29860376003E0934 /* DecaffeineApp.swift */; };
 		BFE96F7D29860376003E0934 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE96F7C29860376003E0934 /* ContentView.swift */; };
 		BFE96F7F29860377003E0934 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE96F7E29860377003E0934 /* Assets.xcassets */; };
@@ -86,15 +76,8 @@
 		BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListView.swift; sourceTree = "<group>"; };
 		BF06B4E22A65481100A77439 /* CoffeeAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeAddViewModel.swift; sourceTree = "<group>"; };
 		BF06B4E42A654A4900A77439 /* CoffeeTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTag.swift; sourceTree = "<group>"; };
-		BF06B4E72A657A0600A77439 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
-		BF06B4E92A657B9D00A77439 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		BF06B4EC2A657CFE00A77439 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		BF06B4EE2A657FE800A77439 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		BF06B4F12A65961F00A77439 /* TeaAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeaAddView.swift; sourceTree = "<group>"; };
-		BF06B4F32A65962500A77439 /* DrinkAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkAddView.swift; sourceTree = "<group>"; };
-		BF06B4F52A65965200A77439 /* AddViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewComponent.swift; sourceTree = "<group>"; };
-		BF06B4FA2A66416C00A77439 /* FavoriteNameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNameListView.swift; sourceTree = "<group>"; };
-		BF06B4FC2A66422400A77439 /* FavoriteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCardView.swift; sourceTree = "<group>"; };
 		BF24C0E429AB6D1E00157200 /* ShareDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDataViewModel.swift; sourceTree = "<group>"; };
 		BF273A8629A51BF00067C9DE /* BeverageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCardView.swift; sourceTree = "<group>"; };
 		BF2E8C9429A6F0070085A597 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
@@ -102,8 +85,6 @@
 		BF4A5ABD2A56A42A0018EF67 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		BF4A5AC62A583A060018EF67 /* BebasNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue-Regular.ttf"; sourceTree = "<group>"; };
 		BF4A5AC72A583A240018EF67 /* Anton-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Anton-Regular.ttf"; sourceTree = "<group>"; };
-		BF4A5AC82A583AB50018EF67 /* NewHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeView.swift; sourceTree = "<group>"; };
-		BF4A5ACA2A583AEA0018EF67 /* CoffeeAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeAddView.swift; sourceTree = "<group>"; };
 		BF5909452A4161B600A63F11 /* CustomCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendar.swift; sourceTree = "<group>"; };
 		BF5909472A41626700A63F11 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		BF59094B2A41AE9600A63F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -121,7 +102,6 @@
 		BFCF60122A5FC93900A26586 /* CaffeineBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBeverage.swift; sourceTree = "<group>"; };
 		BFCF60142A5FD7DB00A26586 /* SelectedCaffeineBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCaffeineBeverage.swift; sourceTree = "<group>"; };
 		BFDB9EB7299EFBA100F2B957 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		BFE60B8D2A5D858E00C7FC9D /* TypeSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelectView.swift; sourceTree = "<group>"; };
 		BFE96F7729860376003E0934 /* Decaffeine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decaffeine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE96F7A29860376003E0934 /* DecaffeineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecaffeineApp.swift; sourceTree = "<group>"; };
 		BFE96F7C29860376003E0934 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -172,16 +152,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BF06B4E62A6579FA00A77439 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				BF06B4E72A657A0600A77439 /* LogoView.swift */,
-				BF06B4E92A657B9D00A77439 /* NavigationBarView.swift */,
-				BF4A5AC82A583AB50018EF67 /* NewHomeView.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		BF06B4EB2A657CF300A77439 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,34 +159,6 @@
 				BF06B4EE2A657FE800A77439 /* Home.swift */,
 			);
 			path = Utility;
-			sourceTree = "<group>";
-		};
-		BF06B4F02A6582DD00A77439 /* NewItemPage */ = {
-			isa = PBXGroup;
-			children = (
-				BFE60B8D2A5D858E00C7FC9D /* TypeSelectView.swift */,
-				BF4A5ACA2A583AEA0018EF67 /* CoffeeAddView.swift */,
-				BF06B4F12A65961F00A77439 /* TeaAddView.swift */,
-				BF06B4F32A65962500A77439 /* DrinkAddView.swift */,
-				BF06B4F52A65965200A77439 /* AddViewComponent.swift */,
-			);
-			path = NewItemPage;
-			sourceTree = "<group>";
-		};
-		BF06B4F72A66414E00A77439 /* FavoriteName */ = {
-			isa = PBXGroup;
-			children = (
-				BF06B4FA2A66416C00A77439 /* FavoriteNameListView.swift */,
-			);
-			path = FavoriteName;
-			sourceTree = "<group>";
-		};
-		BF06B4FE2A66422800A77439 /* FavoriteCard */ = {
-			isa = PBXGroup;
-			children = (
-				BF06B4FC2A66422400A77439 /* FavoriteCardView.swift */,
-			);
-			path = FavoriteCard;
 			sourceTree = "<group>";
 		};
 		BF4A5AC52A5839FE0018EF67 /* Fonts */ = {
@@ -290,17 +232,6 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
-		BFE60B8C2A5D3E0100C7FC9D /* View(Interface) */ = {
-			isa = PBXGroup;
-			children = (
-				BF06B4E62A6579FA00A77439 /* Home */,
-				BF06B4F02A6582DD00A77439 /* NewItemPage */,
-				BF06B4F72A66414E00A77439 /* FavoriteName */,
-				BF06B4FE2A66422800A77439 /* FavoriteCard */,
-			);
-			path = "View(Interface)";
-			sourceTree = "<group>";
-		};
 		BFE96F6E29860376003E0934 = {
 			isa = PBXGroup;
 			children = (
@@ -332,7 +263,6 @@
 				BFA53D77299A6087007D943D /* Styles */,
 				BFFF9A51299A4803002D5ACC /* Lottie */,
 				BFE96FA62986043A003E0934 /* Model */,
-				BFE60B8C2A5D3E0100C7FC9D /* View(Interface) */,
 				BFE96FA529860434003E0934 /* ViewModel */,
 				BFE96FA42986042F003E0934 /* View */,
 				BFE96F7E29860377003E0934 /* Assets.xcassets */,
@@ -555,7 +485,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF24C0E529AB6D1E00157200 /* ShareDataViewModel.swift in Sources */,
-				BF06B4F42A65962500A77439 /* DrinkAddView.swift in Sources */,
 				BFCED242299C40EB00E49EB6 /* BeverageCell.swift in Sources */,
 				BA03321129A5B08500BE8F1D /* AnnouncementListView.swift in Sources */,
 				BF5909462A4161B600A63F11 /* CustomCalendar.swift in Sources */,
@@ -569,7 +498,6 @@
 				BF273A8729A51BF00067C9DE /* BeverageCardView.swift in Sources */,
 				BFA53D7F299A8C31007D943D /* CustomCorner.swift in Sources */,
 				BFA53D7D299A6EC2007D943D /* CustomTextField.swift in Sources */,
-				BF06B4F22A65961F00A77439 /* TeaAddView.swift in Sources */,
 				BFCED254299D2B1E00E49EB6 /* ArchiveListDetailView.swift in Sources */,
 				BFDB9EB8299EFBA100F2B957 /* HomeViewModel.swift in Sources */,
 				BFCED245299C445700E49EB6 /* SecondayButtonStyle.swift in Sources */,
@@ -582,24 +510,16 @@
 				BF06B4E32A65481100A77439 /* CoffeeAddViewModel.swift in Sources */,
 				BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */,
 				BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */,
-				BF06B4FD2A66422400A77439 /* FavoriteCardView.swift in Sources */,
 				BF4A5ABE2A56A42A0018EF67 /* ProfileView.swift in Sources */,
-				BFE60B8E2A5D858E00C7FC9D /* TypeSelectView.swift in Sources */,
 				BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */,
 				BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */,
 				BFCF60132A5FC93900A26586 /* CaffeineBeverage.swift in Sources */,
-				BF4A5ACB2A583AEA0018EF67 /* CoffeeAddView.swift in Sources */,
 				BFF2F92929A218310038A067 /* BeverageInputViewModel.swift in Sources */,
 				BF06B4EF2A657FE800A77439 /* Home.swift in Sources */,
 				BFF2F92529A217B70038A067 /* Beverage.swift in Sources */,
-				BF06B4EA2A657B9D00A77439 /* NavigationBarView.swift in Sources */,
-				BF06B4F62A65965200A77439 /* AddViewComponent.swift in Sources */,
 				BFCED24A299D193800E49EB6 /* ArchiveViewModel.swift in Sources */,
-				BF4A5AC92A583AB50018EF67 /* NewHomeView.swift in Sources */,
 				BFF2F92729A217CA0038A067 /* SelectedBeverage.swift in Sources */,
-				BF06B4E82A657A0600A77439 /* LogoView.swift in Sources */,
 				CECE0D6E299DBCAE00BDC0AB /* BeverageDetailCell.swift in Sources */,
-				BF06B4FB2A66416C00A77439 /* FavoriteNameListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
