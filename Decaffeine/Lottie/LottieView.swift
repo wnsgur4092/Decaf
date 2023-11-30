@@ -15,7 +15,6 @@ struct LottieView: UIViewRepresentable {
     //5.
     var filename: String
     
-    
     //1. Context -> UIViewRepresentableContext<LottieView>로 수정
     func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
         //3.

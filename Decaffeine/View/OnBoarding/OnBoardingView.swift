@@ -15,7 +15,6 @@ struct OnBoardingView: View {
     var body: some View {
         VStack {
             VStack {
-                
                 lottieAnimationView
                     .padding(.top, 60)
                 
@@ -38,7 +37,7 @@ struct OnBoardingView: View {
     
     //Lottie Image
     fileprivate var lottieAnimationView : some View {
-        LottieView(filename: "Coffee")
+        LottieView(filename: "Coffee2")
             .frame(maxWidth: 300, maxHeight: 300)
     }
     

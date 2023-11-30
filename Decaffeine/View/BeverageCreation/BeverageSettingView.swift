@@ -95,8 +95,11 @@ struct BeverageSettingView: View {
                         } label: {
                             ZStack(alignment: .bottom) {
                                 Rectangle()
-                                    .foregroundColor(selectedSizeIndex == index ? Color.gray : Color.clear)
+                                    .foregroundColor(selectedSizeIndex == index ? Color("mainColor") : Color.clear)
                                     .cornerRadius(10)
+                                
+                                Image("small")
+                                    .padding()
                                 
                                 Text(cupSizes[index].0)
                                     .foregroundColor(.white)

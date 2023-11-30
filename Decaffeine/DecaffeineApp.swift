@@ -17,7 +17,7 @@ struct DecaffeineApp: App {
             if isOnboarding == true {
                 OnBoardingView()
             } else {
-                NewHomeView()
+                ContentView()
             }
         }
         
