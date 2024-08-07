@@ -18,8 +18,9 @@
 		BF2E8C9529A6F0070085A597 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2E8C9429A6F0070085A597 /* CustomButtonStyle.swift */; };
 		BF2E8C9D29A770A90085A597 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BF2E8C9C29A770A90085A597 /* Realm */; };
 		BF2E8C9F29A770A90085A597 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF2E8C9E29A770A90085A597 /* RealmSwift */; };
+		BF3620C82C6328B00045C375 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3620C72C6328B00045C375 /* LoginViewModel.swift */; };
+		BF3620CA2C6328C40045C375 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3620C92C6328C40045C375 /* LoginView.swift */; };
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
-		BF4A5ABE2A56A42A0018EF67 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A5ABD2A56A42A0018EF67 /* ProfileView.swift */; };
 		BF5909462A4161B600A63F11 /* CustomCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5909452A4161B600A63F11 /* CustomCalendar.swift */; };
 		BF5909482A41626700A63F11 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5909472A41626700A63F11 /* DateValue.swift */; };
 		BF854182299F0E7600AB1ED9 /* BeverageSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */; };
@@ -50,7 +51,13 @@
 		BFF389112C625C7500CC9071 /* SpoqaHanSansNeo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFF389102C625C7500CC9071 /* SpoqaHanSansNeo-Bold.ttf */; };
 		BFF389132C625C8100CC9071 /* SpoqaHanSansNeo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFF389122C625C8100CC9071 /* SpoqaHanSansNeo-Regular.ttf */; };
 		BFF389152C625EF700CC9071 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF389142C625EF700CC9071 /* Fonts.swift */; };
-		BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A3E2999B102002D5ACC /* OnBoardingView.swift */; };
+		BFF389182C62834700CC9071 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BFF389172C62834700CC9071 /* FirebaseAuth */; };
+		BFF3891A2C62834700CC9071 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BFF389192C62834700CC9071 /* FirebaseFirestore */; };
+		BFF3891C2C6284D300CC9071 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFF3891B2C6284D300CC9071 /* GoogleService-Info.plist */; };
+		BFF389212C62911900CC9071 /* ActiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF389202C62911900CC9071 /* ActiveButton.swift */; };
+		BFF389252C62974A00CC9071 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF389242C62974A00CC9071 /* User.swift */; };
+		BFF3892D2C629A1200CC9071 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = BFF3892C2C629A1200CC9071 /* GoogleSignIn */; };
+		BFF3892F2C629A1200CC9071 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BFF3892E2C629A1200CC9071 /* GoogleSignInSwift */; };
 		BFFF9A492999B144002D5ACC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A482999B144002D5ACC /* SettingView.swift */; };
 		BFFF9A50299A462B002D5ACC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BFFF9A4F299A462B002D5ACC /* Lottie */; };
 		BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF9A54299A48C9002D5ACC /* LottieView.swift */; };
@@ -84,8 +91,9 @@
 		BF24C0E429AB6D1E00157200 /* ShareDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDataViewModel.swift; sourceTree = "<group>"; };
 		BF273A8629A51BF00067C9DE /* BeverageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCardView.swift; sourceTree = "<group>"; };
 		BF2E8C9429A6F0070085A597 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
+		BF3620C72C6328B00045C375 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		BF3620C92C6328C40045C375 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BF49D202299BAF9C00D88FFC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
-		BF4A5ABD2A56A42A0018EF67 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		BF5909452A4161B600A63F11 /* CustomCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendar.swift; sourceTree = "<group>"; };
 		BF5909472A41626700A63F11 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		BF59094B2A41AE9600A63F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -120,7 +128,10 @@
 		BFF389102C625C7500CC9071 /* SpoqaHanSansNeo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.ttf"; sourceTree = "<group>"; };
 		BFF389122C625C8100CC9071 /* SpoqaHanSansNeo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.ttf"; sourceTree = "<group>"; };
 		BFF389142C625EF700CC9071 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		BFFF9A3E2999B102002D5ACC /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		BFF3891B2C6284D300CC9071 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BFF389202C62911900CC9071 /* ActiveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButton.swift; sourceTree = "<group>"; };
+		BFF389242C62974A00CC9071 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BFF389322C629DC300CC9071 /* Decaffeine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Decaffeine.entitlements; sourceTree = "<group>"; };
 		BFFF9A482999B144002D5ACC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BFFF9A54299A48C9002D5ACC /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		CE22FF5129A466B200333F1E /* CustomIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIndicator.swift; sourceTree = "<group>"; };
@@ -133,9 +144,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF2E8C9F29A770A90085A597 /* RealmSwift in Frameworks */,
+				BFF389182C62834700CC9071 /* FirebaseAuth in Frameworks */,
 				BF2E8C9D29A770A90085A597 /* Realm in Frameworks */,
+				BFF3892F2C629A1200CC9071 /* GoogleSignInSwift in Frameworks */,
 				BFFF9A50299A462B002D5ACC /* Lottie in Frameworks */,
 				BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */,
+				BFF3891A2C62834700CC9071 /* FirebaseFirestore in Frameworks */,
+				BFF3892D2C629A1200CC9071 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,15 +234,6 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		BFCED251299D2A4B00E49EB6 /* OnBoarding */ = {
-			isa = PBXGroup;
-			children = (
-				BFFF9A3E2999B102002D5ACC /* OnBoardingView.swift */,
-				BF4A5ABD2A56A42A0018EF67 /* ProfileView.swift */,
-			);
-			path = OnBoarding;
-			sourceTree = "<group>";
-		};
 		BFCED252299D2A5600E49EB6 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +266,9 @@
 		BFE96F7929860376003E0934 /* Decaffeine */ = {
 			isa = PBXGroup;
 			children = (
+				BFF389322C629DC300CC9071 /* Decaffeine.entitlements */,
 				BF59094B2A41AE9600A63F11 /* Info.plist */,
+				BFF3891B2C6284D300CC9071 /* GoogleService-Info.plist */,
 				BFE96F7A29860376003E0934 /* DecaffeineApp.swift */,
 				BFE96F7C29860376003E0934 /* ContentView.swift */,
 				BF06B4EB2A657CF300A77439 /* Utility */,
@@ -269,6 +277,7 @@
 				BFFF9A51299A4803002D5ACC /* Lottie */,
 				BFE96FA62986043A003E0934 /* Model */,
 				BFE96FA529860434003E0934 /* ViewModel */,
+				BFF3891F2C62910900CC9071 /* Components */,
 				BFE96FA42986042F003E0934 /* View */,
 				BFE96F7E29860377003E0934 /* Assets.xcassets */,
 				BFE96F8029860377003E0934 /* Preview Content */,
@@ -304,11 +313,11 @@
 		BFE96FA42986042F003E0934 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BFCED251299D2A4B00E49EB6 /* OnBoarding */,
 				BFCED24B299D1A2B00E49EB6 /* Home */,
 				BFCED243299C41C200E49EB6 /* BeverageCreation */,
 				BFCED248299D18F200E49EB6 /* Archive */,
 				BFCED252299D2A5600E49EB6 /* Setting */,
+				BFF389262C6298B200CC9071 /* Login */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,8 +343,42 @@
 				BFCF60122A5FC93900A26586 /* CaffeineBeverage.swift */,
 				BFCF60142A5FD7DB00A26586 /* SelectedCaffeineBeverage.swift */,
 				BF06B4E42A654A4900A77439 /* CoffeeTag.swift */,
+				BFF389242C62974A00CC9071 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BFF3891F2C62910900CC9071 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BFF389202C62911900CC9071 /* ActiveButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		BFF389262C6298B200CC9071 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BFF389282C6298DF00CC9071 /* ViewModel */,
+				BFF389272C6298D900CC9071 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BFF389272C6298D900CC9071 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF3620C92C6328C40045C375 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BFF389282C6298DF00CC9071 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BF3620C72C6328B00045C375 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BFFF9A51299A4803002D5ACC /* Lottie */ = {
@@ -368,6 +411,10 @@
 				BF2B706E299BDAF3000E1F99 /* SegmentedPicker */,
 				BF2E8C9C29A770A90085A597 /* Realm */,
 				BF2E8C9E29A770A90085A597 /* RealmSwift */,
+				BFF389172C62834700CC9071 /* FirebaseAuth */,
+				BFF389192C62834700CC9071 /* FirebaseFirestore */,
+				BFF3892C2C629A1200CC9071 /* GoogleSignIn */,
+				BFF3892E2C629A1200CC9071 /* GoogleSignInSwift */,
 			);
 			productName = Decaffeine;
 			productReference = BFE96F7729860376003E0934 /* Decaffeine.app */;
@@ -445,6 +492,8 @@
 				BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				BF2B706D299BDAF3000E1F99 /* XCRemoteSwiftPackageReference "SwiftySegmentedPicker" */,
 				BF2E8C9B29A770A90085A597 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				BFF389162C62834700CC9071 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				BFF3892B2C6299B900CC9071 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = BFE96F7829860376003E0934 /* Products */;
 			projectDirPath = "";
@@ -467,6 +516,7 @@
 				BFE96F8229860377003E0934 /* Preview Assets.xcassets in Resources */,
 				BFE96F7F29860377003E0934 /* Assets.xcassets in Resources */,
 				BFF389132C625C8100CC9071 /* SpoqaHanSansNeo-Regular.ttf in Resources */,
+				BFF3891C2C6284D300CC9071 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,10 +566,11 @@
 				BFCF60152A5FD7DB00A26586 /* SelectedCaffeineBeverage.swift in Sources */,
 				BF06B4E32A65481100A77439 /* CoffeeAddViewModel.swift in Sources */,
 				BFFF9A55299A48C9002D5ACC /* LottieView.swift in Sources */,
-				BFFF9A3F2999B102002D5ACC /* OnBoardingView.swift in Sources */,
-				BF4A5ABE2A56A42A0018EF67 /* ProfileView.swift in Sources */,
+				BFF389252C62974A00CC9071 /* User.swift in Sources */,
+				BF3620C82C6328B00045C375 /* LoginViewModel.swift in Sources */,
 				BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */,
 				BFE96F7B29860376003E0934 /* DecaffeineApp.swift in Sources */,
+				BFF389212C62911900CC9071 /* ActiveButton.swift in Sources */,
 				BFCF60132A5FC93900A26586 /* CaffeineBeverage.swift in Sources */,
 				BFF2F92929A218310038A067 /* BeverageInputViewModel.swift in Sources */,
 				BF06B4EF2A657FE800A77439 /* Home.swift in Sources */,
@@ -527,6 +578,7 @@
 				BFCED24A299D193800E49EB6 /* ArchiveViewModel.swift in Sources */,
 				BFF2F92729A217CA0038A067 /* SelectedBeverage.swift in Sources */,
 				BFF389152C625EF700CC9071 /* Fonts.swift in Sources */,
+				BF3620CA2C6328C40045C375 /* LoginView.swift in Sources */,
 				CECE0D6E299DBCAE00BDC0AB /* BeverageDetailCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,7 +666,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -668,7 +720,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -683,6 +735,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Decaffeine/Decaffeine.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Decaffeine/Preview Content\"";
@@ -704,6 +758,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = au.edu.uts.student.Decaffeine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -718,6 +773,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Decaffeine/Decaffeine.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Decaffeine/Preview Content\"";
@@ -739,6 +796,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = au.edu.uts.student.Decaffeine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -882,6 +940,22 @@
 				kind = branch;
 			};
 		};
+		BFF389162C62834700CC9071 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+		BFF3892B2C6299B900CC9071 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
 		BFFF9A4E299A462B002D5ACC /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -907,6 +981,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF2E8C9B29A770A90085A597 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		BFF389172C62834700CC9071 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFF389162C62834700CC9071 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		BFF389192C62834700CC9071 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFF389162C62834700CC9071 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		BFF3892C2C629A1200CC9071 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFF3892B2C6299B900CC9071 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		BFF3892E2C629A1200CC9071 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFF3892B2C6299B900CC9071 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 		BFFF9A4F299A462B002D5ACC /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
