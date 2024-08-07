@@ -6,21 +6,23 @@
 //
 
 import SwiftUI
-
+import FirebaseCore
 
 @main
 struct DecaffeineApp: App {
-    @AppStorage("isOnboarding") var isOnboarding : Bool = true
-    
+    @AppStorage("log_Status") private var logStatus : Bool = false
+
+    init() {
+        FirebaseApp.configure()
+    }
+
     var body: some Scene {
-        
         WindowGroup {
-            if isOnboarding == true {
-                OnBoardingView()
-            } else {
+            if logStatus {
                 ContentView()
+            } else {
+                LoginView()
             }
         }
-        
     }
 }
