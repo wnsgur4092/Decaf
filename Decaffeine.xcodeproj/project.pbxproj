@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BA03321129A5B08500BE8F1D /* AnnouncementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */; };
-		BF24C0E329A8220300157200 /* Coffee.json in Resources */ = {isa = PBXBuildFile; fileRef = BF24C0E229A8220300157200 /* Coffee.json */; };
 		BF24C0E529AB6D1E00157200 /* ShareDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF24C0E429AB6D1E00157200 /* ShareDataViewModel.swift */; };
 		BF273A8729A51BF00067C9DE /* BeverageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF273A8629A51BF00067C9DE /* BeverageCardView.swift */; };
 		BF2B706F299BDAF3000E1F99 /* SegmentedPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF2B706E299BDAF3000E1F99 /* SegmentedPicker */; };
@@ -18,9 +17,9 @@
 		BF49D203299BAF9C00D88FFC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49D202299BAF9C00D88FFC /* ProgressBar.swift */; };
 		BF5909462A4161B600A63F11 /* CustomCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5909452A4161B600A63F11 /* CustomCalendar.swift */; };
 		BF5909482A41626700A63F11 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5909472A41626700A63F11 /* DateValue.swift */; };
-		BF5909512A41B1AA00A63F11 /* Coffee2.json in Resources */ = {isa = PBXBuildFile; fileRef = BF5909502A41B1A900A63F11 /* Coffee2.json */; };
 		BF854182299F0E7600AB1ED9 /* BeverageSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */; };
 		BF85419A299FD55900AB1ED9 /* BeverageSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF854199299FD55900AB1ED9 /* BeverageSettingView.swift */; };
+		BF8867CA2C7447B70045FE5A /* coffee.json in Resources */ = {isa = PBXBuildFile; fileRef = BF8867C92C7447B70045FE5A /* coffee.json */; };
 		BFA53D79299A60A6007D943D /* DisableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */; };
 		BFA53D7B299A640E007D943D /* ActiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */; };
 		BFA53D7D299A6EC2007D943D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA53D7C299A6EC2007D943D /* CustomTextField.swift */; };
@@ -68,7 +67,6 @@
 
 /* Begin PBXFileReference section */
 		BA03321029A5B08500BE8F1D /* AnnouncementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListView.swift; sourceTree = "<group>"; };
-		BF24C0E229A8220300157200 /* Coffee.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Coffee.json; sourceTree = "<group>"; };
 		BF24C0E429AB6D1E00157200 /* ShareDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDataViewModel.swift; sourceTree = "<group>"; };
 		BF273A8629A51BF00067C9DE /* BeverageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCardView.swift; sourceTree = "<group>"; };
 		BF2E8C9429A6F0070085A597 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
@@ -76,9 +74,9 @@
 		BF5909452A4161B600A63F11 /* CustomCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendar.swift; sourceTree = "<group>"; };
 		BF5909472A41626700A63F11 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		BF59094B2A41AE9600A63F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		BF5909502A41B1A900A63F11 /* Coffee2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Coffee2.json; sourceTree = "<group>"; };
 		BF854181299F0E7600AB1ED9 /* BeverageSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSelectView.swift; sourceTree = "<group>"; };
 		BF854199299FD55900AB1ED9 /* BeverageSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageSettingView.swift; sourceTree = "<group>"; };
+		BF8867C92C7447B70045FE5A /* coffee.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coffee.json; sourceTree = "<group>"; };
 		BFA53D78299A60A6007D943D /* DisableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7A299A640E007D943D /* ActiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButtonStyle.swift; sourceTree = "<group>"; };
 		BFA53D7C299A6EC2007D943D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -297,9 +295,8 @@
 		BFFF9A51299A4803002D5ACC /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				BF8867C92C7447B70045FE5A /* coffee.json */,
 				BFFF9A54299A48C9002D5ACC /* LottieView.swift */,
-				BF24C0E229A8220300157200 /* Coffee.json */,
-				BF5909502A41B1A900A63F11 /* Coffee2.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -419,10 +416,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF8867CA2C7447B70045FE5A /* coffee.json in Resources */,
 				BFE96F8229860377003E0934 /* Preview Assets.xcassets in Resources */,
 				BFE96F7F29860377003E0934 /* Assets.xcassets in Resources */,
-				BF5909512A41B1AA00A63F11 /* Coffee2.json in Resources */,
-				BF24C0E329A8220300157200 /* Coffee.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +634,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Decaffeine/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -672,6 +669,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Decaffeine/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

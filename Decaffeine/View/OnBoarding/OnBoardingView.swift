@@ -38,7 +38,7 @@ struct OnBoardingView: View {
     
     //Lottie Image
     fileprivate var lottieAnimationView : some View {
-        LottieView(filename: "Coffee")
+        LottieView(filename: "coffee")
             .frame(maxWidth: 300, maxHeight: 300)
     }
     
