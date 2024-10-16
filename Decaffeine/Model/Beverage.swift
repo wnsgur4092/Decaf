@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 enum BeverageCategory: String, CaseIterable {
     case hot = "Hot"
     case cold = "Cold"
