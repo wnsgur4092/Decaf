@@ -35,7 +35,7 @@ Development periold: 30.01.2023 ~ 24.02.2023 (Apple Foundation Program)
 
 ## 💡Challenge
 1. Lottie
-In developing Decaf, we incorporated Lottie animations to create an engaging and visually appealing OnBoardingView. This approach allowed us to present animated content seamlessly, enhancing the user experience by providing a dynamic and interactive introduction to the app.
+- In developing Decaf, we incorporated Lottie animations to create an engaging and visually appealing OnBoardingView. This approach allowed us to present animated content seamlessly, enhancing the user experience by providing a dynamic and interactive introduction to the app.
 ```swift
 struct LottieView: UIViewRepresentable {
     
@@ -70,7 +70,7 @@ struct LottieView: UIViewRepresentable {
 ```
 
 2. OnBoarding
-In Decaf, AppStorage was used to manage the onboarding process by storing the user’s onboarding status. This ensures that the OnBoardingView is only displayed the first time the user opens the app. Once the user completes the onboarding by clicking a button, the app will remember this choice and skip the onboarding screen on subsequent launches. AppStorage provides a simple and effective way to persist this preference, offering a smoother user experience by preventing the onboarding view from repeatedly appearing each time the app is opened.
+- In Decaf, AppStorage was used to manage the onboarding process by storing the user’s onboarding status. This ensures that the OnBoardingView is only displayed the first time the user opens the app. Once the user completes the onboarding by clicking a button, the app will remember this choice and skip the onboarding screen on subsequent launches. AppStorage provides a simple and effective way to persist this preference, offering a smoother user experience by preventing the onboarding view from repeatedly appearing each time the app is opened.
 
 ```swift
 @main
